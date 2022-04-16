@@ -1,0 +1,27 @@
+#box {
+    background-color: red;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 20px;
+    width: 100px;
+    height: 200px;
+  
+    
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+   
+    
+}
+
+#content {
+    background-color: green;
+    
+    
+}
