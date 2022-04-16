@@ -10,17 +10,18 @@
 }
 img {
     
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
   
 }
 
 #logo {
 
     /*code for CoCo orange#F07F19*/
+    background-color:#F07F19;
    
     float: right;
-    width: 100px;
+    width: 180px;
     height: 100px;
 
 }
@@ -40,7 +41,7 @@ body {
 .topnav  {
     background-color: #F07F19; 
     
-    width: 1180px;
+    width: 1100px;
     height: 100px;
     font-size: 20;
     overflow: hidden;
