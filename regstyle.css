@@ -1,3 +1,25 @@
-h1 {
-    align-self:center;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+label + input {
+    padding: 7px;
+    width: 50%;
+}
+
+#reghead {
+    
+    border-radius: 25px;
+    float: left;
+    background-color: #F07F19;
+    overflow: hidden;
+    height: 600px;
+    margin: 200px 0px 20px 410px;
+    padding: 20px;
+
+    font-family:Verdana;
+    color:white;
+    
 }
