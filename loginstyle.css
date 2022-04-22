@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+label + input {
+    padding: 7px;
+    width: 50%;
+    
+}
+
+
+
+
+#loginhead {
+    
+    border-radius: 25px;
+    display:none;
+   
+    background-color: #F07F19;
+    overflow: hidden;
+    height: 600px;
+    /*margin: 200px 0px 20px 410px;*/
+    width:600px;
+    
+
+    /*width: 50%;*/
+    padding-top: 50px;
+    text-align: center;
+
+    
+
+    font-family:Verdana;
+    color:white;
+
+    
+    background-size: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
