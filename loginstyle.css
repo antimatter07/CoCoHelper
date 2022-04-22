@@ -9,6 +9,16 @@ label + input {
     width: 50%;
     
 }
+#logo {
+    width: 160px;
+    length: 160px;
+    padding-bottom: 10px;
+}
+
+body {
+    background-image: url('images/loginpage.png');
+    
+}
 
 
 
@@ -17,7 +27,7 @@ label + input {
     
     border-radius: 25px;
     display:none;
-   
+   border-style: dotted;
     background-color: #F07F19;
     overflow: hidden;
     height: 600px;
@@ -31,7 +41,7 @@ label + input {
 
     
 
-    font-family:Verdana;
+    font-family:'Lucida Sans';
     color:white;
 
     
