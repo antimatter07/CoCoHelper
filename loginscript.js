@@ -42,7 +42,7 @@ $(document).ready(function() {
 
 
     
-    $( "#sub" ).on({
+    /*$( "#sub" ).on({
         mouseenter: function() {
           $(this).css("border-width", "10px");
         },
@@ -53,8 +53,9 @@ $(document).ready(function() {
 
         }
     })
+    */
 
-    $("#loginhead").slideDown();
+    $("#loginhead").fadeIn();
 
 
 });

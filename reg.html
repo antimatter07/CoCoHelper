@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" href="regstyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
 </head>
@@ -9,29 +10,42 @@
     
     
         <div id ="reghead">
+            <img id = "logo" src="images/cocologo_notext.png">
 
             <div id = "childhead">
                 <h1>Don't have an account yet?</h1>
-                <label for="firstname">First Name<br></label>
-                <input type="text" placeholder="Enter First Name" name="firstname" required>
+                <form id="regform">
+                    <label for="firstname">First Name<br></label>
+                    <input type="text" placeholder="Enter First Name" name="firstname" required>
 
-                <label for="lastname"><br>Last Name<br></label>
-                <input type="text" placeholder="Enter Last Name" name="lastname" required>
+                    <label for="lastname"><br>Last Name<br></label>
+                    <input type="text" placeholder="Enter Last Name" name="lastname" required>
 
-                <label for="email"><br>Email<br></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
+                    <label for="email"><br>Email<br></label>
+                    <input type="text" placeholder="Enter Email" name="email" required>
 
-                <label for="pnumber"><br>Phone Number<br></label>
-                <input type="text" placeholder="Enter Phone Number" name="pnumber" required>
+                    <label for="pnumber"><br>Phone Number<br></label>
+                    <input type="text" placeholder="Enter Phone Number" name="pnumber" required>
 
-                <label for="password"><br>Password<br></label>
-                <input type="text" placeholder="Enter Password" name="password" required>
+                    <label for="password"><br>Password<br></label>
+                    <input type="text" placeholder="Enter Password" name="password" required>
 
-                <label for="cpassword"><br>Confirm Password<br></label>
-                <input type="text" placeholder="Enter Password" name="cpassword" required>
+                    <label for="cpassword"><br>Confirm Password<br></label>
+                    <input type="text" placeholder="Enter Password" name="cpassword" required>
+                </form>
             </div>
 
+            <button class="button"  type="submit" form="regform" value="Submit">Submit</button>
+
         </div>
+
+        <script>
+            $(document).ready(function() {
+                $("#reghead").fadeIn();
+
+            })
+
+        </script>
   
   
     

@@ -15,6 +15,33 @@ label + input {
     padding-bottom: 10px;
 }
 
+.button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+
+.button {
+    
+    
+
+  background-color: #F07F19; /* Green */
+  border: solid white;
+  background-color: #C39334;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 5px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 4px;
+
+  
+
+}
+
 body {
     background-image: url('images/loginpage.png');
     
@@ -23,11 +50,12 @@ body {
 
 
 
+
 #loginhead {
     
     border-radius: 25px;
     display:none;
-   border-style: dotted;
+    border-style: dotted;
     background-color: #F07F19;
     overflow: hidden;
     height: 600px;
@@ -51,4 +79,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 
+}
+
+input[type=text] {
+    border: 2px solid #C39334;
+    margin-bottom: 10px;
 }
