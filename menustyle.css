@@ -71,3 +71,92 @@ body {
     
     
 }
+
+#fruit-tea-menu {
+   display:none;
+
+}
+
+#milk-tea-menu {
+    display: block;
+}
+
+.category-choice {
+    
+    cursor: pointer;
+}
+
+.category {
+    
+}
+
+#menu-proper {
+    float: right;
+    font-family: Verdana;
+    color: #3E3B3B;
+    padding: 20px 60px 10px 20px;
+}
+
+.category-choice {
+    padding-top: 15px;
+}
+
+.category {
+   
+    font-family: Verdana;
+    color: #3E3B3B;
+   
+}
+
+h1 {
+    margin-right: 23px;
+    margin-bottom: 20px;
+}
+
+#milk-tea-text {
+    color: #F07F19;
+}
+
+.product {
+    width: 220px;
+    height: 300px;
+    overflow: hidden;
+    float: left;
+    
+   
+
+}
+
+.product-photo {
+    width: 200px;
+    height: 200px;
+    
+    
+}
+
+.heart {
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
+    margin-left: 30%;
+    
+    cursor: pointer;
+    
+    
+}
+
+.product > p {
+    margin-left: 39px;
+}
+
+.cart-icon {
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
+    
+    
+    cursor: pointer;
+
+}
+
+
