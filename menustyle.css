@@ -84,10 +84,7 @@ body {
 .category-choice {
     
     cursor: pointer;
-}
-
-.category {
-    
+    padding-top: 15px;
 }
 
 #menu-proper {
@@ -97,12 +94,11 @@ body {
     padding: 20px 60px 10px 20px;
 }
 
-.category-choice {
-    padding-top: 15px;
-}
+
 
 .category {
    
+    margin-top: 20px;
     font-family: Verdana;
     color: #3E3B3B;
    
