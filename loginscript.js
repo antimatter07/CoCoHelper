@@ -2,7 +2,7 @@ $(document).ready(function() {
     var inside = false;
 
     var validemail = "guestemail@gmail.com";
-    var validpassword = "mtar_007";
+    var validpassword = "pass123";
 
     function checkValidFields() {
 
