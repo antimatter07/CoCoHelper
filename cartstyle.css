@@ -204,3 +204,64 @@ img {
     
    
 }
+
+/*Div with checkout button and total amt */
+#checkout {
+    float:right;
+    position: relative;
+    height: 200px;
+    width: 500px;
+
+}
+
+#total{
+    font-family:Verdana;
+    font-weight:bold;
+    font-size:20;
+    color:#3E3B3B;
+
+
+}
+
+#total-amt{
+    position:absolute;
+    right: 190;
+
+    font-family:Verdana;
+    font-weight:bold;
+    font-size:28;
+    color:#3E3B3B;
+
+}
+
+#itemcount {
+
+    color:gray;
+    font-size: 14;
+    font-family: Verdana;
+
+}
+
+#checkout-button {
+  background-color: #F07F19; /* Green */
+  border: solid #F07F19;
+  
+  color: white;
+  padding: 16px 32px;
+  margin-top: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 15px;
+  width:323px;
+  
+  cursor: pointer;
+  border-radius: 20px;
+}
+#checkout-button:hover {
+
+    background-color: white;
+    color: #F07F19;
+
+}
