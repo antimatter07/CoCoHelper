@@ -19,13 +19,36 @@
         </div>
 
         <div class="topnav">
-            <a href = "#menu" id="menu">Menu</a>
-            <a>Favorites</a>
+            <a id="menu-tab">Menu</a>
+            <a id="favorites-tab">Favorites</a>
             <a>Shopping Cart</a>
             <a>Status</a>
             <a href="#profile">Profile</a>
         </div>
     </div>
+
+    <div id="favorites-page" class = "category">
+        <div class = "product">
+            <img src="images/pandamilktea.png" class = "product-photo">
+            <p>Panda Milk Tea</p>
+            <img src="images/favorite-icon.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+        <div class = "product">
+            <img src="images/whitepearlmt.png" class = "product-photo">
+            <p>White Pearl Milk Tea</p>
+            <img src="images/favorite-icon.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+        <div class = "product">
+            <img src="images/lemondunk.png" class = "product-photo">
+            <p>Lemon Dunk</p>
+            <img src="images/favorite-icon.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+    </div>
+
 
     <div id="menu-proper">
         <h1>MENU</h1>
@@ -122,6 +145,11 @@
 
         }
 
+        function switchNavPage(page) {
+            $(".category").hide();
+            $(page).fadeIn();
+        }
+
         $("#fruit-tea-text").click(function (e) { 
             //$(".category[display=block]").css("display", "none");
             /*$(".category").hide();
@@ -140,8 +168,14 @@
             //$(".category[display=block]").css("display", "none");
             switchMenuCategory("#milk-tea-menu", "#milk-tea-text");
             
-            
-            
+        });
+
+        $("#favorites-tab").click(function (e){
+            switchNavPage("#favorites-page", "#favorites-header");
+        });
+
+        $("#menu-tab").click(function (e){
+            window.location.reload();
         });
 
 
