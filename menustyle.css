@@ -155,8 +155,57 @@ h1 {
 
 }
 
+.profile-tab {
+    margin-top: 20px;
+    font-family: Verdana;
+    color: #3E3B3B;
+    margin-left: 39px;
+}
+
+.profile-tab > h1{
+    font-size: 30px;
+}
+
+.profile-tab > h2{
+    font-size: 26px;
+}
+
+.info-card{
+	width: 1200px;
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.profile-info {
+    overflow: hidden;
+    float: left;
+}
+
+.profile-info > p {
+	margin-top: 18px;
+	font-size: 24px;
+}
+
+.profile-def {
+	color: gray;
+	float: left;
+	width: 240px;
+}
+
+.profile-n{
+	float: left;
+	padding-left: 30px;
+}
+
+
+
 #favorites-page {
     display: none;
+}
+
+#profile-page {
+	display: none;
 }
 
 #edit-popup {
