@@ -43,7 +43,7 @@ label + input {
 }
 
 body {
-    background-image: url('images/loginpage.png');
+    background-image: url('../images/loginpage.png');
     
 }
 
