@@ -26,7 +26,7 @@
         <label for="drinkimg">Select an image for the drink:</label>
 
         <input type="file" id="drinkimg" name="drinkimg">
-        <form action = "http://www.google.com">
+        <form action = "/add-drink" enctype="multipart/form-data">
             <label for="regprice">Regular Price:</label>
             <input type="number" id = "regprice" placeholder="Enter Regular Price" name="regprice" required>
 
@@ -183,7 +183,7 @@
 
             
         });
-        /*<button id = "savebutton" type="button">Add Drink</button> */
+        
 
         $("#savebutton").click(function (e) { 
 

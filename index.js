@@ -8,10 +8,16 @@
 
  const express = require('express');
  const app = new express();
+ const mongoose = require('mongoose');
+
+ mongoose.connect('mongodb://localhost/CoCoDB',
+{useNewURLParser: true, useUnifiedTopology: true}); // Create database connection
  
  
  // For File Uploads
  const fileUpload = require('express-fileupload');
+
+ const Drink = require("./database/models/Drink");
  const path = require('path');
 
  // Initialize data and static folder that our app will use
@@ -34,6 +40,24 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.get('/', function(req, res) {
     res.render('menu_admin', {
 
+    })
+});
+
+app.post('/add-drink', function(req, res) {
+    const {image} = req.files
+    image.mv(path.resolve(__dirname,'public/drink_images',image.name),(error) => {
+        Drink.create({
+            
+            drinkimg:'/drink_images/'+image.name,
+            
+            regprice: req.body.regprice,
+            lprice: req.body.lprice,
+            drinkname: req.body.drinkname
+            
+
+        }, (error,post) => {
+            res.redirect('/')
+        })
     })
 });
 
