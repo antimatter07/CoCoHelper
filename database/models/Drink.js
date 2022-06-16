@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const DrinkSchema = new mongoose.Schema({
-    drinkimg: String,
-    regprice: mongoose.Types.Decimal128,
+    drinkimg:  String,
+    regprice:  mongoose.Types.Decimal128,
     lprice: mongoose.Types.Decimal128,
-    drinkname: String
+    drinkname:  String
     
 }); // JSON format, consisting of the name: type collection
 

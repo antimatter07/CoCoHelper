@@ -23,10 +23,12 @@
         <h1>Add Drink to Menu</h1>
         
 
-        <label for="drinkimg">Select an image for the drink:</label>
+      
 
-        <input type="file" id="drinkimg" name="drinkimg">
-        <form action = "/add-drink" enctype="multipart/form-data">
+       
+        <form action = "/add-drink" enctype="multipart/form-data" method ="post" id="add-drink">
+          <label for="drinkimg">Select an image for the drink:</label>
+            <input type="file" id="drinkimg" name="drinkimg">
             <label for="regprice">Regular Price:</label>
             <input type="number" id = "regprice" placeholder="Enter Regular Price" name="regprice" required>
 
@@ -37,9 +39,12 @@
 
             <label for="drinkname"><br>Name:</label>
             <input type="text" id="drinkname" placeholder="Enter Drink Name" name="drinkname" required>
+            
         </form>
 
-        <button id = "savebutton" type="button">Add Drink</button>
+        <button id = "savebutton" type="submit" form ="add-drink">Add Drink</button>
+
+       
         
 
     </div>

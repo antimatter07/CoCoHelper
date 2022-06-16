@@ -9,6 +9,7 @@
  const express = require('express');
  const app = new express();
  const mongoose = require('mongoose');
+ var bodyParser = require('body-parser');
 
  mongoose.connect('mongodb://localhost/CoCoDB',
 {useNewURLParser: true, useUnifiedTopology: true}); // Create database connection
@@ -37,27 +38,40 @@ app.set('view engine','hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 
 
-app.get('/', function(req, res) {
-    res.render('menu_admin', {
-
-    })
-});
-
 app.post('/add-drink', function(req, res) {
-    const {image} = req.files
-    image.mv(path.resolve(__dirname,'public/drink_images',image.name),(error) => {
+
+    var regprice= req.body.regprice;
+    var lprice = req.body.lprice;
+    var drinkname =  req.body.drinkname;
+
+    console.log('post received: %s %s', drinkname, lprice);
+
+    const {drinkimg} = req.files
+    
+    drinkimg.mv(path.resolve(__dirname,'public/drink_images',drinkimg.name),(error) => {
         Drink.create({
             
-            drinkimg:'/drink_images/'+image.name,
-            
+            ...req.body,
+            drinkimg:'/drink_images/'+drinkimg.name,
+            /*
             regprice: req.body.regprice,
             lprice: req.body.lprice,
             drinkname: req.body.drinkname
+            */
+            
             
 
         }, (error,post) => {
+
+           
             res.redirect('/')
         })
+    })
+});
+
+app.get('/', function(req, res) {
+    res.render('menu_admin', {
+
     })
 });
 
