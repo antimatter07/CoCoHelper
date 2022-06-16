@@ -32,7 +32,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 
 app.get('/', function(req, res) {
-    res.render('main', {
+    res.render('menu_admin', {
 
     })
 });

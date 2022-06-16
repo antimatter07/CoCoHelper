@@ -13,19 +13,37 @@
 
 <body>
     
-    <div id = "topnavbar">
-        <div id = "logo">
-            <img src="images/cocologo.jpg">
-        </div>
-
-        <div class="topnav">
-            <a id="menu-tab">Menu</a>
-            <a id="favorites-tab">Favorites</a>
-            <a>Shopping Cart</a>
-            <a>Status</a>
-            <a href="#profile">Profile</a>
-        </div>
+   
+    <div id = "nav-holder">
+    {{>topnavbar}}
     </div>
+
+    <div id="edit-popup" >
+        
+        <h1>Add Drink to Menu</h1>
+        
+
+        <label for="drinkimg">Select an image for the drink:</label>
+
+        <input type="file" id="drinkimg" name="drinkimg">
+        <form action = "http://www.google.com">
+            <label for="regprice">Regular Price:</label>
+            <input type="number" id = "regprice" placeholder="Enter Regular Price" name="regprice" required>
+
+        
+
+            <label for="lprice"><br>Large Price:</label>
+            <input type="number" id = "lprice" placeholder="Enter Large Price" name="lprice" required>
+
+            <label for="drinkname"><br>Name:</label>
+            <input type="text" id="drinkname" placeholder="Enter Drink Name" name="drinkname" required>
+        </form>
+
+        <button id = "savebutton" type="button">Add Drink</button>
+        
+
+    </div>
+    
 
     <div id="favorites-page" class = "category">
         <div class = "product">
@@ -145,6 +163,46 @@
 
     <script>
     $(document).ready(function() {
+
+        /*When add button is clicked, dim background for popup and show add drink form */
+         $("#add-button").click(function (e) { 
+
+            /*Dim the background  */
+            var dimbg = document.createElement('div');
+            var navholder = document.querySelector("#nav-holder");
+            
+
+            dimbg.setAttribute('class', 'dim-bg');
+            
+            navholder.insertAdjacentElement('beforebegin',dimbg);
+
+            /*Show add drink form */
+            $("#edit-popup").css('display','block');
+            
+            
+
+            
+        });
+        /*<button id = "savebutton" type="button">Add Drink</button> */
+
+        $("#savebutton").click(function (e) { 
+
+            /*Dim the background  */
+            $("#edit-popup").css('display','none');
+            var dimbg = document.getElementsByClassName("dim-bg");
+
+            dimbg[0].remove();
+
+            
+            
+
+            
+            
+
+            
+        });
+
+
 
         function switchMenuCategory(drinkid, drinktextid) {
 
