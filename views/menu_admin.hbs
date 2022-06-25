@@ -271,7 +271,9 @@
             var regprice = document.getElementById("regprice").value;
             var drinkname = document.getElementById("drinkname").value;
             var category = findCategory();
-            $.post('/add-drink', {category: category,lprice:lprice, regprice:regprice, drinkname:drinkname}, function (result) {
+            var drinkimg = document.getElementById("drinkimg").value;
+            
+            $.post('/add-drink', {category: category,lprice:lprice, regprice:regprice, drinkname:drinkname, drinkimg: drinkimg}, function (result) {
 
     
         });

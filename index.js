@@ -37,17 +37,31 @@ app.set('view engine','hbs');
 
 hbs.registerPartials(__dirname + '/views/partials');
 
+app.post('/upload-drinkimg', function(req, res) {
 
+    const {drinkimg} = req.body
+   
+    
+    drinkimg.mv(path.resolve(__dirname,'public/drink_images',drinkimg.name),(error) => {
+        
+    })
+
+    
+});
 app.post('/add-drink', function(req, res) {
 
     var regprice= req.body.regprice;
     var lprice = req.body.lprice;
     var drinkname =  req.body.drinkname;
     var category = req.body.category;
+    var drinkimg = req.body.drinkimg;
 
-    console.log('post received: %s %s %s', drinkname, lprice, category);
+    var filename = drinkimg.replace(/C:\\fakepath\\/, '');
+    
 
-    //const {drinkimg} = req.files
+    console.log('post received: %s %s %s %s', drinkname, lprice, category, filename);
+
+    
     
     
         Drink.create({
@@ -58,7 +72,8 @@ app.post('/add-drink', function(req, res) {
             regprice: regprice,
             lprice: lprice,
             drinkname: drinkname,
-            category: category
+            category: category,
+            drinkimg: '/drink_images/' + filename
             
             
 
@@ -67,6 +82,8 @@ app.post('/add-drink', function(req, res) {
            
             res.redirect('/')
         })
+
+        
    
     /*
     drinkimg.mv(path.resolve(__dirname,'public/drink_images',drinkimg.name),(error) => {
