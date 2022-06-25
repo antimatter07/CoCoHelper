@@ -27,7 +27,7 @@
         <label for="drinkimg">Select an image for the drink:</label>
         <input  form ="add-drink" type="file" id="drinkimg" name="drinkimg">
        
-        <form action ="/add-drink" enctype="multipart/form-data" method ="post" id="add-drink">
+        <form enctype="multipart/form-data" id="add-drink">
             <input type ="text" id ="category" name = "category" style = "position:absolute;visibility:hidden;">
             
             <label for="regprice">Regular Price:</label>
@@ -231,48 +231,28 @@
 
         $("#savebutton").click(function (e) { 
 
-            /*Dim the background  */
-            $("#edit-popup").css('display','none');
-            var dimbg = document.getElementsByClassName("dim-bg");
+           
 
-            dimbg[0].remove();
+            /*var category = findCategory(); */
+            var lprice = document.getElementById("lprice").value;
+            var regprice = document.getElementById("regprice").value;
+            var drinkname = document.getElementById("drinkname").value;
 
-            var category = findCategory();
 
-            $.post('/add-drink', {category: category}, function (result) {
+            $.post('/add-drink', {lprice:lprice, regprice:regprice, drinkname:drinkname}, function (result) {
 
-            /*
-                if the current value of `idNum` exists in the database
-                change the background-color of the `<input>` element to red
-                display an error message
-                and disable the submit button
-            */
-            /*
-            if(result.idNum == idNum) {
-                $('#idNum').css('background-color', 'red');
-                $('#error').text('ID number already registered');
-                $('#submit').prop('disabled', true);
-            }
-
-            /*
-                else
-                change the background-color of the `<input>` element back
-                remove the error message
-                and enable the submit button
-            
-            else {
-                $('#idNum').css('background-color', '#E3E3E3');
-                $('#error').text('');
-                $('#submit').prop('disabled', false);
-            }
-            */
+    
         });
 
             
             
 
             
-            
+             /*Dim the background  */
+        $("#edit-popup").css('display','none');
+        var dimbg = document.getElementsByClassName("dim-bg");
+
+        dimbg[0].remove();
 
             
         });
