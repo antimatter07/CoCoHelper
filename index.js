@@ -48,6 +48,7 @@ app.post('/upload-drinkimg', function(req, res) {
 
     
 });
+
 app.post('/add-drink', function(req, res) {
 
     var regprice= req.body.regprice;
@@ -109,9 +110,32 @@ app.post('/add-drink', function(req, res) {
 });
 
 app.get('/', function(req, res) {
-    res.render('menu_admin', {
 
-    })
+    /*
+    var projection = 'drinkname drinkimg'
+    Drink.find({}, projection, function(result) {
+        console.log(result);
+        const admin_drinks = result;
+        res.render('menu_admin', {admin_drinks});
+    });
+    */
+    Drink.find({}, 'drinkname drinkimg', function (err, docs) {
+        if (err){
+            console.log(err);
+        }
+        else{
+            console.log("Third function call : ", docs);
+            const admin_drinks = docs;
+            res.render('menu_admin',{admin_drinks});
+        }
+    });
+
+   
+    
+
+    
+
+    
 });
 
  

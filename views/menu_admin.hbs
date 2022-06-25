@@ -90,6 +90,10 @@
     <button type="button" id="add-button">Add A Drink</button>
 
     <div id ="milk-tea-menu" class = "category">
+        {{#each admin_drinks}}
+            {{> drink_admin drinkname=drinkname drinkimg=drinkimg}}
+
+        {{/each}}
        
 
         <div class = "product">
