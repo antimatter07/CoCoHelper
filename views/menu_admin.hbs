@@ -27,7 +27,7 @@
         <label for="drinkimg">Select an image for the drink:</label>
         <input  form ="add-drink" type="file" id="drinkimg" name="drinkimg">
        
-        <form enctype="multipart/form-data" id="add-drink">
+        <form action="upload-drinkimg" method = "post" enctype="multipart/form-data" id="add-drink">
             <input type ="text" id ="category" name = "category" style = "position:absolute;visibility:hidden;">
             
             <label for="regprice">Regular Price:</label>

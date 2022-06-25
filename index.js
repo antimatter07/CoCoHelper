@@ -39,11 +39,11 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 app.post('/upload-drinkimg', function(req, res) {
 
-    const {drinkimg} = req.body
+    const {drinkimg} = req.files
    
     
     drinkimg.mv(path.resolve(__dirname,'public/drink_images',drinkimg.name),(error) => {
-        
+        res.redirect('/')
     })
 
     
