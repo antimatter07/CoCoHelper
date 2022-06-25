@@ -7,7 +7,7 @@
     
      <link rel="stylesheet" href="css/menu_adminstyle.css">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+    
      
 </head>
 
@@ -24,11 +24,12 @@
         
 
       
-
+        <label for="drinkimg">Select an image for the drink:</label>
+        <input  form ="add-drink" type="file" id="drinkimg" name="drinkimg">
        
-        <form action = "/add-drink" enctype="multipart/form-data" method ="post" id="add-drink">
-          <label for="drinkimg">Select an image for the drink:</label>
-            <input type="file" id="drinkimg" name="drinkimg">
+        <form action ="/add-drink" enctype="multipart/form-data" method ="post" id="add-drink">
+            <input type ="text" id ="category" name = "category" style = "position:absolute;visibility:hidden;">
+            
             <label for="regprice">Regular Price:</label>
             <input type="number" id = "regprice" placeholder="Enter Regular Price" name="regprice" required>
 
@@ -164,10 +165,48 @@
 
     </div>
 
+
+    <div id="coffee-menu" class = "category">
+
+       
+        
+
+    </div>
+
+    <div id="slush-menu" class = "category">
+
+       
+        
+
+    </div>
+
+    <div id="choco-menu" class = "category">
+
+       
+        
+
+    </div>
+
+    <div id="freshtea-menu" class = "category">
+
+       
+        
+
+    </div>
+
+    <div id="juice-menu" class = "category">
+
+       
+        
+
+    </div>
+
+
     
 
     <script>
     $(document).ready(function() {
+        
 
         /*When add button is clicked, dim background for popup and show add drink form */
          $("#add-button").click(function (e) { 
@@ -197,6 +236,37 @@
             var dimbg = document.getElementsByClassName("dim-bg");
 
             dimbg[0].remove();
+
+            var category = findCategory();
+
+            $.post('/add-drink', {category: category}, function (result) {
+
+            /*
+                if the current value of `idNum` exists in the database
+                change the background-color of the `<input>` element to red
+                display an error message
+                and disable the submit button
+            */
+            /*
+            if(result.idNum == idNum) {
+                $('#idNum').css('background-color', 'red');
+                $('#error').text('ID number already registered');
+                $('#submit').prop('disabled', true);
+            }
+
+            /*
+                else
+                change the background-color of the `<input>` element back
+                remove the error message
+                and enable the submit button
+            
+            else {
+                $('#idNum').css('background-color', '#E3E3E3');
+                $('#error').text('');
+                $('#submit').prop('disabled', false);
+            }
+            */
+        });
 
             
             
@@ -244,6 +314,35 @@
             
         });
 
+         
+
+         $("#coffee-text").click(function (e) { 
+            //$(".category[display=block]").css("display", "none");
+            switchMenuCategory("#coffee-menu", "#coffee-text");
+            
+        });
+
+         $("#slush-text").click(function (e) { 
+            //$(".category[display=block]").css("display", "none");
+            switchMenuCategory("#slush-menu", "#slush-text");
+            
+        });
+
+         $("#choco-text").click(function (e) { 
+            //$(".category[display=block]").css("display", "none");
+            switchMenuCategory("#choco-menu", "#choco-text");
+            
+        });
+
+         $("#juice-text").click(function (e) { 
+            //$(".category[display=block]").css("display", "none");
+            switchMenuCategory("#juice-menu", "#juice-text");
+            
+        });
+
+        
+
+
         $("#favorites-tab").click(function (e){
             switchNavPage("#favorites-page", "#favorites-header");
         });
@@ -251,6 +350,44 @@
         $("#menu-tab").click(function (e){
             window.location.reload();
         });
+
+        
+
+        
+        function findCategory() {
+            var category;
+            var milkteamenu = document.querySelector("#milk-tea-menu");
+            var fruitteamenu = document.querySelector("#fruit-tea-menu");
+            var coffeemenu = document.querySelector("#coffee-menu");
+            var slushmenu = document.querySelector("#slush-menu");
+            var chocomenu = document.querySelector("#choco-menu");
+            var freshteamenu = document.querySelector("#freshtea-menu");
+            var juiceteamenu = document.querySelector("#freshtea-menu");
+            var categoryinput = document.querySelector("#category");
+
+            if (milkteamenu.css("display") == "block") {
+                category = "milktea";
+            } else if(fruitteamenu.css("display") == "block") {
+                 category = "fruittea";
+            } else if(coffeemenu.css("display") == "block") {
+                 category = "coffee";
+            }else if(slushmenu.css("display") == "block") {
+                 category = "slush";
+            } else if(chocomenu.css("display") == "block") {
+                 category = "choco";
+            } else if(freshteamenu.css("display") == "block") {
+                 category = "freshtea";
+            } else {
+                 category = "juicetea";
+            } 
+
+            console.log("category: " + category);
+            return category;
+
+            
+
+        }
+ 
 
 
     });

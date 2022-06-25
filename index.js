@@ -43,6 +43,7 @@ app.post('/add-drink', function(req, res) {
     var regprice= req.body.regprice;
     var lprice = req.body.lprice;
     var drinkname =  req.body.drinkname;
+    var category = req.body.category;
 
     console.log('post received: %s %s', drinkname, lprice);
 

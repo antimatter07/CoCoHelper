@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const DrinkSchema = new mongoose.Schema({
+    category: String,
     drinkimg:  String,
     regprice:  mongoose.Types.Decimal128,
     lprice: mongoose.Types.Decimal128,
