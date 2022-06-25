@@ -45,20 +45,39 @@ app.post('/add-drink', function(req, res) {
     var drinkname =  req.body.drinkname;
     var category = req.body.category;
 
-    console.log('post received: %s %s', drinkname, lprice);
+    console.log('post received: %s %s %s', drinkname, lprice, category);
 
-    const {drinkimg} = req.files
+    //const {drinkimg} = req.files
     
+    
+        Drink.create({
+            
+    
+           // drinkimg:'/drink_images/'+drinkimg.name,
+            
+            regprice: regprice,
+            lprice: lprice,
+            drinkname: drinkname,
+            category: category
+            
+            
+
+        }, (error,post) => {
+
+           
+            res.redirect('/')
+        })
+   
+    /*
     drinkimg.mv(path.resolve(__dirname,'public/drink_images',drinkimg.name),(error) => {
         Drink.create({
             
-            ...req.body,
-            drinkimg:'/drink_images/'+drinkimg.name,
-            /*
-            regprice: req.body.regprice,
-            lprice: req.body.lprice,
-            drinkname: req.body.drinkname
-            */
+    
+           // drinkimg:'/drink_images/'+drinkimg.name,
+            
+            regprice: regprice,
+            lprice: lprice,
+            category: category
             
             
 
@@ -68,6 +87,8 @@ app.post('/add-drink', function(req, res) {
             res.redirect('/')
         })
     })
+
+    */
 });
 
 app.get('/', function(req, res) {
