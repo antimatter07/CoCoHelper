@@ -205,7 +205,40 @@
     
 
     <script>
+
+         function findCategory() {
+            var category = "default";
+            
+            /*Current menu admin is on will always have the menu display on BLOCK */
+            if ($("#milk-tea-menu").css("display") == "block") {
+                category = "milktea";
+            } else if($("#fruit-tea-menu").css("display") == "block") {
+                 category = "fruittea";
+            } else if($("#coffee-menu").css("display") == "block") {
+                 category = "coffee";
+            }else if($("#slush-menu").css("display") == "block") {
+                 category = "slush";
+            } else if($("#choco-menu").css("display") == "block") {
+                 category = "choco";
+            } else if($("#freshtea-menu").css("display") == "block") {
+                 category = "freshtea";
+            } else {
+                 category = "juicetea";
+            } 
+            
+
+           
+        return category;
+
+            
+
+        }
+
+       
+
     $(document).ready(function() {
+
+
         
 
         /*When add button is clicked, dim background for popup and show add drink form */
@@ -237,9 +270,8 @@
             var lprice = document.getElementById("lprice").value;
             var regprice = document.getElementById("regprice").value;
             var drinkname = document.getElementById("drinkname").value;
-
-
-            $.post('/add-drink', {lprice:lprice, regprice:regprice, drinkname:drinkname}, function (result) {
+            var category = findCategory();
+            $.post('/add-drink', {category: category,lprice:lprice, regprice:regprice, drinkname:drinkname}, function (result) {
 
     
         });
@@ -334,39 +366,7 @@
         
 
         
-        function findCategory() {
-            var category;
-            var milkteamenu = document.querySelector("#milk-tea-menu");
-            var fruitteamenu = document.querySelector("#fruit-tea-menu");
-            var coffeemenu = document.querySelector("#coffee-menu");
-            var slushmenu = document.querySelector("#slush-menu");
-            var chocomenu = document.querySelector("#choco-menu");
-            var freshteamenu = document.querySelector("#freshtea-menu");
-            var juiceteamenu = document.querySelector("#freshtea-menu");
-            var categoryinput = document.querySelector("#category");
-
-            if (milkteamenu.css("display") == "block") {
-                category = "milktea";
-            } else if(fruitteamenu.css("display") == "block") {
-                 category = "fruittea";
-            } else if(coffeemenu.css("display") == "block") {
-                 category = "coffee";
-            }else if(slushmenu.css("display") == "block") {
-                 category = "slush";
-            } else if(chocomenu.css("display") == "block") {
-                 category = "choco";
-            } else if(freshteamenu.css("display") == "block") {
-                 category = "freshtea";
-            } else {
-                 category = "juicetea";
-            } 
-
-            console.log("category: " + category);
-            return category;
-
-            
-
-        }
+       
  
 
 
