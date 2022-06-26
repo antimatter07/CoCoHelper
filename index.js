@@ -110,25 +110,208 @@ app.post('/add-drink', function(req, res) {
 });
 
 app.get('/', function(req, res) {
-
-
+   
     //retrieve all Drinks in db and render to menu_admin.hbs
-    Drink.find({}, 'drinkname drinkimg', function (err, docs) {
+    Drink.find({category: 'milktea'}, 'drinkname drinkimg category', function (err, docs) {
         if (err){
             console.log(err);
         }
         else{
             console.log("Docs retrieved: ", docs);
-            const admin_drinks = docs;
-            res.render('menu_admin',{admin_drinks});
+            
+            const milktea_drinks = docs;
+            res.render('menu_admin',{milktea_drinks});
+            
+           
         }
     });
+
+   
+
+    
 
     
    
     
    
 });
+
+app.get('/milktea', function(req, res) {
+   
+    //retrieve all Drinks in db and render to menu_admin.hbs
+    Drink.find({category: 'milktea'}, 'drinkname drinkimg category', function (err, docs) {
+        if (err){
+            console.log(err);
+        }
+        else{
+            console.log("Docs retrieved for milktea: ", docs);
+            
+            const milktea_drinks = docs;
+            res.render('menu_admin',{milktea_drinks});
+            
+            
+           
+        }
+    });
+
+   
+
+    
+
+    
+   
+    
+   
+});
+
+app.get('/fruittea', function(req, res) {
+   
+    //retrieve all Drinks in db and render to menu_admin.hbs
+    Drink.find({category: 'fruittea'}, 'drinkname drinkimg category', function (err, docs) {
+        if (err){
+            console.log(err);
+        }
+        else{
+            console.log("Docs retrieved for fruit tea: ", docs);
+            
+            const milktea_drinks= docs;
+            res.render('menu_admin',{milktea_drinks});
+           
+            
+           
+        }
+    });
+
+   
+
+    
+   
+});
+
+app.get('/coffee', function(req, res) {
+   
+    //retrieve all Drinks in db and render to menu_admin.hbs
+    Drink.find({category: 'coffee'}, 'drinkname drinkimg category', function (err, docs) {
+        if (err){
+            console.log(err);
+        }
+        else{
+            console.log("Docs retrieved for fruit tea: ", docs);
+            
+            const milktea_drinks= docs;
+            res.render('menu_admin',{milktea_drinks});
+           
+            
+           
+        }
+    });
+
+   
+
+    
+   
+});
+
+app.get('/slush', function(req, res) {
+   
+    //retrieve all Drinks in db and render to menu_admin.hbs
+    Drink.find({category: 'slush'}, 'drinkname drinkimg category', function (err, docs) {
+        if (err){
+            console.log(err);
+        }
+        else{
+            console.log("Docs retrieved for fruit tea: ", docs);
+            
+            const milktea_drinks= docs;
+            res.render('menu_admin',{milktea_drinks});
+           
+            
+           
+        }
+    });
+
+   
+
+    
+   
+});
+
+app.get('/choco', function(req, res) {
+   
+    //retrieve all Drinks in db and render to menu_admin.hbs
+    Drink.find({category: 'choco'}, 'drinkname drinkimg category', function (err, docs) {
+        if (err){
+            console.log(err);
+        }
+        else{
+            console.log("Docs retrieved for fruit tea: ", docs);
+            
+            const milktea_drinks= docs;
+            res.render('menu_admin',{milktea_drinks});
+           
+            
+           
+        }
+    });
+
+   
+
+    
+   
+});
+
+app.get('/freshtea', function(req, res) {
+   
+    //retrieve all Drinks in db and render to menu_admin.hbs
+    Drink.find({category: 'freshtea'}, 'drinkname drinkimg category', function (err, docs) {
+        if (err){
+            console.log(err);
+        }
+        else{
+            console.log("Docs retrieved for fruit tea: ", docs);
+            
+            const milktea_drinks= docs;
+            res.render('menu_admin',{milktea_drinks});
+           
+            
+           
+        }
+    });
+
+   
+
+    
+   
+});
+
+app.get('/juice', function(req, res) {
+   
+    //retrieve all Drinks in db and render to menu_admin.hbs
+    Drink.find({category: 'juice'}, 'drinkname drinkimg category', function (err, docs) {
+        if (err){
+            console.log(err);
+        }
+        else{
+            console.log("Docs retrieved for fruit tea: ", docs);
+            
+            const milktea_drinks= docs;
+            res.render('menu_admin',{milktea_drinks});
+           
+            
+           
+        }
+    });
+
+   
+
+    
+   
+});
+
+
+
+
+
 
  
  var server = app.listen(3000, function() {

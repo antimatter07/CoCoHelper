@@ -96,13 +96,13 @@
 
     <div id="menu-proper">
         <h1>MENU</h1>
-        <p id ="milk-tea-text" class = "category-choice">Milk Tea</p>
-        <p id ="fruit-tea-text" class = "category-choice">Fruit Tea</p>
-        <p id ="coffee-text" class = "category-choice">Coffee</p>
-        <p id ="slush-text" class = "category-choice">Slush</p>
-        <p id ="choco-text" class = "category-choice">Chocolate</p>
-        <p id ="freshtea-text" class = "category-choice">Fresh Tea</p>
-        <p id ="juice-text" class = "category-choice">Juice</p>
+        <a href="/milktea"><p id ="milk-tea-text" class = "category-choice">Milk Tea</p></a>
+        <a href="/fruittea"><p id ="fruit-tea-text" class = "category-choice">Fruit Tea</p></a>
+        <a href="/coffee"><p id ="coffee-text" class = "category-choice">Coffee</p></a>
+        <a href="/slush"><p id ="slush-text" class = "category-choice">Slush</p></a>
+        <a href="/choco"><p id ="choco-text" class = "category-choice">Chocolate</p></a>
+        <a href="/freshtea"><p id ="freshtea-text" class = "category-choice">Fresh Tea</p></a>
+        <a href="/juice"><p id ="juice-text" class = "category-choice">Juice</p></a>
 
         
     </div>
@@ -110,7 +110,7 @@
     <button type="button" id="add-button">Add A Drink</button>
 
     <div id ="milk-tea-menu" class = "category">
-        {{#each admin_drinks}}
+        {{#each milktea_drinks}}
             {{> drink_admin drinkname=drinkname drinkimg=drinkimg}}
 
         {{/each}}
@@ -169,6 +169,10 @@
     </div>
 
     <div id="fruit-tea-menu" class = "category">
+
+       
+
+       
 
         <div class = "product">
             <img src="images/edit.png" class ="edit-icon">
@@ -229,40 +233,145 @@
     
 
     <script>
-
+        //determine category for new drink in db
+        /*
          function findCategory() {
             var category = "default";
             
-            /*Current menu admin is on will always have the menu display on BLOCK */
-            if ($("#milk-tea-menu").css("display") == "block") {
+            /*Current menu admin is on will always have text as orange*/
+            /*
+            if (window.location.href.indexOf('milktea') > 0) {
                 category = "milktea";
-            } else if($("#fruit-tea-menu").css("display") == "block") {
+            } else if(window.location.href.indexOf('fruittea') > 0) {
                  category = "fruittea";
-            } else if($("#coffee-menu").css("display") == "block") {
+            } else if(window.location.href.indexOf('coffee') > 0) {
                  category = "coffee";
-            }else if($("#slush-menu").css("display") == "block") {
+            }else if(window.location.href.indexOf('fruittea') > 0) {
                  category = "slush";
-            } else if($("#choco-menu").css("display") == "block") {
+            } else if(window.location.href.indexOf('fruittea') > 0) {
                  category = "choco";
-            } else if($("#freshtea-menu").css("display") == "block") {
+            } else if(window.location.href.indexOf('fruittea') > 0) {
                  category = "freshtea";
             } else {
                  category = "juicetea";
             } 
+            */
             
 
-           
-        return category;
-
-            
-
-        }
+       
 
        
 
     $(document).ready(function() {
 
+        //global var so that its visible to event handlers
         var drinkname_edit;
+        var category_add;
+
+        //set appropriate menu category to orange
+        if (window.location.href.indexOf('fruittea') > 0) {
+            
+            category_add = "fruittea";
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#fruit-tea-text").css("color", "#F07F19");
+            
+        } else if (window.location.href.indexOf('coffee') > 0){
+
+            category_add = "coffee";
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#coffee-text").css("color", "#F07F19");
+
+        } else if (window.location.href.indexOf('slush') > 0) {
+
+            category_add = "slush";
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#slush-text").css("color", "#F07F19");
+
+        } else if (window.location.href.indexOf('choco') > 0) {
+
+            category_add = "choco";
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#choco-text").css("color", "#F07F19");
+
+        } else if (window.location.href.indexOf('freshtea') > 0) {
+
+            category_add = "freshtea";
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#freshtea-text").css("color", "#F07F19");
+
+        } else if (window.location.href.indexOf('juice') > 0) {
+
+            category_add = "juice";
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#juice-text").css("color", "#F07F19");
+
+        }else {
+
+            category_add = "milktea";
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#milk-tea-text").css("color", "#F07F19");
+
+        }
+
+
+        $('#menu-proper').on('click', '.category-choice', function () {
+            /*
+                <div id="menu-proper">
+        <h1>MENU</h1>
+        <p id ="milk-tea-text" class = "category-choice">Milk Tea</p>
+        <p id ="fruit-tea-text" class = "category-choice">Fruit Tea</p>
+        <p id ="coffee-text" class = "category-choice">Coffee</p>
+        <p id ="slush-text" class = "category-choice">Slush</p>
+        <p id ="choco-text" class = "category-choice">Chocolate</p>
+        <p id ="freshtea-text" class = "category-choice">Fresh Tea</p>
+        <p id ="juice-text" class = "category-choice">Juice</p>
+
+        
+    </div>
+            
+             */
+             //var menu_contents = document.getElementById("milk-tea-menu");
+
+             //menu_contents.replaceChildren();
+
+            if(this.id == "fruit-tea-text") {
+                $.get('/fruittea');
+                $(".category-choice").css("color", "#3E3B3B");
+                //$("#" + this.id).css("color", "#F07F19");
+            } else if(this.id == "coffee-text") {
+
+                $.get('/coffee');
+                $(".category-choice").css("color", "#3E3B3B");
+
+            } else if(this.id == "slush-text") {
+
+                $.get('/slush');
+                $(".category-choice").css("color", "#3E3B3B");
+
+            } else if(this.id == "choco-text") {
+
+                $.get('/choco');
+                $(".category-choice").css("color", "#3E3B3B");
+
+            } else if(this.id == "freshtea-text") {
+
+                $.get('/freshtea');
+                $(".category-choice").css("color", "#3E3B3B");
+
+            } else if(this.id == "juice-text") {
+
+                $.get('/juice');
+                $(".category-choice").css("color", "#3E3B3B");
+
+            } else {
+                $.get('/milktea');
+                $(".category-choice").css("color", "#3E3B3B");
+                //$("#" + this.id).css("color", "#F07F19");
+
+            }
+                
+
+        });
 
           $('.product').on('click', '.edit-icon', function () {
 
@@ -348,7 +457,7 @@
             var lprice = document.getElementById("lprice").value;
             var regprice = document.getElementById("regprice").value;
             var drinkname = document.getElementById("drinkname").value;
-            var category = findCategory();
+            var category = category_add;
             var drinkimg = document.getElementById("drinkimg").value;
             
             $.post('/add-drink', {category: category,lprice:lprice, regprice:regprice, drinkname:drinkname, drinkimg: drinkimg}, function (result) {
@@ -371,7 +480,7 @@
         });
 
 
-
+        /*
         function switchMenuCategory(drinkid, drinktextid) {
 
             $(".category").hide();
@@ -380,6 +489,7 @@
             $(drinktextid).css("color", "#F07F19");
 
         }
+        */
 
         function switchNavPage(page) {
             $(".category").hide();
@@ -387,6 +497,7 @@
             $(page).fadeIn();
         }
 
+        /*
         $("#fruit-tea-text").click(function (e) { 
            
 
@@ -427,6 +538,7 @@
             switchMenuCategory("#juice-menu", "#juice-text");
             
         });
+        */
 
         
 

@@ -37,6 +37,11 @@ body {
     
 }
 
+#menu-proper > a {
+    text-decoration: none;
+    color: #3E3B3B;
+}
+
 
 .topnav  {
     
