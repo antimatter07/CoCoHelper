@@ -233,40 +233,17 @@
     
 
     <script>
-        //determine category for new drink in db
-        /*
-         function findCategory() {
-            var category = "default";
-            
-            /*Current menu admin is on will always have text as orange*/
-            /*
-            if (window.location.href.indexOf('milktea') > 0) {
-                category = "milktea";
-            } else if(window.location.href.indexOf('fruittea') > 0) {
-                 category = "fruittea";
-            } else if(window.location.href.indexOf('coffee') > 0) {
-                 category = "coffee";
-            }else if(window.location.href.indexOf('fruittea') > 0) {
-                 category = "slush";
-            } else if(window.location.href.indexOf('fruittea') > 0) {
-                 category = "choco";
-            } else if(window.location.href.indexOf('fruittea') > 0) {
-                 category = "freshtea";
-            } else {
-                 category = "juicetea";
-            } 
-            */
-            
-
        
-
-       
-
+        
     $(document).ready(function() {
 
-        //global var so that its visible to event handlers
+        //global vars so that its visible to event handlers
         var drinkname_edit;
+        //category which determines category input into db when a drink is added
         var category_add;
+        // holds the div of a product when the edit icon is clicked on a specific product
+        var cur_productdiv;
+
 
         //set appropriate menu category to orange
         if (window.location.href.indexOf('fruittea') > 0) {
@@ -313,26 +290,9 @@
 
         }
 
-
-        $('#menu-proper').on('click', '.category-choice', function () {
-            /*
-                <div id="menu-proper">
-        <h1>MENU</h1>
-        <p id ="milk-tea-text" class = "category-choice">Milk Tea</p>
-        <p id ="fruit-tea-text" class = "category-choice">Fruit Tea</p>
-        <p id ="coffee-text" class = "category-choice">Coffee</p>
-        <p id ="slush-text" class = "category-choice">Slush</p>
-        <p id ="choco-text" class = "category-choice">Chocolate</p>
-        <p id ="freshtea-text" class = "category-choice">Fresh Tea</p>
-        <p id ="juice-text" class = "category-choice">Juice</p>
-
         
-    </div>
+        $('#menu-proper').on('click', '.category-choice', function () {
             
-             */
-             //var menu_contents = document.getElementById("milk-tea-menu");
-
-             //menu_contents.replaceChildren();
 
             if(this.id == "fruit-tea-text") {
                 $.get('/fruittea');
@@ -387,9 +347,12 @@
             /*Show edit drink form */
             $("#edit-drink-div").css('display','block');
 
+            //div of product, to delete when del button is clicked
+            cur_productdiv = this.parentElement;
 
             //get drinkname (each drinkname HAS to be unique, add it to form validation later)
             var nextsib = this.nextElementSibling;
+
 
             //drinkname global var
             drinkname_edit = nextsib.nextElementSibling.innerHTML;
@@ -418,6 +381,10 @@
                 var dimbg = document.getElementsByClassName("dim-bg");
 
                 dimbg[0].remove();
+
+                //delete div of deleted product
+                cur_productdiv.parentElement.removeChild(cur_productdiv);
+                
 
 
 
@@ -466,79 +433,18 @@
         });
 
             
-            
-
-            
-             /*Dim the background  */
-        /*$("#add-drink-div").css('display','none');
-        var dimbg = document.getElementsByClassName("dim-bg");
-
-        dimbg[0].remove();
-        */
+        
 
             
         });
 
 
-        /*
-        function switchMenuCategory(drinkid, drinktextid) {
-
-            $(".category").hide();
-            $(drinkid).fadeIn();
-            $(".category-choice").css("color", "#3E3B3B");
-            $(drinktextid).css("color", "#F07F19");
-
-        }
-        */
 
         function switchNavPage(page) {
             $(".category").hide();
             $("#menu-proper").hide();
             $(page).fadeIn();
         }
-
-        /*
-        $("#fruit-tea-text").click(function (e) { 
-           
-
-            switchMenuCategory("#fruit-tea-menu", "#fruit-tea-text");
-            
-            
-            
-        });
-
-        $("#milk-tea-text").click(function (e) { 
-            //$(".category[display=block]").css("display", "none");
-            switchMenuCategory("#milk-tea-menu", "#milk-tea-text");
-            
-        });
-
-         
-
-         $("#coffee-text").click(function (e) { 
-            //$(".category[display=block]").css("display", "none");
-            switchMenuCategory("#coffee-menu", "#coffee-text");
-            
-        });
-
-         $("#slush-text").click(function (e) { 
-            //$(".category[display=block]").css("display", "none");
-            switchMenuCategory("#slush-menu", "#slush-text");
-            
-        });
-
-         $("#choco-text").click(function (e) { 
-            //$(".category[display=block]").css("display", "none");
-            switchMenuCategory("#choco-menu", "#choco-text");
-            
-        });
-
-         $("#juice-text").click(function (e) { 
-            //$(".category[display=block]").css("display", "none");
-            switchMenuCategory("#juice-menu", "#juice-text");
-            
-        });
-        */
 
         
 

@@ -103,7 +103,7 @@ app.post('/add-drink', function(req, res) {
         }, (error,post) => {
 
            
-            res.redirect('/')
+            res.redirect('back');
         })
 
     
