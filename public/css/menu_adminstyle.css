@@ -197,7 +197,7 @@ h1 {
     
 }
 
-#edit-popup{
+.edit-popup{
     position: fixed;
     overflow:hidden;
     z-index: 15;
@@ -213,7 +213,7 @@ h1 {
 
 }
 
-#edit-popup > h1{
+.edit-popup > h1{
     font-family: Verdana;
     color: white;
     margin-left: 25px;
@@ -250,11 +250,11 @@ h1 {
 
 }
 
-#edit-popup > h1 {
+.edit-popup > h1 {
     font-size: 26px;
 }
 
-#edit-popup > label {
+.edit-popup > label {
     color:white;
     position: absolute;
     font-family: Verdana;
@@ -263,7 +263,7 @@ h1 {
    top: 94;
 }
 
-#edit-popup > input[type="file"] {
+.edit-popup > input[type="file"] {
     position: absolute;
     top: 90;
     right: 0;
@@ -272,7 +272,7 @@ h1 {
     
 }
 
-#edit-popup > form {
+.edit-popup > form {
     position: absolute;
     
     top: 120px;
