@@ -18,6 +18,26 @@
     {{>topnavbar}}
     </div>
 
+     <div class ="edit-popup" id="edit-drink-div">
+        <h1>Edit</h1>
+        <button id="delbutton" type="button">Delete</button>
+
+        <label for="newdrinkimg">Select an image for the drink:</label>
+
+        <input type="file" id="newdrinkimg" name="newdrinkimg">
+        <form action = "http://www.google.com">
+            <label for="newregprice">Regular Price:<br></label>
+            <input type="text" id = "newregprice" placeholder="Enter Regular Price" name="newregprice" required>
+
+        
+
+            <label for="newlprice"><br>Large Price:<br></label>
+            <input type="text" id = "newlprice" placeholder="Enter Large Price" name="newlprice" required>
+        </form>
+
+        <button id = "savebutton_edit" type="button">Save</button>
+
+    </div>
     <div class="edit-popup" id="add-drink-div" >
         
         <h1>Add Drink to Menu</h1>
@@ -43,7 +63,7 @@
             
         </form>
 
-        <button id = "savebutton" type="submit" form ="add-drink">Add Drink</button>
+        <button id = "savebutton_add" type="submit" form ="add-drink">Add Drink</button>
 
        
         
@@ -242,6 +262,60 @@
 
     $(document).ready(function() {
 
+        var drinkname_edit;
+
+          $('.product').on('click', '.edit-icon', function () {
+
+             /*Dim the background  */
+            var dimbg = document.createElement('div');
+            var navholder = document.querySelector("#nav-holder");
+            
+
+            dimbg.setAttribute('class', 'dim-bg');
+            
+            navholder.insertAdjacentElement('beforebegin',dimbg);
+
+            /*Show edit drink form */
+            $("#edit-drink-div").css('display','block');
+
+
+            //get drinkname (each drinkname HAS to be unique, add it to form validation later)
+            var nextsib = this.nextElementSibling;
+
+            //drinkname global var
+            drinkname_edit = nextsib.nextElementSibling.innerHTML;
+
+            
+
+
+            
+
+
+
+
+
+         });
+
+         $('#delbutton').click(function (e) {
+
+                $.get("/delete-drink", {drinkname: drinkname_edit}, function(result) {
+
+
+
+                });
+
+                 /*Dim the background  */
+                $("#edit-drink-div").css('display','none');
+                var dimbg = document.getElementsByClassName("dim-bg");
+
+                dimbg[0].remove();
+
+
+
+            });
+
+         
+
 
         
 
@@ -266,7 +340,7 @@
         });
         
 
-        $("#savebutton").click(function (e) { 
+        $("#savebutton_add").click(function (e) { 
 
            
 
@@ -279,7 +353,7 @@
             
             $.post('/add-drink', {category: category,lprice:lprice, regprice:regprice, drinkname:drinkname, drinkimg: drinkimg}, function (result) {
 
-    
+                
         });
 
             
@@ -287,10 +361,11 @@
 
             
              /*Dim the background  */
-        $("#edit-popup").css('display','none');
+        /*$("#add-drink-div").css('display','none');
         var dimbg = document.getElementsByClassName("dim-bg");
 
         dimbg[0].remove();
+        */
 
             
         });
@@ -313,12 +388,7 @@
         }
 
         $("#fruit-tea-text").click(function (e) { 
-            //$(".category[display=block]").css("display", "none");
-            /*$(".category").hide();
-            $("#fruit-tea-menu").fadeIn();
-            $(".category-choice").css("color", "#3E3B3B");
-            $("#fruit-tea-text").css("color", "#F07F19");
-            */
+           
 
             switchMenuCategory("#fruit-tea-menu", "#fruit-tea-text");
             

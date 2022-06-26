@@ -49,6 +49,28 @@ app.post('/upload-drinkimg', function(req, res) {
 
     
 });
+
+/*Request to delete a drink from the db */
+app.get('/delete-drink', function(req, res) {
+
+    var drinkname = req.query.drinkname;
+
+    console.log("/delete-drink request recieved: " + drinkname);
+
+    Drink.deleteOne({drinkname : drinkname}, function (err, docs) {
+        if (err){
+            console.log(err);
+        }
+        else{
+            
+            
+        }
+    });
+
+
+
+});
+
 /*When add drink button is clicked */
 app.post('/add-drink', function(req, res) {
 
@@ -62,7 +84,7 @@ app.post('/add-drink', function(req, res) {
     var filename = drinkimg.replace(/C:\\fakepath\\/, '');
     
 
-    console.log('post request received: %s %s %s %s', drinkname, lprice, category, filename);
+    console.log('post add-drink request received: %s %s %s %s', drinkname, lprice, category, filename);
 
     
     
@@ -102,6 +124,7 @@ app.get('/', function(req, res) {
         }
     });
 
+    
    
     
    
