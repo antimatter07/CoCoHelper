@@ -37,6 +37,7 @@ app.set('view engine','hbs');
 
 hbs.registerPartials(__dirname + '/views/partials');
 
+/*Uploads actual drink image to public/drink_images. /add-drink adds doc to DB */
 app.post('/upload-drinkimg', function(req, res) {
 
     const {drinkimg} = req.files
@@ -48,7 +49,7 @@ app.post('/upload-drinkimg', function(req, res) {
 
     
 });
-
+/*When add drink button is clicked */
 app.post('/add-drink', function(req, res) {
 
     var regprice= req.body.regprice;
@@ -57,18 +58,17 @@ app.post('/add-drink', function(req, res) {
     var category = req.body.category;
     var drinkimg = req.body.drinkimg;
 
+    //remove fakepath from filename
     var filename = drinkimg.replace(/C:\\fakepath\\/, '');
     
 
-    console.log('post received: %s %s %s %s', drinkname, lprice, category, filename);
+    console.log('post request received: %s %s %s %s', drinkname, lprice, category, filename);
 
     
     
-    
+
         Drink.create({
-            
-    
-           // drinkimg:'/drink_images/'+drinkimg.name,
+        
             
             regprice: regprice,
             lprice: lprice,
@@ -84,47 +84,19 @@ app.post('/add-drink', function(req, res) {
             res.redirect('/')
         })
 
-        
-   
-    /*
-    drinkimg.mv(path.resolve(__dirname,'public/drink_images',drinkimg.name),(error) => {
-        Drink.create({
-            
     
-           // drinkimg:'/drink_images/'+drinkimg.name,
-            
-            regprice: regprice,
-            lprice: lprice,
-            category: category
-            
-            
-
-        }, (error,post) => {
-
-           
-            res.redirect('/')
-        })
-    })
-
-    */
 });
 
 app.get('/', function(req, res) {
 
-    /*
-    var projection = 'drinkname drinkimg'
-    Drink.find({}, projection, function(result) {
-        console.log(result);
-        const admin_drinks = result;
-        res.render('menu_admin', {admin_drinks});
-    });
-    */
+
+    //retrieve all Drinks in db and render to menu_admin.hbs
     Drink.find({}, 'drinkname drinkimg', function (err, docs) {
         if (err){
             console.log(err);
         }
         else{
-            console.log("Third function call : ", docs);
+            console.log("Docs retrieved: ", docs);
             const admin_drinks = docs;
             res.render('menu_admin',{admin_drinks});
         }
@@ -132,10 +104,7 @@ app.get('/', function(req, res) {
 
    
     
-
-    
-
-    
+   
 });
 
  
