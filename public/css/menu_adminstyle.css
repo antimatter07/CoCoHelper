@@ -235,7 +235,7 @@ h1 {
     cursor: pointer;
 }
 
-#savebutton {
+.savebutton {
     position: absolute;
     bottom: 35;
     right: 35;
