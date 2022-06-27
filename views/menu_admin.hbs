@@ -1,0 +1,477 @@
+<html>
+
+<head>
+    
+     <title>CoCo Helper App</title>
+
+    
+     <link rel="stylesheet" href="css/menu_adminstyle.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+     
+</head>
+
+<body>
+    
+   
+    <div id = "nav-holder">
+    {{>topnavbar}}
+    </div>
+
+     <div class ="edit-popup" id="edit-drink-div">
+        <h1>Edit</h1>
+        <button id="delbutton" type="button">Delete</button>
+
+        <label for="newdrinkimg">Select an image for the drink:</label>
+
+        <input type="file" id="newdrinkimg" name="newdrinkimg">
+        <form action = "http://www.google.com">
+            <label for="newregprice">Regular Price:<br></label>
+            <input type="text" id = "newregprice" placeholder="Enter Regular Price" name="newregprice" required>
+
+        
+
+            <label for="newlprice"><br>Large Price:<br></label>
+            <input type="text" id = "newlprice" placeholder="Enter Large Price" name="newlprice" required>
+        </form>
+
+        <button class ="savebutton" id = "savebutton_edit" type="button">Save</button>
+
+    </div>
+    <div class="edit-popup" id="add-drink-div" >
+        
+        <h1>Add Drink to Menu</h1>
+        
+
+      
+        <label for="drinkimg">Select an image for the drink:</label>
+        <input  form ="add-drink" type="file" id="drinkimg" name="drinkimg">
+       
+        <form action="upload-drinkimg" method = "post" enctype="multipart/form-data" id="add-drink">
+            <input type ="text" id ="category" name = "category" style = "position:absolute;visibility:hidden;">
+            
+            <label for="regprice">Regular Price:</label>
+            <input type="number" id = "regprice" placeholder="Enter Regular Price" name="regprice" required>
+
+        
+
+            <label for="lprice"><br>Large Price:</label>
+            <input type="number" id = "lprice" placeholder="Enter Large Price" name="lprice" required>
+
+            <label for="drinkname"><br>Name:</label>
+            <input type="text" id="drinkname" placeholder="Enter Drink Name" name="drinkname" required>
+            
+        </form>
+
+        <button class ="savebutton" id = "savebutton_add" type="submit" form ="add-drink">Add Drink</button>
+
+       
+        
+
+    </div>
+    
+
+    <div id="favorites-page" class = "category">
+        <div class = "product">
+            <img src="images/pandamilktea.png" class = "product-photo">
+            <p>Panda Milk Tea</p>
+            <img src="images/favorite-icon.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+        <div class = "product">
+            <img src="images/whitepearlmt.png" class = "product-photo">
+            <p>White Pearl Milk Tea</p>
+            <img src="images/favorite-icon.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+        <div class = "product">
+            <img src="images/lemondunk.png" class = "product-photo">
+            <p>Lemon Dunk</p>
+            <img src="images/favorite-icon.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+    </div>
+
+
+    <div id="menu-proper">
+        <h1>MENU</h1>
+        <a href="/milktea"><p id ="milk-tea-text" class = "category-choice">Milk Tea</p></a>
+        <a href="/fruittea"><p id ="fruit-tea-text" class = "category-choice">Fruit Tea</p></a>
+        <a href="/coffee"><p id ="coffee-text" class = "category-choice">Coffee</p></a>
+        <a href="/slush"><p id ="slush-text" class = "category-choice">Slush</p></a>
+        <a href="/choco"><p id ="choco-text" class = "category-choice">Chocolate</p></a>
+        <a href="/freshtea"><p id ="freshtea-text" class = "category-choice">Fresh Tea</p></a>
+        <a href="/juice"><p id ="juice-text" class = "category-choice">Juice</p></a>
+
+        
+    </div>
+
+    <button type="button" id="add-button">Add A Drink</button>
+
+    <div id ="milk-tea-menu" class = "category">
+        {{#each milktea_drinks}}
+            {{> drink_admin drinkname=drinkname drinkimg=drinkimg}}
+
+        {{/each}}
+       
+
+        <div class = "product">
+            <img src="images/edit.png" class ="edit-icon">
+            <img src="images/milktea.png" class = "product-photo">
+            <p>CoCo Milk Tea</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+        <div class = "product">
+            <img src="images/edit.png" class ="edit-icon">
+            <img src="images/perlmilktea.png" class = "product-photo">
+            <p>Pearl Milk Tea</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+        <div class = "product">
+            <img src="images/edit.png" class ="edit-icon">
+            <img src="images/pandamilktea.png" class = "product-photo">
+            <p>Panda Milk Tea</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+        <div class = "product">
+            <img src="images/edit.png" class ="edit-icon">
+            <img src="images/grassjellymt.png" class = "product-photo">
+            <p>Grass Jelly Milk Tea</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+        <div class = "product">
+            <img src="images/edit.png" class ="edit-icon">
+            <img src="images/whitepearlmt.png" class = "product-photo">
+            <p>White Pearl Milk Tea</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+        <div class = "product">
+            <img src="images/edit.png" class ="edit-icon">
+            <img src="images/2ladiesmt.png" class = "product-photo">
+            <p>2 Ladies Milk Tea</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+
+
+    </div>
+
+    <div id="fruit-tea-menu" class = "category">
+
+       
+
+       
+
+        <div class = "product">
+            <img src="images/edit.png" class ="edit-icon">
+            <img src="images/lemondunk.png" class = "product-photo">
+            <p>Lemon Dunk</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+        <div class = "product">
+            <img src="images/edit.png" class ="edit-icon">
+            <img src="images/lemonblacktea.png" class = "product-photo">
+            <p>Lemon Black Tea</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+        
+
+    </div>
+
+
+    <div id="coffee-menu" class = "category">
+
+       
+        
+
+    </div>
+
+    <div id="slush-menu" class = "category">
+
+       
+        
+
+    </div>
+
+    <div id="choco-menu" class = "category">
+
+       
+        
+
+    </div>
+
+    <div id="freshtea-menu" class = "category">
+
+       
+        
+
+    </div>
+
+    <div id="juice-menu" class = "category">
+
+       
+        
+
+    </div>
+
+
+    
+
+    <script>
+       
+        
+    $(document).ready(function() {
+
+        //global vars so that its visible to event handlers
+        var drinkname_edit;
+        //category which determines category input into db when a drink is added
+        var category_add;
+        // holds the div of a product when the edit icon is clicked on a specific product
+        var cur_productdiv;
+
+
+        //set appropriate menu category to orange
+        if (window.location.href.indexOf('fruittea') > 0) {
+            
+            category_add = "fruittea";
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#fruit-tea-text").css("color", "#F07F19");
+            
+        } else if (window.location.href.indexOf('coffee') > 0){
+
+            category_add = "coffee";
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#coffee-text").css("color", "#F07F19");
+
+        } else if (window.location.href.indexOf('slush') > 0) {
+
+            category_add = "slush";
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#slush-text").css("color", "#F07F19");
+
+        } else if (window.location.href.indexOf('choco') > 0) {
+
+            category_add = "choco";
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#choco-text").css("color", "#F07F19");
+
+        } else if (window.location.href.indexOf('freshtea') > 0) {
+
+            category_add = "freshtea";
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#freshtea-text").css("color", "#F07F19");
+
+        } else if (window.location.href.indexOf('juice') > 0) {
+
+            category_add = "juice";
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#juice-text").css("color", "#F07F19");
+
+        }else {
+
+            category_add = "milktea";
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#milk-tea-text").css("color", "#F07F19");
+
+        }
+
+        
+        $('#menu-proper').on('click', '.category-choice', function () {
+            
+
+            if(this.id == "fruit-tea-text") {
+                $.get('/fruittea');
+                $(".category-choice").css("color", "#3E3B3B");
+                //$("#" + this.id).css("color", "#F07F19");
+            } else if(this.id == "coffee-text") {
+
+                $.get('/coffee');
+                $(".category-choice").css("color", "#3E3B3B");
+
+            } else if(this.id == "slush-text") {
+
+                $.get('/slush');
+                $(".category-choice").css("color", "#3E3B3B");
+
+            } else if(this.id == "choco-text") {
+
+                $.get('/choco');
+                $(".category-choice").css("color", "#3E3B3B");
+
+            } else if(this.id == "freshtea-text") {
+
+                $.get('/freshtea');
+                $(".category-choice").css("color", "#3E3B3B");
+
+            } else if(this.id == "juice-text") {
+
+                $.get('/juice');
+                $(".category-choice").css("color", "#3E3B3B");
+
+            } else {
+                $.get('/milktea');
+                $(".category-choice").css("color", "#3E3B3B");
+                //$("#" + this.id).css("color", "#F07F19");
+
+            }
+                
+
+        });
+
+          $('.product').on('click', '.edit-icon', function () {
+
+             /*Dim the background  */
+            var dimbg = document.createElement('div');
+            var navholder = document.querySelector("#nav-holder");
+            
+
+            dimbg.setAttribute('class', 'dim-bg');
+            
+            navholder.insertAdjacentElement('beforebegin',dimbg);
+
+            /*Show edit drink form */
+            $("#edit-drink-div").css('display','block');
+
+            //div of product, to delete when del button is clicked
+            cur_productdiv = this.parentElement;
+
+            //get drinkname (each drinkname HAS to be unique, add it to form validation later)
+            var nextsib = this.nextElementSibling;
+
+
+            //drinkname global var
+            drinkname_edit = nextsib.nextElementSibling.innerHTML;
+
+            
+
+
+            
+
+
+
+
+
+         });
+
+         $('#delbutton').click(function (e) {
+
+                $.get("/delete-drink", {drinkname: drinkname_edit}, function(result) {
+
+
+
+                });
+
+                 /*Dim the background  */
+                $("#edit-drink-div").css('display','none');
+                var dimbg = document.getElementsByClassName("dim-bg");
+
+                dimbg[0].remove();
+
+                //delete div of deleted product
+                cur_productdiv.parentElement.removeChild(cur_productdiv);
+                
+
+
+
+            });
+
+         
+
+
+        
+
+        /*When add button is clicked, dim background for popup and show add drink form */
+         $("#add-button").click(function (e) { 
+
+            /*Dim the background  */
+            var dimbg = document.createElement('div');
+            var navholder = document.querySelector("#nav-holder");
+            
+
+            dimbg.setAttribute('class', 'dim-bg');
+            
+            navholder.insertAdjacentElement('beforebegin',dimbg);
+
+            /*Show add drink form */
+            $("#add-drink-div").css('display','block');
+            
+            
+
+            
+        });
+        
+
+        $("#savebutton_add").click(function (e) { 
+
+           
+
+            /*var category = findCategory(); */
+            var lprice = document.getElementById("lprice").value;
+            var regprice = document.getElementById("regprice").value;
+            var drinkname = document.getElementById("drinkname").value;
+            var category = category_add;
+            var drinkimg = document.getElementById("drinkimg").value;
+            
+            $.post('/add-drink', {category: category,lprice:lprice, regprice:regprice, drinkname:drinkname, drinkimg: drinkimg}, function (result) {
+
+                
+        });
+
+            
+        
+
+            
+        });
+
+
+
+        function switchNavPage(page) {
+            $(".category").hide();
+            $("#menu-proper").hide();
+            $(page).fadeIn();
+        }
+
+        
+
+
+        $("#favorites-tab").click(function (e){
+            switchNavPage("#favorites-page", "#favorites-header");
+        });
+
+        $("#menu-tab").click(function (e){
+            window.location.reload();
+        });
+
+        
+
+        
+       
+ 
+
+
+    });
+    </script>
+    
+  
+
+    
+    
+
+</body>
+
+</html>

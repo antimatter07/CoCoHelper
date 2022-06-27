@@ -1,0 +1,241 @@
+<html>
+
+<head>
+    
+     <title>CoCo Helper App</title>
+
+    
+     <link rel="stylesheet" href="css/menustyle.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+     
+</head>
+
+<body>
+    <div class="dim-bg"></div>
+    <div id = "topnavbar">
+        
+        
+        <div id = "logo">
+            <img src="images/cocologo.jpg">
+        </div>
+
+        <div class="topnav">
+            <a id="menu-tab">Menu</a>
+            <a id="favorites-tab">Favorites</a>
+            <a>Shopping Cart</a>
+            <a>Status</a>
+            <a href="#profile">Profile</a>
+        </div>
+        
+    </div>
+
+    <div id ="edit-popup">
+        <h1>Panda Milk Tea</h1>
+        
+        <form id = "editform" action="someaction">
+            <hr>
+
+            <label for="size">Size:</label>
+            <select name="size" id="size">
+              <option value="regular">Regular</option>
+              <option value="large">Large</option>
+              
+            </select>
+            <br><br>
+            <label for="sugarlevel">Sugar Level:</label>
+            <select name="sugarlevel" id="sugarlevel">
+              <option value="1.2">1.2</option>
+              <option value="1">1</option>
+              <option value="0.7">0.7</option>
+              <option value="0.5">0.5</option>
+              <option value="0.3">0.3</option>
+              <option value="0">0</option>
+              
+            </select>
+            <br><br>
+
+            <label for="icelevel">Ice Level:</label>
+            <select name="icelevel" id="icelevel">
+              <option value="moreice">More Ice</option>
+              <option value="normalice">Normal Ice</option>
+              <option value="lessice">Less Ice</option>
+              <option value="none">Cold But No Ice</option>
+             
+              
+            </select>
+
+            <hr>
+            <text id="edit-pricetext">Price:</text>
+            <text id = "edit-price">PHP 100.00</text>
+            <input type="submit" value="Add To Cart">
+          </form>
+
+    </div>
+
+    
+
+    <div id="favorites-page" class = "category">
+        <div class = "product">
+            <img src="images/pandamilktea.png" class = "product-photo">
+            <p>Panda Milk Tea</p>
+            <img src="images/favorite-icon.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+        <div class = "product">
+            <img src="images/whitepearlmt.png" class = "product-photo">
+            <p>White Pearl Milk Tea</p>
+            <img src="images/favorite-icon.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+        <div class = "product">
+            <img src="images/lemondunk.png" class = "product-photo">
+            <p>Lemon Dunk</p>
+            <img src="images/favorite-icon.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+    </div>
+
+
+    <div id="menu-proper">
+        <h1>MENU</h1>
+        <p id ="milk-tea-text" class = "category-choice">Milk Tea</p>
+        <p id ="fruit-tea-text" class = "category-choice">Fruit Tea</p>
+        <p id ="coffee-text" class = "category-choice">Coffee</p>
+        <p id ="slush-text" class = "category-choice">Slush</p>
+        <p id ="choco-text" class = "category-choice">Chocolate</p>
+        <p id ="freshtea-text" class = "category-choice">Fresh Tea</p>
+        <p id ="juice-text" class = "category-choice">Juice</p>
+
+        
+    </div>
+
+    <div id ="milk-tea-menu" class = "category">
+       
+
+        <div class = "product">
+            <img src="images/milktea.png" class = "product-photo">
+            <p>CoCo Milk Tea</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+        <div class = "product">
+            <img src="images/perlmilktea.png" class = "product-photo">
+            <p>Pearl Milk Tea</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+        <div class = "product">
+            <img src="images/pandamilktea.png" class = "product-photo">
+            <p>Panda Milk Tea</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+        <div class = "product">
+            <img src="images/grassjellymt.png" class = "product-photo">
+            <p>Grass Jelly Milk Tea</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+        <div class = "product">
+            <img src="images/whitepearlmt.png" class = "product-photo">
+            <p>White Pearl Milk Tea</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+        <div class = "product">
+            <img src="images/2ladiesmt.png" class = "product-photo">
+            <p>2 Ladies Milk Tea</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+
+
+    </div>
+
+    <div id="fruit-tea-menu" class = "category">
+
+        <div class = "product">
+            <img src="images/lemondunk.png" class = "product-photo">
+            <p>Lemon Dunk</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+
+        <div class = "product">
+            <img src="images/lemonblacktea.png" class = "product-photo">
+            <p>Lemon Black Tea</p>
+            <img src="images/icons8-heart-50.png" class = "heart">
+            <img src = "images/shopping-cart.png" class = "cart-icon">
+        </div>
+        
+
+    </div>
+
+    
+
+    <script>
+    $(document).ready(function() {
+
+        function switchMenuCategory(drinkid, drinktextid) {
+
+            $(".category").hide();
+            $(drinkid).fadeIn();
+            $(".category-choice").css("color", "#3E3B3B");
+            $(drinktextid).css("color", "#F07F19");
+
+        }
+
+        function switchNavPage(page) {
+            $(".category").hide();
+            $("#menu-proper").hide();
+            $(page).fadeIn();
+        }
+
+        $("#fruit-tea-text").click(function (e) { 
+            //$(".category[display=block]").css("display", "none");
+            /*$(".category").hide();
+            $("#fruit-tea-menu").fadeIn();
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#fruit-tea-text").css("color", "#F07F19");
+            */
+
+            switchMenuCategory("#fruit-tea-menu", "#fruit-tea-text");
+            
+            
+            
+        });
+
+        $("#milk-tea-text").click(function (e) { 
+            //$(".category[display=block]").css("display", "none");
+            switchMenuCategory("#milk-tea-menu", "#milk-tea-text");
+            
+        });
+
+        $("#favorites-tab").click(function (e){
+            switchNavPage("#favorites-page", "#favorites-header");
+        });
+
+        $("#menu-tab").click(function (e){
+            window.location.reload();
+        });
+
+
+    });
+    </script>
+    
+  
+
+    
+    
+
+</body>
+
+</html>
