@@ -34,7 +34,21 @@ const CustomerSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: 'Drink'
 
-    }]
+    }],
+
+    
+    paymentmethod : {
+        type: String,
+        default: null
+        
+    },
+
+    methodno : {
+        type: Number,
+        default: null
+    }
+
+
 });
 
 const Customer = mongoose.model('Customer', CustomerSchema);
