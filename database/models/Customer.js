@@ -33,9 +33,9 @@ const CustomerSchema = new mongoose.Schema({
     //Array of Drinks, for rendering of favorte drinks of customer in Favorites Page
     //[0..*] at any time can have 0 to many drinks 
     // can alternatively just be an array of drinknames
-    //since with drinknames (PK of Drink), you can make a query for the drink img from the Drinks in db
+    //since with drinkname (PK of Drink), you can make a query for the drink img from the Drinks in db
     favoritedrinks : [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Drink'
 
     }],
@@ -72,7 +72,7 @@ const CustomerSchema = new mongoose.Schema({
     /*[0..*] 0 to many Entry in shopping cart for each Customer*/
     //for rendering shopping cart page of customer
     cart_entries : [{
-        type:  Schema.Types.ObjectId,
+        type:  mongoose.Schema.Types.ObjectId,
         ref: 'Entry'
 
     }]

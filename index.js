@@ -19,6 +19,8 @@
  const fileUpload = require('express-fileupload');
 
  const Drink = require("./database/models/Drink");
+ const Customer = require("./database/models/Customer");
+ const Entry = require("./database/models/Entry");
  const path = require('path');
 
  // Initialize data and static folder that our app will use
@@ -37,7 +39,33 @@ app.set('view engine','hbs');
 
 hbs.registerPartials(__dirname + '/views/partials');
 
-/*Uploads actual drink image to public/drink_images. /add-drink adds doc to DB */
+//POST request to register a user, create a new User in the DB
+app.post('/registeruser', function(req,res) {
+    console.log('post req received to register user: ' + req.body.firstname);
+
+    Customer.create({
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        pnumber: req.body.pnumber,
+        pw: req.body.cpassword
+
+
+    }, function (err, docs) {
+        if (err){
+            console.log(err);
+        }
+        else{
+            res.redirect('/login');
+            
+            
+        }
+    });
+    
+
+});
+
+//render register page
 app.get('/register', function(req, res) {
 
     res.render('reg');
@@ -46,8 +74,17 @@ app.get('/register', function(req, res) {
 
     
 });
-
+//render log ihn apge
 app.get('/login', function(req, res) {
+
+    res.render('login');
+
+    
+
+    
+});
+
+app.get('/loginuser', function(req, res) {
 
     res.render('login');
 

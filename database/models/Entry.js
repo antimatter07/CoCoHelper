@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const EntrySchema = new mongoose.Schema({
     drink: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Drink'
      
     },

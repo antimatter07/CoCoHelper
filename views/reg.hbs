@@ -14,7 +14,7 @@
 
             <div id = "childhead">
                 <h1>Don't have an account yet?</h1>
-                <form id="regform">
+                <form id="regform" method ="post" action="/registeruser" enctype="multipart/form-data">
                     <label for="firstname">First Name<br></label>
                     <input type="text" placeholder="Enter First Name" name="firstname" id = "firstname" required>
 
@@ -35,7 +35,7 @@
                 </form>
             </div>
 
-            <button class="button" id = "registerbutton" type="submit" form="regform" value="Submit">Submit</button>
+            <button form ="regform" class="button" id = "registerbutton" type="submit" value="Submit">Submit</button>
             <a href ="/login"><button class="button" id = "loginbutton" type="submit" value="Log In">Log In</button></a>
 
         </div>
