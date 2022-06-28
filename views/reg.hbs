@@ -16,26 +16,27 @@
                 <h1>Don't have an account yet?</h1>
                 <form id="regform">
                     <label for="firstname">First Name<br></label>
-                    <input type="text" placeholder="Enter First Name" name="firstname" required>
+                    <input type="text" placeholder="Enter First Name" name="firstname" id = "firstname" required>
 
                     <label for="lastname"><br>Last Name<br></label>
-                    <input type="text" placeholder="Enter Last Name" name="lastname" required>
+                    <input type="text" placeholder="Enter Last Name" name="lastname" id="lastname" required>
 
                     <label for="email"><br>Email<br></label>
-                    <input type="text" placeholder="Enter Email" name="email" required>
+                    <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
                     <label for="pnumber"><br>Phone Number<br></label>
-                    <input type="text" placeholder="Enter Phone Number" name="pnumber" required>
+                    <input type="text" placeholder="Enter Phone Number" name="pnumber" id="pnumber" required>
 
                     <label for="password"><br>Password<br></label>
-                    <input type="text" placeholder="Enter Password" name="password" required>
+                    <input type="text" placeholder="Enter Password" name="password" id="password" required>
 
                     <label for="cpassword"><br>Confirm Password<br></label>
-                    <input type="text" placeholder="Enter Password" name="cpassword" required>
+                    <input type="text" placeholder="Enter Password" name="cpassword" id="cpassword" required>
                 </form>
             </div>
 
-            <button class="button"  type="submit" form="regform" value="Submit">Submit</button>
+            <button class="button" id = "registerbutton" type="submit" form="regform" value="Submit">Submit</button>
+            <a href ="/login"><button class="button" id = "loginbutton" type="submit" value="Log In">Log In</button></a>
 
         </div>
 
