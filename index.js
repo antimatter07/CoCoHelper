@@ -7,9 +7,13 @@
  */
 
  const express = require('express');
+ // import module `express-session`
+ const session = require('express-session');
  const app = new express();
  const mongoose = require('mongoose');
  var bodyParser = require('body-parser');
+
+ const MongoStore = require('connect-mongo');
 
  mongoose.connect('mongodb://localhost/CoCoDB',
 {useNewURLParser: true, useUnifiedTopology: true}); // Create database connection
@@ -19,6 +23,8 @@
  const fileUpload = require('express-fileupload');
 
  const Drink = require("./database/models/Drink");
+ const Customer = require("./database/models/Customer");
+ const Entry = require("./database/models/Entry");
  const path = require('path');
 
  // Initialize data and static folder that our app will use
@@ -37,10 +43,152 @@ app.set('view engine','hbs');
 
 hbs.registerPartials(__dirname + '/views/partials');
 
-/*Uploads actual drink image to public/drink_images. /add-drink adds doc to DB */
+// session middleware and session store
+app.use(session({ secret: 'CoCoHelper-session', 
+                'resave': false, 
+                'saveUninitialized': false,
+                store: MongoStore.create({mongoUrl: 'mongodb://localhost/CoCoDB'})
+            }));
+
+//pnumber since its unique for each customer, possibly can also use email
+//sample req: /profile/12345678
+//render profile page of user
+app.get('/profile/:pnumber', function(req, res) {
+
+    //find a user with pnumber equal to parameter in get URL(:pnumber)
+    //only render profile page if the user is logged in (session object has a value)
+    if(req.session.pnumber) {
+        
+        var query = {pnumber: req.params.pnumber};
+
+        //what to return from query
+        var projection = 'firstname lastname';
+
+        var userDetails = {};
+
+
+        Customer.findOne(query, projection, function(err, result) {
+
+            if(err) {
+                console.log(err);
+            } else {
+                if(result != null) {
+                    userDetails.firstname = result.firstname;
+                    userDetails.lastname = result.lastname;
+
+                    res.render('profile', userDetails);
+                } else {
+                    res.redirect('/login');
+                }
+            }
+
+        })
+
+    } else {
+        //to protect user data, redirect to login page 
+        res.redirect('/login');
+    }
+
+});
+
+
+//when user clicks on log in button 
+app.post('/loginuser', function(req, res) {
+
+    console.log("log in POST req recieved: " + req.body.email + " " + req.body.password);
+    email = req.body.email.replace(" ", "");
+   
+    Customer.findOne({email: email}, function (err, result) {
+        console.log("retrieved customer: " + result);
+        if(err) {
+            console.log(err)
+        } else {
+            if(result) {
+                var customer = {
+
+                    email: result.email,
+                    pnumber: result.pnumber
+                }
+
+                //store to session object for future access
+                //email, pnumber, and names can now be accessed from any succeeding HTTP request
+                //while session hasnt ended
+                //session can store multiple values
+                req.session.email = customer.email;
+                req.session.pnumber = customer.pnumber;
+                req.session.firstname = result.firstname;
+                req.session.lastname = result.lastname;
+
+                console.log("retrieved customer: " + customer);
+
+                //TODO: implement password hashing here later
+                if(req.body.password === result.pw) {
+                    console.log(req.body.password === result.pw);
+                    res.redirect('/profile/' + customer.pnumber);
+                } else {
+                    //TODO:
+                    //if not equal, display error message thru hbs or at least make field color red
+                    res.redirect("/login");
+                }
+            }
+            else {
+                res.redirect('/login');
+            }
+
+
+        } 
+
+    });
+
+});
+//POST request to register a user, create a new User in the DB
+app.post('/registeruser', function(req,res) {
+    console.log('post req received to register user: ' + req.body.firstname);
+    //TODO: password hashing later
+    Customer.create({
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        pnumber: req.body.pnumber,
+        pw: req.body.cpassword
+
+
+    }, function (err, docs) {
+        if (err){
+            console.log(err);
+        }
+        else{
+            res.redirect('/login');
+            
+            
+        }
+    });
+    
+
+});
+
+//render register page
 app.get('/register', function(req, res) {
 
     res.render('reg');
+
+    
+
+    
+});
+//render log ihn apge
+app.get('/login', function(req, res) {
+
+    res.render('login');
+
+    
+
+    
+});
+
+app.get('/loginuser', function(req, res) {
+
+    res.render('login');
 
     
 

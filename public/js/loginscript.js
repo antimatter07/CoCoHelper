@@ -1,9 +1,10 @@
 $(document).ready(function() {
+    /*
     var inside = false;
 
     var validemail = "guestemail@gmail.com";
     var validpassword = "pass123";
-
+    
     function checkValidFields() {
 
         var valid = false;

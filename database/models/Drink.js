@@ -5,6 +5,7 @@ const DrinkSchema = new mongoose.Schema({
     drinkimg:  String,
     regprice:  mongoose.Types.Decimal128,
     lprice: mongoose.Types.Decimal128,
+    //PK is drinkname
     drinkname:  String
     
 }); // JSON format, consisting of the name: type collection
