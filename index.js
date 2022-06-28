@@ -56,30 +56,38 @@ app.use(session({ secret: 'CoCoHelper-session',
 app.get('/profile/:pnumber', function(req, res) {
 
     //find a user with pnumber equal to parameter in get URL(:pnumber)
-    var query = {pnumber: req.params.pnumber};
+    //only render profile page if the user is logged in (session object has a value)
+    if(req.session.pnumber) {
+        
+        var query = {pnumber: req.params.pnumber};
 
-    //what to return from query
-    var projection = 'firstname lastname';
+        //what to return from query
+        var projection = 'firstname lastname';
 
-    var userDetails = {};
+        var userDetails = {};
 
 
-    Customer.findOne(query, projection, function(err, result) {
+        Customer.findOne(query, projection, function(err, result) {
 
-        if(err) {
-            console.log(err);
-        } else {
-            if(result != null) {
-                userDetails.firstname = result.firstname;
-                userDetails.lastname = result.lastname;
-
-                res.render('profile', userDetails);
+            if(err) {
+                console.log(err);
             } else {
-                res.redirect('/login');
-            }
-        }
+                if(result != null) {
+                    userDetails.firstname = result.firstname;
+                    userDetails.lastname = result.lastname;
 
-    })
+                    res.render('profile', userDetails);
+                } else {
+                    res.redirect('/login');
+                }
+            }
+
+        })
+
+    } else {
+        //to protect user data, redirect to login page 
+        res.redirect('/login');
+    }
 
 });
 
@@ -101,6 +109,15 @@ app.post('/loginuser', function(req, res) {
                     email: result.email,
                     pnumber: result.pnumber
                 }
+
+                //store to session object for future access
+                //email, pnumber, and names can now be accessed from any succeeding HTTP request
+                //while session hasnt ended
+                //session can store multiple values
+                req.session.email = customer.email;
+                req.session.pnumber = customer.pnumber;
+                req.session.firstname = result.firstname;
+                req.session.lastname = result.lastname;
 
                 console.log("retrieved customer: " + customer);
 
