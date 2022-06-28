@@ -30,6 +30,8 @@ const CustomerSchema = new mongoose.Schema({
 
     //Array of Drinks, for rendering of favorte drinks of customer in Favorites Page
     //[0..*] at any time can have 0 to many drinks 
+    // can alternatively just be an array of drinknames
+    //since with drinknames, you can make a query for the drink img from the Drinks in db
     favoritedrinks : [{
         type: Schema.Types.ObjectId,
         ref: 'Drink'
@@ -46,7 +48,25 @@ const CustomerSchema = new mongoose.Schema({
     methodno : {
         type: Number,
         default: null
+    },
+    //maybe make Order another schema? o kahit hindi na 
+    //at any time customer can have 0 to 1 instances of [orderno, amountdue, status]
+    orderno : {
+        type: Number
+    },
+
+    amountdue : {
+        type: Number
+    },
+
+    status : {
+        type: String,
+        enum: ['Ready', 'In Progress']
+
     }
+
+
+
 
 
 });
