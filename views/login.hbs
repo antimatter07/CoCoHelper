@@ -14,7 +14,7 @@
 
             <img id = "logo" src="images/cocologo_notext.png">
             <h1>Log In</h1>
-            <form id ="login" action = "http://www.google.com">
+            <form id ="login" action = "/loginuser" method = "post" enctype = "multipart/form-data">
                 <label for="email"><br>Email<br></label>
                 <input type="text" id = "emailinput" placeholder="Enter Email" name="email" required>
 
@@ -25,7 +25,7 @@
             </form>
 
             <button class="button"  type="submit" form="login" value="Submit">Submit</button>
-            <a href = "reg.html"><button class="button" type="button">Register</button></a>
+            <a href = "/register"><button class="button" type="button">Register</button></a>
 
           
 

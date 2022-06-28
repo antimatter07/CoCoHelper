@@ -39,10 +39,90 @@ app.set('view engine','hbs');
 
 hbs.registerPartials(__dirname + '/views/partials');
 
+//pnumber since its unique for each customer, possibly can also use email
+//sample req: /profile/12345678
+app.get('/profile/:pnumber', function(req, res) {
+
+    //find a user with pnumber equal to parameter in get URL(:pnumber)
+    var query = {pnumber: req.params.pnumber};
+
+    //what to return from query
+    var projection = 'firstname lastname';
+
+    var userDetails = {};
+
+
+    Customer.findOne(query, projection, function(err, result) {
+
+        if(err) {
+            console.log(err);
+        } else {
+            if(result != null) {
+                userDetails.firstname = result.firstname;
+                userDetails.lastname = result.lastname;
+
+                res.render('profile', userDetails);
+            } else {
+                res.redirect('/login');
+            }
+        }
+
+    })
+
+});
+
+app.get('/getallusers', function(req, res) {
+
+    Customer.find({}, function(err, result) {
+        if(err)
+            console.log(err);
+        console.log(result);
+        res.redirect('/login');
+    })
+});
+app.post('/loginuser', function(req, res) {
+
+    console.log("log in POST req recieved: " + req.body.email + " " + req.body.password);
+    email = req.body.email.replace(" ", "");
+   
+    Customer.findOne({email: email}, function (err, result) {
+        console.log("retrieved customer: " + result);
+        if(err) {
+            console.log(err)
+        } else {
+            if(result) {
+                var customer = {
+
+                    email: result.email,
+                    pnumber: result.pnumber
+                }
+
+                console.log("retrieved customer: " + customer);
+
+                //TODO: implement password hashing here later
+                if(req.body.password === result.pw) {
+                    console.log(req.body.password === result.pw);
+                    res.redirect('/profile/' + customer.pnumber);
+                } else {
+                    //TODO:
+                    //if not equal, display error message or at least make field color red
+                    res.redirect("/login");
+                }
+            }
+            else {
+                res.redirect('/login');
+            }
+
+
+        } 
+
+    });
+
+});
 //POST request to register a user, create a new User in the DB
 app.post('/registeruser', function(req,res) {
     console.log('post req received to register user: ' + req.body.firstname);
-
+    //TODO: password hashing later
     Customer.create({
         firstname: req.body.firstname,
         lastname: req.body.lastname,

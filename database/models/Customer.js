@@ -15,12 +15,12 @@ const CustomerSchema = new mongoose.Schema({
     //both or either can be PK, so can use maybe as param sa HTTP requests
     //to render each page for each user
     email: {
-        type: Number,
+        type: String,
         required: true
         
     },
     pnumber: {
-        type: String,
+        type: Number,
         required: true
         
     },
