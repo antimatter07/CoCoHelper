@@ -38,6 +38,15 @@ app.set('view engine','hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 
 /*Uploads actual drink image to public/drink_images. /add-drink adds doc to DB */
+app.get('/register', function(req, res) {
+
+    res.render('reg');
+
+    
+
+    
+});
+/*Uploads actual drink image to public/drink_images. /add-drink adds doc to DB */
 app.post('/upload-drinkimg', function(req, res) {
 
     const {drinkimg} = req.files
