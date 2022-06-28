@@ -46,6 +46,15 @@ app.get('/register', function(req, res) {
 
     
 });
+
+app.get('/login', function(req, res) {
+
+    res.render('login');
+
+    
+
+    
+});
 /*Uploads actual drink image to public/drink_images. /add-drink adds doc to DB */
 app.post('/upload-drinkimg', function(req, res) {
 
