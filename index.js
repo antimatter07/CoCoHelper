@@ -7,9 +7,13 @@
  */
 
  const express = require('express');
+ // import module `express-session`
+ const session = require('express-session');
  const app = new express();
  const mongoose = require('mongoose');
  var bodyParser = require('body-parser');
+
+ const MongoStore = require('connect-mongo');
 
  mongoose.connect('mongodb://localhost/CoCoDB',
 {useNewURLParser: true, useUnifiedTopology: true}); // Create database connection
@@ -39,8 +43,16 @@ app.set('view engine','hbs');
 
 hbs.registerPartials(__dirname + '/views/partials');
 
+// session middleware and session store
+app.use(session({ secret: 'CoCoHelper-session', 
+                'resave': false, 
+                'saveUninitialized': false,
+                store: MongoStore.create({mongoUrl: 'mongodb://localhost/CoCoDB'})
+            }));
+
 //pnumber since its unique for each customer, possibly can also use email
 //sample req: /profile/12345678
+//render profile page of user
 app.get('/profile/:pnumber', function(req, res) {
 
     //find a user with pnumber equal to parameter in get URL(:pnumber)
@@ -71,15 +83,8 @@ app.get('/profile/:pnumber', function(req, res) {
 
 });
 
-app.get('/getallusers', function(req, res) {
 
-    Customer.find({}, function(err, result) {
-        if(err)
-            console.log(err);
-        console.log(result);
-        res.redirect('/login');
-    })
-});
+//when user clicks on log in button 
 app.post('/loginuser', function(req, res) {
 
     console.log("log in POST req recieved: " + req.body.email + " " + req.body.password);
@@ -105,7 +110,7 @@ app.post('/loginuser', function(req, res) {
                     res.redirect('/profile/' + customer.pnumber);
                 } else {
                     //TODO:
-                    //if not equal, display error message or at least make field color red
+                    //if not equal, display error message thru hbs or at least make field color red
                     res.redirect("/login");
                 }
             }
