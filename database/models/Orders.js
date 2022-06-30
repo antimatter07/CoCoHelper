@@ -10,6 +10,7 @@ var OrderSchema = new mongoose.Schema({
     orderno: Number,
     orderdate: Date,
     itemname: String,
+    itemsize: String,
     quantity: Number,
     amountdue: mongoose.Types.Decimal128,
 
