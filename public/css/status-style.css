@@ -88,7 +88,7 @@ img {
 }
 
 .order-item {
-    width: 30%;
+    width: 25%;
     margin: 10px;
     background-color: #DDDDDD;
     border-radius: 10px;
@@ -98,17 +98,15 @@ img {
     padding: 20px;
 }
 
-
-.order-details img {
-    height: auto;
-    width: 10.119vw;
-    float: left;
-
+.item-quantity {
+  font-weight: bold;
 }
 
 .order-number {
     font-weight: bold;
-    display: inline-block;
+
+    font-size: 120%;
+    text-align: center;
 }
 
 .status-inprogress {
