@@ -24,6 +24,7 @@
 
  const Drink = require("./database/models/Drink");
  const Customer = require("./database/models/Customer");
+ const Orders = require("./database/models/Orders");
  const Entry = require("./database/models/Entry");
  const path = require('path');
 
@@ -312,7 +313,11 @@ app.get('/milktea', function(req, res) {
     });
 
    
-
+app.get('/status', function(req, res) {
+    db.findMany(Orders, {}, null, (data) => {
+        res.render('status', {data: data});
+    });
+});
     
 
     
