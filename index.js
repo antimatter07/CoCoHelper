@@ -51,6 +51,31 @@ app.use(session({ secret: 'CoCoHelper-session',
                 store: MongoStore.create({mongoUrl: 'mongodb://localhost/CoCoDB'})
             }));
 
+
+app.get('/cart', function(req, res) {
+
+    if(req.session.pnumber) {
+
+        //add .populate and .exec to query so that actual cart_entrires are returned and NOT jsut 
+        //object_ids of cart entries
+        Customer.findOne({pnumber: req.session.pnumber}) .populate('cart_entries') 
+        .exec(function(err,docs) {
+            if(err) {
+                console.log(err);
+            } else {
+                const cartentries = docs.cart_entries;
+                console.log("ENTRIES RETRIEVED" + cartentries);
+                res.render('cart', cartentries);
+
+            }
+        });
+
+    } else {
+        res.redirect('/login');
+    }
+
+});
+
 //when user clicks add to cart, append new cart entry to the Entrires array of customer
 app.post('/addtocart', function(req,res) {
     console.log('add to cart req recieved: ' + req.body.drinkname + req.body.price + req.body.size + req.body.sugarlevel + req.body.icelevel + "amt: " + req.body.amount);
