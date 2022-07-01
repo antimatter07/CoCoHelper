@@ -52,6 +52,26 @@ app.use(session({ secret: 'CoCoHelper-session',
             }));
 
 
+app.get('/find-drink', function(req, res) {
+
+    console.log("find drink req received" + req.query.drinkname);
+
+    Drink.findOne({drinkname: req.query.drinkname}, function(err, docs) {
+        if(err) {
+            console.log(err);
+            res.redirect('back');
+        } else {
+            console.log("drink retrieved from add-drink request: " + docs);
+            
+            //toJSON() is called to parse Decimal128 types into string
+            
+            res.status(200).send(docs.toJSON());
+        }
+
+    })
+
+});
+
 app.get('/menu', function(req, res) {
 
     //if session doesnt exist, redirect to login page

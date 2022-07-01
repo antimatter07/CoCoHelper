@@ -10,6 +10,16 @@ const DrinkSchema = new mongoose.Schema({
     
 }); // JSON format, consisting of the name: type collection
 
+//convert decimals to strings when.toJSON() is called in server side
+// this is so that client-side can display the strings properly
+DrinkSchema.set('toJSON', {
+    transform: (doc, ret) => {
+      ret.lprice = ret.lprice.toString();
+      ret.regprice = ret.regprice.toString();
+      return ret;
+    },
+  });
+
 const Drink = mongoose.model('Drink', DrinkSchema);
 
 module.exports = Drink;
