@@ -499,39 +499,47 @@ app.get('/juice', function(req, res) {
 app.get('/menu/milktea', function(req, res) {
    
     //retrieve all Drinks in db and render to menu_admin.hbs
-    Drink.find({category: 'milktea'}, 'drinkname drinkimg category', function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            console.log("Docs retrieved for milktea: ", docs);
+    if(req.session.pnumber) {
+        Drink.find({category: 'milktea'}, 'drinkname drinkimg category', function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log("Docs retrieved for milktea: ", docs);
+                
+                const milktea_drinks = docs;
+                res.render('menu',{milktea_drinks});
+                
+                
             
-            const milktea_drinks = docs;
-            res.render('menu',{milktea_drinks});
-            
-            
-           
-        }
-    });
+            }
+        });
+    } else {
+        res.redirect('/login');
+    }
 });
 
 app.get('/menu/juice', function(req, res) {
    
     //retrieve all Drinks in db and render to menu_admin.hbs
-    Drink.find({category: 'juice'}, 'drinkname drinkimg category', function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            console.log("Docs retrieved for fruit tea: ", docs);
+    if(req.session.pnumber) {
+        Drink.find({category: 'juice'}, 'drinkname drinkimg category', function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log("Docs retrieved for fruit tea: ", docs);
+                
+                const milktea_drinks= docs;
+                res.render('menu',{milktea_drinks});
             
-            const milktea_drinks= docs;
-            res.render('menu',{milktea_drinks});
-           
+                
             
-           
-        }
-    });
+            }
+        });
+    } else {
+        res.redirect('/login');
+    }
 
    
 
@@ -542,20 +550,24 @@ app.get('/menu/juice', function(req, res) {
 app.get('/menu/freshtea', function(req, res) {
    
     //retrieve all Drinks in db and render to menu_admin.hbs
-    Drink.find({category: 'freshtea'}, 'drinkname drinkimg category', function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            console.log("Docs retrieved for fruit tea: ", docs);
+    if(req.session.pnumber) {
+        Drink.find({category: 'freshtea'}, 'drinkname drinkimg category', function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log("Docs retrieved for fruit tea: ", docs);
+                
+                const milktea_drinks= docs;
+                res.render('menu',{milktea_drinks});
             
-            const milktea_drinks= docs;
-            res.render('menu',{milktea_drinks});
-           
+                
             
-           
-        }
-    });
+            }
+        });
+    } else {
+        res.redirect('/login');
+    }
 
    
 
@@ -566,20 +578,24 @@ app.get('/menu/freshtea', function(req, res) {
 app.get('/menu/fruittea', function(req, res) {
    
     //retrieve all Drinks in db and render to menu_admin.hbs
-    Drink.find({category: 'fruittea'}, 'drinkname drinkimg category', function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            console.log("Docs retrieved for fruit tea: ", docs);
+    if(req.session.pnumber) {
+        Drink.find({category: 'fruittea'}, 'drinkname drinkimg category', function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log("Docs retrieved for fruit tea: ", docs);
+                
+                const milktea_drinks= docs;
+                res.render('menu',{milktea_drinks});
             
-            const milktea_drinks= docs;
-            res.render('menu',{milktea_drinks});
-           
+                
             
-           
-        }
-    });
+            }
+        });
+    } else {
+        res.redirect('/login');
+    }
 
    
 
@@ -590,20 +606,24 @@ app.get('/menu/fruittea', function(req, res) {
 app.get('/menu/coffee', function(req, res) {
    
     //retrieve all Drinks in db and render to menu_admin.hbs
-    Drink.find({category: 'coffee'}, 'drinkname drinkimg category', function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            console.log("Docs retrieved for fruit tea: ", docs);
+    if(req.session.pnumber) {
+        Drink.find({category: 'coffee'}, 'drinkname drinkimg category', function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log("Docs retrieved for fruit tea: ", docs);
+                
+                const milktea_drinks= docs;
+                res.render('menu',{milktea_drinks});
             
-            const milktea_drinks= docs;
-            res.render('menu',{milktea_drinks});
-           
+                
             
-           
-        }
-    });
+            }
+        });
+    } else {
+        res.redirect('/login');
+    }
 
    
 
@@ -614,20 +634,24 @@ app.get('/menu/coffee', function(req, res) {
 app.get('/menu/slush', function(req, res) {
    
     //retrieve all Drinks in db and render to menu_admin.hbs
-    Drink.find({category: 'slush'}, 'drinkname drinkimg category', function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            console.log("Docs retrieved for fruit tea: ", docs);
+    if(req.session.pnumber) {
+        Drink.find({category: 'slush'}, 'drinkname drinkimg category', function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log("Docs retrieved for fruit tea: ", docs);
+                
+                const milktea_drinks= docs;
+                res.render('menu',{milktea_drinks});
             
-            const milktea_drinks= docs;
-            res.render('menu',{milktea_drinks});
-           
+                
             
-           
-        }
-    });
+            }
+        });
+    } else {
+        res.redirect('/login');
+    }
 
    
 
@@ -638,20 +662,22 @@ app.get('/menu/slush', function(req, res) {
 app.get('/menu/choco', function(req, res) {
    
     //retrieve all Drinks in db and render to menu_admin.hbs
-    Drink.find({category: 'choco'}, 'drinkname drinkimg category', function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            console.log("Docs retrieved for fruit tea: ", docs);
+    if(req.session.pnumber) {
+        Drink.find({category: 'choco'}, 'drinkname drinkimg category', function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log("Docs retrieved for fruit tea: ", docs);
+                
+                const milktea_drinks= docs;
+                res.render('menu',{milktea_drinks});
             
-            const milktea_drinks= docs;
-            res.render('menu',{milktea_drinks});
-           
+                
             
-           
-        }
-    });
+            }
+        });
+    } else res.redirect('/login');
 
    
 
