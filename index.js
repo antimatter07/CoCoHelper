@@ -99,6 +99,16 @@ app.post('/addtocart', function(req,res) {
 
     });
 
+    Drink.findOne({drinkname: req.body.drinkname}, function(err, docs) {
+        if(err) {
+            console.log(err)
+        } else {
+            newEntry.drinkimg = docs.drinkimg;
+        }
+
+    });
+   
+
     //save New entry in DB
     newEntry.save(function(err) {
         if(err) {
