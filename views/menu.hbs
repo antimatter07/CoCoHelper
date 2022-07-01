@@ -44,9 +44,9 @@
 
             <label for="icelevel">Ice Level:</label>
             <select name="icelevel" id="icelevel">
-              <option value="moreice">More Ice</option>
-              <option value="normalice">Normal Ice</option>
-              <option value="lessice">Less Ice</option>
+              <option value="more">More Ice</option>
+              <option value="normal">Normal Ice</option>
+              <option value="less">Less Ice</option>
               <option value="none">Cold But No Ice</option>
              
               
@@ -55,7 +55,7 @@
             <hr>
             <text id="edit-pricetext">Price:</text>
             <text id = "edit-price">PHP 100.00</text>
-            <input type="submit" value="Add To Cart">
+            <input id ='addtocart-button' type="submit" value="Add To Cart">
           </form>
 
     </div>
@@ -149,6 +149,7 @@
 
     <script>
     $(document).ready(function() {
+        var cur_drink;
         
         //use URL to determine which menu category should be orange
 
@@ -222,6 +223,8 @@
                 var header = document.getElementById('drinkname-header');
                 var price = document.getElementById('edit-price');
 
+                cur_drink = result;
+
                 header.innerHTML = result.drinkname;
                 price.innerHTML = "PHP" + result.regprice + ".00 / PHP" + result.lprice +".00";
 
@@ -251,6 +254,48 @@
 
 
          });
+
+        $('#addtocart-button').click(function() {
+            var drink;
+            var entry;
+            var sugarselect = document.getElementById('sugarlevel');
+            var iceselect = document.getElementById('icelevel');
+            var sizeselect = document.getElementById('size');
+            var price;
+            //sugarlevel,icelvel,size
+
+            var sugarlevel = sugarselect.options[sugarselect.selectedIndex].value;
+            var icelevel = iceselect.options[iceselect.selectedIndex].value;
+            var size = sizeselect.options[sizeselect.selectedIndex].value;
+            
+            
+            if(size == 'regular') {
+                price = cur_drink.regprice;
+            } else {
+                price = cur_drink.lprice;
+            }
+
+            
+
+            entry = {
+                drinkname: cur_drink.drinkname,
+                sugarlevel : sugarlevel,
+                icelevel : icelevel,
+                size : size,
+                amount : 1,
+                price: price
+
+
+
+            };
+            
+            
+            $.post('/addtocart', entry,  function(result, status) {
+
+            });
+            
+
+        });
 
       
 

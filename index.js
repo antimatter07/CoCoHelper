@@ -51,10 +51,16 @@ app.use(session({ secret: 'CoCoHelper-session',
                 store: MongoStore.create({mongoUrl: 'mongodb://localhost/CoCoDB'})
             }));
 
+app.post('/addtocart', function(req,res) {
+    console.log('add to cart req recieved: ' + req.body.drinkname + req.body.price + req.body.size);
+    res.redirect('back');
 
-app.get('/find-drink', function(req, res) {
+});
 
-    console.log("find drink req received" + req.query.drinkname);
+//returns NOT jsonified drink object
+app.get('/find-drink-object', function(req, res) {
+
+    console.log("find drink OBJECT (return non json) req received" + req.query.drinkname);
 
     Drink.findOne({drinkname: req.query.drinkname}, function(err, docs) {
         if(err) {
@@ -64,7 +70,28 @@ app.get('/find-drink', function(req, res) {
             console.log("drink retrieved from add-drink request: " + docs);
             
             //toJSON() is called to parse Decimal128 types into string
+
+            res.status(200).send(docs);
+        }
+
+    })
+
+});
+
+//when cart-icon of a drink in menu is clicked, return data about that specific drink to client
+app.get('/find-drink', function(req, res) {
+
+    console.log("find drink req received" + req.query.drinkname);
+
+    Drink.findOne({drinkname: req.query.drinkname}, function(err, docs) {
+        if(err) {
+            console.log(err);
+            res.redirect('back');
+        } else {
+            console.log("drink retrieved from find-drink request: " + docs);
             
+            //toJSON() is called to parse Decimal128 types into string
+
             res.status(200).send(docs.toJSON());
         }
 
