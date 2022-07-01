@@ -21,80 +21,14 @@
     
     <h id="sc-header">Your shopping cart includes: </h>
 
-    <div class="product">
-        <img src="images/pandamilktea.png" class = "product-photo">
+    {{#each cartentries}}
+            {{>cartentry drinkimg=drinkimg drinkname=drinkname size=size price=price amount=amount}}
 
-        <p class="p-name">Panda Milk Tea <strong class = "price">PHP 90.00</strong></p>
-        <text class ="size">Regular </text>
+    {{/each}}
 
-        <a class="edit">Edit</a><br><a class="remove">Remove</a>
-        <a class="request">Request</a>
-
-        <img class = "minus" src="images/minus.png">
-            <text class="amt">1</text>
-            <img class = "plus" src="images/plus.png">
-
-    </div>
     
-    <div class="product">
-        <img src="images/lemonblacktea.png" class = "product-photo">
 
-        <p class="p-name">Lemon Black Tea<strong class = "price">PHP 90.00</strong></p>
-        <text class ="size">Regular </text>
-
-        <a class="edit">Edit</a><br><a class="remove">Remove</a>
-        <a class="request">Request</a>
-
-        <img class = "minus" src="images/minus.png">
-            <text class="amt">1</text>
-            <img class = "plus" src="images/plus.png">
-
-    </div>
-
-    <div class="product">
-        <img src="images/pandamilktea.png" class = "product-photo">
-
-        <p class="p-name">Panda Milk Tea<strong class = "price">PHP 100.00</strong></p>
-        <text class ="size">Large </text>
-
-        <a class="edit">Edit</a><br><a class="remove">Remove</a>
-        <a class="request">Request</a>
-
-        <img class = "minus" src="images/minus.png">
-            <text class="amt">1</text>
-            <img class = "plus" src="images/plus.png">
-
-    </div>
-
-    <div class="product">
-        <img src="images/whitepearlmt.png" class = "product-photo">
-
-        <p class="p-name">White Pearl Milk Tea<strong class = "price">PHP 110.00</strong></p>
-        <text class ="size">Large </text>
-
-        <a class="edit">Edit</a><br><a class="remove">Remove</a>
-        <a class="request">Request</a>
-
-        <img class = "minus" src="images/minus.png">
-            <text class="amt">1</text>
-            <img class = "plus" src="images/plus.png">
-
-    </div>
-
-    <div class="product">
-        <img src="images/grassjellymt.png" class = "product-photo">
-
-        <p class="p-name">Grass Jelly Milk Tea<strong class = "price">PHP 120.00</strong></p>
-        <text class ="size">Large </text>
-
-        <a class="edit">Edit</a><br><a class="remove">Remove</a>
-        <a class="request">Request</a>
-
-        <img class = "minus" src="images/minus.png">
-            <text class="amt">1</text>
-            <img class = "plus" src="images/plus.png">
-
-    </div>
+    
 
     <div id ="checkout">
         <text id="total">Total</text>

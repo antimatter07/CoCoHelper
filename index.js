@@ -65,7 +65,7 @@ app.get('/cart', function(req, res) {
             } else {
                 const cartentries = docs.cart_entries;
                 console.log("ENTRIES RETRIEVED" + cartentries);
-                res.render('cart', cartentries);
+                res.render('cart', {cartentries});
 
             }
         });
@@ -94,19 +94,13 @@ app.post('/addtocart', function(req,res) {
         icelevel : req.body.icelevel,
         size :  req.body.size,
         amount : req.body.amount,
-        price: req.body.price
+        price: req.body.price,
+        drinkimg : req.body.drinkimg
 
 
     });
 
-    Drink.findOne({drinkname: req.body.drinkname}, function(err, docs) {
-        if(err) {
-            console.log(err)
-        } else {
-            newEntry.drinkimg = docs.drinkimg;
-        }
-
-    });
+   
    
 
     //save New entry in DB
