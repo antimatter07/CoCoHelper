@@ -65,7 +65,7 @@ app.get('/cart', function(req, res) {
             } else {
                 const cartentries = docs.cart_entries;
                 console.log("ENTRIES RETRIEVED" + cartentries);
-                res.render('cart', cartentries);
+                res.render('cart', {cartentries});
 
             }
         });
@@ -94,10 +94,14 @@ app.post('/addtocart', function(req,res) {
         icelevel : req.body.icelevel,
         size :  req.body.size,
         amount : req.body.amount,
-        price: req.body.price
+        price: req.body.price,
+        drinkimg : req.body.drinkimg
 
 
     });
+
+   
+   
 
     //save New entry in DB
     newEntry.save(function(err) {

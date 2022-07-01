@@ -7,6 +7,10 @@ const EntrySchema = new mongoose.Schema({
      
     },
 
+    drinkimg: {
+        type: String
+    },
+
     size: {
         type: String,
         enum: ['regular', 'large']
