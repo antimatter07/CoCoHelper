@@ -17,6 +17,49 @@
         {{>topnavbaruser}}
     </div>
 
+     <div id ="edit-popup">
+        <h1 id="drinkname-header"> </h1>
+        
+        <form id = "editform">
+            <hr>
+
+            <label for="size">Size:</label>
+            <select name="size" id="size">
+              <option value="regular">Regular</option>
+              <option value="large">Large</option>
+              
+            </select>
+            <br><br>
+            <label for="sugarlevel">Sugar Level:</label>
+            <select name="sugarlevel" id="sugarlevel">
+              <option value="1.2">1.2</option>
+              <option value="1">1</option>
+              <option value="0.7">0.7</option>
+              <option value="0.5">0.5</option>
+              <option value="0.3">0.3</option>
+              <option value="0">0</option>
+              
+            </select>
+            <br><br>
+
+            <label for="icelevel">Ice Level:</label>
+            <select name="icelevel" id="icelevel">
+              <option value="moreice">More Ice</option>
+              <option value="normalice">Normal Ice</option>
+              <option value="lessice">Less Ice</option>
+              <option value="none">Cold But No Ice</option>
+             
+              
+            </select>
+
+            <hr>
+            <text id="edit-pricetext">Price:</text>
+            <text id = "edit-price">PHP 100.00</text>
+            <input type="submit" value="Add To Cart">
+          </form>
+
+    </div>
+
     <div id="favorites-page" class = "category">
         <div class = "product">
             <img src="images/pandamilktea.png" class = "product-photo">
@@ -152,6 +195,62 @@
             $("#milk-tea-text").css("color", "#F07F19");
 
         }
+
+        // event handler for when a cart-icon of a drink is clicked
+        $('.product').on('click', '.cart-icon', function () {
+
+             /*Dim the background  */
+            var dimbg = document.createElement('div');
+            var navholder = document.querySelector("#nav-holder");
+            
+
+            dimbg.setAttribute('class', 'dim-bg');
+            
+            navholder.insertAdjacentElement('beforebegin',dimbg);
+
+            //get drinkname (each drinkname HAS to be unique, add it to form validation later)
+            var prevsib = this.previousElementSibling;
+            //p containing drinkname
+            var drinkname_p = prevsib.previousElementSibling;
+            //inner HTML of p contains drinkname
+            var drinkname = drinkname_p.innerHTML;
+            
+
+            //make drinkname accessible from req.query
+            $.get("/find-drink",{drinkname:drinkname},function(result, status) {
+                console.log("DATA recieveed from find-drink req to server in client: " + result);
+                var header = document.getElementById('drinkname-header');
+                var price = document.getElementById('edit-price');
+
+                header.innerHTML = result.drinkname;
+                price.innerHTML = "PHP" + result.regprice + ".00 / PHP" + result.lprice +".00";
+
+            });
+
+            /*Show edit drink form */
+            $("#edit-popup").css('display','block');
+
+            
+
+            //div of product, to delete when del button is clicked
+            //cur_productdiv = this.parentElement;
+
+            
+
+
+            //drinkname global var
+            //drinkname_edit = nextsib.nextElementSibling.innerHTML;
+
+            
+
+
+            
+
+
+
+
+
+         });
 
       
 

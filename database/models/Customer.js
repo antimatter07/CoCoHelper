@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const CustomerSchema = new mongoose.Schema({
+  
     firstname: {
         type: String,
         required: true
@@ -75,13 +76,15 @@ const CustomerSchema = new mongoose.Schema({
         type:  mongoose.Schema.Types.ObjectId,
         ref: 'Entry'
 
-    }]
+    }],
 
 
 
 
 
 });
+
+CustomerSchema.virtual('')
 
 const Customer = mongoose.model('Customer', CustomerSchema);
 
