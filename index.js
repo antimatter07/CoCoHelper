@@ -51,9 +51,57 @@ app.use(session({ secret: 'CoCoHelper-session',
                 store: MongoStore.create({mongoUrl: 'mongodb://localhost/CoCoDB'})
             }));
 
+//when user clicks add to cart, append new cart entry to the Entrires array of customer
 app.post('/addtocart', function(req,res) {
-    console.log('add to cart req recieved: ' + req.body.drinkname + req.body.price + req.body.size);
-    res.redirect('back');
+    console.log('add to cart req recieved: ' + req.body.drinkname + req.body.price + req.body.size + req.body.sugarlevel + req.body.icelevel + "amt: " + req.body.amount);
+    
+
+    
+    //make new Entry and append to array of Entries of curr Customer
+    const newEntry = new Entry({
+
+        //_id determines Mongoose data type
+        _id : new mongoose.Types.ObjectId(),
+
+
+        drinkname: req.body.drinkname,
+        sugarlevel : req.body.sugarlevel,
+        icelevel : req.body.icelevel,
+        size :  req.body.size,
+        amount : req.body.amount,
+        price: req.body.price
+
+
+    });
+
+    //save New entry in DB
+    newEntry.save(function(err) {
+        if(err) {
+            console.log(err);
+            res.send(400, 'Bad Request');
+        } else {
+            console.log("new netry made: " +newEntry);
+            
+        }
+    })
+
+    
+
+    //push ._id of new Entry, only used ._id for other Mongoose documents
+    //link reference of newEntr to customer
+    Customer.findOneAndUpdate({pnumber: req.session.pnumber}, {$push:{cart_entries: newEntry._id}},  function(err, docs) {
+
+        if(err) {
+            console.log(err);
+        } else {
+            console.log("retrieved customer to add entry to: " + docs)
+            res.redirect('back');
+
+
+        }
+    });
+    
+    //res.redirect('back');
 
 });
 
