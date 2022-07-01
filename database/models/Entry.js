@@ -2,15 +2,14 @@ const mongoose = require('mongoose');
 //model for an entry in the shopping cart
 
 const EntrySchema = new mongoose.Schema({
-    drink: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Drink'
+    drinkname: {
+        type: String
      
     },
 
     size: {
         type: String,
-        enum: ['Regular', 'Large']
+        enum: ['regular', 'large']
     },
     
     request: {
@@ -28,7 +27,7 @@ const EntrySchema = new mongoose.Schema({
     },
 
     sugarlevel : {
-        type: mongoose.Types.Decimal128,
+        type: String
         
     },
 

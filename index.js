@@ -52,9 +52,88 @@ app.use(session({ secret: 'CoCoHelper-session',
             }));
 
 
-app.get('/find-drink', function(req, res) {
+app.get('/cart', function(req, res) {
 
-    console.log("find drink req received" + req.query.drinkname);
+    if(req.session.pnumber) {
+
+        //add .populate and .exec to query so that actual cart_entrires are returned and NOT jsut 
+        //object_ids of cart entries
+        Customer.findOne({pnumber: req.session.pnumber}) .populate('cart_entries') 
+        .exec(function(err,docs) {
+            if(err) {
+                console.log(err);
+            } else {
+                const cartentries = docs.cart_entries;
+                console.log("ENTRIES RETRIEVED" + cartentries);
+                res.render('cart', cartentries);
+
+            }
+        });
+
+    } else {
+        res.redirect('/login');
+    }
+
+});
+
+//when user clicks add to cart, append new cart entry to the Entrires array of customer
+app.post('/addtocart', function(req,res) {
+    console.log('add to cart req recieved: ' + req.body.drinkname + req.body.price + req.body.size + req.body.sugarlevel + req.body.icelevel + "amt: " + req.body.amount);
+    
+
+    
+    //make new Entry and append to array of Entries of curr Customer
+    const newEntry = new Entry({
+
+        //_id determines Mongoose data type
+        _id : new mongoose.Types.ObjectId(),
+
+
+        drinkname: req.body.drinkname,
+        sugarlevel : req.body.sugarlevel,
+        icelevel : req.body.icelevel,
+        size :  req.body.size,
+        amount : req.body.amount,
+        price: req.body.price
+
+
+    });
+
+    //save New entry in DB
+    newEntry.save(function(err) {
+        if(err) {
+            console.log(err);
+            res.send(400, 'Bad Request');
+        } else {
+            console.log("new netry made: " +newEntry);
+            
+        }
+    })
+
+    
+
+    //push ._id of new Entry, only used ._id for other Mongoose documents
+    //link reference of newEntr to customer
+    Customer.findOneAndUpdate({pnumber: req.session.pnumber}, {$push:{cart_entries: newEntry._id}},  function(err, docs) {
+
+        if(err) {
+            console.log(err);
+        } else {
+            console.log("retrieved customer to add entry to: " + docs)
+            res.redirect('back');
+
+
+        }
+    });
+    
+    //res.redirect('back');
+
+});
+
+//returns NOT jsonified drink object
+app.get('/find-drink-object', function(req, res) {
+
+    console.log("find drink OBJECT (return non json) req received" + req.query.drinkname);
 
     Drink.findOne({drinkname: req.query.drinkname}, function(err, docs) {
         if(err) {
@@ -64,7 +143,28 @@ app.get('/find-drink', function(req, res) {
             console.log("drink retrieved from add-drink request: " + docs);
             
             //toJSON() is called to parse Decimal128 types into string
+
+            res.status(200).send(docs);
+        }
+
+    })
+
+});
+
+//when cart-icon of a drink in menu is clicked, return data about that specific drink to client
+app.get('/find-drink', function(req, res) {
+
+    console.log("find drink req received" + req.query.drinkname);
+
+    Drink.findOne({drinkname: req.query.drinkname}, function(err, docs) {
+        if(err) {
+            console.log(err);
+            res.redirect('back');
+        } else {
+            console.log("drink retrieved from find-drink request: " + docs);
             
+            //toJSON() is called to parse Decimal128 types into string
+
             res.status(200).send(docs.toJSON());
         }
 
