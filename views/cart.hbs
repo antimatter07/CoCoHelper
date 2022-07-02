@@ -12,18 +12,27 @@
 </head>
 
 <body>
-    <!--For some reason, CSS br -->
-    <div id = "nav-holder">
-        {{>topnavbaruser}}
-    </div>
-    
+    <!--CSS conflict with topnavbar partial, so cant use partial -->
+      <div id = "topnavbar">
+        <div id = "logo">
+            <img src="../images/cocologo.jpg">
+        </div>
+
+        <div class="topnav">
+            <a href ='/menu' id="menu-tab">Menu</a>
+            <a href ='/favorites' id="favorites-tab">Favorites</a>
+            <a href = '/cart'>Shopping Cart</a>
+            <a href="/status">Status</a>
+            <a href ='/profile' id="profile-tab">Profile</a>
+        </div>
+</div>
     
 
     
     <h id="sc-header">Your shopping cart includes: </h>
 
     {{#each cartentries}}
-            {{>cartentry drinkimg=drinkimg drinkname=drinkname size=size price=price amount=amount}}
+            {{>cartentry drinkimg=drinkimg drinkname=drinkname size=size price=price amount=amount id=id sugarlevel=sugarlevel icelevel=icelevel}}
 
     {{/each}}
 
@@ -52,8 +61,36 @@
 
     
 <script>
-    /*
+    
     $(document).ready(function() {
+    
+    // event handler for when remove is clicked
+    $('.product').on('click', '.remove', function () {
+        var entryToDelete = this.parentElement;
+
+        var drinkname = entryToDelete.children[1].innerHTML;
+        var size = entryToDelete.children[3].innerHTML.replace("Size: ", "");
+        var sugarlevel = entryToDelete.children[5].innerHTML.replace("Sugar Level: ", "");
+        var icelevel = entryToDelete.children[7].innerHTML.replace("Ice Level: ", "");
+
+        var amount = entryToDelete.children[14].innerHTML;
+
+        var entry = {
+            drinkname: drinkname,
+            size: size,
+            sugarlevel: sugarlevel,
+            icelevel: icelevel,
+            amount: amount
+
+        }
+
+        $.get('/delete-entry', entry);
+        entryToDelete.parentElement.removeChild(entryToDelete);
+
+
+    });
+
+
     $(".plus").click(function (e) { 
         var qty = parseInt(document.getElementsByClassName('amt')[0].innerHTML,10);
         console.log(qty);
@@ -76,7 +113,7 @@
 
 
 });
-*/
+
 </script>
 
 </body>
