@@ -372,6 +372,14 @@ app.get('/status', function(req, res) {
     // });
 });
 
+//Favorites View
+app.get('/favorites', function(req, res) {
+    res.render('favorites');
+    // db.findMany(Orders, {}, null, (data) => {
+    //     res.render('status', {data: data});
+    // });
+});
+
 //render register page
 app.get('/register', function(req, res) {
 
