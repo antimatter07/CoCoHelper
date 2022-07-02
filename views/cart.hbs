@@ -42,9 +42,9 @@
 
     <div id ="checkout">
         <text id="total">Total</text>
-        <text id = "total-amt">PHP 550.00</text>
+        <text id = "total-amt">PHP 00.00</text>
         <br>
-        <text id="itemcount">5 items</text><br>
+        <text id="itemcount">0 items</text><br>
         <button type="button" id="checkout-button">Checkout</button>
     </div>
 
@@ -61,12 +61,51 @@
 
     
 <script>
+
+    //resdisplay total items and total amount to pay shown
+    function refreshpage(){
+        var total = document.getElementById('itemcount');
+        var amounts = document.getElementsByClassName('amt');
+        var totalnum = 0;
+        var j;
+
+        for(j = 0; j < amounts.length; j++) {
+
+            totalnum += parseInt(amounts[j].innerHTML, 10);
+
+        }
+
+        total.innerHTML = "" + totalnum + " Items" ;
+
+        var drinkprices = document.getElementsByClassName('price');
+        var totalamountcontainer =  document.getElementById('total-amt');
+
+        var i;
+        var totalAmount = 0;
+
+
+        for(i = 0; i < drinkprices.length; i++) {
+            
+            totalAmount += parseInt(drinkprices[i].innerHTML.replace("PHP ", ""));
+        }
+
+        totalamountcontainer.innerHTML = "PHP " + totalAmount + ".00";
+
+
+
+
+
+    }
     
     $(document).ready(function() {
+
     
+
+    refreshpage();
     // event handler for when remove is clicked
     $('.product').on('click', '.remove', function () {
         var entryToDelete = this.parentElement;
+        
 
         var drinkname = entryToDelete.children[1].innerHTML;
         var size = entryToDelete.children[3].innerHTML.replace("Size: ", "");
@@ -86,6 +125,7 @@
 
         $.get('/delete-entry', entry);
         entryToDelete.parentElement.removeChild(entryToDelete);
+        refreshpage();
 
 
     });
