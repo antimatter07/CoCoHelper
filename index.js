@@ -364,6 +364,14 @@ app.post('/registeruser', function(req,res) {
 
 });
 
+//Render Status View
+app.get('/status', function(req, res) {
+    res.render('status');
+    // db.findMany(Orders, {}, null, (data) => {
+    //     res.render('status', {data: data});
+    // });
+});
+
 //render register page
 app.get('/register', function(req, res) {
 
@@ -507,18 +515,6 @@ app.get('/milktea', function(req, res) {
            
         }
     });
-
-   
-app.get('/status', function(req, res) {
-    db.findMany(Orders, {}, null, (data) => {
-        res.render('status', {data: data});
-    });
-});
-    
-
-    
-   
-    
    
 });
 
