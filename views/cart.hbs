@@ -12,18 +12,27 @@
 </head>
 
 <body>
-    <!--For some reason, CSS br -->
-    <div id = "nav-holder">
-        {{>topnavbaruser}}
-    </div>
-    
+    <!--CSS conflict with topnavbar partial, so cant use partial -->
+      <div id = "topnavbar">
+        <div id = "logo">
+            <img src="../images/cocologo.jpg">
+        </div>
+
+        <div class="topnav">
+            <a href ='/menu' id="menu-tab">Menu</a>
+            <a href ='/favorites' id="favorites-tab">Favorites</a>
+            <a href = '/cart'>Shopping Cart</a>
+            <a href="/status">Status</a>
+            <a href ='/profile' id="profile-tab">Profile</a>
+        </div>
+</div>
     
 
     
     <h id="sc-header">Your shopping cart includes: </h>
 
     {{#each cartentries}}
-            {{>cartentry drinkimg=drinkimg drinkname=drinkname size=size price=price amount=amount}}
+            {{>cartentry drinkimg=drinkimg drinkname=drinkname size=size price=price amount=amount id=id sugarlevel=sugarlevel icelevel=icelevel}}
 
     {{/each}}
 
