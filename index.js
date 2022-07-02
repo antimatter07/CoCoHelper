@@ -51,6 +51,50 @@ app.use(session({ secret: 'CoCoHelper-session',
                 store: MongoStore.create({mongoUrl: 'mongodb://localhost/CoCoDB'})
             }));
 
+//request to delete cart entry from DB
+app.get('/delete-entry', function(req, res) {
+
+    console.log('delete entry recieved:' + req.query.drinkname);
+
+    console.log(req.query.size);
+    console.log(req.query.sugarlevel);
+    console.log(req.query.icelevel);
+    console.log(req.query.amount);
+
+    console.log('sessioN: ' + req.session.pnumber);
+    console.log("**QUERY DRINKNAME:" + req.query.drinkname +"****");
+    
+    var query = {
+        drinkname: req.query.drinkname,
+        size: req.query.size,
+        sugarlevel: req.query.sugarlevel,
+        icelevel: req.query.icelevel,
+        amount: req.query.amount,
+        pnumber: req.session.pnumber
+    }
+    if(req.session.pnumber) {
+
+        //pull to DELETE specific entry from entry array of customer
+        /*
+        this does not work
+        Customer.updateOne({pnumber: req.session.pnumber}, {
+            $pull: {
+
+            cart_entries: {drinkname: req.query.drinkname}}});
+            */
+
+        Entry.findOneAndDelete(query, function(err, docs) {
+            console.log('entry deleted' + docs)
+        });
+
+
+    } else {
+        res.redirect('back');
+    }
+
+});
+
+
 
 app.get('/cart', function(req, res) {
 
@@ -95,7 +139,8 @@ app.post('/addtocart', function(req,res) {
         size :  req.body.size,
         amount : req.body.amount,
         price: req.body.price,
-        drinkimg : req.body.drinkimg
+        drinkimg : req.body.drinkimg,
+        pnumber: req.session.pnumber
 
 
     });
@@ -104,6 +149,7 @@ app.post('/addtocart', function(req,res) {
    
 
     //save New entry in DB
+    
     newEntry.save(function(err) {
         if(err) {
             console.log(err);
@@ -113,6 +159,7 @@ app.post('/addtocart', function(req,res) {
             
         }
     })
+    
 
     
 

@@ -61,8 +61,36 @@
 
     
 <script>
-    /*
+    
     $(document).ready(function() {
+    
+    // event handler for when remove is clicked
+    $('.product').on('click', '.remove', function () {
+        var entryToDelete = this.parentElement;
+
+        var drinkname = entryToDelete.children[1].innerHTML;
+        var size = entryToDelete.children[3].innerHTML.replace("Size: ", "");
+        var sugarlevel = entryToDelete.children[5].innerHTML.replace("Sugar Level: ", "");
+        var icelevel = entryToDelete.children[7].innerHTML.replace("Ice Level: ", "");
+
+        var amount = entryToDelete.children[14].innerHTML;
+
+        var entry = {
+            drinkname: drinkname,
+            size: size,
+            sugarlevel: sugarlevel,
+            icelevel: icelevel,
+            amount: amount
+
+        }
+
+        $.get('/delete-entry', entry);
+        entryToDelete.parentElement.removeChild(entryToDelete);
+
+
+    });
+
+
     $(".plus").click(function (e) { 
         var qty = parseInt(document.getElementsByClassName('amt')[0].innerHTML,10);
         console.log(qty);
@@ -85,7 +113,7 @@
 
 
 });
-*/
+
 </script>
 
 </body>

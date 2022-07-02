@@ -2,7 +2,15 @@ const mongoose = require('mongoose');
 //model for an entry in the shopping cart
 
 const EntrySchema = new mongoose.Schema({
-    
+    //as relation to customer
+    //need to resort to hav pnumber for each entry because
+    //$pull wont work and idk why
+    pnumber: {
+        type: Number,
+        required: true
+        
+    },
+
     drinkname: {
         type: String
      
@@ -50,11 +58,7 @@ const EntrySchema = new mongoose.Schema({
 ); // JSON format, consisting of the name: type collection
 
 
-//when a doc is made, automaticall make object ID a field in the docu as well
-//needed for deletion, updating in Shopping Cart page
-EntrySchema.virtual('id', {
-    id: this.id
-});
+
 
 const Entry = mongoose.model('Entry', EntrySchema);
 
