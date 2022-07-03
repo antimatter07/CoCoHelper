@@ -495,9 +495,11 @@ app.post('/loginuser', function(req, res) {
                        
                         res.redirect('/profile/' + customer.pnumber);
                     } else {
+
+                        
                         //TODO:
                         //if not equal, display error message thru hbs or at least make field color red
-                        res.redirect("/login");
+                        res.render("login", {error: 'Incorrect password.'});
                     }
 
                 })
@@ -505,7 +507,7 @@ app.post('/loginuser', function(req, res) {
                 
             }
             else {
-                res.redirect('/login');
+                res.render('login', {error: 'Incorrect email and/or password.'});
             }
 
 
