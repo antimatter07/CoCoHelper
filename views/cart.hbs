@@ -63,6 +63,8 @@
 <script>
 
     //resdisplay total items and total amount to pay shown
+    
+
     function refreshpage(){
         var total = document.getElementById('itemcount');
         var amounts = document.getElementsByClassName('amt');
@@ -99,9 +101,14 @@
     
     $(document).ready(function() {
 
-    
+
+    var entry;
+    var entryfound;
+    var cur_drink;
+
 
     refreshpage();
+
     // event handler for when remove is clicked
     $('.product').on('click', '.remove', function () {
         var entryToDelete = this.parentElement;
@@ -131,25 +138,180 @@
     });
 
 
-    $(".plus").click(function (e) { 
-        var qty = parseInt(document.getElementsByClassName('amt')[0].innerHTML,10);
-        console.log(qty);
-        qty++;
-        $(".amt").html(qty);
+    $('.product').on('click', '.remove', function () {
+        var entryToDelete = this.parentElement;
+        
 
-        
-        
+        var drinkname = entryToDelete.children[1].innerHTML;
+        var size = entryToDelete.children[3].innerHTML.replace("Size: ", "");
+        var sugarlevel = entryToDelete.children[5].innerHTML.replace("Sugar Level: ", "");
+        var icelevel = entryToDelete.children[7].innerHTML.replace("Ice Level: ", "");
+
+        var amount = entryToDelete.children[14].innerHTML;
+
+        var entry = {
+            drinkname: drinkname,
+            size: size,
+            sugarlevel: sugarlevel,
+            icelevel: icelevel,
+            amount: amount
+
+        }
+
+        $.get('/delete-entry', entry);
+        entryToDelete.parentElement.removeChild(entryToDelete);
+        refreshpage();
+
+
     });
 
-    $(".minus").click(function (e) { 
-        var qty = parseInt(document.getElementsByClassName('amt')[0].innerHTML,10);
-        console.log(qty);
+    $('.product').on('click', '.plus', function () {
 
-        if(qty >= 2)
-            qty--;
-        $(".amt").html(qty);
+        //set async to false, since we dont want .get requests to
+        //happen at the same time
+        jQuery.ajaxSetup({async:false});
+
+        entry = this.parentElement;
         
+
+        var drinkname = entry.children[1].innerHTML;
+        var size = entry.children[3].innerHTML.replace("Size: ", "");
+        var sugarlevel = entry.children[5].innerHTML.replace("Sugar Level: ", "");
+        var icelevel = entry.children[7].innerHTML.replace("Ice Level: ", "");
+
+        var price = entry.children[2].innerHTML.replace("PHP ", "");
+        var newprice;
+        var amount = entry.children[14].innerHTML;
+        var amountinc = parseInt(amount, 10) + 1;
+        
+        
+        $.get('/find-drink', {
+            drinkname: drinkname
+        }, function(result, status) {
+            cur_drink = result;
+        })
+
+        if(size == 'regular') {
+            newprice = (parseInt(cur_drink.regprice) + parseInt(price));
+        } else {
+            newprice = (parseInt(cur_drink.lprice) + parseInt(price));
+        }
+        
+        $.get('/find-entry', {
+            drinkname: drinkname,
+            size: size,
+            sugarlevel: sugarlevel,
+            icelevel: icelevel,
+            amount: amount,
+            newamount: amountinc,
+            newprice: newprice}, 
+            
+            function(result, status) {
+            
+            
+            
+            entryfound = result;
+          
+
+            
+            
+
+        });
+
+
+        
+        
+        entry.children[14].innerHTML = amountinc;
+        
+        
+        entry.children[2].innerHTML = "PHP " + newprice;
+        
+       
+
+        
+        
+        refreshpage();
+
+        //set back to asynchronous
+        jQuery.ajaxSetup({async:true});
+
     });
+
+
+    $('.product').on('click', '.minus', function () {
+
+        //set async to false, since we dont want .get requests to
+        //happen at the same time
+        jQuery.ajaxSetup({async:false});
+
+        entry = this.parentElement;
+        
+
+        var drinkname = entry.children[1].innerHTML;
+        var size = entry.children[3].innerHTML.replace("Size: ", "");
+        var sugarlevel = entry.children[5].innerHTML.replace("Sugar Level: ", "");
+        var icelevel = entry.children[7].innerHTML.replace("Ice Level: ", "");
+
+        var price = entry.children[2].innerHTML.replace("PHP ", "");
+        var newprice;
+        var amount = entry.children[14].innerHTML;
+        if(parseInt(amount, 10) >= 2) {
+            var amountinc = parseInt(amount, 10) - 1;
+            
+            
+            $.get('/find-drink', {
+                drinkname: drinkname
+            }, function(result, status) {
+                cur_drink = result;
+            })
+
+            if(size == 'regular') {
+                newprice = (parseInt(price) - parseInt(cur_drink.regprice));
+            } else {
+                newprice = (parseInt(price) - parseInt(cur_drink.lprice));
+            }
+            
+            $.get('/find-entry', {
+                drinkname: drinkname,
+                size: size,
+                sugarlevel: sugarlevel,
+                icelevel: icelevel,
+                amount: amount,
+                newamount: amountinc,
+                newprice: newprice}, 
+                
+                function(result, status) {
+                
+                
+                
+                entryfound = result;
+            
+
+                
+                
+
+            });
+
+
+            
+            
+            entry.children[14].innerHTML = amountinc;
+            
+            
+            entry.children[2].innerHTML = "PHP " + newprice;
+            
+        
+
+            
+            
+            refreshpage();
+        }
+
+        //set back to asynchronous
+        jQuery.ajaxSetup({async:true});
+
+    });
+    
 
 
 });

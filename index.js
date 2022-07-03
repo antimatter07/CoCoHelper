@@ -94,6 +94,105 @@ app.get('/delete-entry', function(req, res) {
 
 });
 
+//request to delete cart entry from DB
+app.get('/find-entry', function(req, res) {
+
+    console.log('find entry recieved:' + req.query.drinkname);
+
+    console.log(req.query.size);
+    console.log(req.query.sugarlevel);
+    console.log(req.query.icelevel);
+    console.log(req.query.amount);
+    console.log("new price: " + req.query.newprice);
+
+    console.log('session: ' + req.session.pnumber);
+    console.log("**QUERY DRINKNAME:" + req.query.drinkname +"****");
+    
+    var query = {
+        drinkname: req.query.drinkname,
+        size: req.query.size,
+        sugarlevel: req.query.sugarlevel,
+        icelevel: req.query.icelevel,
+        amount: req.query.amount,
+        pnumber: req.session.pnumber
+    }
+    if(req.session.pnumber) {
+
+        //pull to DELETE specific entry from entry array of customer
+        /*
+        this does not work
+        Customer.updateOne({pnumber: req.session.pnumber}, {
+            $pull: {
+
+            cart_entries: {drinkname: req.query.drinkname}}});
+            */
+
+        Entry.findOneAndUpdate(query, {amount: req.query.newamount, price: req.query.newprice}, function(err, docs) {
+            if(err) {
+                console.log(err)
+            } else
+            console.log('entry found and udpated' + docs);
+            res.status(200).send(docs.toJSON());
+        });
+
+
+    } else {
+        res.redirect('back');
+    }
+
+});
+
+//request to delete cart entry from DB
+//request to delete cart entry from DB
+app.get('/update-entryprice', function(req, res) {
+
+    console.log('update entry amt request recieved:' + req.query.drinkname);
+
+    console.log(req.query.size);
+    console.log(req.query.sugarlevel);
+    console.log(req.query.icelevel);
+    console.log(req.query.amount);
+
+    
+    console.log("**QUERY DRINKNAME:" + req.query.drinkname +"****");
+    
+    var query = {
+        drinkname: req.query.drinkname,
+        size: req.query.size,
+        sugarlevel: req.query.sugarlevel,
+        icelevel: req.query.icelevel,
+        amount: req.query.amount,
+        pnumber: req.session.pnumber
+    }
+    if(req.session.pnumber) {
+
+        //pull to DELETE specific entry from entry array of customer
+        /*
+        this does not work
+        Customer.updateOne({pnumber: req.session.pnumber}, {
+            $pull: {
+
+            cart_entries: {drinkname: req.query.drinkname}}});
+            */
+
+        Entry.findOneAndUpdate(query, {amount: req.query.newamount}, function(err, docs) {
+            if(err) {
+                console.log(err)
+            } else
+            console.log('entry found and udpated' + docs);
+            res.status(200).send(docs.toJSON());
+        });
+
+
+    } else {
+        res.redirect('back');
+    }
+
+});
+
+
+
+
 
 
 app.get('/cart', function(req, res) {
