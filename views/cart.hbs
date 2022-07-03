@@ -315,7 +315,7 @@
 
     //place order and delete entries
     $("#checkout-button").click(function() {
-
+        
         var div = document.getElementById('checkout');
         var totalamtcontainer = document.getElementById('total-amt');
         var itemcountcontainer = document.getElementById('itemcount');
@@ -328,7 +328,20 @@
         var orderno = Math.floor((Math.random() * 1000000) + 1);
 
         $.get('/addorder', {quantity: itemcount, amountdue: totalamt, orderno: orderno, status: status} );
+        $.get('/deletecart');
 
+        var divs = document.getElementsByClassName('product');
+        var j;
+
+        for(j = 0; j < divs.length; j++) {
+            divs[j].parentElement.removeChild(divs[j]);
+        }
+
+        refreshpage();
+
+
+
+    
 
 
     });
