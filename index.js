@@ -21,13 +21,13 @@
  
  // For File Uploads
  const fileUpload = require('express-fileupload');
-
+ const bcrypt = require('bcrypt');
  const Drink = require("./database/models/Drink");
  const Customer = require("./database/models/Customer");
  const Order = require("./database/models/Order");
  const Entry = require("./database/models/Entry");
  const path = require('path');
-
+ const saltRounds = 10;
  // Initialize data and static folder that our app will use
  app.use(express.json()); // Use JSON throughout our app for parsing
  app.use(express.urlencoded( {extended: true})); // Information consists of more than just strings
@@ -475,15 +475,20 @@ app.post('/loginuser', function(req, res) {
 
                 console.log("retrieved customer: " + customer);
 
-                //TODO: implement password hashing here later
-                if(req.body.password === result.pw) {
-                    console.log(req.body.password === result.pw);
-                    res.redirect('/profile/' + customer.pnumber);
-                } else {
-                    //TODO:
-                    //if not equal, display error message thru hbs or at least make field color red
-                    res.redirect("/login");
-                }
+                bcrypt.compare(req.body.password, result.pw, function(err, equal) {
+
+                    if(equal) {
+                       
+                        res.redirect('/profile/' + customer.pnumber);
+                    } else {
+                        //TODO:
+                        //if not equal, display error message thru hbs or at least make field color red
+                        res.redirect("/login");
+                    }
+
+                })
+            
+                
             }
             else {
                 res.redirect('/login');
@@ -498,25 +503,28 @@ app.post('/loginuser', function(req, res) {
 //POST request to register a user, create a new User in the DB
 app.post('/registeruser', function(req,res) {
     console.log('post req received to register user: ' + req.body.firstname);
-    //TODO: password hashing later
-    Customer.create({
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        pnumber: req.body.pnumber,
-        pw: req.body.cpassword
+    
+    bcrypt.hash(req.body.cpassword, saltRounds, function(err, hash) {
+
+        Customer.create({
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            pnumber: req.body.pnumber,
+            pw: hash
 
 
-    }, function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            res.redirect('/login');
-            
-            
-        }
-    });
+        }, function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                res.redirect('/login');
+                
+                
+            }
+        });
+    })
     
 
 });
