@@ -52,7 +52,21 @@ app.use(session({ secret: 'CoCoHelper-session',
             }));
 
 
+//destroy session when user logs out
+app.get('/logout', function(req, res) {
 
+    req.session.destroy(function(err) {
+        if(err) throw err;
+
+        /*
+            redirects the client to `/profile` using HTTP GET,
+            defined in `../routes/routes.js`
+        */
+        res.redirect('/login');
+    });
+
+})
+//delete entries when user checks out
 app.get('/deletecart', function(req, res) {
 
     console.log('delete cart request recieved: ' + req.session.pnumber)
@@ -559,7 +573,11 @@ app.get('/register', function(req, res) {
 //render log ihn apge
 app.get('/login', function(req, res) {
 
+    if(req.session.pnumber) {
+        res.redirect('/profile/' + req.session.pnumber);
+    } else {
     res.render('login');
+    }
 
     
 
