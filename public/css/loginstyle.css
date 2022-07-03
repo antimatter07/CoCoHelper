@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+#errorfield {
+    color:red;
+}
+
 label + input {
     padding: 7px;
     width: 50%;
@@ -54,7 +58,7 @@ body {
 #loginhead {
     
     border-radius: 25px;
-    display:none;
+    display:block;
     border-style: dotted;
     background-color: #F07F19;
     overflow: hidden;
