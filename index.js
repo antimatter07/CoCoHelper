@@ -531,10 +531,15 @@ app.post('/registeruser', function(req,res) {
 
 //Render Status View
 app.get('/status', function(req, res) {
-    res.render('status');
-    // db.findMany(Orders, {}, null, (data) => {
-    //     res.render('status', {data: data});
-    // });
+    
+    Order.find({pnumber: req.session.pnumber}, {}, function(err, data) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log("Retrieved Orders " + data);
+            res.render('status', {data: data});
+        }
+    });
 });
 
 //Render Favorites View

@@ -1,31 +1,27 @@
 <html>
-    <head>
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-         <link rel="stylesheet" href="/css/status-style.css">
-         <link rel="stylesheet" href="/css/menustyle.css">
-    </head>
 
-    <body>
-        <div id="nav-holder">
-            {{> topnavbaruser}}
-        </div>
-        
-        <h1 id="status-header">PLACED ORDERS</h1><br>
-        <div id="order-status">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/status-style.css">
+    <link rel="stylesheet" href="/css/menustyle.css">
+</head>
+
+<body>
+    <div id="nav-holder">
+        {{> topnavbaruser}}
+    </div>
+
+    <h1 id="status-header">PLACED ORDERS</h1><br>
+    <div id="order-status">
         {{#each data}}
-            {{> order
-                orderno=orderno
-                quantity=quantity
-                itemname=itemname
-                itemsize=itemsize 
-                orderdate=orderdate
-                firstname=firstname
-                lastname=lastname
-                amountdue=amountdue
-                status=status
-            }}
+        {{> status_card
+        orderno=orderno
+        quantity=quantity
+        amountdue=amountdue
+        status=status
+        }}
         {{/each}}
-        </div>
-    </body>
-    
+    </div>
+</body>
+
 </html>

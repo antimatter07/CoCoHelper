@@ -12,12 +12,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 50%;
-    margin-bottom: 10px;
-    margin-left: 25%;
-    padding-bottom: 15%;
-    border-radius: 10px;
-    position: relative; */
 }
 
 .order-item {
@@ -31,21 +25,8 @@
     padding: 20px;
 }
 
-.item-quantity {
-  font-weight: bold;
-}
-
 .order-number {
     font-weight: bold;
-
     font-size: 120%;
     text-align: center;
-}
-
-.status-inprogress {
-    color: orange;
-}
-
-.status-forpickup {
-    color: green;
 }
