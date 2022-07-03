@@ -311,6 +311,27 @@
         jQuery.ajaxSetup({async:true});
 
     });
+
+
+    //place order and delete entries
+    $("#checkout-button").click(function() {
+
+        var div = document.getElementById('checkout');
+        var totalamtcontainer = document.getElementById('total-amt');
+        var itemcountcontainer = document.getElementById('itemcount');
+        var totalamt = totalamtcontainer.innerHTML.replace("PHP ", "");
+        totalamt = totalamt.replace(".00", "");
+        var status = "In Progress";
+
+        var itemcount = itemcountcontainer.innerHTML;
+        itemcount = itemcount.replace(" Items", "");
+        var orderno = Math.floor((Math.random() * 1000000) + 1);
+
+        $.get('/addorder', {quantity: itemcount, amountdue: totalamt, orderno: orderno, status: status} );
+
+
+
+    });
     
 
 
