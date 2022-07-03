@@ -240,7 +240,7 @@ h1 {
 
 
 #favorites-page {
-    display: none;
+    display: block;
 }
 
 #profile-page {

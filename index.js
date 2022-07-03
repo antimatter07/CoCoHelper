@@ -26,6 +26,7 @@
  const Customer = require("./database/models/Customer");
  const Order = require("./database/models/Order");
  const Entry = require("./database/models/Entry");
+ const Favorites = require('./database/models/Favorites');
  const path = require('path');
  const saltRounds = 10;
  // Initialize data and static folder that our app will use
@@ -38,7 +39,7 @@
  /* using handlebars */
  
  var hbs = require('hbs');
- 
+
 
 app.set('view engine','hbs');
 
@@ -290,6 +291,7 @@ app.get('/cart', function(req, res) {
     }
 
 });
+    
 
 //when user clicks add to cart, append new cart entry to the Entrires array of customer
 app.post('/addtocart', function(req,res) {
@@ -376,7 +378,7 @@ app.get('/find-drink-object', function(req, res) {
 //when cart-icon of a drink in menu is clicked, return data about that specific drink to client
 app.get('/find-drink', function(req, res) {
 
-    console.log("find drink req received" + req.query.drinkname);
+    console.log("find drink req received " + req.query.drinkname);
 
     Drink.findOne({drinkname: req.query.drinkname}, function(err, docs) {
         if(err) {
@@ -547,21 +549,80 @@ app.post('/registeruser', function(req,res) {
 
 //Render Status View
 app.get('/status', function(req, res) {
-    
-    Order.find({pnumber: req.session.pnumber}, {}, function(err, data) {
+    if(req.session.pnumber) {
+        Order.find({pnumber: req.session.pnumber}, {}, function(err, data) {
+            if(err) {
+                console.log(err);
+            } else {
+                console.log("RETRIEVED ORDERS " + data);
+                res.render('status', {data: data});
+            }
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+
+//Render Favorites View
+app.get('/favorites', function(req, res) {
+    if(req.session.pnumber) {
+        Favorites.find({pnumber: req.session.pnumber}, {}, function(err, data) {
+            if(err) {
+                console.log(err);
+            } else {
+                console.log("RETRIEVED FAVORITES " + data);
+                res.render('favorites', {data: data});
+            }
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+
+//Add Drink to Favorites
+app.post('/addtofavorites', function(req,res) {
+    Favorites.findOne({drinkname: req.body.drinkname}, function(err, success) {
         if(err) {
             console.log(err);
+        } else if(success) {
+            console.log("ALREADY IN FAVORITES");
         } else {
-            console.log("Retrieved Orders " + data);
-            res.render('status', {data: data});
+            const faveDrink = new Favorites({
+                //_id determines Mongoose data type
+                _id : new mongoose.Types.ObjectId(),
+        
+                pnumber: req.session.pnumber,
+                drinkname: req.body.drinkname,
+                drinkimg : req.body.drinkimg
+            });
+            
+            faveDrink.save(function(err) {
+                if(err) {
+                    console.log(err);
+                    res.send(400, 'Bad Request');
+                } else {
+                    console.log("ADDED TO FAVORITES " + faveDrink);
+                }
+            });
         }
     });
 });
 
-//Render Favorites View
-app.get('/favorites', function(req, res) {
-    res.render('favorites');
+
+//Remove Drink from Favorites
+app.post('/removefavorites', function(req,res) {
+    Favorites.deleteOne({pnumber: req.session.pnumber, drinkname: req.body.drinkname}, function(err) {
+        if(err) {
+            console.log(err);
+            res.send(400, 'Bad Request');
+        } else {
+            console.log("REMOVED FROM FAVORITES " + req.body.drinkname);
+        }
+    });
 });
+
 
 //render register page
 app.get('/register', function(req, res) {

@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <title>CoCo Helper App</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/menustyle.css">
 </head>
@@ -11,25 +12,36 @@
     </div>
 
     <div id="favorites-page" class="category">
-        <div class="product">
-            <img src="images/pandamilktea.png" class="product-photo">
-            <p>Panda Milk Tea</p>
-            <img src="images/favorite-icon.png" class="heart">
-            <img src="images/shopping-cart.png" class="cart-icon">
-        </div>
-        <div class="product">
-            <img src="images/whitepearlmt.png" class="product-photo">
-            <p>White Pearl Milk Tea</p>
-            <img src="images/favorite-icon.png" class="heart">
-            <img src="images/shopping-cart.png" class="cart-icon">
-        </div>
-        <div class="product">
-            <img src="images/lemondunk.png" class="product-photo">
-            <p>Lemon Dunk</p>
-            <img src="images/favorite-icon.png" class="heart">
-            <img src="images/shopping-cart.png" class="cart-icon">
-        </div>
+        {{#each data}}
+        {{> favorites_drink drinkname=drinkname drinkimg=drinkimg}}
+        {{/each}}
     </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.product').on('click', '.heart', function () {
+                var drinkname_p = this.previousElementSibling;
+                var drinkname = drinkname_p.innerHTML;
+                var parent = $(this).parent();
+                var current_drink;
+                var favorite;
+
+                parent.remove();
+
+                $.get("/find-drink", { drinkname: drinkname }, function (result, status) {
+                    console.log("DATA RECEIVED " + result);
+                    current_drink = result;
+
+                    favorite = {
+                        drinkname: current_drink.drinkname,
+                        drinkimg: current_drink.drinkimg
+                    };
+
+                    $.post('/removefavorites', favorite, function (result, status) {});
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
