@@ -52,6 +52,19 @@ app.use(session({ secret: 'CoCoHelper-session',
             }));
 
 
+
+app.get('/deletecart', function(req, res) {
+
+    console.log('delete cart request recieved: ' + req.session.pnumber)
+    Entry.deleteMany({pnumber: req.session.pnumber}, function(err, docs) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log('deleted entries: ');
+        }
+    })
+
+});
 app.get('/addorder', function(req, res) {
 
     console.log('add order req recieved: ' + req.query.quantity +"" + req.query.amountdue);
