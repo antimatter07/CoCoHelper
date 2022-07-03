@@ -24,7 +24,7 @@
 
  const Drink = require("./database/models/Drink");
  const Customer = require("./database/models/Customer");
- const Orders = require("./database/models/Orders");
+ const Order = require("./database/models/Order");
  const Entry = require("./database/models/Entry");
  const path = require('path');
 
@@ -51,6 +51,51 @@ app.use(session({ secret: 'CoCoHelper-session',
                 store: MongoStore.create({mongoUrl: 'mongodb://localhost/CoCoDB'})
             }));
 
+
+app.get('/addorder', function(req, res) {
+
+    console.log('add order req recieved: ' + req.query.quantity +"" + req.query.amountdue);
+
+    const newOrder = new Order({
+
+        //_id determines Mongoose data type
+        _id : new mongoose.Types.ObjectId(),
+
+        pnumber: req.session.pnumber,
+        quantity: req.query.quantity,
+        amountdue: req.query.amountdue,
+        orderno: req.query.orderno,
+        status: req.query.status
+
+
+
+    });
+
+    newOrder.save(function(err) {
+        if(err) {
+            console.log(err);
+            res.send(400, 'Bad Request');
+        } else {
+            console.log("new Order made: " +newOrder);
+            
+        }
+    });
+
+    Customer.findOneAndUpdate({pnumber: req.session.pnumber}, {order: newOrder._id},  function(err, docs) {
+
+        if(err) {
+            console.log(err);
+        } else {
+            console.log("retrieved customer to add order to: " + docs)
+            res.redirect('back');
+
+
+        }
+    });
+
+    
+    
+});
 //request to delete cart entry from DB
 app.get('/delete-entry', function(req, res) {
 

@@ -56,18 +56,10 @@ const CustomerSchema = new mongoose.Schema({
     //at any time customer can have 0 to 1 instances of [orderno, amountdue, status]
     //customer can only have 1 order at at ime
     //for order status
-    orderno : {
-        type: Number
-    },
-
-    amountdue : {
-        type: mongoose.Types.Decimal128
-    },
-
-    status : {
-        type: String,
-        enum: ['Ready', 'In Progress']
-
+    
+    order : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Order'
     },
 
     /*[0..*] 0 to many Entry in shopping cart for each Customer*/

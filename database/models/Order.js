@@ -8,9 +8,7 @@ var OrderSchema = new mongoose.Schema({
     },
 
     orderno: Number,
-    orderdate: Date,
-    itemname: String,
-    itemsize: String,
+    orderdate: String,
     quantity: Number,
     amountdue: mongoose.Types.Decimal128,
 
@@ -20,4 +18,4 @@ var OrderSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Orders', OrderSchema);
+module.exports = mongoose.model('Order', OrderSchema);
