@@ -49,14 +49,16 @@ const EntrySchema = new mongoose.Schema({
         enum : ['more', 'normal', 'less', 'none']
     }
 }
-
-    , {
-        toJSON: { virtuals: true },
-        toObject: { virtuals: true }
-      }
     
 ); // JSON format, consisting of the name: type collection
 
+EntrySchema.set('toJSON', {
+    transform: (doc, ret) => {
+      ret.price = ret.price.toString();
+      
+      return ret;
+    },
+  });
 
 
 
