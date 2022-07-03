@@ -583,7 +583,7 @@ app.get('/favorites', function(req, res) {
 
 //Add Drink to Favorites
 app.post('/addtofavorites', function(req,res) {
-    Favorites.findOne({drinkname: req.body.drinkname}, function(err, success) {
+    Favorites.findOne({pnumber: req.session.pnumber, drinkname: req.body.drinkname}, function(err, success) {
         if(err) {
             console.log(err);
         } else if(success) {
