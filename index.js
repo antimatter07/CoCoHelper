@@ -601,6 +601,22 @@ app.get('/favorites', function(req, res) {
     }
 });
 
+//Render Profile View
+app.get('/profile', function(req, res) {
+    if(req.session.pnumber) {
+        Customer.find({pnumber: req.session.pnumber}, {}, function(err, data) {
+            if(err) {
+                console.log(err);
+            } else {
+                console.log("RETRIEVED PROFILE " + data);
+                res.render('profile', {data: data});
+            }
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+
 
 //Add Drink to Favorites
 app.post('/addtofavorites', function(req,res) {

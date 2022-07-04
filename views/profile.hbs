@@ -1,5 +1,7 @@
 <html>
     <head>
+		 <title>CoCo Helper App</title>
+	
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
          <link rel="stylesheet" href="/css/menustyle.css">
     </head>
@@ -10,8 +12,101 @@
 
         </div>
         
-        <p>Hello {{firstname}} {{lastname}}</p>
+        <div id="profile-page" class = "category">
+		<div class = "profile-tab">
+				<h1> Account Overview </h1>
+				<h2> Profile </h2>
+				<div class = "info-card">
+					<div class = "profile-info">
+						<p><span class = "profile-def"> Name </span> <span class = "profile-n"><text class = "firstname"> {{firstname}} </text><text class = "lastname">{{lastname}}</text></span></p>
+					</div>
+				</div>
+				<div class = "info-card">
+					<div class = "profile-info">
+						<p><span class = "profile-def"> Email </span> <span class = "profile-n"><text class = "email">{{email}}</text> </span></p>
+					</div>
+				</div>
+				<div class = "info-card">
+					<div class = "profile-info">
+						<p><span class = "profile-def"> Phone Number </span> <span class = "profile-n"><text class = "pnumber">{{pnumber}}</text> </span></p>
+					</div>
+				</div>
+				<div class = "info-card">
+					<div class = "profile-info">
+						<p><span class = "profile-def"> Favorite Drink </span> <span class = "profile-n">{{favoritedrinks}} </span></p>
+					</div>
+				</div>
+				<br><br>
+				<h2> Payment Details </h2>
+				<div class = "info-card">
+					<div class = "profile-info">
+						<p><span class = "profile-def"> Payment Method </span> <span class = "profile-n"><text class = "paymentmethod">{{paymentmethod}} </text></span></p>
+					</div>
+				</div>
+				<div class = "info-card">
+					<div class = "profile-info">
+						<p><span class = "profile-def"> Method Number </span> <span class = "profile-n"><text class = "methodno">{{methodno}} </text></span></p>
+					</div>
+				</div>
+				<br><br>
+				<button class="button profile-edit-button">Edit Profile</button>
+			</div>
+		</div>
 
+		<script>
+    $(document).ready(function() {
+
+        function switchMenuCategory(drinkid, drinktextid) {
+
+            $(".category").hide();
+            $(drinkid).fadeIn();
+            $(".category-choice").css("color", "#3E3B3B");
+            $(drinktextid).css("color", "#F07F19");
+
+        }
+
+        function switchNavPage(page) {
+            $(".category").hide();
+            $("#menu-proper").hide();
+            $(page).fadeIn();
+        }
+
+        $("#fruit-tea-text").click(function (e) { 
+            //$(".category[display=block]").css("display", "none");
+            /*$(".category").hide();
+            $("#fruit-tea-menu").fadeIn();
+            $(".category-choice").css("color", "#3E3B3B");
+            $("#fruit-tea-text").css("color", "#F07F19");
+            */
+
+            switchMenuCategory("#fruit-tea-menu", "#fruit-tea-text");
+            
+            
+            
+        });
+
+        $("#milk-tea-text").click(function (e) { 
+            //$(".category[display=block]").css("display", "none");
+            switchMenuCategory("#milk-tea-menu", "#milk-tea-text");
+            
+        });
+
+        $("#favorites-tab").click(function (e){
+            switchNavPage("#favorites-page", "#favorites-header");
+        });
+		
+		$("#profile-tab").click(function (e){
+            switchNavPage("#profile-page", "#profile-header");
+        });
+
+        $("#menu-tab").click(function (e){
+            window.location.reload();
+        });
+
+
+    });
+    </script>
+		
     </body>
     
 </html>
