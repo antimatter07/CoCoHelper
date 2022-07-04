@@ -521,28 +521,49 @@ app.post('/loginuser', function(req, res) {
 //POST request to register a user, create a new User in the DB
 app.post('/registeruser', function(req,res) {
     console.log('post req received to register user: ' + req.body.firstname);
+
+    //email and pnumber SHOULD be unique, check if it exists
+    //if it doesnt exist, make account
+    Customer.find({$or:[ {email:req.body.email}, {pnumber:req.body.pnumber}]}, function(err, docs) {
+        if(err) {
+            console.log(err);
+            res.render('reg');
+        } else {
+
+            if(docs.length) {
+                console.log('USER EXISTS! ' + docs);
+                res.render('reg', {error: 'The email and/or phone number is already used by an existing user.'}); 
+                
+            } else {
+
+                console.log('User does not exist, proceed with making a customer account');
+                bcrypt.hash(req.body.cpassword, saltRounds, function(err, hash) {
+
+                    Customer.create({
+                        firstname: req.body.firstname,
+                        lastname: req.body.lastname,
+                        email: req.body.email,
+                        pnumber: req.body.pnumber,
+                        pw: hash
+            
+            
+                    }, function (err, docs) {
+                        if (err){
+                            console.log(err);
+                        }
+                        else{
+                            res.redirect('/login');
+                            
+                            
+                        }
+                    });
+                })
+
+            }
+        }
+    });
+
     
-    bcrypt.hash(req.body.cpassword, saltRounds, function(err, hash) {
-
-        Customer.create({
-            firstname: req.body.firstname,
-            lastname: req.body.lastname,
-            email: req.body.email,
-            pnumber: req.body.pnumber,
-            pw: hash
-
-
-        }, function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                res.redirect('/login');
-                
-                
-            }
-        });
-    })
     
 
 });
