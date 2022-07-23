@@ -420,6 +420,15 @@ app.get('/menu', function(req, res) {
 
 
 })
+
+app.get('/profile',function(req, res) {
+
+    if(req.session.pnumber) {
+        res.redirect('/profile/' + req.session.pnumber);
+    } else {
+        res.redirect('/login');
+    }
+})
 //pnumber since its unique for each customer, possibly can also use email
 //sample req: /profile/12345678
 //render profile page of user
@@ -432,7 +441,7 @@ app.get('/profile/:pnumber', function(req, res) {
         var query = {pnumber: req.params.pnumber};
 
         //what to return from query
-        var projection = 'firstname lastname';
+        var projection = 'firstname lastname pnumber email';
 
         var userDetails = {};
 
@@ -445,6 +454,8 @@ app.get('/profile/:pnumber', function(req, res) {
                 if(result != null) {
                     userDetails.firstname = result.firstname;
                     userDetails.lastname = result.lastname;
+                    userDetails.pnumber = result.pnumber;
+                    userDetails.email = result.email
 
                     res.render('profile', userDetails);
                 } else {

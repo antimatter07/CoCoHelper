@@ -9,8 +9,47 @@
             {{> topnavbaruser}}
 
         </div>
+
+        <div id="profile-page" class = "category">
+		<div class = "profile-tab">
+				<h1> Account Overview </h1>
+				<h2> Profile </h2>
+				<div class = "info-card">
+					<div class = "profile-info">
+						<p><span class = "profile-def"> Name </span> <span class = "profile-n">{{firstname}} {{lastname}}</span></p>
+					</div>
+				</div>
+				<div class = "info-card">
+					<div class = "profile-info">
+						<p><span class = "profile-def"> Email </span> <span class = "profile-n">{{email}}</span></p>
+					</div>
+				</div>
+				<div class = "info-card">
+					<div class = "profile-info">
+						<p><span class = "profile-def"> Phone Number </span> <span class = "profile-n">{{pnumber}}</span></p>
+					</div>
+				</div>
+				<br><br>
+				<h2> Payment Details </h2>
+				<div class = "info-card">
+					<div class = "profile-info">
+						<p><span class = "profile-def"> Payment Method </span> <span class = "profile-n"></span></p>
+					</div>
+				</div>
+				<div class = "info-card">
+					<div class = "profile-info">
+						<p><span class = "profile-def"> Method Number </span> <span class = "profile-n"></span></p>
+					</div>
+				</div>
+				<br><br>
+				<button class="button profile-edit-button">Edit Profile</button>
+			</div>
+		</div>
+	
+	</div>
+
         
-        <p>Hello {{firstname}} {{lastname}}</p>
+   
 
     </body>
     
