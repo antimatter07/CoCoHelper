@@ -15,7 +15,10 @@
 
  const MongoStore = require('connect-mongo');
 
- mongoose.connect('mongodb://127.0.0.1:27017/CoCoDB',
+ // connection string from Atlas using 'Copy connection string' : mongodb://localhost:27017/
+ const mongoURI = 'mongodb://127.0.0.1:27017/CoCoDB';
+
+ mongoose.connect(mongoURI,
 {useNewURLParser: true, useUnifiedTopology: true}); // Create database connection
  
  
@@ -49,7 +52,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.use(session({ secret: 'CoCoHelper-session', 
                 'resave': false, 
                 'saveUninitialized': false,
-                store: MongoStore.create({mongoUrl: 'mongodb://127.0.0.1:27017/CoCoDB'})
+                store: MongoStore.create({mongoUrl: mongoURI})
             }));
 
 

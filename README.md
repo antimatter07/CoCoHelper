@@ -8,6 +8,34 @@ Joyo, John Carlo Acosta
 
 Villarica, Matthew James Del Pilar
 
+## Dependencies
+[Node.js v18.17.1](https://nodejs.org/en)
+
+[MongoDB 5.0.9 Community](https://www.mongodb.com/try/download/community-edition/releases/archive)
+
+## Installation and Set-Up
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/antimatter07/CoCoHelper.git
+```
+2. Install dependencies 
+```bash
+npm install
+```
+3. If needed, replace the mongoURI const in `index.js`with the the MongoDB Compass connection string locally provided
+```
+ // connection string from Atlas using 'Copy connection string' : mongodb://localhost:27017/
+ const mongoURI = 'mongodb://127.0.0.1:27017/CoCoDB';
+```
+## Running the App
+1. Run the web app locally
+```
+node index.js
+```
+2. Open the web app on `localhost:3000`
+
 ## Screenshots
 
 Log in
