@@ -26,7 +26,7 @@ npm install
 ```
 3. If needed, replace the mongoURI const in `index.js`with the the MongoDB Compass connection string locally provided
 ```
- // connection string from Atlas using 'Copy connection string' : mongodb://localhost:27017/
+ // connection string from Compass using 'Copy connection string' : mongodb://localhost:27017/
  const mongoURI = 'mongodb://127.0.0.1:27017/CoCoDB';
 ```
 ## Running the App
