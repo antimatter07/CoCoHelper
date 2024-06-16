@@ -2,9 +2,22 @@
 
 Group Members:
 
+CCAPDEV
+
 Mercado, Bruce Berroya
 
 Joyo, John Carlo Acosta
+
+Villarica, Matthew James Del Pilar
+
+
+CSSECDV
+
+Capunitan, Jonaviene De Guzman
+
+Castillo, Christian Mir Gonzalgo
+
+Gilo, Joshua Armaine Gerzan
 
 Villarica, Matthew James Del Pilar
 
