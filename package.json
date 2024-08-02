@@ -4,7 +4,8 @@
   "description": "Group Members:",
   "main": "loginscript.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --ext js,hbs,html,css index.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,8 @@
     "express-session": "^1.17.3",
     "hbs": "^4.2.0",
     "mongoose": "^6.3.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }
