@@ -55,6 +55,9 @@ app.use(session({ secret: 'CoCoHelper-session',
                 store: MongoStore.create({mongoUrl: mongoURI})
             }));
 
+const adminRoutes = require('./routes/adminRoutes');
+
+app.use('/admin', adminRoutes);
 
 //destroy session when user logs out
 app.get('/logout', function(req, res) {
@@ -494,7 +497,9 @@ app.post('/loginuser', function(req, res) {
                     email: result.email,
                     pnumber: result.pnumber
                 }
-
+                
+                //remove any previously logged in admin
+                req.session.admin = null;
                 //store to session object for future access
                 //email, pnumber, and names can now be accessed from any succeeding HTTP request
                 //while session hasnt ended
@@ -766,6 +771,7 @@ app.post('/add-drink', function(req, res) {
 app.get('/', function(req, res) {
    
     //retrieve all Drinks in db and render to menu_admin.hbs
+    /*
     Drink.find({category: 'milktea'}, 'drinkname drinkimg category', function (err, docs) {
         if (err){
             console.log(err);
@@ -779,6 +785,8 @@ app.get('/', function(req, res) {
            
         }
     });
+    */
+   res.redirect('/login')
 
    
 
@@ -793,40 +801,49 @@ app.get('/', function(req, res) {
 app.get('/milktea', function(req, res) {
    
     //retrieve all Drinks in db and render to menu_admin.hbs
-    Drink.find({category: 'milktea'}, 'drinkname drinkimg category', function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            console.log("Docs retrieved for milktea: ", docs);
+    if (req.session.admin && req.session.admin.role === "product_manager") {
+
+    
+        Drink.find({category: 'milktea'}, 'drinkname drinkimg category', function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log("Docs retrieved for milktea: ", docs);
+                
+                const milktea_drinks = docs;
+                res.render('menu_admin',{milktea_drinks});
+                
+                
             
-            const milktea_drinks = docs;
-            res.render('menu_admin',{milktea_drinks});
-            
-            
-           
-        }
-    });
-   
+            }
+        });
+    } else {
+        res.redirect('/admin/login')
+    }
 });
 
 app.get('/fruittea', function(req, res) {
    
     //retrieve all Drinks in db and render to menu_admin.hbs
-    Drink.find({category: 'fruittea'}, 'drinkname drinkimg category', function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            console.log("Docs retrieved for fruit tea: ", docs);
+    if (req.session.admin && req.session.admin.role === "product_manager") {
+        Drink.find({category: 'fruittea'}, 'drinkname drinkimg category', function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log("Docs retrieved for fruit tea: ", docs);
+                
+                const milktea_drinks= docs;
+                res.render('menu_admin',{milktea_drinks});
             
-            const milktea_drinks= docs;
-            res.render('menu_admin',{milktea_drinks});
-           
+                
             
-           
-        }
-    });
+            }
+        });
+    } else {
+        res.redirect('/admin/login')
+    }
 
    
 
@@ -837,20 +854,24 @@ app.get('/fruittea', function(req, res) {
 app.get('/coffee', function(req, res) {
    
     //retrieve all Drinks in db and render to menu_admin.hbs
-    Drink.find({category: 'coffee'}, 'drinkname drinkimg category', function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            console.log("Docs retrieved for fruit tea: ", docs);
+    if (req.session.admin && req.session.admin.role === "product_manager") {
+        Drink.find({category: 'coffee'}, 'drinkname drinkimg category', function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log("Docs retrieved for fruit tea: ", docs);
+                
+                const milktea_drinks= docs;
+                res.render('menu_admin',{milktea_drinks});
             
-            const milktea_drinks= docs;
-            res.render('menu_admin',{milktea_drinks});
-           
+                
             
-           
-        }
-    });
+            }
+        });
+    } else {
+        res.redirect('/admin/login')
+    }
 
    
 
@@ -861,20 +882,24 @@ app.get('/coffee', function(req, res) {
 app.get('/slush', function(req, res) {
    
     //retrieve all Drinks in db and render to menu_admin.hbs
-    Drink.find({category: 'slush'}, 'drinkname drinkimg category', function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            console.log("Docs retrieved for fruit tea: ", docs);
+    if (req.session.admin && req.session.admin.role === "product_manager") {
+        Drink.find({category: 'slush'}, 'drinkname drinkimg category', function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log("Docs retrieved for fruit tea: ", docs);
+                
+                const milktea_drinks= docs;
+                res.render('menu_admin',{milktea_drinks});
             
-            const milktea_drinks= docs;
-            res.render('menu_admin',{milktea_drinks});
-           
+                
             
-           
-        }
-    });
+            }
+        });
+    } else {
+        res.redirect('/admin/login')
+    }
 
    
 
@@ -885,20 +910,25 @@ app.get('/slush', function(req, res) {
 app.get('/choco', function(req, res) {
    
     //retrieve all Drinks in db and render to menu_admin.hbs
-    Drink.find({category: 'choco'}, 'drinkname drinkimg category', function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            console.log("Docs retrieved for fruit tea: ", docs);
+    if (req.session.admin && req.session.admin.role === "product_manager") {
+        Drink.find({category: 'choco'}, 'drinkname drinkimg category', function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log("Docs retrieved for fruit tea: ", docs);
+                
+                const milktea_drinks= docs;
+                res.render('menu_admin',{milktea_drinks});
             
-            const milktea_drinks= docs;
-            res.render('menu_admin',{milktea_drinks});
-           
+                
             
-           
-        }
-    });
+            }
+        });
+    } else {
+        res.redirect('/admin/login')
+    }
+
 
    
 
@@ -909,20 +939,24 @@ app.get('/choco', function(req, res) {
 app.get('/freshtea', function(req, res) {
    
     //retrieve all Drinks in db and render to menu_admin.hbs
-    Drink.find({category: 'freshtea'}, 'drinkname drinkimg category', function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            console.log("Docs retrieved for fruit tea: ", docs);
+    if (req.session.admin && req.session.admin.role === "product_manager") {
+        Drink.find({category: 'freshtea'}, 'drinkname drinkimg category', function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log("Docs retrieved for fruit tea: ", docs);
+                
+                const milktea_drinks= docs;
+                res.render('menu_admin',{milktea_drinks});
             
-            const milktea_drinks= docs;
-            res.render('menu_admin',{milktea_drinks});
-           
+                
             
-           
-        }
-    });
+            }
+        });
+    } else {
+        res.redirect('/admin/login')
+    }
 
    
 
@@ -933,20 +967,25 @@ app.get('/freshtea', function(req, res) {
 app.get('/juice', function(req, res) {
    
     //retrieve all Drinks in db and render to menu_admin.hbs
-    Drink.find({category: 'juice'}, 'drinkname drinkimg category', function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            console.log("Docs retrieved for fruit tea: ", docs);
+    if (req.session.admin && req.session.admin.role === "product_manager") {
+        Drink.find({category: 'juice'}, 'drinkname drinkimg category', function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log("Docs retrieved for fruit tea: ", docs);
+                
+                const milktea_drinks= docs;
+                res.render('menu_admin',{milktea_drinks});
             
-            const milktea_drinks= docs;
-            res.render('menu_admin',{milktea_drinks});
-           
+                
             
-           
-        }
-    });
+            }
+        });
+    } else {
+        res.redirect('/admin/login')
+    }
+
 
    
 
@@ -1144,6 +1183,43 @@ app.get('/menu/choco', function(req, res) {
    
 });
 
+app.get('/product_manager_dashboard', (req, res) => {
+    //if admin session, allow viewing of menu_admin af
+    if (req.session.admin && req.session.admin.role === 'product_manager') {
+
+             Drink.find({category: 'milktea'}, 'drinkname drinkimg category', function (err, docs) {
+                if (err){
+                    console.log(err);
+                }
+                else{
+                    console.log("Docs retrieved: ", docs);
+                    
+                    const milktea_drinks = docs;
+                    res.render('menu_admin',{milktea_drinks});
+                    
+                
+                }
+            });
+    } else {
+        res.redirect('/admin/login')
+    }
+});
+
+app.get('/logout_PM', (req, res) => {
+
+    req.session.destroy(function(err) {
+        if(err) throw err;
+
+        /*
+            redirects the client to `/profile` using HTTP GET,
+            defined in `../routes/routes.js`
+        */
+        res.redirect('/admin/login');
+    });
+
+    
+
+});
 
 
 
