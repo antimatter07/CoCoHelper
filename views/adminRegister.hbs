@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Registration</title>
+</head>
+<body>
+    <h1>Register New Administrator</h1>
+    <form action="/admin/register" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        
+        <label for="pw">Password:</label>
+        <input type="password" id="pw" name="pw" required><br>
+        
+        <label for="role">Role:</label>
+        <select id="role" name="role" required>
+            <option value="product_manager">Product Manager</option>
+            <option value="website_administrator">Website Administrator</option>
+        </select><br>
+        
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
