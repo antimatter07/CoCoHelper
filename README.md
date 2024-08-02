@@ -43,9 +43,9 @@ npm install
  const mongoURI = 'mongodb://127.0.0.1:27017/CoCoDB';
 ```
 ## Running the App
-1. Run the web app locally
+1. Run the web app locally with nodemon
 ```
-node index.js
+npm run dev
 ```
 2. Open the web app on `localhost:3000`
 
