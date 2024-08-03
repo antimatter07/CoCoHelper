@@ -1,0 +1,49 @@
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-03T16:15:41.589Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-03T16:15:41.597Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-03T16:15:41.612Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-03T16:15:43.867Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-03T16:15:43.871Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-03T16:15:43.876Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-03T16:16:28.706Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-03T16:16:28.712Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-03T16:16:28.746Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-03T16:16:38.420Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-03T16:16:38.426Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-03T16:16:38.434Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-03T16:16:51.944Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-03T16:16:51.948Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-03T16:16:51.963Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-03T16:19:41.427Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-03T16:19:41.436Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-03T16:19:41.455Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /asdfasdfsafd","timestamp":"2024-08-03T16:19:46.025Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /asdfasdfsafd","timestamp":"2024-08-03T16:19:46.030Z"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","timestamp":"2024-08-03T16:19:46.080Z","url":"/asdfasdfsafd"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/error.css","timestamp":"2024-08-03T16:19:46.163Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/logo.png","timestamp":"2024-08-03T16:19:46.168Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/logo.png","timestamp":"2024-08-03T16:19:46.170Z"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","timestamp":"2024-08-03T16:19:46.859Z","url":"/images/logo.png"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/logo.png","timestamp":"2024-08-03T16:19:48.517Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/logo.png","timestamp":"2024-08-03T16:19:48.519Z"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","timestamp":"2024-08-03T16:19:48.524Z","url":"/images/logo.png"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/logo.png","timestamp":"2024-08-03T16:19:48.895Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/logo.png","timestamp":"2024-08-03T16:19:48.896Z"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","timestamp":"2024-08-03T16:19:48.899Z","url":"/images/logo.png"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-03T16:19:49.963Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-03T16:20:15.116Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-03T16:20:15.124Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-03T16:20:15.136Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /asdfasfdsa","timestamp":"2024-08-03T16:20:18.166Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /asdfasfdsa","timestamp":"2024-08-03T16:20:18.171Z"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","timestamp":"2024-08-03T16:20:18.181Z","url":"/asdfasfdsa"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/error.css","timestamp":"2024-08-03T16:20:18.242Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-03T16:20:18.249Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-03T16:20:18.942Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-03T16:20:28.037Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-03T16:20:28.041Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-03T16:21:37.927Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-03T16:21:37.936Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-03T16:21:37.953Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-03T16:21:50.600Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-03T16:21:50.606Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-03T16:21:50.619Z"}

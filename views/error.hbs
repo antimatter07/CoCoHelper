@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{statusCode}} - {{message}}</title>
+    <link rel="stylesheet" type="text/css" href="/css/error.css">
+</head>
+<body>
+    <div class="error-container">
+        <img src="/images/cocologo.jpg" alt="CoCo Logo" class="logo">
+        <div class="error-code">{{statusCode}}</div>
+        <div class="error-message">{{message}}</div>
+        <p class="error-description">Oops! Something went wrong. We're working on fixing it.</p>
+        <button class="back-button" onclick="window.history.back()">Go Back</button>
+    </div>
+</body>
+</html>

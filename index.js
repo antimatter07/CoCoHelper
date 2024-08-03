@@ -1,1231 +1,1293 @@
 /*****************
- * 
+ *
  * To use mongoose and connect to the database
  * + schema model
  * + Create an instance of the schema model
  * + Insert it into the database via mongoose connection
  */
 
- const express = require('express');
- // import module `express-session`
- const session = require('express-session');
- const app = new express();
- const mongoose = require('mongoose');
- var bodyParser = require('body-parser');
+const express = require("express");
+const config = require("./config");
+const session = require("express-session");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
- const MongoStore = require('connect-mongo');
+const winston = require("winston");
+require("winston-daily-rotate-file");
 
- // connection string from Atlas using 'Copy connection string' : mongodb://localhost:27017/
- const mongoURI = 'mongodb://127.0.0.1:27017/CoCoDB';
+const app = new express();
 
- mongoose.connect(mongoURI,
-{useNewURLParser: true, useUnifiedTopology: true}); // Create database connection
- 
- 
- // For File Uploads
- const fileUpload = require('express-fileupload');
- const bcrypt = require('bcrypt');
- const Drink = require("./database/models/Drink");
- const Customer = require("./database/models/Customer");
- const Order = require("./database/models/Order");
- const Entry = require("./database/models/Entry");
- const Favorites = require('./database/models/Favorites');
- const path = require('path');
- const saltRounds = 10;
- // Initialize data and static folder that our app will use
- app.use(express.json()); // Use JSON throughout our app for parsing
- app.use(express.urlencoded( {extended: true})); // Information consists of more than just strings
- app.use(express.static('public')); // static directory name, meaning that the application will also refer to a folder named 'public'
- app.use(fileUpload()); // for fileuploading
+const transport = new winston.transports.DailyRotateFile({
+  filename: "logs/application-%DATE%.log",
+  datePattern: "YYYY-MM-DD",
+  zippedArchive: true,
+  maxSize: "20m",
+  maxFiles: "14d",
+});
 
- 
- /* using handlebars */
- 
- var hbs = require('hbs');
+const logger = winston.createLogger({
+  level: config.logLevel || "info",
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.json()
+  ),
+  transports: [transport],
+});
 
-
-app.set('view engine','hbs');
-
-hbs.registerPartials(__dirname + '/views/partials');
-
-// session middleware and session store
-app.use(session({ secret: 'CoCoHelper-session', 
-                'resave': false, 
-                'saveUninitialized': false,
-                store: MongoStore.create({mongoUrl: mongoURI})
-            }));
-
-const adminRoutes = require('./routes/adminRoutes');
-
-app.use('/admin', adminRoutes);
-
-//destroy session when user logs out
-app.get('/logout', function(req, res) {
-
-    req.session.destroy(function(err) {
-        if(err) throw err;
-
-        /*
-            redirects the client to `/profile` using HTTP GET,
-            defined in `../routes/routes.js`
-        */
-        res.redirect('/login');
-    });
-
-})
-//delete entries when user checks out
-app.get('/deletecart', function(req, res) {
-
-    console.log('delete cart request recieved: ' + req.session.pnumber)
-    Entry.deleteMany({pnumber: req.session.pnumber}, function(err, docs) {
-        if(err) {
-            console.log(err);
-        } else {
-            console.log('deleted entries: ');
-        }
+if (process.env.NODE_ENV !== "production") {
+  logger.add(
+    new winston.transports.Console({
+      format: winston.format.simple(),
     })
+  );
+}
 
+const MongoStore = require("connect-mongo");
+
+const mongoURI = config.mongoURI;
+
+mongoose
+  .connect(mongoURI, { useNewURLParser: true, useUnifiedTopology: true })
+  .then(() => logger.info("Connected to MongoDB"))
+  .catch((err) => {
+    logger.error("Failed to connect to MongoDB", { error: err });
+    process.exit(1);
+  });
+
+if (process.env.NODE_ENV !== "production") {
+  logger.add(
+    new winston.transports.Console({
+      format: winston.format.simple(),
+    })
+  );
+}
+
+app.use((req, res, next) => {
+  logger.info(`Incoming request: ${req.method} ${req.url}`, { ip: req.ip });
+  next();
 });
-app.get('/addorder', function(req, res) {
 
-    console.log('add order req recieved: ' + req.query.quantity +"" + req.query.amountdue);
+const fileUpload = require("express-fileupload");
+const bcrypt = require("bcrypt");
+const Drink = require("./database/models/Drink");
+const Customer = require("./database/models/Customer");
+const Order = require("./database/models/Order");
+const Entry = require("./database/models/Entry");
+const Favorites = require("./database/models/Favorites");
+const path = require("path");
+const saltRounds = 10;
 
-    const newOrder = new Order({
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
+app.use(fileUpload());
+app.use((req, res, next) => {
+  logger.info(`Incoming request: ${req.method} ${req.url}`, { ip: req.ip });
+  next();
+});
 
-        //_id determines Mongoose data type
-        _id : new mongoose.Types.ObjectId(),
+var hbs = require("hbs");
 
-        pnumber: req.session.pnumber,
-        quantity: req.query.quantity,
-        amountdue: req.query.amountdue,
-        orderno: req.query.orderno,
-        status: req.query.status
+app.set("view engine", "hbs");
 
+hbs.registerPartials(__dirname + "/views/partials");
 
+app.use(
+  session({
+    secret: "CoCoHelper-session",
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: mongoURI }),
+  })
+);
+logger.info("Session middleware set up");
 
+const adminRoutes = require("./routes/adminRoutes");
+
+app.use("/admin", adminRoutes);
+
+app.get("/logout", function (req, res) {
+  try {
+    logger.info(`User logged out`, { user: req.session.pnumber });
+    req.session.destroy(function (err) {
+      if (err) {
+        logger.error("Error destroying session", { error: err });
+        throw err;
+      }
+      res.redirect("/login");
     });
+  } catch (err) {
+    logger.error("Error logging out", { error: err });
+    next(new Error('Internal Server Error'));
+  }
+});
 
-    newOrder.save(function(err) {
-        if(err) {
-            console.log(err);
-            res.send(400, 'Bad Request');
+app.get("/deletecart", function (req, res) {
+  logger.info(`Delete cart request received`, { user: req.session.pnumber });
+  Entry.deleteMany({ pnumber: req.session.pnumber }, function (err, docs) {
+    if (err) {
+      logger.error("Error deleting cart entries", { error: err });
+      return next(new Error('Internal Server Error'));
+    }
+    logger.info("Cart entries deleted", { user: req.session.pnumber });
+    res.status(200).send("Cart entries deleted");
+  });
+});
+
+app.get("/addorder", function (req, res) {
+  logger.info("Add order request received", {
+    user: req.session.pnumber,
+    quantity: req.query.quantity,
+    amountdue: req.query.amountdue,
+  });
+
+  const newOrder = new Order({
+    _id: new mongoose.Types.ObjectId(),
+    pnumber: req.session.pnumber,
+    quantity: req.query.quantity,
+    amountdue: req.query.amountdue,
+    orderno: req.query.orderno,
+    status: req.query.status,
+  });
+
+  newOrder.save(function (err) {
+    if (err) {
+      logger.error("Error saving new order", { error: err });
+      res.status(400).send("Bad Request");
+    } else {
+      logger.info("New order created", { order: newOrder });
+    }
+  });
+
+  Customer.findOneAndUpdate(
+    { pnumber: req.session.pnumber },
+    { order: newOrder._id },
+    function (err, docs) {
+      if (err) {
+        logger.error(err);
+      } else {
+        logger.info("Retrieved customer to add order to: " + docs);
+        res.redirect("back");
+      }
+    }
+  );
+});
+
+app.get("/delete-entry", function (req, res) {
+  logger.info("Delete entry request received", {
+    user: req.session.pnumber,
+    drinkname: req.query.drinkname,
+  });
+
+  var query = {
+    drinkname: req.query.drinkname,
+    size: req.query.size,
+    sugarlevel: req.query.sugarlevel,
+    icelevel: req.query.icelevel,
+    amount: req.query.amount,
+    pnumber: req.session.pnumber,
+  };
+  if (req.session.pnumber) {
+    Entry.findOneAndDelete(query, function (err, docs) {
+      if (err) {
+        logger.error("Error deleting entry", { error: err });
+      } else {
+        logger.info("Entry deleted", { entry: docs });
+      }
+    });
+  } else {
+    res.redirect("back");
+  }
+});
+
+app.get("/find-entry", function (req, res) {
+  logger.info("Find entry request received", {
+    drinkname: req.query.drinkname,
+    size: req.query.size,
+    sugarlevel: req.query.sugarlevel,
+    icelevel: req.query.icelevel,
+    amount: req.query.amount,
+    newprice: req.query.newprice,
+    session: req.session.pnumber,
+  });
+
+  var query = {
+    drinkname: req.query.drinkname,
+    size: req.query.size,
+    sugarlevel: req.query.sugarlevel,
+    icelevel: req.query.icelevel,
+    amount: req.query.amount,
+    pnumber: req.session.pnumber,
+  };
+
+  if (req.session.pnumber) {
+    Entry.findOneAndUpdate(
+      query,
+      { amount: req.query.newamount, price: req.query.newprice },
+      function (err, docs) {
+        if (err) {
+          logger.error("Error updating entry", { error: err });
+          next(new Error('Internal Server Error'));
         } else {
-            console.log("new Order made: " +newOrder);
-            
+          logger.info("Entry found and updated", { entry: docs });
+          res.status(200).send(docs.toJSON());
         }
-    });
+      }
+    );
+  } else {
+    res.redirect("back");
+  }
+});
 
-    Customer.findOneAndUpdate({pnumber: req.session.pnumber}, {order: newOrder._id},  function(err, docs) {
+app.get("/update-entryprice", function (req, res) {
+  logger.info("Update entry amount request received", {
+    drinkname: req.query.drinkname,
+    size: req.query.size,
+    sugarlevel: req.query.sugarlevel,
+    icelevel: req.query.icelevel,
+    amount: req.query.amount,
+  });
 
-        if(err) {
-            console.log(err);
+  var query = {
+    drinkname: req.query.drinkname,
+    size: req.query.size,
+    sugarlevel: req.query.sugarlevel,
+    icelevel: req.query.icelevel,
+    amount: req.query.amount,
+    pnumber: req.session.pnumber,
+  };
+
+  if (req.session.pnumber) {
+    Entry.findOneAndUpdate(
+      query,
+      { amount: req.query.newamount },
+      function (err, docs) {
+        if (err) {
+          logger.error("Error updating entry", { error: err });
+          next(new Error('Internal Server Error'));
         } else {
-            console.log("retrieved customer to add order to: " + docs)
-            res.redirect('back');
-
-
+          logger.info("Entry found and updated", { entry: docs });
+          res.status(200).send(docs.toJSON());
         }
+      }
+    );
+  } else {
+    res.redirect("back");
+  }
+});
+
+app.get("/cart", async function (req, res) {
+  try {
+    if (!req.session.pnumber) {
+      logger.warn("Unauthorized access attempt to cart", {
+        url: req.originalUrl,
+        method: req.method,
+        ip: req.ip,
+      });
+      return res.redirect("/login");
+    }
+    logger.info("Authorized access to cart", {
+      url: req.originalUrl,
+      user: req.session.pnumber,
+    });
+    const customer = await Customer.findOne({ pnumber: req.session.pnumber })
+      .populate("cart_entries")
+      .exec();
+    const cartentries = customer.cart_entries;
+    logger.info("Cart entries retrieved", { entries: cartentries });
+    res.render("cart", { cartentries });
+  } catch (err) {
+    logger.error("Error retrieving cart entries", { error: err });
+    next(new Error('Internal Server Error'));
+  }
+});
+
+app.post("/addtocart", async function (req, res) {
+  try {
+    logger.info("Add to cart request received", {
+      user: req.session.pnumber,
+      drinkname: req.body.drinkname,
     });
 
-    
-    
-});
-//request to delete cart entry from DB
-app.get('/delete-entry', function(req, res) {
-
-    console.log('delete entry recieved:' + req.query.drinkname);
-
-    console.log(req.query.size);
-    console.log(req.query.sugarlevel);
-    console.log(req.query.icelevel);
-    console.log(req.query.amount);
-
-    console.log('sessioN: ' + req.session.pnumber);
-    console.log("**QUERY DRINKNAME:" + req.query.drinkname +"****");
-    
-    var query = {
-        drinkname: req.query.drinkname,
-        size: req.query.size,
-        sugarlevel: req.query.sugarlevel,
-        icelevel: req.query.icelevel,
-        amount: req.query.amount,
-        pnumber: req.session.pnumber
-    }
-    if(req.session.pnumber) {
-
-        //pull to DELETE specific entry from entry array of customer
-        /*
-        this does not work
-        Customer.updateOne({pnumber: req.session.pnumber}, {
-            $pull: {
-
-            cart_entries: {drinkname: req.query.drinkname}}});
-            */
-
-        Entry.findOneAndDelete(query, function(err, docs) {
-            console.log('entry deleted' + docs)
-        });
-
-
-    } else {
-        res.redirect('back');
-    }
-
-});
-
-//request to delete cart entry from DB
-app.get('/find-entry', function(req, res) {
-
-    console.log('find entry recieved:' + req.query.drinkname);
-
-    console.log(req.query.size);
-    console.log(req.query.sugarlevel);
-    console.log(req.query.icelevel);
-    console.log(req.query.amount);
-    console.log("new price: " + req.query.newprice);
-
-    console.log('session: ' + req.session.pnumber);
-    console.log("**QUERY DRINKNAME:" + req.query.drinkname +"****");
-    
-    var query = {
-        drinkname: req.query.drinkname,
-        size: req.query.size,
-        sugarlevel: req.query.sugarlevel,
-        icelevel: req.query.icelevel,
-        amount: req.query.amount,
-        pnumber: req.session.pnumber
-    }
-    if(req.session.pnumber) {
-
-        //pull to DELETE specific entry from entry array of customer
-        /*
-        this does not work
-        Customer.updateOne({pnumber: req.session.pnumber}, {
-            $pull: {
-
-            cart_entries: {drinkname: req.query.drinkname}}});
-            */
-
-        Entry.findOneAndUpdate(query, {amount: req.query.newamount, price: req.query.newprice}, function(err, docs) {
-            if(err) {
-                console.log(err)
-            } else
-            console.log('entry found and udpated' + docs);
-            res.status(200).send(docs.toJSON());
-        });
-
-
-    } else {
-        res.redirect('back');
-    }
-
-});
-
-//request to delete cart entry from DB
-//request to delete cart entry from DB
-app.get('/update-entryprice', function(req, res) {
-
-    console.log('update entry amt request recieved:' + req.query.drinkname);
-
-    console.log(req.query.size);
-    console.log(req.query.sugarlevel);
-    console.log(req.query.icelevel);
-    console.log(req.query.amount);
-
-    
-    console.log("**QUERY DRINKNAME:" + req.query.drinkname +"****");
-    
-    var query = {
-        drinkname: req.query.drinkname,
-        size: req.query.size,
-        sugarlevel: req.query.sugarlevel,
-        icelevel: req.query.icelevel,
-        amount: req.query.amount,
-        pnumber: req.session.pnumber
-    }
-    if(req.session.pnumber) {
-
-        //pull to DELETE specific entry from entry array of customer
-        /*
-        this does not work
-        Customer.updateOne({pnumber: req.session.pnumber}, {
-            $pull: {
-
-            cart_entries: {drinkname: req.query.drinkname}}});
-            */
-
-        Entry.findOneAndUpdate(query, {amount: req.query.newamount}, function(err, docs) {
-            if(err) {
-                console.log(err)
-            } else
-            console.log('entry found and udpated' + docs);
-            res.status(200).send(docs.toJSON());
-        });
-
-
-    } else {
-        res.redirect('back');
-    }
-
-});
-
-
-
-
-
-
-app.get('/cart', function(req, res) {
-
-    if(req.session.pnumber) {
-
-        //add .populate and .exec to query so that actual cart_entrires are returned and NOT jsut 
-        //object_ids of cart entries
-        Customer.findOne({pnumber: req.session.pnumber}) .populate('cart_entries') 
-        .exec(function(err,docs) {
-            if(err) {
-                console.log(err);
-            } else {
-                const cartentries = docs.cart_entries;
-                console.log("ENTRIES RETRIEVED" + cartentries);
-                res.render('cart', {cartentries});
-
-            }
-        });
-
-    } else {
-        res.redirect('/login');
-    }
-
-});
-    
-
-//when user clicks add to cart, append new cart entry to the Entrires array of customer
-app.post('/addtocart', function(req,res) {
-    console.log('add to cart req recieved: ' + req.body.drinkname + req.body.price + req.body.size + req.body.sugarlevel + req.body.icelevel + "amt: " + req.body.amount);
-    
-
-    
-    //make new Entry and append to array of Entries of curr Customer
     const newEntry = new Entry({
-
-        //_id determines Mongoose data type
-        _id : new mongoose.Types.ObjectId(),
-
-
-        drinkname: req.body.drinkname,
-        sugarlevel : req.body.sugarlevel,
-        icelevel : req.body.icelevel,
-        size :  req.body.size,
-        amount : req.body.amount,
-        price: req.body.price,
-        drinkimg : req.body.drinkimg,
-        pnumber: req.session.pnumber
-
-
+      _id: new mongoose.Types.ObjectId(),
+      drinkname: req.body.drinkname,
+      sugarlevel: req.body.sugarlevel,
+      icelevel: req.body.icelevel,
+      size: req.body.size,
+      amount: req.body.amount,
+      price: req.body.price,
+      drinkimg: req.body.drinkimg,
+      pnumber: req.session.pnumber,
     });
 
-   
-   
+    await newEntry.save();
+    logger.info("New cart entry created", { entry: newEntry });
 
-    //save New entry in DB
-    
-    newEntry.save(function(err) {
-        if(err) {
-            console.log(err);
-            res.send(400, 'Bad Request');
-        } else {
-            console.log("new netry made: " +newEntry);
-            
-        }
-    })
-    
+    const customer = await Customer.findOneAndUpdate(
+      { pnumber: req.session.pnumber },
+      { $push: { cart_entries: newEntry._id } }
+    );
+    logger.info("Customer updated with new cart entry", { customer: customer });
 
-    
-
-    //push ._id of new Entry, only used ._id for other Mongoose documents
-    //link reference of newEntr to customer
-    Customer.findOneAndUpdate({pnumber: req.session.pnumber}, {$push:{cart_entries: newEntry._id}},  function(err, docs) {
-
-        if(err) {
-            console.log(err);
-        } else {
-            console.log("retrieved customer to add entry to: " + docs)
-            res.redirect('back');
-
-
-        }
-    });
-    
-    //res.redirect('back');
-
+    res.redirect("back");
+  } catch (err) {
+    logger.error("Error adding to cart", { error: err });
+    res.status(400).send("Bad Request");
+  }
 });
 
-//returns NOT jsonified drink object
-app.get('/find-drink-object', function(req, res) {
+app.get("/find-drink-object", async function (req, res) {
+  try {
+    logger.info(
+      "find drink OBJECT (return non json) req received" + req.query.drinkname
+    );
 
-    console.log("find drink OBJECT (return non json) req received" + req.query.drinkname);
-
-    Drink.findOne({drinkname: req.query.drinkname}, function(err, docs) {
-        if(err) {
-            console.log(err);
-            res.redirect('back');
-        } else {
-            console.log("drink retrieved from add-drink request: " + docs);
-            
-            //toJSON() is called to parse Decimal128 types into string
-
-            res.status(200).send(docs);
-        }
-
-    })
-
-});
-
-//when cart-icon of a drink in menu is clicked, return data about that specific drink to client
-app.get('/find-drink', function(req, res) {
-
-    console.log("find drink req received " + req.query.drinkname);
-
-    Drink.findOne({drinkname: req.query.drinkname}, function(err, docs) {
-        if(err) {
-            console.log(err);
-            res.redirect('back');
-        } else {
-            console.log("drink retrieved from find-drink request: " + docs);
-            
-            //toJSON() is called to parse Decimal128 types into string
-
-            res.status(200).send(docs.toJSON());
-        }
-
-    })
-
-});
-
-app.get('/menu', function(req, res) {
-
-    //if session doesnt exist, redirect to login page
-    if(req.session.pnumber) {
-
-        Drink.find({category: 'milktea'}, 'drinkname drinkimg category', function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                console.log("Docs retrieved: ", docs);
-                
-                const milktea_drinks = docs;
-                res.render('menu',{milktea_drinks});
-                
-               
-            }
-        });
-    } else {
-        res.redirect('/login');
+    const drink = await Drink.findOne({
+      drinkname: req.query.drinkname,
+    }).exec();
+    if (!drink) {
+      logger.error("Drink not found");
+      return res.redirect("back");
     }
 
+    logger.info("Drink retrieved from add-drink request: " + drink);
 
-})
-
-app.get('/profile',function(req, res) {
-
-    if(req.session.pnumber) {
-        res.redirect('/profile/' + req.session.pnumber);
-    } else {
-        res.redirect('/login');
-    }
-})
-//pnumber since its unique for each customer, possibly can also use email
-//sample req: /profile/12345678
-//render profile page of user
-app.get('/profile/:pnumber', function(req, res) {
-
-    //find a user with pnumber equal to parameter in get URL(:pnumber)
-    //only render profile page if the user is logged in (session object has a value)
-    if(req.session.pnumber) {
-        
-        var query = {pnumber: req.params.pnumber};
-
-        //what to return from query
-        var projection = 'firstname lastname pnumber email';
-
-        var userDetails = {};
-
-
-        Customer.findOne(query, projection, function(err, result) {
-
-            if(err) {
-                console.log(err);
-            } else {
-                if(result != null) {
-                    userDetails.firstname = result.firstname;
-                    userDetails.lastname = result.lastname;
-                    userDetails.pnumber = result.pnumber;
-                    userDetails.email = result.email
-
-                    res.render('profile', userDetails);
-                } else {
-                    res.redirect('/login');
-                }
-                //comment
-            }
-
-        })
-
-    } else {
-        //to protect user data, redirect to login page 
-        res.redirect('/login');
-    }
-
+    res.status(200).send(drink);
+  } catch (err) {
+    logger.error(err);
+    next(new Error('Internal Server Error'));
+  }
 });
 
+app.get("/find-drink", async function (req, res) {
+  try {
+    logger.info("find drink req received " + req.query.drinkname);
 
-//when user clicks on log in button 
-app.post('/loginuser', function(req, res) {
+    const drink = await Drink.findOne({
+      drinkname: req.query.drinkname,
+    }).exec();
+    if (!drink) {
+      logger.error("Drink not found");
+      return res.redirect("back");
+    }
 
-    console.log("log in POST req recieved: " + req.body.email + " " + req.body.password);
-    email = req.body.email.replace(" ", "");
-   
-    Customer.findOne({email: email}, function (err, result) {
-        console.log("retrieved customer: " + result);
-        if(err) {
-            console.log(err)
-        } else {
-            if(result) {
-                var customer = {
+    logger.info("Drink retrieved from find-drink request: " + drink);
 
-                    email: result.email,
-                    pnumber: result.pnumber
-                }
-                
-                //remove any previously logged in admin
-                req.session.admin = null;
-                //store to session object for future access
-                //email, pnumber, and names can now be accessed from any succeeding HTTP request
-                //while session hasnt ended
-                //session can store multiple values
-                req.session.email = customer.email;
-                req.session.pnumber = customer.pnumber;
-                req.session.firstname = result.firstname;
-                req.session.lastname = result.lastname;
+    res.status(200).send(drink.toJSON());
+  } catch (err) {
+    logger.error(err);
+    next(new Error('Internal Server Error'));
+  }
+});
 
-                console.log("retrieved customer: " + customer);
-
-                bcrypt.compare(req.body.password, result.pw, function(err, equal) {
-
-                    if(equal) {
-                       
-                        res.redirect('/profile/' + customer.pnumber);
-                    } else {
-
-                        
-                        //TODO:
-                        //if not equal, display error message thru hbs or at least make field color red
-                        res.render("login", {error: 'Incorrect password.'});
-                    }
-
-                })
-            
-                
-            }
-            else {
-                res.render('login', {error: 'Incorrect email and/or password.'});
-            }
-
-
-        } 
-
+app.get("/menu", function (req, res) {
+  try {
+    if (!req.session.pnumber) {
+      logger.warn("Unauthorized access attempt to menu", {
+        url: req.originalUrl,
+        method: req.method,
+        ip: req.ip,
+      });
+      return res.redirect("/login");
+    }
+    logger.info("Authorized access to menu", {
+      url: req.originalUrl,
+      user: req.session.pnumber,
     });
 
-});
-//POST request to register a user, create a new User in the DB
-app.post('/registeruser', function(req,res) {
-    console.log('post req received to register user: ' + req.body.firstname);
-
-    //email and pnumber SHOULD be unique, check if it exists
-    //if it doesnt exist, make account
-    Customer.find({$or:[ {email:req.body.email}, {pnumber:req.body.pnumber}]}, function(err, docs) {
-        if(err) {
-            console.log(err);
-            res.render('reg');
+    Drink.find(
+      { category: "milktea" },
+      "drinkname drinkimg category",
+      function (err, docs) {
+        if (err) {
+          logger.error(err);
+          return next(new Error('Internal Server Error'));
         } else {
+          logger.info("Docs retrieved: ", docs);
+          const milktea_drinks = docs;
+          res.render("menu", { milktea_drinks });
+        }
+      }
+    );
+  } catch (error) {
+    logger.error("Error in /menu route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
+});
 
-            if(docs.length) {
-                console.log('USER EXISTS! ' + docs);
-                res.render('reg', {error: 'The email and/or phone number is already used by an existing user.'}); 
-                
-            } else {
+app.get("/profile", function (req, res) {
+  try {
+    if (!req.session.pnumber) {
+      logger.warn("Unauthorized access attempt to profile", {
+        url: req.originalUrl,
+        method: req.method,
+        ip: req.ip,
+      });
+      return res.redirect("/login");
+    }
+    logger.info("Authorized access to profile", {
+      url: req.originalUrl,
+      user: req.session.pnumber,
+    });
 
-                console.log('User does not exist, proceed with making a customer account');
-                bcrypt.hash(req.body.cpassword, saltRounds, function(err, hash) {
+    res.redirect("/profile/" + req.session.pnumber);
+  } catch (error) {
+    logger.error("Error in /profile route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
+});
 
-                    Customer.create({
-                        firstname: req.body.firstname,
-                        lastname: req.body.lastname,
-                        email: req.body.email,
-                        pnumber: req.body.pnumber,
-                        pw: hash
-            
-            
-                    }, function (err, docs) {
-                        if (err){
-                            console.log(err);
-                        }
-                        else{
-                            res.redirect('/login');
-                            
-                            
-                        }
+app.get("/profile/:pnumber", async function (req, res) {
+  try {
+    if (!req.session.pnumber) {
+      logger.warn("Unauthorized access attempt to specific profile", {
+        url: req.originalUrl,
+        method: req.method,
+        ip: req.ip,
+        attemptedProfile: req.params.pnumber,
+      });
+      return res.redirect("/login");
+    }
+
+    const result = await Customer.findOne(
+      { pnumber: req.params.pnumber },
+      "firstname lastname pnumber email"
+    );
+
+    if (!result) {
+      logger.warn("Profile not found", {
+        requestedProfile: req.params.pnumber,
+      });
+      return res.status(404).render("error", { message: "Profile not found" });
+    }
+
+    logger.info("User profile retrieved successfully", {
+      user: req.params.pnumber,
+    });
+    res.render("profile", result);
+  } catch (error) {
+    logger.error("Error retrieving user profile", {
+      error: error,
+      user: req.params.pnumber,
+    });
+    res.status(500).render("error", { message: "An error occurred" });
+  }
+});
+
+app.post("/loginuser", async function (req, res) {
+  try {
+    const email = req.body.email.replace(" ", "");
+    const result = await Customer.findOne({ email: email });
+
+    if (!result) {
+      logger.warn("Failed login attempt - user not found", {
+        email: req.body.email,
+      });
+      return res.render("login", { error: "Incorrect email and/or password." });
+    }
+
+    const isPasswordValid = await bcrypt.compare(req.body.password, result.pw);
+    if (isPasswordValid) {
+      logger.info("Successful login", { email: req.body.email });
+      res.redirect("/profile/" + result.pnumber);
+    } else {
+      logger.warn("Failed login attempt - incorrect password", {
+        email: req.body.email,
+      });
+      res.render("login", { error: "Incorrect password." });
+    }
+  } catch (error) {
+    logger.error("Error during login process", {
+      error: error,
+      email: req.body.email,
+    });
+    res
+      .status(500)
+      .render("error", { message: "An error occurred during login" });
+  }
+});
+
+app.post("/registeruser", function (req, res) {
+  try {
+    logger.info("User registration attempt", { email: req.body.email });
+
+    Customer.find(
+      { $or: [{ email: req.body.email }, { pnumber: req.body.pnumber }] },
+      function (err, docs) {
+        if (err) {
+          logger.error("Error finding existing user", { error: err });
+          res.render("reg");
+        } else {
+          if (docs.length) {
+            res.render("reg", {
+              error:
+                "The email and/or phone number is already used by an existing user.",
+            });
+          } else {
+            bcrypt.hash(req.body.cpassword, saltRounds, function (err, hash) {
+              Customer.create(
+                {
+                  firstname: req.body.firstname,
+                  lastname: req.body.lastname,
+                  email: req.body.email,
+                  pnumber: req.body.pnumber,
+                  pw: hash,
+                },
+                function (err, docs) {
+                  if (err) {
+                    logger.error("Error creating new user", { error: err });
+                  } else {
+                    logger.info("New user registered", {
+                      email: req.body.email,
                     });
-                })
-
-            }
-        }
-    });
-
-    
-    
-
-});
-
-//Render Status View
-app.get('/status', function(req, res) {
-    if(req.session.pnumber) {
-        Order.find({pnumber: req.session.pnumber}, {}, function(err, data) {
-            if(err) {
-                console.log(err);
-            } else {
-                console.log("RETRIEVED ORDERS " + data);
-                res.render('status', {data: data});
-            }
-        });
-    } else {
-        res.redirect('/login');
-    }
-});
-
-
-//Render Favorites View
-app.get('/favorites', function(req, res) {
-    if(req.session.pnumber) {
-        Favorites.find({pnumber: req.session.pnumber}, {}, function(err, data) {
-            if(err) {
-                console.log(err);
-            } else {
-                console.log("RETRIEVED FAVORITES " + data);
-                res.render('favorites', {data: data});
-            }
-        });
-    } else {
-        res.redirect('/login');
-    }
-});
-
-
-//Add Drink to Favorites
-app.post('/addtofavorites', function(req,res) {
-    Favorites.findOne({pnumber: req.session.pnumber, drinkname: req.body.drinkname}, function(err, success) {
-        if(err) {
-            console.log(err);
-        } else if(success) {
-            console.log("ALREADY IN FAVORITES");
-        } else {
-            const faveDrink = new Favorites({
-                //_id determines Mongoose data type
-                _id : new mongoose.Types.ObjectId(),
-        
-                pnumber: req.session.pnumber,
-                drinkname: req.body.drinkname,
-                drinkimg : req.body.drinkimg
-            });
-            
-            faveDrink.save(function(err) {
-                if(err) {
-                    console.log(err);
-                    res.send(400, 'Bad Request');
-                } else {
-                    console.log("ADDED TO FAVORITES " + faveDrink);
+                    res.redirect("/login");
+                  }
                 }
+              );
             });
+          }
         }
+      }
+    );
+  } catch (error) {
+    logger.error("Error during user registration", {
+      error: error,
+      email: req.body.email,
     });
+    res
+      .status(500)
+      .render("error", { message: "An error occurred during registration" });
+  }
 });
 
+app.get("/status", function (req, res) {
+  try {
+    if (!req.session.pnumber) {
+      logger.warn("Unauthorized access attempt to status", {
+        url: req.originalUrl,
+        method: req.method,
+        ip: req.ip,
+      });
+      return res.redirect("/login");
+    }
+    logger.info("Authorized access to status", {
+      url: req.originalUrl,
+      user: req.session.pnumber,
+    });
 
-//Remove Drink from Favorites
-app.post('/removefavorites', function(req,res) {
-    Favorites.deleteOne({pnumber: req.session.pnumber, drinkname: req.body.drinkname}, function(err) {
-        if(err) {
-            console.log(err);
-            res.send(400, 'Bad Request');
+    Order.find({ pnumber: req.session.pnumber }, {}, function (err, data) {
+      if (err) {
+        logger.error("Error retrieving orders", { error: err });
+      } else {
+        logger.info("Retrieved orders", { data: data });
+        res.render("status", { data: data });
+      }
+    });
+  } catch (error) {
+    logger.error("Error in /status route", { error: error });
+    res.status(500).render("error", { message: "An error occurred" });
+  }
+});
+
+app.get("/favorites", function (req, res) {
+  try {
+    if (!req.session.pnumber) {
+      logger.warn("Unauthorized access attempt to favorites", {
+        url: req.originalUrl,
+        method: req.method,
+        ip: req.ip,
+      });
+      return res.redirect("/login");
+    }
+    logger.info("Authorized access to favorites", {
+      url: req.originalUrl,
+      user: req.session.pnumber,
+    });
+
+    Favorites.find({ pnumber: req.session.pnumber }, {}, function (err, data) {
+      if (err) {
+        logger.error("Error retrieving favorites", { error: err });
+      } else {
+        logger.info("Retrieved favorites", { data: data });
+        res.render("favorites", { data: data });
+      }
+    });
+  } catch (error) {
+    logger.error("Error in /favorites route", { error: error });
+    res.status(500).render("error", { message: "An error occurred" });
+  }
+});
+
+app.post("/addtofavorites", function (req, res) {
+  try {
+    Favorites.findOne(
+      { pnumber: req.session.pnumber, drinkname: req.body.drinkname },
+      function (err, success) {
+        if (err) {
+          logger.error("Error finding favorite", { error: err });
+          next(new Error('Internal Server Error'));
+        } else if (success) {
+          logger.info("Drink already in favorites");
+          res.status(200).send("Drink already in favorites");
         } else {
-            console.log("REMOVED FROM FAVORITES " + req.body.drinkname);
+          const faveDrink = new Favorites({
+            _id: new mongoose.Types.ObjectId(),
+            pnumber: req.session.pnumber,
+            drinkname: req.body.drinkname,
+            drinkimg: req.body.drinkimg,
+          });
+
+          faveDrink.save(function (err) {
+            if (err) {
+              logger.error("Error adding to favorites", { error: err });
+              next(new Error('Internal Server Error'));
+            } else {
+              logger.info("Added to favorites", { drink: faveDrink });
+              res.status(200).send("Added to favorites");
+            }
+          });
         }
+      }
+    );
+  } catch (error) {
+    logger.error("Error in /addtofavorites route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
+});
+
+app.post("/removefavorites", function (req, res) {
+  try {
+    logger.info("Remove from favorites request", {
+      user: req.session.pnumber,
+      drinkname: req.body.drinkname,
     });
+    Favorites.deleteOne(
+      { pnumber: req.session.pnumber, drinkname: req.body.drinkname },
+      function (err) {
+        if (err) {
+          logger.error("Error removing from favorites", { error: err });
+          next(new Error('Internal Server Error'));
+        } else {
+          logger.info("Removed from favorites", {
+            drinkname: req.body.drinkname,
+          });
+          res.status(200).send("Removed from favorites");
+        }
+      }
+    );
+  } catch (error) {
+    logger.error("Error in /removefavorites route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
 });
 
-
-//render register page
-app.get('/register', function(req, res) {
-
-    res.render('reg');
-
-    
-
-    
+app.get("/register", function (req, res) {
+  try {
+    res.render("reg");
+  } catch (error) {
+    logger.error("Error in /register route", { error: error });
+    res.status(500).render("error", { message: "An error occurred" });
+  }
 });
-//render log ihn apge
-app.get('/login', function(req, res) {
 
-    if(req.session.pnumber) {
-        res.redirect('/profile/' + req.session.pnumber);
+app.get("/login", function (req, res) {
+  try {
+    if (req.session.pnumber) {
+      res.redirect("/profile/" + req.session.pnumber);
     } else {
-    res.render('login');
+      res.render("login");
+    }
+  } catch (error) {
+    logger.error("Error in /login route", { error: error });
+    res.status(500).render("error", { message: "An error occurred" });
+  }
+});
+
+app.get("/loginuser", function (req, res) {
+  try {
+    res.render("login");
+  } catch (error) {
+    logger.error("Error in /loginuser route", { error: error });
+    res.status(500).render("error", { message: "An error occurred" });
+  }
+});
+
+app.post("/upload-drinkimg", function (req, res) {
+  try {
+    const { drinkimg } = req.files;
+    if (!drinkimg) {
+      return res.status(400).send("No file uploaded");
     }
 
-    
-
-    
-});
-
-app.get('/loginuser', function(req, res) {
-
-    res.render('login');
-
-    
-
-    
-});
-/*Uploads actual drink image to public/drink_images. /add-drink adds doc to DB */
-app.post('/upload-drinkimg', function(req, res) {
-
-    const {drinkimg} = req.files
-   
-    
-    drinkimg.mv(path.resolve(__dirname,'public/drink_images',drinkimg.name),(error) => {
-        res.redirect('/')
-    })
-
-    
-});
-
-/*Request to delete a drink from the db */
-app.get('/delete-drink', function(req, res) {
-
-    var drinkname = req.query.drinkname;
-
-    console.log("/delete-drink request recieved: " + drinkname);
-
-    Drink.deleteOne({drinkname : drinkname}, function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            
-            
-        }
+    const uploadPath = path.resolve(
+      __dirname,
+      "public/drink_images",
+      drinkimg.name
+    );
+    drinkimg.mv(uploadPath, (error) => {
+      if (error) {
+        logger.error("Error uploading file", {
+          error: error,
+          filename: drinkimg.name,
+        });
+        return res.status(500).send("Error uploading file");
+      }
+      res.redirect("/");
     });
-
-
-
+  } catch (error) {
+    logger.error("Error in file upload process", { error: error });
+    res.status(500).send("An error occurred during file upload");
+  }
 });
 
-/*When add drink button is clicked */
-app.post('/add-drink', function(req, res) {
+app.get("/delete-drink", function (req, res) {
+  try {
+    var drinkname = req.query.drinkname;
+    logger.info("/delete-drink request received: " + drinkname);
+    Drink.deleteOne({ drinkname: drinkname }, function (err, docs) {
+      if (err) {
+        logger.error("Error deleting drink", { error: err });
+      } else {
+        logger.info("Drink deleted successfully");
+      }
+    });
+  } catch (error) {
+    logger.error("Error in /delete-drink route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
+});
 
-    var regprice= req.body.regprice;
+app.post("/add-drink", function (req, res) {
+  try {
+    logger.info("Add drink request received", {
+      drinkname: req.body.drinkname,
+      category: req.body.category,
+    });
+    var regprice = req.body.regprice;
     var lprice = req.body.lprice;
-    var drinkname =  req.body.drinkname;
+    var drinkname = req.body.drinkname;
     var category = req.body.category;
     var drinkimg = req.body.drinkimg;
-
-    //remove fakepath from filename
-    var filename = drinkimg.replace(/C:\\fakepath\\/, '');
-    
-
-    console.log('post add-drink request received: %s %s %s %s', drinkname, lprice, category, filename);
-
-    
-    
-
-        Drink.create({
-        
-            
-            regprice: regprice,
-            lprice: lprice,
-            drinkname: drinkname,
-            category: category,
-            drinkimg: '/drink_images/' + filename
-            
-            
-
-        }, (error,post) => {
-
-           
-            res.redirect('back');
-        })
-
-    
+    var filename = drinkimg.replace(/C:\\fakepath\\/, "");
+    Drink.create(
+      {
+        regprice: regprice,
+        lprice: lprice,
+        drinkname: drinkname,
+        category: category,
+        drinkimg: "/drink_images/" + filename,
+      },
+      (error, post) => {
+        if (error) {
+          logger.error("Error adding new drink", { error: error });
+          res.status(500).send("Error adding drink");
+        } else {
+          logger.info("New drink added successfully", { drink: post });
+          res.redirect("back");
+        }
+      }
+    );
+  } catch (error) {
+    logger.error("Error in /add-drink route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
 });
 
-app.get('/', function(req, res) {
-   
-    //retrieve all Drinks in db and render to menu_admin.hbs
-    /*
-    Drink.find({category: 'milktea'}, 'drinkname drinkimg category', function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            console.log("Docs retrieved: ", docs);
-            
+app.get("/", function (req, res) {
+  res.redirect("/login");
+});
+
+app.get("/milktea", function (req, res) {
+  try {
+    if (req.session.admin && req.session.admin.role === "product_manager") {
+      Drink.find(
+        { category: "milktea" },
+        "drinkname drinkimg category",
+        function (err, docs) {
+          if (err) {
+            logger.error("Error retrieving milktea drinks", { error: err });
+          } else {
+            logger.info("Docs retrieved for milktea", { drinks: docs });
             const milktea_drinks = docs;
-            res.render('menu_admin',{milktea_drinks});
-            
-           
+            res.render("menu_admin", { milktea_drinks });
+          }
         }
+      );
+    } else {
+      res.redirect("/admin/login");
+    }
+  } catch (error) {
+    logger.error("Error in /milktea route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
+});
+
+app.get("/fruittea", function (req, res) {
+  try {
+    if (req.session.admin && req.session.admin.role === "product_manager") {
+      Drink.find(
+        { category: "fruittea" },
+        "drinkname drinkimg category",
+        function (err, docs) {
+          if (err) {
+            logger.error("Error retrieving fruit tea drinks", { error: err });
+          } else {
+            logger.info("Docs retrieved for fruit tea", { drinks: docs });
+            const milktea_drinks = docs;
+            res.render("menu_admin", { milktea_drinks });
+          }
+        }
+      );
+    } else {
+      res.redirect("/admin/login");
+    }
+  } catch (error) {
+    logger.error("Error in /fruittea route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
+});
+
+app.get("/coffee", function (req, res) {
+  try {
+    if (req.session.admin && req.session.admin.role === "product_manager") {
+      Drink.find(
+        { category: "coffee" },
+        "drinkname drinkimg category",
+        function (err, docs) {
+          if (err) {
+            logger.error("Error retrieving coffee drinks", { error: err });
+          } else {
+            logger.info("Docs retrieved for coffee", { drinks: docs });
+            const milktea_drinks = docs;
+            res.render("menu_admin", { milktea_drinks });
+          }
+        }
+      );
+    } else {
+      res.redirect("/admin/login");
+    }
+  } catch (error) {
+    logger.error("Error in /coffee route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
+});
+app.get("/slush", function (req, res) {
+  try {
+    if (req.session.admin && req.session.admin.role === "product_manager") {
+      Drink.find(
+        { category: "slush" },
+        "drinkname drinkimg category",
+        function (err, docs) {
+          if (err) {
+            logger.error("Error retrieving slush drinks", { error: err });
+          } else {
+            logger.info("Docs retrieved for slush", { drinks: docs });
+            const slush_drinks = docs;
+            res.render("menu_admin", { slush_drinks });
+          }
+        }
+      );
+    } else {
+      res.redirect("/admin/login");
+    }
+  } catch (error) {
+    logger.error("Error in /slush route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
+});
+
+app.get("/choco", function (req, res) {
+  try {
+    if (req.session.admin && req.session.admin.role === "product_manager") {
+      Drink.find(
+        { category: "choco" },
+        "drinkname drinkimg category",
+        function (err, docs) {
+          if (err) {
+            logger.error("Error retrieving choco drinks", { error: err });
+          } else {
+            logger.info("Docs retrieved for choco", { drinks: docs });
+            const choco_drinks = docs;
+            res.render("menu_admin", { choco_drinks });
+          }
+        }
+      );
+    } else {
+      res.redirect("/admin/login");
+    }
+  } catch (error) {
+    logger.error("Error in /choco route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
+});
+
+app.get("/freshtea", function (req, res) {
+  try {
+    if (req.session.admin && req.session.admin.role === "product_manager") {
+      Drink.find(
+        { category: "freshtea" },
+        "drinkname drinkimg category",
+        function (err, docs) {
+          if (err) {
+            logger.error("Error retrieving freshtea drinks", { error: err });
+          } else {
+            logger.info("Docs retrieved for freshtea", { drinks: docs });
+            const freshtea_drinks = docs;
+            res.render("menu_admin", { freshtea_drinks });
+          }
+        }
+      );
+    } else {
+      res.redirect("/admin/login");
+    }
+  } catch (error) {
+    logger.error("Error in /freshtea route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
+});
+
+app.get("/juice", function (req, res) {
+  try {
+    if (req.session.admin && req.session.admin.role === "product_manager") {
+      Drink.find(
+        { category: "juice" },
+        "drinkname drinkimg category",
+        function (err, docs) {
+          if (err) {
+            logger.error("Error retrieving juice drinks", { error: err });
+          } else {
+            logger.info("Docs retrieved for juice", { drinks: docs });
+            const juice_drinks = docs;
+            res.render("menu_admin", { juice_drinks });
+          }
+        }
+      );
+    } else {
+      res.redirect("/admin/login");
+    }
+  } catch (error) {
+    logger.error("Error in /juice route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
+});
+app.get("/menu/:category", function (req, res) {
+  try {
+    if (!req.session.pnumber) {
+      logger.warn("Unauthorized access attempt to menu category", {
+        url: req.originalUrl,
+        method: req.method,
+        ip: req.ip,
+        category: req.params.category,
+      });
+      return res.redirect("/login");
+    }
+
+    logger.info("Authorized access to menu category", {
+      url: req.originalUrl,
+      user: req.session.pnumber,
+      category: req.params.category,
     });
-    */
-   res.redirect('/login')
 
-   
-
-    
-
-    
-   
-    
-   
-});
-
-app.get('/milktea', function(req, res) {
-   
-    //retrieve all Drinks in db and render to menu_admin.hbs
-    if (req.session.admin && req.session.admin.role === "product_manager") {
-
-    
-        Drink.find({category: 'milktea'}, 'drinkname drinkimg category', function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                console.log("Docs retrieved for milktea: ", docs);
-                
-                const milktea_drinks = docs;
-                res.render('menu_admin',{milktea_drinks});
-                
-                
-            
-            }
-        });
-    } else {
-        res.redirect('/admin/login')
-    }
-});
-
-app.get('/fruittea', function(req, res) {
-   
-    //retrieve all Drinks in db and render to menu_admin.hbs
-    if (req.session.admin && req.session.admin.role === "product_manager") {
-        Drink.find({category: 'fruittea'}, 'drinkname drinkimg category', function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                console.log("Docs retrieved for fruit tea: ", docs);
-                
-                const milktea_drinks= docs;
-                res.render('menu_admin',{milktea_drinks});
-            
-                
-            
-            }
-        });
-    } else {
-        res.redirect('/admin/login')
+    const validCategories = [
+      "milktea",
+      "juice",
+      "freshtea",
+      "fruittea",
+      "coffee",
+      "slush",
+      "choco",
+    ];
+    if (!validCategories.includes(req.params.category)) {
+      logger.warn("Invalid menu category accessed", {
+        category: req.params.category,
+        user: req.session.pnumber,
+      });
+      return res.status(404).send("Category not found");
     }
 
-   
+    Drink.find(
+      { category: req.params.category },
+      "drinkname drinkimg category",
+      function (err, docs) {
+        if (err) {
+          logger.error("Error retrieving drinks for category", {
+            error: err,
+            category: req.params.category,
+            user: req.session.pnumber,
+          });
+          return res.status(500).send("An error occurred");
+        }
 
-    
-   
+        logger.info("Drinks retrieved successfully for category", {
+          category: req.params.category,
+          count: docs.length,
+          user: req.session.pnumber,
+        });
+
+        const drinks = docs;
+        res.render("menu", { drinks });
+      }
+    );
+  } catch (error) {
+    logger.error("Error in /menu/:category route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
 });
 
-app.get('/coffee', function(req, res) {
-   
-    //retrieve all Drinks in db and render to menu_admin.hbs
-    if (req.session.admin && req.session.admin.role === "product_manager") {
-        Drink.find({category: 'coffee'}, 'drinkname drinkimg category', function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                console.log("Docs retrieved for fruit tea: ", docs);
-                
-                const milktea_drinks= docs;
-                res.render('menu_admin',{milktea_drinks});
-            
-                
-            
-            }
-        });
+app.get("/menu/milktea", function (req, res) {
+  try {
+    if (req.session.pnumber) {
+      Drink.find(
+        { category: "milktea" },
+        "drinkname drinkimg category",
+        function (err, docs) {
+          if (err) {
+            logger.error("Error retrieving milktea drinks", { error: err });
+          } else {
+            logger.info("Docs retrieved for milktea", { drinks: docs });
+            const milktea_drinks = docs;
+            res.render("menu", { milktea_drinks });
+          }
+        }
+      );
     } else {
-        res.redirect('/admin/login')
+      res.redirect("/login");
     }
-
-   
-
-    
-   
+  } catch (error) {
+    logger.error("Error in /menu/milktea route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
 });
 
-app.get('/slush', function(req, res) {
-   
-    //retrieve all Drinks in db and render to menu_admin.hbs
-    if (req.session.admin && req.session.admin.role === "product_manager") {
-        Drink.find({category: 'slush'}, 'drinkname drinkimg category', function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                console.log("Docs retrieved for fruit tea: ", docs);
-                
-                const milktea_drinks= docs;
-                res.render('menu_admin',{milktea_drinks});
-            
-                
-            
-            }
-        });
+app.get("/menu/juice", function (req, res) {
+  try {
+    if (req.session.pnumber) {
+      Drink.find(
+        { category: "juice" },
+        "drinkname drinkimg category",
+        function (err, docs) {
+          if (err) {
+            logger.error("Error retrieving juice drinks", { error: err });
+          } else {
+            logger.info("Docs retrieved for juice", { drinks: docs });
+            const juice_drinks = docs;
+            res.render("menu", { juice_drinks });
+          }
+        }
+      );
     } else {
-        res.redirect('/admin/login')
+      res.redirect("/login");
     }
-
-   
-
-    
-   
+  } catch (error) {
+    logger.error("Error in /menu/juice route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
 });
 
-app.get('/choco', function(req, res) {
-   
-    //retrieve all Drinks in db and render to menu_admin.hbs
-    if (req.session.admin && req.session.admin.role === "product_manager") {
-        Drink.find({category: 'choco'}, 'drinkname drinkimg category', function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                console.log("Docs retrieved for fruit tea: ", docs);
-                
-                const milktea_drinks= docs;
-                res.render('menu_admin',{milktea_drinks});
-            
-                
-            
-            }
-        });
+app.get("/menu/freshtea", function (req, res) {
+  try {
+    if (req.session.pnumber) {
+      Drink.find(
+        { category: "freshtea" },
+        "drinkname drinkimg category",
+        function (err, docs) {
+          if (err) {
+            logger.error("Error retrieving freshtea drinks", { error: err });
+          } else {
+            logger.info("Docs retrieved for freshtea", { drinks: docs });
+            const freshtea_drinks = docs;
+            res.render("menu", { freshtea_drinks });
+          }
+        }
+      );
     } else {
-        res.redirect('/admin/login')
+      res.redirect("/login");
     }
-
-
-   
-
-    
-   
+  } catch (error) {
+    logger.error("Error in /menu/freshtea route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
 });
 
-app.get('/freshtea', function(req, res) {
-   
-    //retrieve all Drinks in db and render to menu_admin.hbs
-    if (req.session.admin && req.session.admin.role === "product_manager") {
-        Drink.find({category: 'freshtea'}, 'drinkname drinkimg category', function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                console.log("Docs retrieved for fruit tea: ", docs);
-                
-                const milktea_drinks= docs;
-                res.render('menu_admin',{milktea_drinks});
-            
-                
-            
-            }
-        });
+app.get("/menu/fruittea", function (req, res) {
+  try {
+    if (req.session.pnumber) {
+      Drink.find(
+        { category: "fruittea" },
+        "drinkname drinkimg category",
+        function (err, docs) {
+          if (err) {
+            logger.error("Error retrieving fruittea drinks", { error: err });
+          } else {
+            logger.info("Docs retrieved for fruittea", { drinks: docs });
+            const fruittea_drinks = docs;
+            res.render("menu", { fruittea_drinks });
+          }
+        }
+      );
     } else {
-        res.redirect('/admin/login')
+      res.redirect("/login");
     }
-
-   
-
-    
-   
+  } catch (error) {
+    logger.error("Error in /menu/fruittea route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
 });
 
-app.get('/juice', function(req, res) {
-   
-    //retrieve all Drinks in db and render to menu_admin.hbs
-    if (req.session.admin && req.session.admin.role === "product_manager") {
-        Drink.find({category: 'juice'}, 'drinkname drinkimg category', function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                console.log("Docs retrieved for fruit tea: ", docs);
-                
-                const milktea_drinks= docs;
-                res.render('menu_admin',{milktea_drinks});
-            
-                
-            
-            }
-        });
-    } else {
-        res.redirect('/admin/login')
-    }
-
-
-   
-
-    
-   
-});
-
-//below is menu requests for CUSTOMER 
-app.get('/menu/milktea', function(req, res) {
-   
-    //retrieve all Drinks in db and render to menu_admin.hbs
-    if(req.session.pnumber) {
-        Drink.find({category: 'milktea'}, 'drinkname drinkimg category', function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                console.log("Docs retrieved for milktea: ", docs);
-                
-                const milktea_drinks = docs;
-                res.render('menu',{milktea_drinks});
-                
-                
-            
-            }
-        });
-    } else {
-        res.redirect('/login');
-    }
-});
-
-app.get('/menu/juice', function(req, res) {
-   
-    //retrieve all Drinks in db and render to menu_admin.hbs
-    if(req.session.pnumber) {
-        Drink.find({category: 'juice'}, 'drinkname drinkimg category', function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                console.log("Docs retrieved for fruit tea: ", docs);
-                
-                const milktea_drinks= docs;
-                res.render('menu',{milktea_drinks});
-            
-                
-            
-            }
-        });
-    } else {
-        res.redirect('/login');
-    }
-
-   
-
-    
-   
-});
-
-app.get('/menu/freshtea', function(req, res) {
-   
-    //retrieve all Drinks in db and render to menu_admin.hbs
-    if(req.session.pnumber) {
-        Drink.find({category: 'freshtea'}, 'drinkname drinkimg category', function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                console.log("Docs retrieved for fruit tea: ", docs);
-                
-                const milktea_drinks= docs;
-                res.render('menu',{milktea_drinks});
-            
-                
-            
-            }
-        });
-    } else {
-        res.redirect('/login');
-    }
-
-   
-
-    
-   
-});
-
-app.get('/menu/fruittea', function(req, res) {
-   
-    //retrieve all Drinks in db and render to menu_admin.hbs
-    if(req.session.pnumber) {
-        Drink.find({category: 'fruittea'}, 'drinkname drinkimg category', function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                console.log("Docs retrieved for fruit tea: ", docs);
-                
-                const milktea_drinks= docs;
-                res.render('menu',{milktea_drinks});
-            
-                
-            
-            }
-        });
-    } else {
-        res.redirect('/login');
-    }
-
-   
-
-    
-   
-});
-
-app.get('/menu/coffee', function(req, res) {
-   
-    //retrieve all Drinks in db and render to menu_admin.hbs
-    if(req.session.pnumber) {
-        Drink.find({category: 'coffee'}, 'drinkname drinkimg category', function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                console.log("Docs retrieved for fruit tea: ", docs);
-                
-                const milktea_drinks= docs;
-                res.render('menu',{milktea_drinks});
-            
-                
-            
-            }
-        });
-    } else {
-        res.redirect('/login');
-    }
-
-   
-
-    
-   
-});
-
-app.get('/menu/slush', function(req, res) {
-   
-    //retrieve all Drinks in db and render to menu_admin.hbs
-    if(req.session.pnumber) {
-        Drink.find({category: 'slush'}, 'drinkname drinkimg category', function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                console.log("Docs retrieved for fruit tea: ", docs);
-                
-                const milktea_drinks= docs;
-                res.render('menu',{milktea_drinks});
-            
-                
-            
-            }
-        });
-    } else {
-        res.redirect('/login');
-    }
-
-   
-
-    
-   
-});
-
-app.get('/menu/choco', function(req, res) {
-   
-    //retrieve all Drinks in db and render to menu_admin.hbs
-    if(req.session.pnumber) {
-        Drink.find({category: 'choco'}, 'drinkname drinkimg category', function (err, docs) {
-            if (err){
-                console.log(err);
-            }
-            else{
-                console.log("Docs retrieved for fruit tea: ", docs);
-                
-                const milktea_drinks= docs;
-                res.render('menu',{milktea_drinks});
-            
-                
-            
-            }
-        });
-    } else res.redirect('/login');
-
-   
-
-    
-   
-});
-
-app.get('/product_manager_dashboard', (req, res) => {
-    //if admin session, allow viewing of menu_admin af
-    if (req.session.admin && req.session.admin.role === 'product_manager') {
-
-             Drink.find({category: 'milktea'}, 'drinkname drinkimg category', function (err, docs) {
-                if (err){
-                    console.log(err);
-                }
-                else{
-                    console.log("Docs retrieved: ", docs);
-                    
-                    const milktea_drinks = docs;
-                    res.render('menu_admin',{milktea_drinks});
-                    
-                
-                }
+app.get("/menu/coffee", function (req, res) {
+  try {
+    if (req.session.pnumber) {
+      Drink.find(
+        { category: "coffee" },
+        "drinkname drinkimg category",
+        function (err, docs) {
+          if (err) {
+            logger.error("Error retrieving coffee drinks", { error: err });
+            next(new Error('Internal Server Error'));
+          } else {
+            logger.info("Coffee drinks retrieved successfully", {
+              drinks: docs,
             });
+            const coffee_drinks = docs;
+            res.render("menu", { coffee_drinks });
+          }
+        }
+      );
     } else {
-        res.redirect('/admin/login')
+      res.redirect("/login");
     }
+  } catch (error) {
+    logger.error("Error in /menu/coffee route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
 });
 
-app.get('/logout_PM', (req, res) => {
+app.get("/menu/slush", function (req, res) {
+  try {
+    if (req.session.pnumber) {
+      Drink.find(
+        { category: "slush" },
+        "drinkname drinkimg category",
+        function (err, docs) {
+          if (err) {
+            logger.error("Error retrieving slush drinks", { error: err });
+            next(new Error('Internal Server Error'));
+          } else {
+            logger.info("Slush drinks retrieved successfully", {
+              drinks: docs,
+            });
+            const slush_drinks = docs;
+            res.render("menu", { slush_drinks });
+          }
+        }
+      );
+    } else {
+      res.redirect("/login");
+    }
+  } catch (error) {
+    logger.error("Error in /menu/slush route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
+});
 
-    req.session.destroy(function(err) {
-        if(err) throw err;
+app.get("/menu/choco", function (req, res) {
+  try {
+    if (req.session.pnumber) {
+      Drink.find(
+        { category: "choco" },
+        "drinkname drinkimg category",
+        function (err, docs) {
+          if (err) {
+            logger.error("Error retrieving choco drinks", { error: err });
+            next(new Error('Internal Server Error'));
+          } else {
+            logger.info("Choco drinks retrieved successfully", {
+              drinks: docs,
+            });
+            const choco_drinks = docs;
+            res.render("menu", { choco_drinks });
+          }
+        }
+      );
+    } else {
+      res.redirect("/login");
+    }
+  } catch (error) {
+    logger.error("Error in /menu/choco route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
+});
 
-        /*
-            redirects the client to `/profile` using HTTP GET,
-            defined in `../routes/routes.js`
-        */
-        res.redirect('/admin/login');
+app.get("/product_manager_dashboard", (req, res) => {
+  try {
+    if (req.session.admin && req.session.admin.role === "product_manager") {
+      Drink.find(
+        { category: "milktea" },
+        "drinkname drinkimg category",
+        function (err, docs) {
+          if (err) {
+            logger.error(
+              "Error retrieving milktea drinks for product manager dashboard",
+              { error: err }
+            );
+            next(new Error('Internal Server Error'));
+          } else {
+            logger.info(
+              "Milktea drinks retrieved successfully for product manager dashboard",
+              { drinks: docs }
+            );
+            const milktea_drinks = docs;
+            res.render("menu_admin", { milktea_drinks });
+          }
+        }
+      );
+    } else {
+      res.redirect("/admin/login");
+    }
+  } catch (error) {
+    logger.error("Error in /product_manager_dashboard route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
+});
+
+app.get("/logout_PM", (req, res) => {
+  try {
+    req.session.destroy(function (err) {
+      if (err) {
+        logger.error("Error destroying session during logout", { error: err });
+        next(new Error('Internal Server Error'));
+      } else {
+        res.redirect("/admin/login");
+      }
     });
+  } catch (error) {
+    logger.error("Error in /logout_PM route", { error: error });
+    next(new Error('Internal Server Error'));
+  }
+});
 
-    
+app.use((req, res, next) => {
+    const err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
 
+app.use((err, req, res, next) => {
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+    res.status(err.status || 500);
+
+    logger.error('Error occurred:', { error: err, url: req.url, method: req.method });
+
+    res.render('error', {
+        statusCode: err.status || 500,
+        message: err.message || 'An unexpected error occurred'
+    });
 });
 
 
-
-
-
- 
- var server = app.listen(3000, function() {
-     console.log("Node server is running at port 3000....");
- });
+var server = app.listen(3000, function () {
+  logger.info("Server running on port 3000");
+});
