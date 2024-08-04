@@ -14,8 +14,13 @@ const DrinkSchema = new mongoose.Schema({
 // this is so that client-side can display the strings properly
 DrinkSchema.set('toJSON', {
     transform: (doc, ret) => {
-      ret.lprice = ret.lprice.toString();
-      ret.regprice = ret.regprice.toString();
+      if(ret.lprice) {
+        ret.lprice = ret.lprice.toString();
+      }
+
+      if(ret.regprice){
+        ret.regprice = ret.regprice.toString();
+      }
       return ret;
     },
   });

@@ -47,3 +47,625 @@
 {"level":"info","message":"Session middleware set up","timestamp":"2024-08-03T16:21:50.600Z"}
 {"level":"info","message":"Server running on port 3000","timestamp":"2024-08-03T16:21:50.606Z"}
 {"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-03T16:21:50.619Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T05:28:31.787Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T05:28:31.802Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T05:28:31.822Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T05:30:47.348Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T05:30:47.363Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T05:30:47.381Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-04T05:30:52.412Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-04T05:30:52.417Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T05:30:52.434Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T05:30:52.436Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T05:30:52.486Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T05:30:52.490Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-04T05:30:52.541Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /favicon.ico","timestamp":"2024-08-04T05:30:52.637Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /favicon.ico","timestamp":"2024-08-04T05:30:52.639Z"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","timestamp":"2024-08-04T05:30:52.642Z","url":"/favicon.ico"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-04T05:30:55.453Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-04T05:30:55.455Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login","timestamp":"2024-08-04T05:31:00.032Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login","timestamp":"2024-08-04T05:31:00.066Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /product_manager_dashboard","timestamp":"2024-08-04T05:31:00.156Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /product_manager_dashboard","timestamp":"2024-08-04T05:31:00.157Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T05:35:51.584Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T05:35:51.599Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T05:35:51.632Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-04T05:35:53.163Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-04T05:35:53.168Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T05:35:53.191Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T05:35:53.193Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T05:35:53.245Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T05:35:53.255Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-04T05:35:53.316Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T05:35:59.343Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T05:35:59.350Z"}
+{"email":"test@gmail.com","level":"info","message":"Successful login","timestamp":"2024-08-04T05:35:59.430Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/123123123","timestamp":"2024-08-04T05:35:59.439Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/123123123","timestamp":"2024-08-04T05:35:59.440Z"}
+{"attemptedProfile":"123123123","ip":"::1","level":"warn","message":"Unauthorized access attempt to specific profile","method":"GET","timestamp":"2024-08-04T05:35:59.442Z","url":"/profile/123123123"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T05:35:59.450Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T05:35:59.450Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T05:35:59.474Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T05:35:59.475Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-04T05:36:20.553Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-04T05:36:20.554Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-04T05:36:20.587Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-04T05:36:20.589Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T05:36:20.590Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-04T05:36:20.604Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /registeruser","timestamp":"2024-08-04T05:36:33.736Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /registeruser","timestamp":"2024-08-04T05:36:33.738Z"}
+{"email":"matt@gmail.com","level":"info","message":"User registration attempt","timestamp":"2024-08-04T05:36:33.741Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-04T05:36:33.769Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T05:36:33.772Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-04T05:36:33.773Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T05:36:39.861Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T05:36:39.862Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T05:36:39.886Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T05:36:39.888Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T05:36:44.559Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T05:36:44.560Z"}
+{"email":"matt@gmail.com","level":"warn","message":"Failed login attempt - incorrect password","timestamp":"2024-08-04T05:36:44.634Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T05:36:44.668Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T05:36:44.675Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T05:36:57.937Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T05:36:57.939Z"}
+{"email":"test@gmail.com","level":"info","message":"Successful login","timestamp":"2024-08-04T05:36:58.009Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/123123123","timestamp":"2024-08-04T05:36:58.014Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/123123123","timestamp":"2024-08-04T05:36:58.015Z"}
+{"attemptedProfile":"123123123","ip":"::1","level":"warn","message":"Unauthorized access attempt to specific profile","method":"GET","timestamp":"2024-08-04T05:36:58.017Z","url":"/profile/123123123"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T05:36:58.035Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T05:36:58.036Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T05:36:58.058Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T05:36:58.060Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-04T05:37:45.566Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-04T05:37:45.567Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login","timestamp":"2024-08-04T05:37:51.854Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login","timestamp":"2024-08-04T05:37:51.871Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /product_manager_dashboard","timestamp":"2024-08-04T05:37:51.944Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /product_manager_dashboard","timestamp":"2024-08-04T05:37:51.945Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T05:38:17.923Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T05:38:17.938Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T05:38:17.964Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/register","timestamp":"2024-08-04T05:38:18.001Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/register","timestamp":"2024-08-04T05:38:18.006Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-04T05:42:21.612Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-04T05:42:21.615Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T05:42:21.628Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T05:42:21.630Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T05:42:21.671Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T05:42:21.678Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-04T05:42:21.693Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-04T05:42:40.545Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-04T05:42:40.546Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-04T05:42:40.576Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-04T05:42:40.581Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T05:42:40.582Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-04T05:42:40.605Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-04T05:42:49.267Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-04T05:42:49.268Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/register","timestamp":"2024-08-04T05:42:52.924Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/register","timestamp":"2024-08-04T05:42:52.925Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/register","timestamp":"2024-08-04T05:43:00.480Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/register","timestamp":"2024-08-04T05:43:00.501Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/register","timestamp":"2024-08-04T05:43:00.590Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/register","timestamp":"2024-08-04T05:43:00.591Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/register","timestamp":"2024-08-04T05:43:39.378Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/register","timestamp":"2024-08-04T05:43:39.379Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/register","timestamp":"2024-08-04T05:43:50.161Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/register","timestamp":"2024-08-04T05:43:50.162Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/register","timestamp":"2024-08-04T05:43:50.232Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/register","timestamp":"2024-08-04T05:43:50.233Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login","timestamp":"2024-08-04T05:44:13.826Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login","timestamp":"2024-08-04T05:44:13.827Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /product_manager_dashboard","timestamp":"2024-08-04T05:44:13.904Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /product_manager_dashboard","timestamp":"2024-08-04T05:44:13.905Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T05:47:46.079Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T05:47:46.097Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T05:47:46.122Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-04T05:47:50.020Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-04T05:47:50.025Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T05:47:50.046Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T05:47:50.050Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T05:47:50.097Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T05:47:50.102Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-04T05:47:50.150Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T05:47:57.436Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T05:47:57.437Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for freshtea","timestamp":"2024-08-04T05:47:57.451Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T05:47:57.484Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T05:47:57.487Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T05:47:57.488Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T05:47:58.928Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T05:47:58.929Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T05:48:59.758Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T05:48:59.771Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T05:48:59.791Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T05:49:44.481Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T05:49:44.498Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T05:49:44.521Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T05:49:44.539Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T05:49:44.542Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for freshtea","timestamp":"2024-08-04T05:49:44.573Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T05:49:44.618Z"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T05:49:44.622Z"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T05:49:44.623Z"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T05:49:46.923Z"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T05:49:46.925Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T05:59:53.411Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T05:59:53.422Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T05:59:53.437Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T05:59:53.959Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T05:59:53.965Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T06:10:19.895Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T06:10:19.909Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T06:10:19.930Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:10:54.074Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:10:54.078Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T06:11:07.287Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T06:11:07.304Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T06:11:07.334Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:11:07.420Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:11:07.424Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:11:07.505Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:11:07.517Z"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:11:07.519Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:11:07.523Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemondunk.png","timestamp":"2024-08-04T06:11:07.633Z"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:11:07.657Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:11:07.662Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemonblacktea.png","timestamp":"2024-08-04T06:11:07.665Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/2ladiesmt.png","timestamp":"2024-08-04T06:11:07.671Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T06:12:52.837Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T06:12:52.861Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T06:12:52.897Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:12:53.268Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:12:53.275Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T06:13:01.162Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T06:13:01.174Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T06:13:01.201Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:13:05.122Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:13:05.129Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:13:05.198Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:13:05.204Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:13:05.207Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:13:05.212Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemondunk.png","timestamp":"2024-08-04T06:13:05.287Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:13:05.288Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:13:05.315Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemonblacktea.png","timestamp":"2024-08-04T06:13:05.317Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/2ladiesmt.png","timestamp":"2024-08-04T06:13:05.321Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T06:23:10.650Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T06:23:10.664Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T06:23:10.691Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T06:23:14.393Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T06:23:14.406Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T06:23:14.431Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:23:16.855Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:23:16.859Z"}
+{"drinks":[{"_id":"662510eabc060f7ac5fa8df1","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Coco Tea"},{"_id":"666c38596b8707017347c777","category":"milktea","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"},{"_id":"666c3988f985e8a6ee7fbfa7","category":"milktea","drinkimg":"/drink_images/2ladiesmt.png","drinkname":"2 ladies lol"},{"_id":"666dc4a3f577b9cf4f16b668","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Lemon Dunk"}],"level":"info","message":"Docs retrieved for milktea","timestamp":"2024-08-04T06:23:16.876Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:23:16.922Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:23:16.929Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:23:16.930Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:23:16.932Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemondunk.png","timestamp":"2024-08-04T06:23:16.988Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:23:16.990Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:23:17.014Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemonblacktea.png","timestamp":"2024-08-04T06:23:17.016Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/2ladiesmt.png","timestamp":"2024-08-04T06:23:17.022Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:23:18.316Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:23:18.317Z"}
+{"drinks":[{"_id":"662510eabc060f7ac5fa8df1","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Coco Tea"},{"_id":"666c38596b8707017347c777","category":"milktea","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"},{"_id":"666c3988f985e8a6ee7fbfa7","category":"milktea","drinkimg":"/drink_images/2ladiesmt.png","drinkname":"2 ladies lol"},{"_id":"666dc4a3f577b9cf4f16b668","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Lemon Dunk"}],"level":"info","message":"Docs retrieved for milktea","timestamp":"2024-08-04T06:23:18.325Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:23:18.350Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:23:18.353Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:23:18.354Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:23:18.356Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemondunk.png","timestamp":"2024-08-04T06:23:18.405Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:23:18.407Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:23:18.426Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemonblacktea.png","timestamp":"2024-08-04T06:23:18.430Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/2ladiesmt.png","timestamp":"2024-08-04T06:23:18.436Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T06:23:42.884Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T06:23:42.898Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T06:23:42.920Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:23:44.478Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:23:44.482Z"}
+{"drinks":[{"_id":"662510eabc060f7ac5fa8df1","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Coco Tea"},{"_id":"666c38596b8707017347c777","category":"milktea","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"},{"_id":"666c3988f985e8a6ee7fbfa7","category":"milktea","drinkimg":"/drink_images/2ladiesmt.png","drinkname":"2 ladies lol"},{"_id":"666dc4a3f577b9cf4f16b668","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Lemon Dunk"}],"level":"info","message":"Docs retrieved for milktea","timestamp":"2024-08-04T06:23:44.502Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:23:44.545Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:23:44.551Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:23:44.553Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:23:44.555Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemondunk.png","timestamp":"2024-08-04T06:23:44.604Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:23:44.606Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:23:44.625Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemonblacktea.png","timestamp":"2024-08-04T06:23:44.626Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/2ladiesmt.png","timestamp":"2024-08-04T06:23:44.634Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:23:52.534Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:23:52.536Z"}
+{"drinks":[{"_id":"62c6479d6924496efee951f3","category":"choco","drinkimg":"/drink_images/pandamilktea.png","drinkname":"Choco Overload"}],"level":"info","message":"Docs retrieved for choco","timestamp":"2024-08-04T06:23:52.546Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:23:52.588Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:23:52.596Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:23:52.600Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:24:00.884Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:24:00.884Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for slush","timestamp":"2024-08-04T06:24:00.890Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:24:00.923Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:24:00.928Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:24:00.930Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:24:10.159Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:24:10.160Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for freshtea","timestamp":"2024-08-04T06:24:10.166Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:24:10.202Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:24:10.205Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:24:10.206Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:27:24.313Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:27:24.314Z"}
+{"drinks":[{"_id":"662510eabc060f7ac5fa8df1","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Coco Tea"},{"_id":"666c38596b8707017347c777","category":"milktea","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"},{"_id":"666c3988f985e8a6ee7fbfa7","category":"milktea","drinkimg":"/drink_images/2ladiesmt.png","drinkname":"2 ladies lol"},{"_id":"666dc4a3f577b9cf4f16b668","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Lemon Dunk"}],"level":"info","message":"Docs retrieved for milktea","timestamp":"2024-08-04T06:27:24.320Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:27:24.334Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:27:24.335Z"}
+{"drinks":[{"_id":"662510eabc060f7ac5fa8df1","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Coco Tea"},{"_id":"666c38596b8707017347c777","category":"milktea","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"},{"_id":"666c3988f985e8a6ee7fbfa7","category":"milktea","drinkimg":"/drink_images/2ladiesmt.png","drinkname":"2 ladies lol"},{"_id":"666dc4a3f577b9cf4f16b668","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Lemon Dunk"}],"level":"info","message":"Docs retrieved for milktea","timestamp":"2024-08-04T06:27:24.341Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:27:24.385Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:27:24.390Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:27:24.394Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:27:24.397Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:27:24.444Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:27:24.446Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/2ladiesmt.png","timestamp":"2024-08-04T06:27:24.447Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemonblacktea.png","timestamp":"2024-08-04T06:27:24.449Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemondunk.png","timestamp":"2024-08-04T06:27:24.450Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:27:25.219Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:27:25.220Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for fruit tea","timestamp":"2024-08-04T06:27:25.227Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:27:25.238Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:27:25.239Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for fruit tea","timestamp":"2024-08-04T06:27:25.243Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:27:25.274Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:27:25.279Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:27:25.282Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:27:25.910Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:27:25.911Z"}
+{"drinks":[{"_id":"62c27758cbf9851290086fa8","category":"coffee","drinkimg":"/drink_images/milktea.png","drinkname":"Cofffee"}],"level":"info","message":"Docs retrieved for coffee","timestamp":"2024-08-04T06:27:25.917Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:27:25.922Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:27:25.923Z"}
+{"drinks":[{"_id":"62c27758cbf9851290086fa8","category":"coffee","drinkimg":"/drink_images/milktea.png","drinkname":"Cofffee"}],"level":"info","message":"Docs retrieved for coffee","timestamp":"2024-08-04T06:27:25.929Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:27:25.965Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:27:25.967Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:27:25.970Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:27:25.979Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:27:26.022Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:27:26.023Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/milktea.png","timestamp":"2024-08-04T06:27:26.026Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:27:26.447Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:27:26.448Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for slush","timestamp":"2024-08-04T06:27:26.453Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:27:26.462Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:27:26.463Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for slush","timestamp":"2024-08-04T06:27:26.468Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:27:26.506Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:27:26.507Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:27:26.509Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:27:27.343Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:27:27.344Z"}
+{"drinks":[{"_id":"62c6479d6924496efee951f3","category":"choco","drinkimg":"/drink_images/pandamilktea.png","drinkname":"Choco Overload"}],"level":"info","message":"Docs retrieved for choco","timestamp":"2024-08-04T06:27:27.349Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:27:27.360Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:27:27.362Z"}
+{"drinks":[{"_id":"62c6479d6924496efee951f3","category":"choco","drinkimg":"/drink_images/pandamilktea.png","drinkname":"Choco Overload"}],"level":"info","message":"Docs retrieved for choco","timestamp":"2024-08-04T06:27:27.366Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:27:27.402Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:27:27.404Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:27:27.405Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:27:27.823Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:27:27.825Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for freshtea","timestamp":"2024-08-04T06:27:27.833Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:27:27.842Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:27:27.843Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for freshtea","timestamp":"2024-08-04T06:27:27.849Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:27:27.884Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:27:27.885Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:27:27.886Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:27:28.212Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:27:28.213Z"}
+{"drinks":[{"_id":"62be892813788555b349f4b5","category":"juice","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"}],"level":"info","message":"Docs retrieved for juice","timestamp":"2024-08-04T06:27:28.219Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:27:28.227Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:27:28.229Z"}
+{"drinks":[{"_id":"62be892813788555b349f4b5","category":"juice","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"}],"level":"info","message":"Docs retrieved for juice","timestamp":"2024-08-04T06:27:28.233Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:27:28.280Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:27:28.281Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:27:28.283Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:27:28.779Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:27:28.779Z"}
+{"drinks":[{"_id":"62c27758cbf9851290086fa8","category":"coffee","drinkimg":"/drink_images/milktea.png","drinkname":"Cofffee"}],"level":"info","message":"Docs retrieved for coffee","timestamp":"2024-08-04T06:27:28.784Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:27:28.791Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:27:28.792Z"}
+{"drinks":[{"_id":"62c27758cbf9851290086fa8","category":"coffee","drinkimg":"/drink_images/milktea.png","drinkname":"Cofffee"}],"level":"info","message":"Docs retrieved for coffee","timestamp":"2024-08-04T06:27:28.797Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:27:28.838Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:27:28.840Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:27:28.841Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:27:28.843Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:27:28.894Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:27:28.899Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/milktea.png","timestamp":"2024-08-04T06:27:28.900Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T06:27:52.595Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T06:27:52.610Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T06:27:52.636Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T06:28:13.287Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T06:28:13.300Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T06:28:13.324Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:28:14.720Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:28:14.726Z"}
+{"drinks":[{"_id":"62c27758cbf9851290086fa8","category":"coffee","drinkimg":"/drink_images/milktea.png","drinkname":"Cofffee"}],"level":"info","message":"Docs retrieved for coffee","timestamp":"2024-08-04T06:28:14.743Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:28:14.783Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:28:14.790Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:28:14.792Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:28:14.796Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/milktea.png","timestamp":"2024-08-04T06:28:14.838Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:28:14.840Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:28:14.856Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:28:16.874Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:28:16.875Z"}
+{"drinks":[{"_id":"62c27758cbf9851290086fa8","category":"coffee","drinkimg":"/drink_images/milktea.png","drinkname":"Cofffee"}],"level":"info","message":"Docs retrieved for coffee","timestamp":"2024-08-04T06:28:16.884Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:28:16.914Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:28:16.917Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:28:16.918Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:28:16.921Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/milktea.png","timestamp":"2024-08-04T06:28:16.974Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:28:16.978Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:28:16.998Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-04T06:28:26.471Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-04T06:28:26.473Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T06:28:26.485Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T06:28:26.486Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T06:28:26.529Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T06:28:26.540Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-04T06:28:26.597Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-04T06:28:28.615Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-04T06:28:28.616Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login","timestamp":"2024-08-04T06:28:45.405Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login","timestamp":"2024-08-04T06:28:45.425Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /product_manager_dashboard","timestamp":"2024-08-04T06:28:45.505Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /product_manager_dashboard","timestamp":"2024-08-04T06:28:45.506Z"}
+{"drinks":[{"_id":"662510eabc060f7ac5fa8df1","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Coco Tea"},{"_id":"666c38596b8707017347c777","category":"milktea","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"},{"_id":"666c3988f985e8a6ee7fbfa7","category":"milktea","drinkimg":"/drink_images/2ladiesmt.png","drinkname":"2 ladies lol"},{"_id":"666dc4a3f577b9cf4f16b668","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Lemon Dunk"}],"level":"info","message":"Milktea drinks retrieved successfully for product manager dashboard","timestamp":"2024-08-04T06:28:45.512Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:28:45.543Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:28:45.548Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:28:45.549Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:28:45.550Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemondunk.png","timestamp":"2024-08-04T06:28:45.565Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:28:45.566Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:28:45.568Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemonblacktea.png","timestamp":"2024-08-04T06:28:45.570Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/2ladiesmt.png","timestamp":"2024-08-04T06:28:45.570Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:28:47.031Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:28:47.033Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for fruit tea","timestamp":"2024-08-04T06:28:47.040Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:28:47.049Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:28:47.050Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for fruit tea","timestamp":"2024-08-04T06:28:47.053Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:28:47.079Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:28:47.081Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:28:47.082Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:28:47.412Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:28:47.413Z"}
+{"drinks":[{"_id":"62c27758cbf9851290086fa8","category":"coffee","drinkimg":"/drink_images/milktea.png","drinkname":"Cofffee"}],"level":"info","message":"Docs retrieved for coffee","timestamp":"2024-08-04T06:28:47.418Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:28:47.425Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:28:47.426Z"}
+{"drinks":[{"_id":"62c27758cbf9851290086fa8","category":"coffee","drinkimg":"/drink_images/milktea.png","drinkname":"Cofffee"}],"level":"info","message":"Docs retrieved for coffee","timestamp":"2024-08-04T06:28:47.432Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:28:47.458Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:28:47.460Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:28:47.462Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:28:47.463Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:28:47.477Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:28:47.483Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/milktea.png","timestamp":"2024-08-04T06:28:47.485Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:28:47.816Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:28:47.817Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for slush","timestamp":"2024-08-04T06:28:47.822Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:28:47.831Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:28:47.832Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for slush","timestamp":"2024-08-04T06:28:47.836Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:28:47.868Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:28:47.870Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:28:47.871Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:28:48.181Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:28:48.182Z"}
+{"drinks":[{"_id":"62c6479d6924496efee951f3","category":"choco","drinkimg":"/drink_images/pandamilktea.png","drinkname":"Choco Overload"}],"level":"info","message":"Docs retrieved for choco","timestamp":"2024-08-04T06:28:48.190Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:28:48.203Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:28:48.204Z"}
+{"drinks":[{"_id":"62c6479d6924496efee951f3","category":"choco","drinkimg":"/drink_images/pandamilktea.png","drinkname":"Choco Overload"}],"level":"info","message":"Docs retrieved for choco","timestamp":"2024-08-04T06:28:48.208Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:28:48.243Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:28:48.244Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:28:48.246Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:28:48.667Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:28:48.667Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for freshtea","timestamp":"2024-08-04T06:28:48.672Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:28:48.679Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:28:48.679Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for freshtea","timestamp":"2024-08-04T06:28:48.683Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:28:48.712Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:28:48.713Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:28:48.715Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:28:49.085Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:28:49.086Z"}
+{"drinks":[{"_id":"62be892813788555b349f4b5","category":"juice","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"}],"level":"info","message":"Docs retrieved for juice","timestamp":"2024-08-04T06:28:49.095Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:28:49.108Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:28:49.109Z"}
+{"drinks":[{"_id":"62be892813788555b349f4b5","category":"juice","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"}],"level":"info","message":"Docs retrieved for juice","timestamp":"2024-08-04T06:28:49.113Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:28:49.136Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:28:49.138Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:28:49.139Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:29:07.412Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:29:07.413Z"}
+{"drinks":[{"_id":"662510eabc060f7ac5fa8df1","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Coco Tea"},{"_id":"666c38596b8707017347c777","category":"milktea","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"},{"_id":"666c3988f985e8a6ee7fbfa7","category":"milktea","drinkimg":"/drink_images/2ladiesmt.png","drinkname":"2 ladies lol"},{"_id":"666dc4a3f577b9cf4f16b668","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Lemon Dunk"}],"level":"info","message":"Docs retrieved for milktea","timestamp":"2024-08-04T06:29:07.421Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:29:07.430Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /milktea","timestamp":"2024-08-04T06:29:07.431Z"}
+{"drinks":[{"_id":"662510eabc060f7ac5fa8df1","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Coco Tea"},{"_id":"666c38596b8707017347c777","category":"milktea","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"},{"_id":"666c3988f985e8a6ee7fbfa7","category":"milktea","drinkimg":"/drink_images/2ladiesmt.png","drinkname":"2 ladies lol"},{"_id":"666dc4a3f577b9cf4f16b668","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Lemon Dunk"}],"level":"info","message":"Docs retrieved for milktea","timestamp":"2024-08-04T06:29:07.435Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:29:07.460Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:29:07.464Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:29:07.466Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:29:07.467Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemonblacktea.png","timestamp":"2024-08-04T06:29:07.475Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/2ladiesmt.png","timestamp":"2024-08-04T06:29:07.481Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:29:07.482Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemondunk.png","timestamp":"2024-08-04T06:29:07.483Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:29:07.484Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:29:07.933Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:29:07.934Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for fruit tea","timestamp":"2024-08-04T06:29:07.939Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:29:07.952Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:29:07.953Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for fruit tea","timestamp":"2024-08-04T06:29:07.957Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:29:07.987Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:29:07.988Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:29:07.989Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:29:08.215Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:29:08.216Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for slush","timestamp":"2024-08-04T06:29:08.220Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:29:08.225Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:29:08.226Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for slush","timestamp":"2024-08-04T06:29:08.231Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:29:08.255Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:29:08.259Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:29:08.260Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:29:08.679Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:29:08.681Z"}
+{"drinks":[{"_id":"62c6479d6924496efee951f3","category":"choco","drinkimg":"/drink_images/pandamilktea.png","drinkname":"Choco Overload"}],"level":"info","message":"Docs retrieved for choco","timestamp":"2024-08-04T06:29:08.688Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:29:08.697Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:29:08.698Z"}
+{"drinks":[{"_id":"62c6479d6924496efee951f3","category":"choco","drinkimg":"/drink_images/pandamilktea.png","drinkname":"Choco Overload"}],"level":"info","message":"Docs retrieved for choco","timestamp":"2024-08-04T06:29:08.702Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:29:08.739Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:29:08.741Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:29:08.742Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:29:09.295Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:29:09.296Z"}
+{"drinks":[{"_id":"62be892813788555b349f4b5","category":"juice","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"}],"level":"info","message":"Docs retrieved for juice","timestamp":"2024-08-04T06:29:09.301Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:29:09.308Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:29:09.309Z"}
+{"drinks":[{"_id":"62be892813788555b349f4b5","category":"juice","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"}],"level":"info","message":"Docs retrieved for juice","timestamp":"2024-08-04T06:29:09.315Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:29:09.340Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:29:09.341Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:29:09.343Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:29:09.701Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:29:09.702Z"}
+{"drinks":[{"_id":"62be892813788555b349f4b5","category":"juice","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"}],"level":"info","message":"Docs retrieved for juice","timestamp":"2024-08-04T06:29:09.707Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:29:09.714Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:29:09.714Z"}
+{"drinks":[{"_id":"62be892813788555b349f4b5","category":"juice","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"}],"level":"info","message":"Docs retrieved for juice","timestamp":"2024-08-04T06:29:09.718Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:29:09.739Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:29:09.740Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:29:09.742Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:29:10.042Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:29:10.043Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for freshtea","timestamp":"2024-08-04T06:29:10.048Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:29:10.055Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:29:10.055Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for freshtea","timestamp":"2024-08-04T06:29:10.060Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:29:10.088Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:29:10.089Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:29:10.090Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:29:10.427Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:29:10.428Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for slush","timestamp":"2024-08-04T06:29:10.433Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:29:10.442Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:29:10.444Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for slush","timestamp":"2024-08-04T06:29:10.447Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:29:10.476Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:29:10.487Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:29:10.488Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:29:10.691Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:29:10.693Z"}
+{"drinks":[{"_id":"62c27758cbf9851290086fa8","category":"coffee","drinkimg":"/drink_images/milktea.png","drinkname":"Cofffee"}],"level":"info","message":"Docs retrieved for coffee","timestamp":"2024-08-04T06:29:10.698Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:29:10.705Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:29:10.706Z"}
+{"drinks":[{"_id":"62c27758cbf9851290086fa8","category":"coffee","drinkimg":"/drink_images/milktea.png","drinkname":"Cofffee"}],"level":"info","message":"Docs retrieved for coffee","timestamp":"2024-08-04T06:29:10.711Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:29:10.737Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:29:10.738Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:29:10.739Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:29:10.741Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:29:10.754Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:29:10.759Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/milktea.png","timestamp":"2024-08-04T06:29:10.767Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:29:13.339Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:29:13.339Z"}
+{"drinks":[{"_id":"62c27758cbf9851290086fa8","category":"coffee","drinkimg":"/drink_images/milktea.png","drinkname":"Cofffee"}],"level":"info","message":"Docs retrieved for coffee","timestamp":"2024-08-04T06:29:13.345Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /logout_PM","timestamp":"2024-08-04T06:29:13.352Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /logout_PM","timestamp":"2024-08-04T06:29:13.352Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-04T06:29:13.361Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-04T06:29:13.362Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T06:29:19.565Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T06:29:19.566Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T06:29:19.594Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T06:29:19.604Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-04T06:31:53.220Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-04T06:31:53.221Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login","timestamp":"2024-08-04T06:32:08.117Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login","timestamp":"2024-08-04T06:32:08.119Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /product_manager_dashboard","timestamp":"2024-08-04T06:32:08.192Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /product_manager_dashboard","timestamp":"2024-08-04T06:32:08.194Z"}
+{"drinks":[{"_id":"662510eabc060f7ac5fa8df1","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Coco Tea"},{"_id":"666c38596b8707017347c777","category":"milktea","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"},{"_id":"666c3988f985e8a6ee7fbfa7","category":"milktea","drinkimg":"/drink_images/2ladiesmt.png","drinkname":"2 ladies lol"},{"_id":"666dc4a3f577b9cf4f16b668","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Lemon Dunk"}],"level":"info","message":"Milktea drinks retrieved successfully for product manager dashboard","timestamp":"2024-08-04T06:32:08.198Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:32:08.234Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:32:08.237Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:32:08.238Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:32:08.239Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:32:08.247Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:32:08.250Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemondunk.png","timestamp":"2024-08-04T06:32:08.256Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemonblacktea.png","timestamp":"2024-08-04T06:32:08.257Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/2ladiesmt.png","timestamp":"2024-08-04T06:32:08.259Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:32:09.646Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:32:09.646Z"}
+{"drinks":[{"_id":"62c27758cbf9851290086fa8","category":"coffee","drinkimg":"/drink_images/milktea.png","drinkname":"Cofffee"}],"level":"info","message":"Docs retrieved for coffee","timestamp":"2024-08-04T06:32:09.652Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:32:09.658Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /coffee","timestamp":"2024-08-04T06:32:09.660Z"}
+{"drinks":[{"_id":"62c27758cbf9851290086fa8","category":"coffee","drinkimg":"/drink_images/milktea.png","drinkname":"Cofffee"}],"level":"info","message":"Docs retrieved for coffee","timestamp":"2024-08-04T06:32:09.664Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:32:09.691Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:32:09.693Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:32:09.695Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/edit.png","timestamp":"2024-08-04T06:32:09.697Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/milktea.png","timestamp":"2024-08-04T06:32:09.709Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T06:32:09.714Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T06:32:09.715Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:32:10.106Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:32:10.107Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for fruit tea","timestamp":"2024-08-04T06:32:10.111Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:32:10.117Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /fruittea","timestamp":"2024-08-04T06:32:10.118Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for fruit tea","timestamp":"2024-08-04T06:32:10.121Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:32:10.149Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:32:10.151Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:32:10.152Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:32:10.633Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:32:10.634Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for slush","timestamp":"2024-08-04T06:32:10.639Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:32:10.648Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /slush","timestamp":"2024-08-04T06:32:10.649Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for slush","timestamp":"2024-08-04T06:32:10.652Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:32:10.681Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:32:10.683Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:32:10.685Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:32:10.979Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:32:10.981Z"}
+{"drinks":[{"_id":"62c6479d6924496efee951f3","category":"choco","drinkimg":"/drink_images/pandamilktea.png","drinkname":"Choco Overload"}],"level":"info","message":"Docs retrieved for choco","timestamp":"2024-08-04T06:32:10.986Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:32:10.998Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /choco","timestamp":"2024-08-04T06:32:10.999Z"}
+{"drinks":[{"_id":"62c6479d6924496efee951f3","category":"choco","drinkimg":"/drink_images/pandamilktea.png","drinkname":"Choco Overload"}],"level":"info","message":"Docs retrieved for choco","timestamp":"2024-08-04T06:32:11.003Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:32:11.031Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:32:11.034Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:32:11.035Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:32:11.390Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:32:11.391Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for freshtea","timestamp":"2024-08-04T06:32:11.396Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:32:11.403Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /freshtea","timestamp":"2024-08-04T06:32:11.404Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for freshtea","timestamp":"2024-08-04T06:32:11.408Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:32:11.443Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:32:11.444Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:32:11.446Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:32:11.773Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:32:11.774Z"}
+{"drinks":[{"_id":"62be892813788555b349f4b5","category":"juice","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"}],"level":"info","message":"Docs retrieved for juice","timestamp":"2024-08-04T06:32:11.778Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:32:11.784Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /juice","timestamp":"2024-08-04T06:32:11.785Z"}
+{"drinks":[{"_id":"62be892813788555b349f4b5","category":"juice","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"}],"level":"info","message":"Docs retrieved for juice","timestamp":"2024-08-04T06:32:11.788Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:32:11.815Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:32:11.817Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:32:11.818Z"}
