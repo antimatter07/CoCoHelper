@@ -12,49 +12,95 @@
         <div id ="reghead">
             <img id = "logo" src="images/cocologo_notext.png">
 
+            <h1>Create an Account</h1>
+            <h4 id="regpart"> 1 out of 2</h4>
+
             <div id = "childhead">
-                <h1>Don't have an account yet?</h1>
                 <form id="regform" method ="post" action="/registeruser" enctype="multipart/form-data">
-                    <div class = 'input-control'>
-                        <label for="firstname">First Name<br></label>
-                        <input class ='input' type="text" placeholder="Enter First Name" name="firstname" id = "firstname" required>
-                        <div class = 'error'></div>
+                    <div id="reg1">
+                        <div class = 'input-control'>
+                            <label for="firstname">First Name<br></label>
+                            <input class ='input' type="text" placeholder="Enter First Name" name="firstname" id = "firstname" required>
+                            <div class = 'error'></div>
+                        </div>
+
+                    
+                        <label for="lastname"><br>Last Name<br></label>
+                        <input type="text" class ='input' placeholder="Enter Last Name" name="lastname" id="lastname" required>
+                        
+                    
+
+                    
+                        <label for="email"><br>Email<br></label>
+                        <input class ='input' type="text" placeholder="Enter Email" name="email" id="email" required>
+                        
+                    
+
+                    
+                        <label for="pnumber"><br>Phone Number<br></label>
+                        <input class ='input' type="number" placeholder="Enter Phone Number" name="pnumber" id="pnumber" required>
+                        
+                    
+                        
+                        <div class ='input-control'>
+                            <label for="cpassword"><br>Password<br></label>
+                            <input class="input" type="password" placeholder="Enter Password" name="cpassword" id="cpassword" required>
+                        <div id="pwerror">{{error}}</div>
+                        </div>
                     </div>
 
-                   
-                    <label for="lastname"><br>Last Name<br></label>
-                    <input type="text" class ='input' placeholder="Enter Last Name" name="lastname" id="lastname" required>
-                       
-                  
 
-                   
-                    <label for="email"><br>Email<br></label>
-                    <input class ='input' type="text" placeholder="Enter Email" name="email" id="email" required>
-                      
-                  
+                    <div id="reg2">
+                        <h2>Security Questions</h2>
+                        <p style="padding: 4px;"> Select three security questions below. These questions will help us verify your identity should
+                                you forget your password.
+                        </p>
 
-                 
-                    <label for="pnumber"><br>Phone Number<br></label>
-                    <input class ='input' type="number" placeholder="Enter Phone Number" name="pnumber" id="pnumber" required>
+                        
+                        <div class = 'input-control'>
+                            <label for="firstname">First Name<br></label>
+                            <input class ='input' type="text" placeholder="Enter First Name" name="firstname" id = "firstname" required>
+                            <div class = 'error'></div>
+                        </div>
+
                     
-                
+                        <label for="lastname"><br>Last Name<br></label>
+                        <input type="text" class ='input' placeholder="Enter Last Name" name="lastname" id="lastname" required>
+                        
                     
-                    <div class ='input-control'>
-                        <label for="cpassword"><br>Password<br></label>
-                        <input class="input" type="password" placeholder="Enter Password" name="cpassword" id="cpassword" required>
-                    <div id="pwerror">{{error}}</div>
+
+                    
+                        <label for="email"><br>Email<br></label>
+                        <input class ='input' type="text" placeholder="Enter Email" name="email" id="email" required>
+                        
+                    
+
+                    
+                        <label for="pnumber"><br>Phone Number<br></label>
+                        <input class ='input' type="number" placeholder="Enter Phone Number" name="pnumber" id="pnumber" required>
+                        
+                    
+                        
+                        <div class ='input-control'>
+                            <label for="cpassword"><br>Password<br></label>
+                            <input class="input" type="password" placeholder="Enter Password" name="cpassword" id="cpassword" required>
+                        <div id="pwerror">{{error}}</div>
+                        </div>
                     </div>
                 </form>
             </div>
-
-            <button form ="regform" class="button" id = "registerbutton" type="submit" value="Submit" disabled>Submit</button>
-            <a href ="/login"><button class="button" id = "loginbutton" type="submit" value="Log In">Log In</button></a>
-
+                {{!-- ADD disabled later --}}
+            <button form ="regform" class="button" id ="nextbutton" type="button" value="Next">Next</button>
+            <button form ="regform" class="button" id ="returnbutton" type="button" value="Return">Return</button>
+            <button form ="regform" class="button" id ="registerbutton" type="submit" value="Submit">Submit</button>
+            {{!-- <a href ="/login"><button class="button" id = "loginbutton" type="submit" value="Log In">Return to Log In</button></a> --}}
+            <br />
+            <a href ='/login' class="u-link"><text>Return to Log In</text></a>
         </div>
 
         
-  
-  
+        
+
     
 </body>
 </html>

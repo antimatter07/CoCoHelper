@@ -47,13 +47,43 @@ $(document).ready(function() {
     $('.input').keyup(function() {
         if(isValidEmail && isValidPassword) {
 
-            $('#registerbutton').prop('disabled', false);
+            // $('#registerbutton').prop('disabled', false);
+            // $('#nextbutton').prop('disabled', false);
 
         } else {
-            $('#registerbutton').prop('disabled', true);
+            // $('#registerbutton').prop('disabled', true);
+            // $('#nextbutton').prop('disabled', true);
 
         }
     });
+
+    // these are initially hidden
+    $("#returnbutton").hide();
+    $("#registerbutton").hide();
+    $("#reg2").hide();
+    
+    // move to security questions
+    $("#nextbutton").click(function() {
+        
+        $("#nextbutton").hide();
+        $("#returnbutton").show();
+        $("#registerbutton").show();
+        $("#reg1").hide();
+        $("#reg2").show();
+        $("#regpart").text("2 out of 2");
+    });
+
+    // return to account details
+    $("#returnbutton").click(function() {
+        $("#nextbutton").show();
+        $("#returnbutton").hide();
+        $("#registerbutton").hide();
+        $("#reg1").show();
+        $("#reg2").hide();
+        $("#regpart").text("1 out of 2");
+    });
+
+
 
     //TODO: server and client side validation with express validator and vanilla JS
     /*Password at least 8 characters, cpassword and password are same,

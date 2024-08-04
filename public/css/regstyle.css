@@ -26,14 +26,12 @@ input[type=text] {
 
 
 #reghead {
-
-    display: block;
     
     border-radius: 25px;
    
     background-color: #F07F19;
     overflow: hidden;
-    height: 640px;
+    display: inline-block;
     /*margin: 200px 0px 20px 410px;*/
     width:600px;
     border-style: dotted;
@@ -56,10 +54,15 @@ input[type=text] {
     left: 50%;
     transform: translate(-50%, -50%);
 
+    padding-bottom: 20px;
+
+}
+
+#childhead {
+    padding: 10px;
 }
 
 h1 {
-    padding-bottom: 10px;
     font-size:22px;
 }
 
@@ -90,7 +93,8 @@ h1 {
 
 }
 
-#registerbutton:disabled {
+#registerbutton:disabled,
+#nextbutton:disabled {
     cursor: not-allowed;
     
     opacity: 0.6;
@@ -100,4 +104,13 @@ h1 {
     width: 150px;
     length: 100px;
     
+}
+
+.u-link {
+    color: white;
+    text-decoration: none;
+}
+
+.u-link:hover {
+    text-decoration: underline;
 }

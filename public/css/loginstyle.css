@@ -89,3 +89,14 @@ input[type=text] {
     border: 2px solid #C39334;
     margin-bottom: 10px;
 }
+
+.u-link {
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+}
+
+.u-link:hover {
+    text-decoration: underline;
+}
+
