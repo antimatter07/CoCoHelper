@@ -669,3 +669,163 @@
 {"ip":"::1","level":"info","message":"Incoming request: GET /css/menu_adminstyle.css","timestamp":"2024-08-04T06:32:11.815Z"}
 {"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T06:32:11.817Z"}
 {"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T06:32:11.818Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T06:48:26.100Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T06:48:26.116Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T06:48:26.138Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-04T06:48:31.407Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-04T06:48:31.412Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T06:48:31.435Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T06:48:31.437Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T06:48:31.483Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T06:48:31.495Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-04T06:48:31.549Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T06:48:40.911Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T06:48:40.919Z"}
+{"email":"matt@gmail.com","level":"warn","message":"Failed login attempt - incorrect password","timestamp":"2024-08-04T06:48:41.001Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T06:48:41.035Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T06:48:41.039Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T07:00:05.563Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T07:00:05.579Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T07:00:05.595Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T07:00:08.950Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T07:00:08.961Z"}
+{"email":"matt@gmail.com","level":"warn","message":"Failed login attempt - incorrect password","timestamp":"2024-08-04T07:00:09.050Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T07:00:09.083Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T07:00:09.087Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-04T07:00:09.122Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T07:00:19.054Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T07:00:19.057Z"}
+{"email":"test@gmail.com","level":"info","message":"Successful login","timestamp":"2024-08-04T07:00:19.133Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/123123123","timestamp":"2024-08-04T07:00:19.139Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/123123123","timestamp":"2024-08-04T07:00:19.140Z"}
+{"attemptedProfile":"123123123","ip":"::1","level":"warn","message":"Unauthorized access attempt to specific profile","method":"GET","timestamp":"2024-08-04T07:00:19.145Z","url":"/profile/123123123"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T07:00:19.149Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T07:00:19.150Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T07:00:19.175Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T07:00:19.177Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T07:02:21.110Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T07:02:21.113Z"}
+{"email":"test@gmail.com","level":"info","message":"Successful login","timestamp":"2024-08-04T07:02:21.191Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/123123123","timestamp":"2024-08-04T07:02:21.196Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/123123123","timestamp":"2024-08-04T07:02:21.197Z"}
+{"attemptedProfile":"123123123","ip":"::1","level":"warn","message":"Unauthorized access attempt to specific profile","method":"GET","timestamp":"2024-08-04T07:02:21.199Z","url":"/profile/123123123"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T07:02:21.204Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T07:02:21.205Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T07:02:21.233Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T07:02:21.235Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T07:03:02.325Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T07:03:02.327Z"}
+{"email":"test@gmail.com","level":"warn","message":"Failed login attempt - incorrect password","timestamp":"2024-08-04T07:03:02.399Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T07:03:02.421Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T07:03:02.423Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-04T07:03:02.446Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T07:03:23.077Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T07:03:23.080Z"}
+{"email":"test@gmail.com","level":"info","message":"Successful login","timestamp":"2024-08-04T07:03:23.155Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/123123123","timestamp":"2024-08-04T07:03:23.160Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/123123123","timestamp":"2024-08-04T07:03:23.161Z"}
+{"attemptedProfile":"123123123","ip":"::1","level":"warn","message":"Unauthorized access attempt to specific profile","method":"GET","timestamp":"2024-08-04T07:03:23.163Z","url":"/profile/123123123"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T07:03:23.167Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T07:03:23.168Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T07:03:23.187Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T07:03:23.188Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T07:16:17.385Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T07:16:17.407Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T07:16:17.449Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T07:16:35.135Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-04T07:16:35.140Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-04T07:16:35.191Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-04T07:16:35.194Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-04T07:16:35.229Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T07:16:42.017Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T07:16:42.023Z"}
+{"email":"test@gmail.com","error":{},"level":"error","message":"Error during login process","timestamp":"2024-08-04T07:16:42.102Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/error.css","timestamp":"2024-08-04T07:16:42.132Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T07:16:42.134Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-04T07:17:15.759Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-04T07:17:15.771Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-04T07:17:15.795Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T07:17:17.630Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-04T07:17:17.638Z"}
+{"email":"test@gmail.com","level":"info","message":"Successful login","timestamp":"2024-08-04T07:17:17.719Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/123123123","timestamp":"2024-08-04T07:17:17.732Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/123123123","timestamp":"2024-08-04T07:17:17.734Z"}
+{"level":"info","message":"User profile retrieved successfully","timestamp":"2024-08-04T07:17:17.740Z","user":"123123123"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T07:17:17.773Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T07:17:17.775Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu","timestamp":"2024-08-04T07:17:19.711Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu","timestamp":"2024-08-04T07:17:19.712Z"}
+{"level":"info","message":"Authorized access to menu","timestamp":"2024-08-04T07:17:19.714Z","url":"/menu","user":123123123}
+{"0":{"_id":"662510eabc060f7ac5fa8df1","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Coco Tea"},"1":{"_id":"666c38596b8707017347c777","category":"milktea","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"},"2":{"_id":"666c3988f985e8a6ee7fbfa7","category":"milktea","drinkimg":"/drink_images/2ladiesmt.png","drinkname":"2 ladies lol"},"3":{"_id":"666dc4a3f577b9cf4f16b668","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Lemon Dunk"},"level":"info","message":"Docs retrieved: ","timestamp":"2024-08-04T07:17:19.718Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T07:17:19.747Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T07:17:19.749Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemondunk.png","timestamp":"2024-08-04T07:17:19.750Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T07:17:19.766Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T07:17:19.768Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemonblacktea.png","timestamp":"2024-08-04T07:17:19.771Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/2ladiesmt.png","timestamp":"2024-08-04T07:17:19.772Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /favorites","timestamp":"2024-08-04T07:17:20.452Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /favorites","timestamp":"2024-08-04T07:17:20.453Z"}
+{"level":"info","message":"Authorized access to favorites","timestamp":"2024-08-04T07:17:20.456Z","url":"/favorites","user":123123123}
+{"data":[],"level":"info","message":"Retrieved favorites","timestamp":"2024-08-04T07:17:20.459Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T07:17:20.482Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T07:17:20.483Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /cart","timestamp":"2024-08-04T07:17:20.917Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /cart","timestamp":"2024-08-04T07:17:20.917Z"}
+{"level":"info","message":"Authorized access to cart","timestamp":"2024-08-04T07:17:20.920Z","url":"/cart","user":123123123}
+{"entries":[],"level":"info","message":"Cart entries retrieved","timestamp":"2024-08-04T07:17:20.931Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/cartstyle.css","timestamp":"2024-08-04T07:17:20.955Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T07:17:20.957Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /status","timestamp":"2024-08-04T07:17:21.498Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /status","timestamp":"2024-08-04T07:17:21.499Z"}
+{"level":"info","message":"Authorized access to status","timestamp":"2024-08-04T07:17:21.502Z","url":"/status","user":123123123}
+{"data":[{"__v":0,"_id":"665e915105a184bbdaf5fdad","amountdue":{"$numberDecimal":"48"},"orderno":520056,"pnumber":123123123,"quantity":4,"status":"In Progress"}],"level":"info","message":"Retrieved orders","timestamp":"2024-08-04T07:17:21.505Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/status-style.css","timestamp":"2024-08-04T07:17:21.533Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T07:17:21.534Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T07:17:21.536Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile","timestamp":"2024-08-04T07:17:22.339Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile","timestamp":"2024-08-04T07:17:22.340Z"}
+{"level":"info","message":"Authorized access to profile","timestamp":"2024-08-04T07:17:22.342Z","url":"/profile","user":123123123}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/123123123","timestamp":"2024-08-04T07:17:22.347Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/123123123","timestamp":"2024-08-04T07:17:22.347Z"}
+{"level":"info","message":"User profile retrieved successfully","timestamp":"2024-08-04T07:17:22.353Z","user":"123123123"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T07:17:22.375Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T07:17:22.376Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu","timestamp":"2024-08-04T07:17:26.709Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu","timestamp":"2024-08-04T07:17:26.711Z"}
+{"level":"info","message":"Authorized access to menu","timestamp":"2024-08-04T07:17:26.714Z","url":"/menu","user":123123123}
+{"0":{"_id":"662510eabc060f7ac5fa8df1","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Coco Tea"},"1":{"_id":"666c38596b8707017347c777","category":"milktea","drinkimg":"/drink_images/lemonblacktea.png","drinkname":"Lemon Black Tea"},"2":{"_id":"666c3988f985e8a6ee7fbfa7","category":"milktea","drinkimg":"/drink_images/2ladiesmt.png","drinkname":"2 ladies lol"},"3":{"_id":"666dc4a3f577b9cf4f16b668","category":"milktea","drinkimg":"/drink_images/lemondunk.png","drinkname":"Lemon Dunk"},"level":"info","message":"Docs retrieved: ","timestamp":"2024-08-04T07:17:26.718Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T07:17:26.749Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T07:17:26.751Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemondunk.png","timestamp":"2024-08-04T07:17:26.752Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/icons8-heart-50.png","timestamp":"2024-08-04T07:17:26.772Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/shopping-cart.png","timestamp":"2024-08-04T07:17:26.776Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/lemonblacktea.png","timestamp":"2024-08-04T07:17:26.778Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET //drink_images/2ladiesmt.png","timestamp":"2024-08-04T07:17:26.780Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/fruittea","timestamp":"2024-08-04T07:17:28.592Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/fruittea","timestamp":"2024-08-04T07:17:28.593Z"}
+{"category":"fruittea","level":"info","message":"Authorized access to menu category","timestamp":"2024-08-04T07:17:28.598Z","url":"/menu/fruittea","user":123123123}
+{"category":"fruittea","count":0,"level":"info","message":"Drinks retrieved successfully for category","timestamp":"2024-08-04T07:17:28.601Z","user":123123123}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/css/menustyle.css","timestamp":"2024-08-04T07:17:28.635Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/css/menustyle.css","timestamp":"2024-08-04T07:17:28.637Z"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","timestamp":"2024-08-04T07:17:28.643Z","url":"/menu/css/menustyle.css"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T07:17:28.645Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T07:17:28.646Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/coffee","timestamp":"2024-08-04T07:17:28.890Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/coffee","timestamp":"2024-08-04T07:17:28.891Z"}
+{"category":"coffee","level":"info","message":"Authorized access to menu category","timestamp":"2024-08-04T07:17:28.896Z","url":"/menu/coffee","user":123123123}
+{"category":"coffee","count":1,"level":"info","message":"Drinks retrieved successfully for category","timestamp":"2024-08-04T07:17:28.898Z","user":123123123}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/css/menustyle.css","timestamp":"2024-08-04T07:17:28.931Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T07:17:28.932Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T07:17:28.933Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/css/menustyle.css","timestamp":"2024-08-04T07:17:28.934Z"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","timestamp":"2024-08-04T07:17:28.938Z","url":"/menu/css/menustyle.css"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/slush","timestamp":"2024-08-04T07:17:29.168Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/slush","timestamp":"2024-08-04T07:17:29.169Z"}
+{"category":"slush","level":"info","message":"Authorized access to menu category","timestamp":"2024-08-04T07:17:29.172Z","url":"/menu/slush","user":123123123}
+{"category":"slush","count":0,"level":"info","message":"Drinks retrieved successfully for category","timestamp":"2024-08-04T07:17:29.175Z","user":123123123}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/css/menustyle.css","timestamp":"2024-08-04T07:17:29.219Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/css/menustyle.css","timestamp":"2024-08-04T07:17:29.221Z"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","timestamp":"2024-08-04T07:17:29.224Z","url":"/menu/css/menustyle.css"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-04T07:17:29.231Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-04T07:17:29.232Z"}

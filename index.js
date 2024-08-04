@@ -489,13 +489,25 @@ app.post("/loginuser", async function (req, res) {
 
     const isPasswordValid = await bcrypt.compare(req.body.password, result.pw);
     if (isPasswordValid) {
+      
+       //remove any previously logged in admin
+       req.session.admin = null;
+      //store to session object for future access
+      //email, pnumber, and names can now be accessed from any succeeding HTTP request
+      //while session hasnt ended
+      //session can store multiple values
+      req.session.email = result.email;
+      req.session.pnumber = result.pnumber;
+      req.session.firstname = result.firstname;
+      req.session.lastname = result.lastname;
+
       logger.info("Successful login", { email: req.body.email });
       res.redirect("/profile/" + result.pnumber);
     } else {
       logger.warn("Failed login attempt - incorrect password", {
         email: req.body.email,
       });
-      res.render("login", { error: "Incorrect password." });
+      res.render("login", { error: "Incorrect email and/or password." });
     }
   } catch (error) {
     logger.error("Error during login process", {
