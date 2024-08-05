@@ -1380,6 +1380,10 @@ app.post("/change-password", async function (req, res) {
       return res.json({ success: false, error: "User not found." });
     }
 
+    if (req.body.reset) {
+      oldPassword = customer.pw;
+    }
+
     const isYoungerThan24Hours = (new Date() - security.new_password_age) <  24 * 60 * 60 * 1000;
     if (isYoungerThan24Hours) {
       return res.json({ success: false, error: "Last password change is less than 24 hours ago. Please try again later." });
@@ -1403,7 +1407,7 @@ app.post("/change-password", async function (req, res) {
     const isPasswordValid = await bcrypt.compare(oldPassword, customer.pw);
 
     if (isPasswordValid) {
-      security.oldPassword = oldPassword;
+      security.oldPassword = customer.pw;
       security.new_password_age = new Date();
       await security.save();
 
