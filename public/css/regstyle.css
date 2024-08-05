@@ -119,6 +119,7 @@ h1 {
     
 }
 
+
 .u-link {
     color: white;
     text-decoration: none;
@@ -127,3 +128,14 @@ h1 {
 .u-link:hover {
     text-decoration: underline;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+

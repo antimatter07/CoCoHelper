@@ -102,7 +102,7 @@ app.use(
 );
 logger.info("Session middleware set up");
 
-const adminRoutes = require("./routes/adminRoutes");
+const adminRoutes = require("./routes/adminRoutes")(logger);
 
 app.use("/admin", adminRoutes);
 
@@ -745,7 +745,7 @@ app.post("/upload-drinkimg", function (req, res) {
         });
         return res.status(500).send("Error uploading file");
       }
-      res.redirect("/");
+      res.redirect("/milktea");
     });
   } catch (error) {
     logger.error("Error in file upload process", { error: error });
@@ -762,6 +762,7 @@ app.get("/delete-drink", function (req, res) {
         logger.error("Error deleting drink", { error: err });
       } else {
         logger.info("Drink deleted successfully");
+        res.redirect('/milktea')
       }
     });
   } catch (error) {
@@ -796,7 +797,7 @@ app.post("/add-drink", function (req, res) {
           res.status(500).send("Error adding drink");
         } else {
           logger.info("New drink added successfully", { drink: post });
-          res.redirect("back");
+          res.redirect("/milktea");
         }
       }
     );
@@ -983,6 +984,7 @@ app.get("/juice", function (req, res) {
     next(new Error('Internal Server Error'));
   }
 });
+/*
 app.get("/menu/:category", function (req, res) {
   try {
     if (!req.session.pnumber) {
@@ -1046,7 +1048,7 @@ app.get("/menu/:category", function (req, res) {
     next(new Error('Internal Server Error'));
   }
 });
-
+*/
 app.get("/menu/milktea", function (req, res) {
   try {
     if (req.session.pnumber) {
