@@ -1,30 +1,11 @@
 $(document).ready(function() {
 
-    var isValidPassword = false;
     var isValidNumber = false;
-    
-    // $('#cpassword').keyup(function() {
-    //     var pass = document.getElementById('cpassword');
-    //     const value = pass.value.trim();
-    //     var pwerror = document.getElementById('pwerror');
+    var pnumber;
 
-    //     var regex = /^([^A-Z]*|[^a-z]*|[^-!@? .,]*|[^0-9]*)$/; // anything that matches this is invalid  
-
-    //     if(regex.test(value) || value.length < 8) {
-
-    //         pwerror.innerHTML = 'Password must be at least 8 characters and contain at least 1 uppercase, 1 lowercase, 1 number, and 1 special character.';
-    //         isValidPassword = false;
-            
-
-    //     } 
-    //     else {
-    //         pwerror.innerHTML = '';
-        
-    //         isValidPassword = true;
-
-    //     }
-
-    // })
+    // these are initially hidden
+    $("#fp2").hide();
+    $("#fp3").hide();
 
 
 
@@ -54,15 +35,14 @@ $(document).ready(function() {
 
 
 
-    // these are initially hidden
-    $("#fp2").hide();
-    
+
+
     // move to security questions
     $("#findnumber").click(function() {
-        let pnumber = $("#pnumber").val();
+        pnumber = $("#pnumber").val();
   
         $.ajax({
-            url: '/findcustomer',
+            url: '/findquestions',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ pnumber: pnumber }),
@@ -71,6 +51,12 @@ $(document).ready(function() {
                     $("#fp1").hide();
                     $("#fp2").show();
                     $("#fpheader").text("Answer the three security questions below to verify your identity.");
+                    
+                    q_nums = response.questions.map(item => item.q_num)
+                    let questions = response.questions.map(item => item.question)
+                    $("#question1").text(questions[0])
+                    $("#question2").text(questions[1])
+                    $("#question3").text(questions[2])
                 }
                 else {
                     pnerror.innerHTML = 'Please enter a valid cellphone number.';
@@ -83,73 +69,99 @@ $(document).ready(function() {
         
     });
 
-    // // return to account details
-    // $("#returnbutton").click(function() {
-    //     $("#nextbutton").show();
-    //     $("#returnbutton").hide();
-    //     $("#registerbutton").hide();
-    //     $("#reg1").show();
-    //     $("#reg2").hide();
-    //     $("#regpart").text("1 out of 2");
-    // });
 
+    $('.q_input').keyup(function() {
+        let allFilled = true;
 
+        $("#qerror").hide();
+        $('.q_input').each(function() {
+            let val = $(this).val();
+            if (val === '' || val === null) {
+                allFilled = false;
+                return false;
+            }
+        });
 
-    //TODO: server and client side validation with express validator and vanilla JS
-    /*Password at least 8 characters, cpassword and password are same,
-    no fields are empty, phone number only consists of numbers */
-    /*
-    var form = document.getElementById('regform');
-    var fname = document.getElementById('firstname');
-    var lname = document.getElementById('lastname');
-    var email = document.getElementById('email');
-    var pnumber = document.getElementById('pnumber');
-    var pw = document.getElementById('cpassword');
+        if (allFilled)
+            $('#verify').prop('disabled', false);
+        else $('#verify').prop('disabled', true);
 
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        validateInputs();
     });
 
-    const setError = (element, message) => {
-        const inputControl = element.parentElement;
-        const errorDisplay = inputControl.querySelector('.error');
-        errorDisplay.innerText = message;
-
-        inputControl.classList.add('error');
-        inputControl.classList.remove('success');
-
-    };
-
-    const setSuccess = element => {
-        const inputControl = element.parentElement;
-        const errorDisplay = inputControl.querySelector('.error');
+    
+    // verify security questions
+    $("#verify").click(function() {
         
-        errorDisplay.innerText = '';
-        inputControl.classList.add('success');
-        inputControl.classList.remove('error');
+        let answer1 = $("#answer1").val().toLowerCase().replace(" ","") 
+        let answer2 = $("#answer2").val().toLowerCase().replace(" ","") 
+        let answer3 = $("#answer3").val().toLowerCase().replace(" ","") 
 
+        $.ajax({
+            url: '/verifyanswers',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ pnumber: pnumber }),
+            success: function(response) {
+                if (response.message === "VALID") {
+                    let res1 = response.answers[0].toLowerCase().replace(" ","") 
+                    let res2 = response.answers[1].toLowerCase().replace(" ","") 
+                    let res3 = response.answers[2].toLowerCase().replace(" ","") 
+                    
+                    if (answer1 === res1 && answer2 === res2 && answer3 === res3) {
+                        $("#fp2").hide();
+                        $("#fp3").show();
+                        $("#fpheader").text("Account verified. Please enter your new password.");
+                    } else $("#qerror").show();
+                }
+                else {
+                    $("#qerror").show();
+                }
+            },
+            error: function(xhr) {
+                qerror.innerHTML = 'Invalid inputs.';
+            }
+        });
+    })
+    
 
-    }
+    $('#npassword').keyup(function() {
+        var pass = document.getElementById('npassword');
+        const value = pass.value.trim();
+        var nperror = document.getElementById('nperror');
 
-    const validateInputs = () => {
-        const fnameValue = fname.value.trim();
-        const lnameValue = lname.value.trim();
-        const emailValue = email.value.trim();
-        const pnumberValue = pnumber.value.trim();
-        const pwValue = pw.value.trim();
+        var regex = /^([^A-Z]*|[^a-z]*|[^-!@? .,]*|[^0-9]*)$/; // anything that matches this is invalid  
 
-        if(fnameValue === '') {
-           var fields = document.getElementsByClassName('.error');
-           fields[0].innerHTML = 'ya dum'
-        } else {
-            setSuccess(fname);
+        if(regex.test(value) || value.length < 8) {
+            nperror.innerHTML = 'Password must be at least 8 characters and contain at least 1 uppercase, 1 lowercase, 1 number, and 1 special character.';
+            $("#confirmnew").prop('disabled', true)
+
+        } 
+        else {
+            nperror.innerHTML = '';
+            $("#confirmnew").prop('disabled', false)
         }
-    }
-    */
-    
 
-    
+
+        $.ajax({
+            url: '/verifypassword',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ pnumber: pnumber, pass: pass }),
+            success: function(response) {
+                if (response) {
+                    
+                    // TODO: change password (submit)
+                }
+                else {
+                    event.preventDefault();
+                    nperror.innerHTML = 'Password must be different from old password.';
+                }
+            },
+            error: function(xhr) {
+                qerror.innerHTML = 'Invalid inputs.';
+            }
+        });
+    })
 
    
     

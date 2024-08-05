@@ -1335,22 +1335,48 @@ app.get("/logout_PM", (req, res) => {
 
 
 // FORGET PASSWORD
-app.post("/findcustomer", async function (req, res) {
+app.post("/findquestions", async function (req, res) {
   try {
     const pnumber = req.body.pnumber;
-    const customer = await Customer.findOne({ pnumber: pnumber });
+    const customer = await UserSecurity.findOne({ pnumber: pnumber });
 
     if (customer) {
-      return res.json({ message: 'VALID' });
+      const questions = await SecurityQuestions.find({ q_num: {$in: customer.security_questions}})
+      return res.json({ message: 'VALID',
+                        questions: questions
+       });
     } else {
       return res.json({ message: 'INVALID' });
     }
-    
+
   } catch (error) {
-    logger.error("Error while searching for customer", { error: error, email: req.body.email });
+    logger.error("Error while searching for customer", { error: error, pnumber: req.body.pnumber });
     res.status(500).render("error", { message: "An error occurred while searching for customer" });
   }
 });
+
+app.post("/verifyanswers", async function (req, res) {
+  try {
+    const pnumber = req.body.pnumber;
+    const customer = await UserSecurity.findOne({ pnumber: pnumber });
+
+    if (customer) {
+      return res.json({ message: 'VALID',
+                        questions: customer.security_questions,
+                        answers: customer.security_answers
+       });
+    } else {
+      return res.json({ message: 'INVALID' });
+    }
+
+  } catch (error) {
+    logger.error("Error while searching for customer security questions", { error: error, pnumber: req.body.pnumber });
+    res.status(500).render("error", { message: "An error occurred while searching for customer security questions" });
+  }
+});
+
+
+
 
 app.use((req, res, next) => {
     const err = new Error('Not Found');

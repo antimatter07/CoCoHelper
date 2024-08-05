@@ -108,7 +108,9 @@ h1 {
 
 #registerbutton:disabled,
 #nextbutton:disabled,
-#findnumber:disabled {
+#findnumber:disabled,
+#verify:disabled,
+#confirmnew:disabled  {
     cursor: not-allowed;
     
     opacity: 0.6;
