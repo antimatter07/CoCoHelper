@@ -1367,10 +1367,10 @@ app.get("/logout_PM", authMiddleware("product_manager"), (req, res) => {
 
 app.post("/change-password", async function (req, res) {
   try {
-    const oldPassword = req.body.oldPassword;
+    var oldPassword = req.body.oldPassword;
     const newPassword = req.body.newPassword;
     const retypeNewPassword = req.body.retypeNewPassword;
-    const pnumber = req.session.pnumber;
+    const pnumber = req.session.pnumber || req.body.pnumber;
 
 
     const customer = await Customer.findOne({ pnumber: pnumber });
@@ -1381,6 +1381,7 @@ app.post("/change-password", async function (req, res) {
     }
 
     if (req.body.reset) {
+      logger.info("Resetting password")
       oldPassword = customer.pw;
     }
 
@@ -1405,6 +1406,7 @@ app.post("/change-password", async function (req, res) {
     }
 
     const isPasswordValid = await bcrypt.compare(oldPassword, customer.pw);
+
 
     if (isPasswordValid) {
       security.oldPassword = customer.pw;

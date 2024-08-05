@@ -156,7 +156,7 @@ $(document).ready(function() {
         const pNumber = $("#pnumber").val();
         const newPassword = $("#npassword").val();
         const retypeNewPassword = $("#rnpassword").val();
-        console.log("pNumber:", pNumber)
+
         $.ajax({
             url: '/change-password',
             method: 'POST',
