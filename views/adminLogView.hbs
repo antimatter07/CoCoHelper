@@ -1,0 +1,7 @@
+<h1>Log File: {{filename}}</h1>
+<form action="/admin/logs/search" method="POST">
+    <input type="hidden" name="filename" value="{{filename}}">
+    <input type="text" name="searchTerm" placeholder="Search term" value="{{searchTerm}}">
+    <button type="submit">Search</button>
+</form>
+<pre>{{logContent}}</pre>

@@ -875,3 +875,71 @@
 {"email":"asdfasdf","level":"warn","message":"Failed login attempt - user not found"}
 {"ip":"::1","level":"info","message":"Incoming request: POST /loginuser"}
 {"email":"asdfasfd","level":"warn","message":"Failed login attempt - user not found"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/register"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/register"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/register"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /web_admin_dashboard"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","url":"/web_admin_dashboard"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /web_admin_dashboard"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","url":"/web_admin_dashboard"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /web_admin_dashboard"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","url":"/web_admin_dashboard"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /web_admin_dashboard"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","url":"/web_admin_dashboard"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /web_admin_dashboard"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","url":"/web_admin_dashboard"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /web_admin_dashboard"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","url":"/web_admin_dashboard"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /logs/"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","url":"/logs/"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/web_admin_dashboard"}
+{"level":"info","message":"Accessing web admin dashboard"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/logs"}
+{"level":"info","message":"Accessing logs page"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/logs/application-2024-08-05.log"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/logs/search"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/logs/search"}
