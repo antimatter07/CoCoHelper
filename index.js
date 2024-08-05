@@ -13,6 +13,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const { Logtail } = require("@logtail/node");
 const { LogtailTransport } = require("@logtail/winston");
+const authMiddleware = require('./authMiddleware');
 
 const winston = require("winston");
 const logtail = new Logtail(config.logtailKey);
@@ -98,7 +99,7 @@ hbs.registerPartials(__dirname + "/views/partials");
 
 app.use(
   session({
-    secret: "CoCoHelper-session",
+    secret: config.sessionSecret,
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: mongoURI }),
@@ -110,7 +111,7 @@ const adminRoutes = require("./routes/adminRoutes")(logger);
 
 app.use("/admin", adminRoutes);
 
-app.get("/logout", function (req, res) {
+app.get('/logout', authMiddleware('customer'), function(req, res) {
   try {
     logger.info(`User logged out`, { user: req.session.pnumber });
     req.session.destroy(function (err) {
@@ -126,7 +127,7 @@ app.get("/logout", function (req, res) {
   }
 });
 
-app.get("/deletecart", function (req, res) {
+app.get('/deletecart', authMiddleware('customer'), function(req, res) {
   logger.info(`Delete cart request received`, { user: req.session.pnumber });
   Entry.deleteMany({ pnumber: req.session.pnumber }, function (err, docs) {
     if (err) {
@@ -138,7 +139,7 @@ app.get("/deletecart", function (req, res) {
   });
 });
 
-app.get("/addorder", function (req, res) {
+app.get('/addorder', authMiddleware('customer'), function(req, res) {
   logger.info("Add order request received", {
     user: req.session.pnumber,
     quantity: req.query.quantity,
@@ -177,7 +178,7 @@ app.get("/addorder", function (req, res) {
   );
 });
 
-app.get("/delete-entry", function (req, res) {
+app.get('/delete-entry', authMiddleware('customer'), function(req, res) {
   logger.info("Delete entry request received", {
     user: req.session.pnumber,
     drinkname: req.query.drinkname,
@@ -204,7 +205,7 @@ app.get("/delete-entry", function (req, res) {
   }
 });
 
-app.get("/find-entry", function (req, res) {
+app.get('/find-entry', authMiddleware('customer'), function(req, res) {
   logger.info("Find entry request received", {
     drinkname: req.query.drinkname,
     size: req.query.size,
@@ -243,7 +244,7 @@ app.get("/find-entry", function (req, res) {
   }
 });
 
-app.get("/update-entryprice", function (req, res) {
+app.get('/update-entryprice', authMiddleware('customer'), function(req, res) {
   logger.info("Update entry amount request received", {
     drinkname: req.query.drinkname,
     size: req.query.size,
@@ -280,7 +281,7 @@ app.get("/update-entryprice", function (req, res) {
   }
 });
 
-app.get("/cart", async function (req, res) {
+app.get('/cart', authMiddleware('customer'), async function(req, res) {
   try {
     if (!req.session.pnumber) {
       logger.warn("Unauthorized access attempt to cart", {
@@ -306,7 +307,7 @@ app.get("/cart", async function (req, res) {
   }
 });
 
-app.post("/addtocart", async function (req, res) {
+app.post('/addtocart', authMiddleware('customer'), async function(req, res) {
   try {
     logger.info("Add to cart request received", {
       user: req.session.pnumber,
@@ -341,7 +342,7 @@ app.post("/addtocart", async function (req, res) {
   }
 });
 
-app.get("/find-drink-object", async function (req, res) {
+app.get('/find-drink-object', authMiddleware('customer'), async function(req, res) {
   try {
     logger.info(
       "find drink OBJECT (return non json) req received" + req.query.drinkname
@@ -364,7 +365,7 @@ app.get("/find-drink-object", async function (req, res) {
   }
 });
 
-app.get("/find-drink", async function (req, res) {
+app.get('/find-drink', authMiddleware('customer'), async function(req, res) {
   try {
     logger.info("find drink req received " + req.query.drinkname);
 
@@ -385,7 +386,7 @@ app.get("/find-drink", async function (req, res) {
   }
 });
 
-app.get("/menu", function (req, res) {
+app.get('/menu', authMiddleware('customer'), function(req, res) {
   try {
     if (!req.session.pnumber) {
       logger.warn("Unauthorized access attempt to menu", {
@@ -420,7 +421,7 @@ app.get("/menu", function (req, res) {
   }
 });
 
-app.get("/profile", function (req, res) {
+app.get('/profile', authMiddleware('customer'), function(req, res) {
   try {
     if (!req.session.pnumber) {
       logger.warn("Unauthorized access attempt to profile", {
@@ -616,7 +617,7 @@ app.post("/registeruser", function (req, res) {
   }
 });
 
-app.get("/status", function (req, res) {
+app.get('/status', authMiddleware('customer'), function(req, res) {
   try {
     if (!req.session.pnumber) {
       logger.warn("Unauthorized access attempt to status", {
@@ -645,7 +646,7 @@ app.get("/status", function (req, res) {
   }
 });
 
-app.get("/favorites", function (req, res) {
+app.get('/favorites', authMiddleware('customer'), function(req, res) {
   try {
     if (!req.session.pnumber) {
       logger.warn("Unauthorized access attempt to favorites", {
@@ -674,7 +675,7 @@ app.get("/favorites", function (req, res) {
   }
 });
 
-app.post("/addtofavorites", function (req, res) {
+app.post('/addtofavorites', authMiddleware('customer'), function(req, res) {
   try {
     Favorites.findOne(
       { pnumber: req.session.pnumber, drinkname: req.body.drinkname },
@@ -711,7 +712,7 @@ app.post("/addtofavorites", function (req, res) {
   }
 });
 
-app.post("/removefavorites", function (req, res) {
+app.post('/removefavorites', authMiddleware('customer'), function(req, res) {
   try {
     logger.info("Remove from favorites request", {
       user: req.session.pnumber,
@@ -1308,7 +1309,7 @@ app.get("/product_manager_dashboard", (req, res) => {
   }
 });
 
-app.get("/logout_PM", (req, res) => {
+app.get('/logout_PM', authMiddleware('product_manager'), (req, res) => {
   try {
     req.session.destroy(function (err) {
       if (err) {

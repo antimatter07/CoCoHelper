@@ -5,16 +5,9 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const fs = require('fs');
 const path = require('path');
+const authMiddleware = require('../authMiddleware');
 
 module.exports = (logger) => {
-    const ensureAuthenticated = (req, res, next) => {
-        if (req.session.admin) {
-            next();
-        } else {
-            res.redirect('/admin/login');
-        }
-    };
-
     router.get('/', (req, res) => {
         try {
             res.redirect('/admin/register');
@@ -24,7 +17,6 @@ module.exports = (logger) => {
         }
     });
 
-    // registration page
     router.get('/register', (req, res) => {
         res.render('adminRegister');
     });
@@ -43,7 +35,6 @@ module.exports = (logger) => {
         }
     });
 
-    // log-in page for both web admin and product manager
     router.get('/login', (req, res) => {
         res.render('adminLogin');
     });
@@ -107,12 +98,12 @@ module.exports = (logger) => {
   });
   
 
-    router.get('/web_admin_dashboard', ensureAuthenticated, (req, res) => {
+    router.get('/web_admin_dashboard', authMiddleware('website_administrator'), (req, res) => {
         logger.info('Accessing web admin dashboard');
         res.render('webAdminDashboard', { logViewerUrl: '/admin/logs' });
     });
 
-    router.get('/logs', ensureAuthenticated, (req, res) => {
+    router.get('/logs', authMiddleware('website_administrator'), (req, res) => {
         logger.info('Accessing logs page');
         const logDir = path.join(__dirname, '../logs');
         fs.readdir(logDir, (err, files) => {
@@ -125,7 +116,7 @@ module.exports = (logger) => {
         });
     });
 
-    router.get('/logs/:filename', ensureAuthenticated, (req, res) => {
+    router.get('/logs/:filename', authMiddleware('website_administrator'), (req, res) => {
         const filename = req.params.filename;
         const logPath = path.join(__dirname, '../logs', filename);
         fs.readFile(logPath, 'utf8', (err, data) => {
@@ -137,7 +128,7 @@ module.exports = (logger) => {
         });
     });
 
-    router.post('/logs/search', ensureAuthenticated, (req, res) => {
+    router.post('/logs/search', authMiddleware('website_administrator'), (req, res) => {
         const { filename, searchTerm } = req.body;
         const logPath = path.join(__dirname, '../logs', filename);
         fs.readFile(logPath, 'utf8', (err, data) => {
