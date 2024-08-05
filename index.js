@@ -13,7 +13,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const { Logtail } = require("@logtail/node");
 const { LogtailTransport } = require("@logtail/winston");
-const authMiddleware = require('./authMiddleware');
+const authMiddleware = require("./authMiddleware");
 
 const winston = require("winston");
 const logtail = new Logtail(config.logtailKey);
@@ -24,11 +24,9 @@ const app = new express();
 const logtailTransport = new LogtailTransport(logtail);
 
 const logger = winston.createLogger({
-  level: 'info',
+  level: "info",
   format: winston.format.json(),
-  transports: [
-    logtailTransport,
-  ]
+  transports: [logtailTransport],
 });
 
 if (process.env.NODE_ENV !== "production") {
@@ -111,35 +109,40 @@ const adminRoutes = require("./routes/adminRoutes")(logger);
 
 app.use("/admin", adminRoutes);
 
-app.get('/logout', authMiddleware('customer'), function(req, res) {
+app.get('/logout', function(req, res) {
   try {
     logger.info(`User logged out`, { user: req.session.pnumber });
+    const passwordChanged = req.session.passwordChanged;
     req.session.destroy(function (err) {
       if (err) {
         logger.error("Error destroying session", { error: err });
         throw err;
       }
-      res.redirect("/login");
+      if (passwordChanged) {
+        res.redirect("/login?passwordChanged=true");
+      } else {
+        res.redirect("/login");
+      }
     });
   } catch (err) {
     logger.error("Error logging out", { error: err });
-    next(new Error('Internal Server Error'));
+    res.status(500).send("Internal Server Error");
   }
 });
 
-app.get('/deletecart', authMiddleware('customer'), function(req, res) {
+app.get("/deletecart", authMiddleware("customer"), function (req, res) {
   logger.info(`Delete cart request received`, { user: req.session.pnumber });
   Entry.deleteMany({ pnumber: req.session.pnumber }, function (err, docs) {
     if (err) {
       logger.error("Error deleting cart entries", { error: err });
-      return next(new Error('Internal Server Error'));
+      return next(new Error("Internal Server Error"));
     }
     logger.info("Cart entries deleted", { user: req.session.pnumber });
     res.status(200).send("Cart entries deleted");
   });
 });
 
-app.get('/addorder', authMiddleware('customer'), function(req, res) {
+app.get("/addorder", authMiddleware("customer"), function (req, res) {
   logger.info("Add order request received", {
     user: req.session.pnumber,
     quantity: req.query.quantity,
@@ -178,7 +181,7 @@ app.get('/addorder', authMiddleware('customer'), function(req, res) {
   );
 });
 
-app.get('/delete-entry', authMiddleware('customer'), function(req, res) {
+app.get("/delete-entry", authMiddleware("customer"), function (req, res) {
   logger.info("Delete entry request received", {
     user: req.session.pnumber,
     drinkname: req.query.drinkname,
@@ -205,7 +208,7 @@ app.get('/delete-entry', authMiddleware('customer'), function(req, res) {
   }
 });
 
-app.get('/find-entry', authMiddleware('customer'), function(req, res) {
+app.get("/find-entry", authMiddleware("customer"), function (req, res) {
   logger.info("Find entry request received", {
     drinkname: req.query.drinkname,
     size: req.query.size,
@@ -232,7 +235,7 @@ app.get('/find-entry', authMiddleware('customer'), function(req, res) {
       function (err, docs) {
         if (err) {
           logger.error("Error updating entry", { error: err });
-          next(new Error('Internal Server Error'));
+          next(new Error("Internal Server Error"));
         } else {
           logger.info("Entry found and updated", { entry: docs });
           res.status(200).send(docs.toJSON());
@@ -244,7 +247,7 @@ app.get('/find-entry', authMiddleware('customer'), function(req, res) {
   }
 });
 
-app.get('/update-entryprice', authMiddleware('customer'), function(req, res) {
+app.get("/update-entryprice", authMiddleware("customer"), function (req, res) {
   logger.info("Update entry amount request received", {
     drinkname: req.query.drinkname,
     size: req.query.size,
@@ -269,7 +272,7 @@ app.get('/update-entryprice', authMiddleware('customer'), function(req, res) {
       function (err, docs) {
         if (err) {
           logger.error("Error updating entry", { error: err });
-          next(new Error('Internal Server Error'));
+          next(new Error("Internal Server Error"));
         } else {
           logger.info("Entry found and updated", { entry: docs });
           res.status(200).send(docs.toJSON());
@@ -281,7 +284,7 @@ app.get('/update-entryprice', authMiddleware('customer'), function(req, res) {
   }
 });
 
-app.get('/cart', authMiddleware('customer'), async function(req, res) {
+app.get("/cart", authMiddleware("customer"), async function (req, res) {
   try {
     if (!req.session.pnumber) {
       logger.warn("Unauthorized access attempt to cart", {
@@ -303,11 +306,11 @@ app.get('/cart', authMiddleware('customer'), async function(req, res) {
     res.render("cart", { cartentries });
   } catch (err) {
     logger.error("Error retrieving cart entries", { error: err });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
-app.post('/addtocart', authMiddleware('customer'), async function(req, res) {
+app.post("/addtocart", authMiddleware("customer"), async function (req, res) {
   try {
     logger.info("Add to cart request received", {
       user: req.session.pnumber,
@@ -342,30 +345,34 @@ app.post('/addtocart', authMiddleware('customer'), async function(req, res) {
   }
 });
 
-app.get('/find-drink-object', authMiddleware('customer'), async function(req, res) {
-  try {
-    logger.info(
-      "find drink OBJECT (return non json) req received" + req.query.drinkname
-    );
+app.get(
+  "/find-drink-object",
+  authMiddleware("customer"),
+  async function (req, res) {
+    try {
+      logger.info(
+        "find drink OBJECT (return non json) req received" + req.query.drinkname
+      );
 
-    const drink = await Drink.findOne({
-      drinkname: req.query.drinkname,
-    }).exec();
-    if (!drink) {
-      logger.error("Drink not found");
-      return res.redirect("back");
+      const drink = await Drink.findOne({
+        drinkname: req.query.drinkname,
+      }).exec();
+      if (!drink) {
+        logger.error("Drink not found");
+        return res.redirect("back");
+      }
+
+      logger.info("Drink retrieved from add-drink request: " + drink);
+
+      res.status(200).send(drink);
+    } catch (err) {
+      logger.error(err);
+      next(new Error("Internal Server Error"));
     }
-
-    logger.info("Drink retrieved from add-drink request: " + drink);
-
-    res.status(200).send(drink);
-  } catch (err) {
-    logger.error(err);
-    next(new Error('Internal Server Error'));
   }
-});
+);
 
-app.get('/find-drink', authMiddleware('customer'), async function(req, res) {
+app.get("/find-drink", authMiddleware("customer"), async function (req, res) {
   try {
     logger.info("find drink req received " + req.query.drinkname);
 
@@ -382,11 +389,11 @@ app.get('/find-drink', authMiddleware('customer'), async function(req, res) {
     res.status(200).send(drink.toJSON());
   } catch (err) {
     logger.error(err);
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
-app.get('/menu', authMiddleware('customer'), function(req, res) {
+app.get("/menu", authMiddleware("customer"), function (req, res) {
   try {
     if (!req.session.pnumber) {
       logger.warn("Unauthorized access attempt to menu", {
@@ -407,7 +414,7 @@ app.get('/menu', authMiddleware('customer'), function(req, res) {
       function (err, docs) {
         if (err) {
           logger.error(err);
-          return next(new Error('Internal Server Error'));
+          return next(new Error("Internal Server Error"));
         } else {
           logger.info("Docs retrieved: ", docs);
           const milktea_drinks = docs;
@@ -417,15 +424,14 @@ app.get('/menu', authMiddleware('customer'), function(req, res) {
     );
   } catch (error) {
     logger.error("Error in /menu route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
-app.get('/profile', authMiddleware('customer'), function(req, res) {
+app.get("/profile", authMiddleware("customer"), function (req, res) {
   try {
     if (!req.session.pnumber) {
       logger.warn("Unauthorized access attempt to profile", {
-        url: req.originalUrl,
         method: req.method,
         ip: req.ip,
       });
@@ -439,7 +445,7 @@ app.get('/profile', authMiddleware('customer'), function(req, res) {
     res.redirect("/profile/" + req.session.pnumber);
   } catch (error) {
     logger.error("Error in /profile route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -486,18 +492,26 @@ app.post("/loginuser", async function (req, res) {
     const customer = await Customer.findOne({ email: email });
 
     if (!customer) {
-      logger.warn("Failed login attempt - user not found", { email: req.body.email });
+      logger.warn("Failed login attempt - user not found", {
+        email: req.body.email,
+      });
       return res.render("login", { error: "Incorrect email and/or password." });
     }
 
     // Check if account is locked
     if (customer.lockoutUntil && customer.lockoutUntil > Date.now()) {
       logger.warn("Login attempt on locked account", { email: req.body.email });
-      return res.render("login", { error: "Account is temporarily locked. Please try again later or reset your password." });
+      return res.render("login", {
+        error:
+          "Account is temporarily locked. Please try again later or reset your password.",
+      });
     }
 
-    const isPasswordValid = await bcrypt.compare(req.body.password, customer.pw);
-    
+    const isPasswordValid = await bcrypt.compare(
+      req.body.password,
+      customer.pw
+    );
+
     if (isPasswordValid) {
       // Reset failed attempts on successful login
       customer.failedLoginAttempts = 0;
@@ -523,16 +537,28 @@ app.post("/loginuser", async function (req, res) {
       await customer.save();
 
       if (customer.lockoutUntil && customer.lockoutUntil > Date.now()) {
-        logger.warn("Account locked after failed attempt", { email: req.body.email });
-        res.render("login", { error: "Account is temporarily locked. Please try again later or reset your password." });
+        logger.warn("Account locked after failed attempt", {
+          email: req.body.email,
+        });
+        res.render("login", {
+          error:
+            "Account is temporarily locked. Please try again later or reset your password.",
+        });
       } else {
-        logger.warn("Failed login attempt - incorrect password", { email: req.body.email });
+        logger.warn("Failed login attempt - incorrect password", {
+          email: req.body.email,
+        });
         res.render("login", { error: "Incorrect email and/or password." });
       }
     }
   } catch (error) {
-    logger.error("Error during login process", { error: error, email: req.body.email });
-    res.status(500).render("error", { message: "An error occurred during login" });
+    logger.error("Error during login process", {
+      error: error,
+      email: req.body.email,
+    });
+    res
+      .status(500)
+      .render("error", { message: "An error occurred during login" });
   }
 });
 
@@ -572,32 +598,36 @@ app.post("/registeruser", function (req, res) {
                     UserSecurity.create(
                       {
                         pnumber: req.body.pnumber,
-                        security_questions: [req.body.question1, req.body.question2, req.body.question3],
+                        security_questions: [
+                          req.body.question1,
+                          req.body.question2,
+                          req.body.question3,
+                        ],
                         security_answers: [
-                          req.body.answer1, 
-                          req.body.answer2, 
-                          req.body.answer3
+                          req.body.answer1,
+                          req.body.answer2,
+                          req.body.answer3,
                         ],
                         new_password_age: new Date(),
-                        last_login_attempt: new Date()
+                        last_login_attempt: new Date(),
                       },
-                    
+
                       function (err, docs) {
                         if (err) {
-                          logger.error("Error creating user security", { error: err });
+                          logger.error("Error creating user security", {
+                            error: err,
+                          });
                           console.log("Error creating new user security");
                           return;
                         }
-              
+
                         logger.info("User security created for new customer", {
                           email: req.body.email,
                         });
 
-
-                    res.redirect("/login");
-                  }
-                );
-                    
+                        res.redirect("/login");
+                      }
+                    );
                   }
                 }
               );
@@ -617,7 +647,7 @@ app.post("/registeruser", function (req, res) {
   }
 });
 
-app.get('/status', authMiddleware('customer'), function(req, res) {
+app.get("/status", authMiddleware("customer"), function (req, res) {
   try {
     if (!req.session.pnumber) {
       logger.warn("Unauthorized access attempt to status", {
@@ -646,7 +676,7 @@ app.get('/status', authMiddleware('customer'), function(req, res) {
   }
 });
 
-app.get('/favorites', authMiddleware('customer'), function(req, res) {
+app.get("/favorites", authMiddleware("customer"), function (req, res) {
   try {
     if (!req.session.pnumber) {
       logger.warn("Unauthorized access attempt to favorites", {
@@ -675,14 +705,14 @@ app.get('/favorites', authMiddleware('customer'), function(req, res) {
   }
 });
 
-app.post('/addtofavorites', authMiddleware('customer'), function(req, res) {
+app.post("/addtofavorites", authMiddleware("customer"), function (req, res) {
   try {
     Favorites.findOne(
       { pnumber: req.session.pnumber, drinkname: req.body.drinkname },
       function (err, success) {
         if (err) {
           logger.error("Error finding favorite", { error: err });
-          next(new Error('Internal Server Error'));
+          next(new Error("Internal Server Error"));
         } else if (success) {
           logger.info("Drink already in favorites");
           res.status(200).send("Drink already in favorites");
@@ -697,7 +727,7 @@ app.post('/addtofavorites', authMiddleware('customer'), function(req, res) {
           faveDrink.save(function (err) {
             if (err) {
               logger.error("Error adding to favorites", { error: err });
-              next(new Error('Internal Server Error'));
+              next(new Error("Internal Server Error"));
             } else {
               logger.info("Added to favorites", { drink: faveDrink });
               res.status(200).send("Added to favorites");
@@ -708,11 +738,11 @@ app.post('/addtofavorites', authMiddleware('customer'), function(req, res) {
     );
   } catch (error) {
     logger.error("Error in /addtofavorites route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
-app.post('/removefavorites', authMiddleware('customer'), function(req, res) {
+app.post("/removefavorites", authMiddleware("customer"), function (req, res) {
   try {
     logger.info("Remove from favorites request", {
       user: req.session.pnumber,
@@ -723,7 +753,7 @@ app.post('/removefavorites', authMiddleware('customer'), function(req, res) {
       function (err) {
         if (err) {
           logger.error("Error removing from favorites", { error: err });
-          next(new Error('Internal Server Error'));
+          next(new Error("Internal Server Error"));
         } else {
           logger.info("Removed from favorites", {
             drinkname: req.body.drinkname,
@@ -734,7 +764,7 @@ app.post('/removefavorites', authMiddleware('customer'), function(req, res) {
     );
   } catch (error) {
     logger.error("Error in /removefavorites route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -752,7 +782,8 @@ app.get("/login", function (req, res) {
     if (req.session.pnumber) {
       res.redirect("/profile/" + req.session.pnumber);
     } else {
-      res.render("login");
+      const passwordChanged = req.query.passwordChanged === 'true';
+      res.render("login", { passwordChanged: passwordChanged });
     }
   } catch (error) {
     logger.error("Error in /login route", { error: error });
@@ -806,12 +837,12 @@ app.get("/delete-drink", function (req, res) {
         logger.error("Error deleting drink", { error: err });
       } else {
         logger.info("Drink deleted successfully");
-        res.redirect('/milktea')
+        res.redirect("/milktea");
       }
     });
   } catch (error) {
     logger.error("Error in /delete-drink route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -847,7 +878,7 @@ app.post("/add-drink", function (req, res) {
     );
   } catch (error) {
     logger.error("Error in /add-drink route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -876,7 +907,7 @@ app.get("/milktea", function (req, res) {
     }
   } catch (error) {
     logger.error("Error in /milktea route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -901,7 +932,7 @@ app.get("/fruittea", function (req, res) {
     }
   } catch (error) {
     logger.error("Error in /fruittea route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -926,7 +957,7 @@ app.get("/coffee", function (req, res) {
     }
   } catch (error) {
     logger.error("Error in /coffee route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 app.get("/slush", function (req, res) {
@@ -950,7 +981,7 @@ app.get("/slush", function (req, res) {
     }
   } catch (error) {
     logger.error("Error in /slush route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -975,7 +1006,7 @@ app.get("/choco", function (req, res) {
     }
   } catch (error) {
     logger.error("Error in /choco route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -1000,7 +1031,7 @@ app.get("/freshtea", function (req, res) {
     }
   } catch (error) {
     logger.error("Error in /freshtea route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -1025,7 +1056,7 @@ app.get("/juice", function (req, res) {
     }
   } catch (error) {
     logger.error("Error in /juice route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 /*
@@ -1114,7 +1145,7 @@ app.get("/menu/milktea", function (req, res) {
     }
   } catch (error) {
     logger.error("Error in /menu/milktea route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -1139,7 +1170,7 @@ app.get("/menu/juice", function (req, res) {
     }
   } catch (error) {
     logger.error("Error in /menu/juice route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -1164,7 +1195,7 @@ app.get("/menu/freshtea", function (req, res) {
     }
   } catch (error) {
     logger.error("Error in /menu/freshtea route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -1189,7 +1220,7 @@ app.get("/menu/fruittea", function (req, res) {
     }
   } catch (error) {
     logger.error("Error in /menu/fruittea route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -1202,7 +1233,7 @@ app.get("/menu/coffee", function (req, res) {
         function (err, docs) {
           if (err) {
             logger.error("Error retrieving coffee drinks", { error: err });
-            next(new Error('Internal Server Error'));
+            next(new Error("Internal Server Error"));
           } else {
             logger.info("Coffee drinks retrieved successfully", {
               drinks: docs,
@@ -1217,7 +1248,7 @@ app.get("/menu/coffee", function (req, res) {
     }
   } catch (error) {
     logger.error("Error in /menu/coffee route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -1230,7 +1261,7 @@ app.get("/menu/slush", function (req, res) {
         function (err, docs) {
           if (err) {
             logger.error("Error retrieving slush drinks", { error: err });
-            next(new Error('Internal Server Error'));
+            next(new Error("Internal Server Error"));
           } else {
             logger.info("Slush drinks retrieved successfully", {
               drinks: docs,
@@ -1245,7 +1276,7 @@ app.get("/menu/slush", function (req, res) {
     }
   } catch (error) {
     logger.error("Error in /menu/slush route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -1258,7 +1289,7 @@ app.get("/menu/choco", function (req, res) {
         function (err, docs) {
           if (err) {
             logger.error("Error retrieving choco drinks", { error: err });
-            next(new Error('Internal Server Error'));
+            next(new Error("Internal Server Error"));
           } else {
             logger.info("Choco drinks retrieved successfully", {
               drinks: docs,
@@ -1273,7 +1304,7 @@ app.get("/menu/choco", function (req, res) {
     }
   } catch (error) {
     logger.error("Error in /menu/choco route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
@@ -1289,7 +1320,7 @@ app.get("/product_manager_dashboard", (req, res) => {
               "Error retrieving milktea drinks for product manager dashboard",
               { error: err }
             );
-            next(new Error('Internal Server Error'));
+            next(new Error("Internal Server Error"));
           } else {
             logger.info(
               "Milktea drinks retrieved successfully for product manager dashboard",
@@ -1305,46 +1336,105 @@ app.get("/product_manager_dashboard", (req, res) => {
     }
   } catch (error) {
     logger.error("Error in /product_manager_dashboard route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
   }
 });
 
-app.get('/logout_PM', authMiddleware('product_manager'), (req, res) => {
+app.get("/logout_PM", authMiddleware("product_manager"), (req, res) => {
   try {
     req.session.destroy(function (err) {
       if (err) {
         logger.error("Error destroying session during logout", { error: err });
-        next(new Error('Internal Server Error'));
+        next(new Error("Internal Server Error"));
       } else {
         res.redirect("/admin/login");
       }
     });
   } catch (error) {
     logger.error("Error in /logout_PM route", { error: error });
-    next(new Error('Internal Server Error'));
+    next(new Error("Internal Server Error"));
+  }
+});
+
+app.post("/change-password", authMiddleware('customer'), async function (req, res) {
+  try {
+    const { oldPassword, newPassword, retypeNewPassword } = req.body;
+    const pnumber = req.session.pnumber;
+
+    const customer = await Customer.findOne({ pnumber: pnumber });
+
+    if (!customer) {
+      return res.json({ success: false, error: "User not found." });
+    }
+
+    if (customer.lockoutUntil && customer.lockoutUntil > Date.now()) {
+      return res.json({ success: false, error: "Account is temporarily locked. Please try again later or contact support." });
+    }
+
+    if (newPassword !== retypeNewPassword) {
+      return res.json({ success: false, error: "New passwords do not match." });
+    }
+
+    const isPasswordValid = await bcrypt.compare(oldPassword, customer.pw);
+
+    if (isPasswordValid) {
+      const hashedNewPassword = await bcrypt.hash(newPassword, saltRounds);
+      customer.pw = hashedNewPassword;
+      customer.failedLoginAttempts = 0;
+      customer.lockoutUntil = null;
+      await customer.save();
+
+      logger.info("Password changed successfully", { pnumber: pnumber });
+      req.session.passwordChanged = true;
+      res.json({ success: true, message: "Password changed successfully. You will be logged out." });
+    } else {
+      customer.failedLoginAttempts += 1;
+
+      if (customer.failedLoginAttempts >= MAX_FAILED_ATTEMPTS) {
+        customer.lockoutUntil = new Date(Date.now() + LOCKOUT_TIME);
+        logger.warn(`Account locked due to failed password change attempts: ${pnumber}`);
+      }
+
+      await customer.save();
+
+      if (customer.lockoutUntil && customer.lockoutUntil > Date.now()) {
+        return res.json({ success: false, error: "Account is temporarily locked due to multiple failed attempts. Please try again later or contact support." });
+      } else {
+        return res.json({ success: false, error: "Incorrect old password." });
+      }
+    }
+  } catch (error) {
+    logger.error("Error during password change process", {
+      error: error,
+      pnumber: req.session.pnumber
+    });
+    res.status(500).json({ success: false, error: "An error occurred during password change" });
   }
 });
 
 app.use((req, res, next) => {
-    const err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+  const err = new Error("Not Found");
+  err.status = 404;
+  next(err);
 });
 
 app.use((err, req, res, next) => {
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.message = err.message;
+  res.locals.error = req.app.get("env") === "development" ? err : {};
 
-    res.status(err.status || 500);
+  res.status(err.status || 500);
 
-    logger.error('Error occurred:', { error: err, url: req.url, method: req.method });
+  logger.error("Error occurred:", {
+    error: err,
+    url: req.url,
+    method: req.method,
+  });
 
-    res.render('error', {
-        statusCode: err.status || 500,
-        message: err.message || 'An unexpected error occurred'
-    });
+  res.render("error", {
+    statusCode: err.status || 500,
+    message: err.message || "An unexpected error occurred",
+  });
 });
-
 
 var server = app.listen(3000, function () {
   logger.info("Server running on port 3000");
