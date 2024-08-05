@@ -16,6 +16,7 @@ $(document).ready(function() {
 
     var isValidPassword = false;
     var isValidEmail = false;
+    var isValidNumber = false;
     
     $('#cpassword').keyup(function() {
         var pass = document.getElementById('cpassword');
@@ -61,8 +62,28 @@ $(document).ready(function() {
         }
     });
 
+
+    $('#pnumber').keyup(function() {
+        var num = document.getElementById('pnumber');
+        const numval = num.value.trim();
+        var pwerror = document.getElementById('pwerror');
+
+        //regex for phone number
+        if(/^(639|09)\d{9}$/.test(numval)) {
+            pwerror.innerHTML = '';
+            isValidNumber = true;
+            
+        } else {
+
+            pwerror.innerHTML = 'Please enter a valid cellphone number.';
+            isValidNumber = false;
+            
+        }
+    });
+
+
     $('.input').keyup(function() {
-        if(isValidEmail && isValidPassword) {
+        if(isValidEmail && isValidPassword && isValidNumber) {
 
             $('#registerbutton').prop('disabled', false);
 
