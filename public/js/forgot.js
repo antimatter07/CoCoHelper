@@ -47,6 +47,7 @@ $(document).ready(function() {
             contentType: 'application/json',
             data: JSON.stringify({ pnumber: pnumber }),
             success: function(response) {
+                console.log(response)
                 if (response.message === "VALID") {
                     $("#fp1").hide();
                     $("#fp2").show();
@@ -57,6 +58,8 @@ $(document).ready(function() {
                     $("#question1").text(questions[0])
                     $("#question2").text(questions[1])
                     $("#question3").text(questions[2])
+
+                    // $("#opassword").val(response.pw);
                 }
                 else {
                     pnerror.innerHTML = 'Please enter a valid cellphone number.';
@@ -95,7 +98,7 @@ $(document).ready(function() {
         let answer1 = $("#answer1").val().toLowerCase().replace(" ","") 
         let answer2 = $("#answer2").val().toLowerCase().replace(" ","") 
         let answer3 = $("#answer3").val().toLowerCase().replace(" ","") 
-
+        console.log(answer1, answer2, answer3)
         $.ajax({
             url: '/verifyanswers',
             method: 'POST',
@@ -106,7 +109,7 @@ $(document).ready(function() {
                     let res1 = response.answers[0].toLowerCase().replace(" ","") 
                     let res2 = response.answers[1].toLowerCase().replace(" ","") 
                     let res3 = response.answers[2].toLowerCase().replace(" ","") 
-                    
+                    console.log(res1, res2, res3)
                     if (answer1 === res1 && answer2 === res2 && answer3 === res3) {
                         $("#fp2").hide();
                         $("#fp3").show();
@@ -124,7 +127,7 @@ $(document).ready(function() {
     })
     
 
-    $('#npassword').keyup(function() {
+    $('.password').keyup(function() {
         var pass = document.getElementById('npassword');
         const value = pass.value.trim();
         var nperror = document.getElementById('nperror');
@@ -133,34 +136,19 @@ $(document).ready(function() {
 
         if(regex.test(value) || value.length < 8) {
             nperror.innerHTML = 'Password must be at least 8 characters and contain at least 1 uppercase, 1 lowercase, 1 number, and 1 special character.';
-            $("#confirmnew").prop('disabled', true)
+            $("#confirmnew").prop('disabled', true);
 
         } 
+        else if (value !== $("#rnpassword").val()) {
+            nperror.innerHTML = '';
+            $("#rnperror").text('Passwords do not match on both fields.');
+            $("#confirmnew").prop('disabled', true);
+        }
         else {
             nperror.innerHTML = '';
+            $("#rnperror").text('');
             $("#confirmnew").prop('disabled', false)
         }
-
-
-        $.ajax({
-            url: '/verifypassword',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({ pnumber: pnumber, pass: pass }),
-            success: function(response) {
-                if (response) {
-                    
-                    // TODO: change password (submit)
-                }
-                else {
-                    event.preventDefault();
-                    nperror.innerHTML = 'Password must be different from old password.';
-                }
-            },
-            error: function(xhr) {
-                qerror.innerHTML = 'Invalid inputs.';
-            }
-        });
     })
 
    

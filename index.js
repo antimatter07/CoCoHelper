@@ -1365,16 +1365,29 @@ app.get("/logout_PM", authMiddleware("product_manager"), (req, res) => {
   }
 });
 
-app.post("/change-password", authMiddleware('customer'), async function (req, res) {
+app.post("/change-password", async function (req, res) {
   try {
-    const { oldPassword, newPassword, retypeNewPassword } = req.body;
+    const oldPassword = req.body.oldPassword;
+    const newPassword = req.body.newPassword;
+    const retypeNewPassword = req.body.retypeNewPassword;
     const pnumber = req.session.pnumber;
 
-    const customer = await Customer.findOne({ pnumber: pnumber });
 
-    if (!customer) {
+    const customer = await Customer.findOne({ pnumber: pnumber });
+    const security = await UserSecurity.findOne({ pnumber: pnumber});
+
+    logger.info("Original Password: ", customer.pw);
+    logger.info("New Password: ", newPassword);
+
+    if (!customer || !security) {
       return res.json({ success: false, error: "User not found." });
     }
+
+    const isYoungerThan24Hours = (new Date() - security.new_password_age) <  24 * 60 * 60 * 1000;
+    if (isYoungerThan24Hours) {
+      return res.json({ success: false, error: "Last password change is less than 24 hours ago. Please try again later." });
+    }
+
 
     if (customer.lockoutUntil && customer.lockoutUntil > Date.now()) {
       return res.json({ success: false, error: "Account is temporarily locked. Please try again later or contact support." });
@@ -1383,15 +1396,28 @@ app.post("/change-password", authMiddleware('customer'), async function (req, re
     if (newPassword !== retypeNewPassword) {
       return res.json({ success: false, error: "New passwords do not match." });
     }
+    
+    const isPasswordSame = await bcrypt.compare(newPassword, customer.pw);
+
+    if (isPasswordSame) {
+      logger.error("New password must be different from old one.");
+      return res.json({ success: false, error: "New password must be different from old one." });
+    }
 
     const isPasswordValid = await bcrypt.compare(oldPassword, customer.pw);
 
     if (isPasswordValid) {
+      security.oldPassword = oldPassword;
+      security.new_password_age = new Date();
+      await security.save();
+
       const hashedNewPassword = await bcrypt.hash(newPassword, saltRounds);
       customer.pw = hashedNewPassword;
       customer.failedLoginAttempts = 0;
       customer.lockoutUntil = null;
       await customer.save();
+
+      
 
       logger.info("Password changed successfully", { pnumber: pnumber });
       req.session.passwordChanged = true;
