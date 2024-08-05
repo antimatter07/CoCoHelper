@@ -856,3 +856,22 @@
 {"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-05T07:28:29.932Z"}
 {"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T07:28:29.940Z"}
 {"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T07:28:31.304Z"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /favicon.ico"}
+{"error":{"status":404},"level":"error","message":"Error occurred:","method":"GET","url":"/favicon.ico"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser"}
+{"email":"aasdfasdfa","level":"warn","message":"Failed login attempt - user not found"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser"}
+{"email":"asdfasdf","level":"warn","message":"Failed login attempt - user not found"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser"}
+{"email":"asdfasfd","level":"warn","message":"Failed login attempt - user not found"}
