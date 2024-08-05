@@ -60,7 +60,7 @@
                         <div id="questions">
                             
                             <label for="question1">Question 1: </label>
-                            <select id="question1" name="question1" class="input" required>
+                            <select id="question1" name="question1" class="question" required>
                                 {{> questions }}
                             </select>
                             <label for="answer1">Answer:</label>
@@ -68,7 +68,7 @@
                             <br /><br />
 
                             <label for="question2">Question 2: </label>
-                            <select id="question2" name="question2" class="input" required>
+                            <select id="question2" name="question2" class="question" required>
                                 {{> questions }}
                             </select>
                             <label for="answer2">Answer:</label>
@@ -76,7 +76,7 @@
                             <br /><br />
 
                             <label for="question3">Question 3: </label>
-                            <select id="question3" name="question3" class="input" required>
+                            <select id="question3" name="question3" class="question" required>
                                 {{> questions }}
                             </select>
                             <label for="answer3">Answer:</label>
@@ -84,13 +84,14 @@
 
                         </div>
                         
+                        <div id="sqerror" hidden>Some questions are duplicated. <br> Please select three unique questions.</div>
                     </div>
                 </form>
             </div>
-                {{!-- ADD disabled later --}}
-            <button form ="regform" class="button" id ="nextbutton" type="button" value="Next">Next</button>
+
+            <button form ="regform" class="button" id ="nextbutton" type="button" value="Next" disabled>Next</button>
             <button form ="regform" class="button" id ="returnbutton" type="button" value="Return">Return</button>
-            <button form ="regform" class="button" id ="registerbutton" type="submit" value="Submit">Submit</button>
+            <button form ="regform" class="button" id ="registerbutton" type="submit" value="Submit" disabled>Submit</button>
             {{!-- <a href ="/login"><button class="button" id = "loginbutton" type="submit" value="Log In">Return to Log In</button></a> --}}
             <br />
             <a href ='/login' class="u-link"><text>Return to Log In</text></a>

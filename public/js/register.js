@@ -46,14 +46,70 @@ $(document).ready(function() {
 
     $('.input').keyup(function() {
         if(isValidEmail && isValidPassword) {
-
-            // $('#registerbutton').prop('disabled', false);
-            // $('#nextbutton').prop('disabled', false);
+            $('#nextbutton').prop('disabled', false);
 
         } else {
-            // $('#registerbutton').prop('disabled', true);
-            // $('#nextbutton').prop('disabled', true);
+            $('#nextbutton').prop('disabled', true);
+        }
+    });
 
+    // returns true if all questions have answers
+    function checkInputs() {
+        let allFilled = true;
+
+        $('.q_input').each(function() {
+            // console.log("VAL: ["+ $(this).val().trim() +"]")
+            if ($(this).val().trim() === '') {
+                allFilled = false;
+                return false;
+            }
+        });
+
+        return allFilled;
+    }
+
+    // returns true if all questions are unique
+    function checkRepeats() {
+        let allUnique = true;
+        let noEmpty = true;
+
+        let values = [];
+        $('.question').each(function() {
+            let val = $(this).val();
+            if (val === '' || val === null) {
+                noEmpty = false;
+                return false;
+            }
+            else if (values.includes(val)) {
+                allUnique = false;
+                return false;
+            }
+            values.push(val);
+        });
+
+        if (allUnique)
+            $("#sqerror").hide();
+        else $("#sqerror").show();
+
+        return noEmpty && allUnique;
+    }
+
+    $('.question').on('change', function() {
+        if (checkRepeats() && checkInputs()){
+            $('#registerbutton').prop('disabled', false);
+
+        } else {
+            $('#registerbutton').prop('disabled', true);
+
+        }
+    })
+
+    $('.q_input').keyup(function() {
+        if (checkRepeats() && checkInputs()){
+            $('#registerbutton').prop('disabled', false);
+
+        } else {
+            $('#registerbutton').prop('disabled', true);
         }
     });
 
