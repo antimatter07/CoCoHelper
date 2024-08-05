@@ -1,22 +1,39 @@
+// var regex = new RegExp("^(.{0,7}|[^A-Z]*|[^a-z]*|[^\\W_]*|[^0-9]*)$"); // anything that matches this is invalid
+
+
+//         var pw_minlen = 8;
+
+//         if (regex.match(pw)) {
+
+//             pwerror.innerHTML = 'Password must contain at least at least 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character.';
+//             isValidPassword = false;
+
+
+
+//         }
+
 $(document).ready(function() {
 
     var isValidPassword = false;
     var isValidEmail = false;
     
     $('#cpassword').keyup(function() {
-        var pw = document.getElementById('cpassword');
-        const value = pw.value.trim();
+        var pass = document.getElementById('cpassword');
+        const value = pass.value.trim();
         var pwerror = document.getElementById('pwerror');
 
-        if(value.length < 8) {
+        var regex = /^([^A-Z]*|[^a-z]*|[^-!@? .,]*|[^0-9]*)$/; // anything that matches this is invalid  
 
-            pwerror.innerHTML = 'Password must be at least 8 characters.';
+        if(regex.test(value) || value.length < 8) {
+
+            pwerror.innerHTML = 'Password must be at least 8 characters and contain at least 1 uppercase, 1 lowercase, 1 number, and 1 special character.';
             isValidPassword = false;
             
 
-        } else {
+        } 
+        else {
             pwerror.innerHTML = '';
-            
+        
             isValidPassword = true;
 
         }
