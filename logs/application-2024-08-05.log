@@ -1,0 +1,858 @@
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:04:27.023Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:04:27.039Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:04:27.067Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-05T03:04:36.361Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-05T03:04:36.366Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-05T03:04:36.383Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-05T03:04:36.384Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-05T03:04:36.607Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:04:36.611Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:04:36.627Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-05T03:04:40.584Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login","timestamp":"2024-08-05T03:04:40.586Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/register","timestamp":"2024-08-05T03:09:16.177Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/register","timestamp":"2024-08-05T03:09:16.179Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:09:21.012Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:09:21.014Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:09:21.084Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:09:21.087Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:09:21.091Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:09:21.113Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:10:29.731Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:10:29.750Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:10:29.782Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:10:31.447Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:10:31.451Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:10:31.516Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:10:31.521Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:10:31.532Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:10:31.544Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:12:13.248Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:12:13.272Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:12:13.305Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:12:13.647Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:12:13.652Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:12:13.735Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:12:13.740Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:12:13.744Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:12:13.801Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:13:15.342Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:13:15.362Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:13:15.402Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:13:17.643Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:13:17.647Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:13:17.743Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:13:17.748Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:13:17.750Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:13:17.772Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:13:57.634Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:13:57.661Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:13:57.695Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:14:06.800Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:14:06.805Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:14:06.912Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:14:06.917Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:14:06.937Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:14:06.946Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:15:21.881Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:15:21.899Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:15:21.930Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:15:23.706Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:15:23.711Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:15:23.813Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:15:23.818Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:15:23.822Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:15:23.843Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:16:12.104Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:16:12.128Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:16:12.169Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:16:12.383Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:16:12.388Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:16:12.465Z"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:16:12.467Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:16:12.473Z"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:16:12.500Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:16:59.210Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:16:59.227Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:16:59.257Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:17:01.993Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:17:01.998Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:17:02.071Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:17:02.080Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:17:02.084Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:17:02.133Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:17:25.328Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:17:25.357Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:17:25.399Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:17:28.084Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:17:28.087Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:17:28.139Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:17:28.144Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:17:28.145Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:17:55.722Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:17:55.753Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:17:55.813Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:17:56.178Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:17:56.182Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:17:56.253Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:17:56.259Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:17:56.265Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:23:39.174Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:23:39.199Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:23:39.242Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:23:42.562Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:23:42.566Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:23:42.660Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:23:42.666Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:23:42.674Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:23:42.684Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:27:21.200Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:27:21.218Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:27:21.252Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:28:01.260Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:28:01.284Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:28:01.313Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:28:07.005Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:28:07.022Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:28:07.043Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:28:08.392Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:28:08.398Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:28:08.519Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:28:08.524Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:28:08.544Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:28:08.553Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:29:47.853Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:29:47.873Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:29:47.900Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:30:00.752Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:30:00.816Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:30:00.868Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:30:05.049Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:30:05.054Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:30:05.168Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:30:05.173Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:30:05.189Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:30:05.201Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:36:07.555Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:36:07.569Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:36:07.586Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:36:24.474Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:36:24.513Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:36:24.558Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:36:27.739Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:36:27.744Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:36:27.836Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:36:27.841Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:36:27.850Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:36:27.862Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:37:05.311Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:37:05.327Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:37:05.351Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:39:22.844Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:39:22.870Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:39:22.900Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:39:59.718Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:39:59.756Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:39:59.803Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:42:06.842Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:42:06.862Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:42:06.887Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:42:13.221Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:42:13.237Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:42:13.263Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:42:18.958Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:42:18.977Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:42:19.005Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:42:23.547Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:42:23.551Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:42:23.657Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:42:23.662Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:42:23.684Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:42:23.689Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:43:19.659Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:43:19.684Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:43:19.726Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:43:44.244Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:43:44.297Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:43:44.324Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:44:54.551Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:44:54.591Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:44:54.631Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:45:01.449Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:45:01.453Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:45:01.538Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:45:01.549Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:45:01.567Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:45:01.572Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:45:48.405Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:46:16.016Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:46:16.018Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:46:16.082Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:46:16.088Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:46:16.104Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:46:16.117Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:46:17.953Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:47:49.457Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:47:49.477Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:47:49.511Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:47:56.637Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:47:56.658Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:47:56.702Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:47:57.132Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:47:57.138Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:47:57.223Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:47:57.228Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:47:57.271Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T03:47:57.274Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:48:00.027Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:48:00.028Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:48:00.097Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:48:00.099Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:48:00.102Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:49:03.922Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:49:03.955Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:49:03.994Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:49:05.703Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:49:05.708Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:49:05.796Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:49:05.801Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:49:05.803Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:49:18.910Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:49:18.975Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:49:19.011Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:49:19.103Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T03:49:19.108Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:49:19.188Z"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T03:49:19.192Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T03:49:19.198Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T03:49:30.955Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T03:59:39.563Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T03:59:39.582Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T03:59:39.613Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:00:28.983Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:00:29.008Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:00:29.034Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:00:31.757Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:00:31.761Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:00:31.865Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:00:31.869Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:00:31.881Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:00:31.890Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:01:09.025Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:01:09.043Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:01:09.100Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:01:10.178Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:01:10.184Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:01:10.284Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:01:10.286Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:01:10.291Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:01:10.350Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:03:12.388Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:03:12.407Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:03:12.451Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:03:16.412Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:03:16.431Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:03:16.463Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:03:17.776Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:03:17.779Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:03:17.885Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:03:17.887Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:03:17.947Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:03:17.952Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:04:25.766Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:04:25.810Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:04:25.847Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:05:38.768Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:05:38.789Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:05:38.842Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:05:41.445Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:05:41.449Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:05:41.545Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:05:41.549Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:05:41.559Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:05:41.572Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:06:17.779Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:06:17.802Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:06:17.976Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:06:18.096Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:06:18.110Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:06:18.227Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:06:18.232Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:06:18.234Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:06:18.250Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:07:32.896Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:07:32.912Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:07:32.938Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:07:49.960Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:07:49.980Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:07:50.004Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:07:54.101Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:07:54.121Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:07:54.147Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:08:36.423Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:08:36.445Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:08:36.472Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:09:27.004Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:09:27.027Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:09:27.064Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:09:32.063Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:09:32.067Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:09:32.164Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:09:32.169Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:09:32.187Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:09:32.195Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:09:57.101Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:09:57.130Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:09:57.172Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:09:57.971Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:09:57.976Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:09:58.069Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:09:58.078Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:09:58.079Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:10:13.537Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:10:13.573Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:10:13.625Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:10:22.428Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:10:22.474Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:10:22.532Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:10:28.944Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:10:28.962Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:10:28.982Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:10:33.474Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:10:33.500Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:10:33.543Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:11:02.712Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:11:02.735Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:11:02.756Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:11:41.875Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:11:41.890Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:11:41.921Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:11:57.429Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:11:57.453Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:11:57.488Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:11:58.119Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:11:58.125Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:11:58.219Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:11:58.224Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:11:58.240Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:11:58.263Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:12:28.184Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:12:28.203Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:12:28.233Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:12:37.271Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:12:37.275Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:12:37.350Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:12:37.354Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:12:37.358Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:12:37.427Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:13:08.619Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:13:08.641Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:13:08.688Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:13:09.269Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:13:09.274Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:13:09.345Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:13:09.349Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:13:09.351Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:13:09.362Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:18:11.949Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:18:11.991Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:18:12.027Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:18:20.881Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:18:20.898Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:18:20.936Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:18:21.141Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:18:21.145Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:18:21.245Z"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:18:21.249Z"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:18:21.270Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:18:21.277Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:18:55.361Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:18:55.382Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:18:55.411Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:21:05.330Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:21:05.354Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:21:05.377Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:22:30.139Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:22:30.169Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:22:30.216Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:23:17.829Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:23:17.851Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:23:17.885Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:24:05.202Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:24:05.220Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:24:05.257Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:24:09.420Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:24:09.425Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:24:09.522Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:24:09.528Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:24:09.542Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:24:09.555Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:24:59.738Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:24:59.765Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:24:59.797Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:25:03.789Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:25:03.840Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:25:03.881Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-05T04:25:06.973Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-05T04:25:06.977Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-05T04:25:06.990Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-05T04:25:06.992Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-05T04:25:07.221Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:25:07.226Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:25:07.265Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:25:10.471Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:25:10.472Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:25:10.547Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:25:10.554Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:25:10.564Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:25:10.621Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:25:31.008Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:25:31.027Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:25:31.057Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:25:31.802Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:25:31.805Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:25:31.870Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:25:31.873Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:25:31.877Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:26:51.999Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:26:52.045Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:26:52.097Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:27:07.130Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:27:07.152Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:27:07.197Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:27:16.327Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:27:16.331Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:27:16.443Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:27:16.448Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:27:16.461Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:27:16.469Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:28:04.027Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:28:04.064Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:28:04.161Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:28:15.414Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:28:15.433Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:28:15.471Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:28:18.211Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:28:18.232Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:28:18.260Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:28:20.080Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:28:20.085Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:28:20.183Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:28:20.188Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:28:20.190Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:28:20.211Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:34:57.456Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:34:57.482Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:34:57.529Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:35:05.101Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:35:05.106Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:35:05.195Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:35:05.198Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:35:05.208Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:35:05.218Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:35:41.570Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:35:41.593Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:35:41.624Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:35:43.815Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:35:43.819Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:35:43.921Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:35:43.925Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:35:43.929Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:35:43.945Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:36:06.500Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:36:06.522Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:36:06.559Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:36:11.436Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:36:11.441Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:36:11.540Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:36:11.542Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:36:11.543Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:36:34.589Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:36:34.604Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:36:34.627Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:36:52.313Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:36:52.328Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:36:52.353Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:37:03.813Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:37:03.842Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:37:03.878Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:37:08.432Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:37:08.437Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:37:08.520Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:37:08.523Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:37:08.524Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:37:50.443Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:37:50.462Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:37:50.489Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:37:54.935Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:37:54.939Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:37:55.031Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:37:55.036Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:37:55.040Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:38:09.876Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:38:09.898Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:38:09.918Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:38:20.685Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:38:20.712Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:38:20.751Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:38:25.212Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:38:25.217Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:38:25.285Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:38:25.289Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:38:25.291Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:38:36.485Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:38:36.522Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:38:36.602Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:38:42.645Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:38:42.649Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:38:42.727Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:38:42.732Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:38:42.734Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:40:48.138Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:40:48.160Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:40:48.195Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:40:50.531Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:40:50.536Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:40:50.646Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:40:50.652Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:40:50.702Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:40:50.712Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:42:29.370Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:42:29.388Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:42:29.414Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:42:33.356Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:42:33.360Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:42:33.466Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:42:33.473Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:42:33.476Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:42:33.490Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:46:37.768Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:46:37.794Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:46:37.827Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:46:48.077Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:46:48.105Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:46:48.139Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:46:56.685Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:46:56.689Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:46:56.787Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:46:56.794Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:46:56.831Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:46:56.835Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:47:17.649Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:47:17.670Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:47:17.699Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:47:18.634Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:47:18.639Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:47:18.728Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:47:18.730Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:47:18.731Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:47:19.685Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:47:19.687Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:47:19.756Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:47:19.762Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:47:19.764Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:47:40.988Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:47:41.010Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:47:41.045Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:48:06.481Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:48:06.523Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:48:06.577Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:48:16.350Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:48:16.368Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:48:16.404Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:48:16.944Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:48:16.949Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:48:17.035Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:48:17.041Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:48:17.043Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:48:41.960Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:48:41.984Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:48:42.021Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:49:26.319Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:49:26.359Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:49:26.431Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:49:28.184Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:49:28.269Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:49:28.307Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:49:30.194Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:49:30.198Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:49:30.272Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:49:30.282Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:49:30.283Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:51:07.582Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:51:07.599Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:51:07.625Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:51:56.533Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:51:56.551Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:51:56.581Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:52:03.774Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:52:03.806Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:52:03.865Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:52:35.590Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:52:35.610Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:52:35.647Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T04:53:00.105Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T04:53:00.134Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T04:53:00.163Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:55:57.967Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T04:55:57.973Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T04:55:58.055Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:55:58.059Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T04:55:58.072Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:55:58.103Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-05T04:56:19.660Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-05T04:56:19.661Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-05T04:56:19.730Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T04:56:19.731Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T04:56:19.754Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T05:00:38.304Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T05:00:38.331Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T05:00:38.355Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T05:00:39.455Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T05:00:39.458Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T05:00:39.547Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T05:00:39.551Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T05:00:39.560Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T05:00:39.583Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /registeruser","timestamp":"2024-08-05T05:00:56.028Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /registeruser","timestamp":"2024-08-05T05:00:56.037Z"}
+{"email":"dumpling042@gmail.com","level":"info","message":"User registration attempt","timestamp":"2024-08-05T05:00:56.039Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T05:00:56.101Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T05:00:56.103Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T05:00:56.108Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /registeruser","timestamp":"2024-08-05T05:01:57.897Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /registeruser","timestamp":"2024-08-05T05:01:57.900Z"}
+{"email":"christianmir37@gmail.com","level":"info","message":"User registration attempt","timestamp":"2024-08-05T05:01:57.901Z"}
+{"email":"christianmir37@gmail.com","level":"info","message":"New user registered","timestamp":"2024-08-05T05:01:58.012Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-05T05:01:58.020Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-05T05:01:58.021Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-05T05:01:58.076Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T05:01:58.079Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T05:01:58.092Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-05T05:02:04.258Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-05T05:02:04.260Z"}
+{"email":"christianmir37@gmail.com","level":"info","message":"Successful login","timestamp":"2024-08-05T05:02:04.379Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/6969","timestamp":"2024-08-05T05:02:04.389Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/6969","timestamp":"2024-08-05T05:02:04.391Z"}
+{"level":"info","message":"User profile retrieved successfully","timestamp":"2024-08-05T05:02:04.400Z","user":"6969"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-05T05:02:04.459Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-05T05:02:04.462Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /favorites","timestamp":"2024-08-05T05:02:06.578Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /favorites","timestamp":"2024-08-05T05:02:06.579Z"}
+{"level":"info","message":"Authorized access to favorites","timestamp":"2024-08-05T05:02:06.582Z","url":"/favorites","user":6969}
+{"data":[],"level":"info","message":"Retrieved favorites","timestamp":"2024-08-05T05:02:06.585Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-05T05:02:06.661Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-05T05:02:06.662Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /cart","timestamp":"2024-08-05T05:02:09.578Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /cart","timestamp":"2024-08-05T05:02:09.580Z"}
+{"level":"info","message":"Authorized access to cart","timestamp":"2024-08-05T05:02:09.583Z","url":"/cart","user":6969}
+{"entries":[],"level":"info","message":"Cart entries retrieved","timestamp":"2024-08-05T05:02:09.596Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/cartstyle.css","timestamp":"2024-08-05T05:02:09.668Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-05T05:02:09.673Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /status","timestamp":"2024-08-05T05:02:10.580Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /status","timestamp":"2024-08-05T05:02:10.582Z"}
+{"level":"info","message":"Authorized access to status","timestamp":"2024-08-05T05:02:10.584Z","url":"/status","user":6969}
+{"data":[],"level":"info","message":"Retrieved orders","timestamp":"2024-08-05T05:02:10.587Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/status-style.css","timestamp":"2024-08-05T05:02:10.671Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-05T05:02:10.673Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-05T05:02:10.675Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile","timestamp":"2024-08-05T05:02:11.258Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile","timestamp":"2024-08-05T05:02:11.260Z"}
+{"level":"info","message":"Authorized access to profile","timestamp":"2024-08-05T05:02:11.263Z","url":"/profile","user":6969}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/6969","timestamp":"2024-08-05T05:02:11.269Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/6969","timestamp":"2024-08-05T05:02:11.271Z"}
+{"level":"info","message":"User profile retrieved successfully","timestamp":"2024-08-05T05:02:11.277Z","user":"6969"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-05T05:02:11.328Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-05T05:02:11.329Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu","timestamp":"2024-08-05T05:02:12.031Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu","timestamp":"2024-08-05T05:02:12.032Z"}
+{"level":"info","message":"Authorized access to menu","timestamp":"2024-08-05T05:02:12.035Z","url":"/menu","user":6969}
+{"level":"info","message":"Docs retrieved: ","timestamp":"2024-08-05T05:02:12.039Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-05T05:02:12.126Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-05T05:02:12.129Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/fruittea","timestamp":"2024-08-05T05:02:14.005Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/fruittea","timestamp":"2024-08-05T05:02:14.007Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for fruittea","timestamp":"2024-08-05T05:02:14.012Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-05T05:02:14.102Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-05T05:02:14.105Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/slush","timestamp":"2024-08-05T05:02:14.486Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/slush","timestamp":"2024-08-05T05:02:14.487Z"}
+{"drinks":[],"level":"info","message":"Slush drinks retrieved successfully","timestamp":"2024-08-05T05:02:14.493Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-05T05:02:14.598Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-05T05:02:14.600Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/choco","timestamp":"2024-08-05T05:02:14.905Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/choco","timestamp":"2024-08-05T05:02:14.906Z"}
+{"drinks":[],"level":"info","message":"Choco drinks retrieved successfully","timestamp":"2024-08-05T05:02:14.911Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-05T05:02:14.995Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-05T05:02:14.997Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/freshtea","timestamp":"2024-08-05T05:02:15.389Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/freshtea","timestamp":"2024-08-05T05:02:15.390Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for freshtea","timestamp":"2024-08-05T05:02:15.394Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-05T05:02:15.451Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-05T05:02:15.453Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/juice","timestamp":"2024-08-05T05:02:15.832Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /menu/juice","timestamp":"2024-08-05T05:02:15.833Z"}
+{"drinks":[],"level":"info","message":"Docs retrieved for juice","timestamp":"2024-08-05T05:02:15.836Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-05T05:02:15.920Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-05T05:02:15.925Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:04:08.069Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:04:08.086Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:04:08.107Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-05T06:04:40.797Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-05T06:04:40.803Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-05T06:04:40.833Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-05T06:04:40.835Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/6969","timestamp":"2024-08-05T06:04:40.848Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /profile/6969","timestamp":"2024-08-05T06:04:40.850Z"}
+{"level":"info","message":"User profile retrieved successfully","timestamp":"2024-08-05T06:04:40.865Z","user":"6969"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/menustyle.css","timestamp":"2024-08-05T06:04:41.069Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo.jpg","timestamp":"2024-08-05T06:04:41.073Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /logout","timestamp":"2024-08-05T06:04:43.086Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /logout","timestamp":"2024-08-05T06:04:43.088Z"}
+{"level":"info","message":"User logged out","timestamp":"2024-08-05T06:04:43.090Z","user":6969}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-05T06:04:43.097Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-05T06:04:43.098Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-05T06:04:43.194Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T06:04:43.197Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T06:04:43.218Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:04:44.297Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:04:44.298Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T06:04:44.354Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T06:04:44.356Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T06:04:44.357Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T06:04:44.379Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:31:03.292Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:31:03.309Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:31:03.341Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:31:06.624Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:31:06.629Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T06:31:06.789Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T06:31:06.793Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T06:31:06.806Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T06:31:06.816Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:33:12.674Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:33:12.693Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:33:12.715Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:33:12.834Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:33:12.839Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T06:33:12.953Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T06:33:12.955Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T06:33:12.970Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T06:33:12.978Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:34:46.317Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:34:46.318Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T06:34:46.423Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T06:34:46.425Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T06:34:46.427Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T06:34:46.453Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:35:23.515Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:35:23.538Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:35:23.562Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:35:25.378Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:35:25.399Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:35:25.420Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:35:26.877Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:35:26.882Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T06:35:26.979Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T06:35:26.983Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T06:35:26.987Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T06:35:27.004Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:35:58.395Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:35:58.411Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:35:58.431Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:35:58.939Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:35:58.943Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T06:35:59.019Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T06:35:59.023Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T06:35:59.076Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T06:35:59.078Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:36:23.669Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:36:23.687Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:36:23.728Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:36:37.656Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:36:37.660Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T06:36:37.766Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T06:36:37.770Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T06:36:37.784Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T06:36:37.794Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:38:03.485Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:38:03.508Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:38:03.543Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:38:06.250Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:38:06.255Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T06:38:06.356Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T06:38:06.360Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T06:38:06.370Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T06:38:06.377Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:38:30.163Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:38:30.184Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:38:30.214Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:38:30.712Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:38:30.717Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T06:38:30.801Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T06:38:30.806Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T06:38:30.808Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:39:00.382Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:39:00.402Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:39:00.429Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:39:29.802Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:39:29.823Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:39:29.859Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:39:32.370Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:39:32.392Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:39:32.415Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:39:34.618Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:39:34.623Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T06:39:34.730Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T06:39:34.739Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T06:39:34.745Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T06:39:34.752Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:39:53.807Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:39:53.829Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:39:53.862Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:39:54.018Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:39:54.021Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T06:39:54.105Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T06:39:54.111Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T06:39:54.113Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:40:05.032Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:40:05.070Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:40:05.116Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:40:09.617Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:40:09.622Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T06:40:09.717Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T06:40:09.719Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T06:40:09.723Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:40:43.093Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:40:43.117Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:40:43.151Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:40:44.149Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:40:44.152Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T06:40:44.220Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T06:40:44.225Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T06:40:44.227Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T06:40:53.379Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T06:40:53.400Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T06:40:53.429Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:40:54.048Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register","timestamp":"2024-08-05T06:40:54.053Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/regstyle.css","timestamp":"2024-08-05T06:40:54.174Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T06:40:54.179Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /js/register.js","timestamp":"2024-08-05T06:40:54.181Z"}
+{"level":"info","message":"Session middleware set up","timestamp":"2024-08-05T07:28:05.964Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-08-05T07:28:05.970Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-08-05T07:28:05.995Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-05T07:28:23.335Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /","timestamp":"2024-08-05T07:28:23.341Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-05T07:28:23.621Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login","timestamp":"2024-08-05T07:28:23.625Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-05T07:28:23.979Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T07:28:23.988Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/loginpage.png","timestamp":"2024-08-05T07:28:24.552Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T07:28:25.087Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-05T07:28:29.601Z"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser","timestamp":"2024-08-05T07:28:29.608Z"}
+{"email":"josasdfasdf","level":"warn","message":"Failed login attempt - user not found","timestamp":"2024-08-05T07:28:29.823Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /css/loginstyle.css","timestamp":"2024-08-05T07:28:29.932Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T07:28:29.940Z"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /images/cocologo_notext.png","timestamp":"2024-08-05T07:28:31.304Z"}
