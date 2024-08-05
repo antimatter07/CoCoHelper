@@ -12,18 +12,22 @@
         <div id ="reghead">
             <img id = "logo" src="images/cocologo_notext.png">
 
-            <div id = "childhead">
-                <h1>Don't have an account yet?</h1>
-                <form id="regform" method ="post" action="/registeruser" enctype="multipart/form-data">
-                    <div class = 'input-control'>
-                        <label for="firstname">First Name<br></label>
-                        <input class ='input' type="text" placeholder="Enter First Name" name="firstname" id = "firstname" required>
-                        <div class = 'error'></div>
-                    </div>
+            <h1>Create an Account</h1>
+            <h4 id="regpart"> 1 out of 2</h4>
 
-                   
-                    <label for="lastname"><br>Last Name<br></label>
-                    <input type="text" class ='input' placeholder="Enter Last Name" name="lastname" id="lastname" required>
+            <div id = "childhead">
+                <form id="regform" method ="post" action="/registeruser" enctype="multipart/form-data">
+                    <div id="reg1">
+                        <div class = 'input-control'>
+                            <label for="firstname">First Name<br></label>
+                            <input class ='input' type="text" placeholder="Enter First Name" name="firstname" id = "firstname" required>
+                            <div class = 'error'></div>
+                        </div>
+
+                    
+                        <label for="lastname"><br>Last Name<br></label>
+                        <input type="text" class ='input' placeholder="Enter Last Name" name="lastname" id="lastname" required>
+    
                        
                   
 
@@ -38,22 +42,71 @@
                     <input class ='input' type="number" placeholder="09xxxxxxxxx / 639xxxxxxxxx" name="pnumber" id="pnumber" required>
                 
                     
-                    <div class ='input-control'>
-                        <label for="cpassword"><br>Password<br></label>
-                        <input class="input" type="password" placeholder="Enter Password" name="cpassword" id="cpassword" required>
-                    <div id="pwerror">{{error}}</div>
+
+                    
+                        <label for="pnumber"><br>Phone Number<br></label>
+                        <input class ='input' type="number" placeholder="Enter Phone Number" name="pnumber" id="pnumber" required>
+                        
+                    
+                        
+                        <div class ='input-control'>
+                            <label for="cpassword"><br>Password<br></label>
+                            <input class="input" type="password" placeholder="Enter Password" name="cpassword" id="cpassword" required>
+                        <div id="pwerror">{{error}}</div>
+                        </div>
+                    </div>
+
+
+                    <div id="reg2">
+                        <h2>Security Questions</h2>
+                        <p style="padding: 4px;"> Select three security questions below. These questions will help us verify your identity should
+                                you forget your password.
+                        </p>
+
+                        <br/>
+                        <div id="questions">
+                            
+                            <label for="question1">Question 1: </label>
+                            <select id="question1" name="question1" class="question" required>
+                                {{> questions }}
+                            </select>
+                            <label for="answer1">Answer:</label>
+                            <input type="text" class ='q_input' placeholder="Answer to Question 1" name="answer1" id="answer1" required>
+                            <br /><br />
+
+                            <label for="question2">Question 2: </label>
+                            <select id="question2" name="question2" class="question" required>
+                                {{> questions }}
+                            </select>
+                            <label for="answer2">Answer:</label>
+                            <input type="text" class ='q_input' placeholder="Answer to Question 2" name="answer2" id="answer2" required>
+                            <br /><br />
+
+                            <label for="question3">Question 3: </label>
+                            <select id="question3" name="question3" class="question" required>
+                                {{> questions }}
+                            </select>
+                            <label for="answer3">Answer:</label>
+                            <input type="text" class ='q_input' placeholder="Answer to Question 3" name="answer3" id="answer3" required>
+
+                        </div>
+                        
+                        <div id="sqerror" hidden>Some questions are duplicated. <br> Please select three unique questions.</div>
                     </div>
                 </form>
             </div>
 
-            <button form ="regform" class="button" id = "registerbutton" type="submit" value="Submit" disabled>Submit</button>
-            <a href ="/login"><button class="button" id = "loginbutton" type="submit" value="Log In">Log In</button></a>
-
+            <button form ="regform" class="button" id ="nextbutton" type="button" value="Next" disabled>Next</button>
+            <button form ="regform" class="button" id ="returnbutton" type="button" value="Return">Return</button>
+            <button form ="regform" class="button" id ="registerbutton" type="submit" value="Submit" disabled>Submit</button>
+            {{!-- <a href ="/login"><button class="button" id = "loginbutton" type="submit" value="Log In">Return to Log In</button></a> --}}
+            <br />
+            <a href ='/login' class="u-link"><text>Return to Log In</text></a>
         </div>
 
         
-  
-  
+        
+
     
 </body>
 </html>
