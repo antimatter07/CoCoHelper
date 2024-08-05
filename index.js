@@ -11,30 +11,34 @@ const config = require("./config");
 const session = require("express-session");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const { Logtail } = require("@logtail/node");
+const { LogtailTransport } = require("@logtail/winston");
 
 const winston = require("winston");
+const logtail = new Logtail(config.logtailKey);
 require("winston-daily-rotate-file");
 
 const app = new express();
 
-const transport = new winston.transports.DailyRotateFile({
-  filename: "logs/application-%DATE%.log",
-  datePattern: "YYYY-MM-DD",
-  zippedArchive: true,
-  maxSize: "20m",
-  maxFiles: "14d",
-});
+const logtailTransport = new LogtailTransport(logtail);
 
 const logger = winston.createLogger({
-  level: config.logLevel || "info",
-  format: winston.format.combine(
-    winston.format.timestamp(),
-    winston.format.json()
-  ),
-  transports: [transport],
+  level: 'info',
+  format: winston.format.json(),
+  transports: [
+    logtailTransport,
+  ]
 });
 
 if (process.env.NODE_ENV !== "production") {
+  const fileTransport = new winston.transports.DailyRotateFile({
+    filename: "logs/application-%DATE%.log",
+    datePattern: "YYYY-MM-DD",
+    zippedArchive: true,
+    maxSize: "20m",
+    maxFiles: "14d",
+  });
+  logger.add(fileTransport);
   logger.add(
     new winston.transports.Console({
       format: winston.format.simple(),
@@ -61,11 +65,6 @@ if (process.env.NODE_ENV !== "production") {
     })
   );
 }
-
-app.use((req, res, next) => {
-  logger.info(`Incoming request: ${req.method} ${req.url}`, { ip: req.ip });
-  next();
-});
 
 const fileUpload = require("express-fileupload");
 const bcrypt = require("bcrypt");
