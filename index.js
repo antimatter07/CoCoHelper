@@ -74,6 +74,8 @@ const Customer = require("./database/models/Customer");
 const Order = require("./database/models/Order");
 const Entry = require("./database/models/Entry");
 const Favorites = require("./database/models/Favorites");
+const UserSecurity = require("./database/models/UserSecurity");
+const SecurityQuestions = require("./database/models/SecurityQuestions");
 const path = require("path");
 const saltRounds = 10;
 
@@ -553,7 +555,35 @@ app.post("/registeruser", function (req, res) {
                     logger.info("New user registered", {
                       email: req.body.email,
                     });
+                    UserSecurity.create(
+                      {
+                        pnumber: req.body.pnumber,
+                        security_questions: [req.body.question1, req.body.question2, req.body.question3],
+                        security_answers: [
+                          req.body.answer1, 
+                          req.body.answer2, 
+                          req.body.answer3
+                        ],
+                        new_password_age: new Date(),
+                        last_login_attempt: new Date()
+                      },
+                    
+                      function (err, docs) {
+                        if (err) {
+                          logger.error("Error creating user security", { error: err });
+                          console.log("Error creating new user security");
+                          return;
+                        }
+              
+                        logger.info("User security created for new customer", {
+                          email: req.body.email,
+                        });
+
+
                     res.redirect("/login");
+                  }
+                );
+                    
                   }
                 }
               );

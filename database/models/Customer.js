@@ -71,9 +71,7 @@ const CustomerSchema = new mongoose.Schema({
     }],
 
 
-
-
-
+    
 });
 
 CustomerSchema.virtual('')
