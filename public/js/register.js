@@ -8,13 +8,31 @@ $(document).ready(function() {
         const value = pw.value.trim();
         var pwerror = document.getElementById('pwerror');
 
-        if(value.length < 8) {
+        // regex that checks inexistence of (in no particular order or position):
+        // uppercase
+        // lowercase
+        // number
+        // special character
+        var pw_err_regex = new RegExp("^([^A-Z]*|[^a-z]*|[^\W]*|[^0-9]*)$"); // anything that matches this is invalid
+        var pw_minlen = 8;
+
+        if(value.length < pw_minlen) {
 
             pwerror.innerHTML = 'Password must be at least 8 characters.';
             isValidPassword = false;
             
 
-        } else {
+        }
+        
+        else if (pw_err_regex.test(pw)) {
+
+            pwerror.innerHTML = 'Password must contain at least 1 uppercase, 1 lowercase, 1 numeric and 1 special character.';
+            isValidPassword = false;
+
+
+
+        }
+        else {
             pwerror.innerHTML = '';
             
             isValidPassword = true;
