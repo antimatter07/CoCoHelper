@@ -1,24 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            border: 2px solid #FF6F00; /* Orange border */
+        }
+        h1 {
+            text-align: center;
+            color: #FF6F00; /* Orange text */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            color: #FF6F00; /* Orange labels */
+        }
+        input, select, button {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #dddddd;
+            font-size: 16px;
+            width: 100%;
+        }
+        input:focus, select:focus {
+            border-color: #FF6F00; /* Orange focus */
+        }
+        .notice {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #FF6F00; /* Orange button */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #FF8C00; /* Darker orange on hover */
+        }
+        .back-button {
+            background-color: #FFA726; /* Light orange button */
+            margin-top: 10px;
+        }
+        .back-button:hover {
+            background-color: #FFB74D; /* Darker light orange on hover */
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Register New Administrator</h1>
-    <form action="/admin/register" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
-        
-        <label for="pw">Password:</label>
-        <input type="password" id="pw" name="pw" required><br>
-        
-        <label for="role">Role:</label>
-        <select id="role" name="role" required>
-            <option value="product_manager">Product Manager</option>
-            <option value="website_administrator">Website Administrator</option>
-        </select><br>
-        
-        <button type="submit">Register</button>
-    </form>
+    <div class="container">
+        <h1>Register New Administrator</h1>
+        <div id="error-msg" class="error">{{error}}</div>
+
+        <!-- Notices for Username and Password Complexity Requirements -->
+        <div class="notice">
+            <strong>Username Requirements:</strong> Must be 5-20 characters long and can only contain letters, numbers, and underscores.
+        </div>
+        <div class="notice">
+            <strong>Password Requirements:</strong> Must be at least 8 characters long and contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.
+        </div>
+
+        <form id="registrationForm" action="/admin/register" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="pw">Password:</label>
+            <input type="password" id="pw" name="pw" required>
+
+            <label for="role">Role:</label>
+            <select id="role" name="role" required>
+                <option value="product_manager">Product Manager</option>
+                <option value="website_administrator">Website Administrator</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <!-- Back to Login Button -->
+        <form action="/admin/login" method="get">
+            <button type="submit" class="back-button">Back to Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('pw').value;
+            const errorMsg = document.getElementById('error-msg');
+
+            const usernameRegex = /^[a-zA-Z0-9_]{5,20}$/;
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            if (!usernameRegex.test(username)) {
+                errorMsg.textContent = "Username must be 5-20 characters long and can only contain letters, numbers, and underscores.";
+                errorMsg.style.display = 'block';
+                event.preventDefault();
+                return;
+            }
+
+            if (!passwordRegex.test(password)) {
+                errorMsg.textContent = "Password must be at least 8 characters long and contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.";
+                errorMsg.style.display = 'block';
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
