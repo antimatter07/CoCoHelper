@@ -50,13 +50,14 @@ module.exports = (logger) => {
   
           if (!admin) {
               logger.warn("Login attempt with non-existent username", { username });
-              return res.status(401).send('Invalid username or password');
+              return res.render('adminLogin', { error: 'Invalid username or password' });
           }
   
           // check if the account is currently locked out
           if (admin.lockoutUntil && admin.lockoutUntil > Date.now()) {
               logger.warn("Attempt to access locked account", { username: admin.username, lockoutUntil: admin.lockoutUntil });
-              return res.status(403).send('Account is locked. Please try again later.');
+             
+              return res.render('adminLogin', { error: 'Account is locked. Please try again later.' });
           }
   
           const match = await bcrypt.compare(pw, admin.pw);
@@ -85,15 +86,16 @@ module.exports = (logger) => {
                   await admin.save();
                   
                   logger.warn("Account locked due to too many failed login attempts", { username: admin.username, failedAttempts: admin.failedAttempts, lockoutUntil: admin.lockoutUntil });
-                  res.status(403).send('Account is locked due to too many failed login attempts. Please try again later.');
+                  return res.render('adminLogin', { error: 'Account is locked due to too many failed login attempts. Please try again later.' });
+                  //res.status(403).send('Account is locked due to too many failed login attempts. Please try again later.');
               } else {
                   logger.warn("Failed login attempt", { username: admin.username, failedAttempts: admin.failedAttempts });
-                  res.status(401).send('Invalid username or password');
+                  return res.render('adminLogin', { error: 'Invalid username or password' });
               }
           }
       } catch (err) {
           logger.error("Error during login process", { error: err });
-          res.status(500).send('Internal Server Error');
+          return res.status(500).send('Internal Server Error');
       }
   });
   
