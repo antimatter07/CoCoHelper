@@ -12,6 +12,9 @@
 
             <img id = "logo" src="images/cocologo_notext.png">
             <h1>Log In</h1>
+            {{#if passwordChanged}}
+            <div class="success-message">Your password has been changed successfully. Please log in with your new password.</div>
+            {{/if}}
             <form id ="login" action = "/loginuser" method = "post" enctype = "multipart/form-data">
                 <label for="email"><br>Email<br></label>
                 <input type="text" id = "emailinput" placeholder="Enter Email" name="email" required>

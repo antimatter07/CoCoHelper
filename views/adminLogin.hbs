@@ -1,24 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .link-button {
+            background-color: #28a745;
+        }
+        .link-button:hover {
+            background-color: #218838;
+        }
+        .footer {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        .error-message {
+            color: #ff0000;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body>
-    <h1>Administrator Login</h1>
-    <form action="/admin/login" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
+    <div class="container">
+        <h1>Administrator Login</h1>
         
-        <label for="pw">Password:</label>
-        <input type="password" id="pw" name="pw" required><br>
+        {{#if error}}
+        <div class="error-message">
+            {{error}}
+        </div>
+        {{/if}}
         
-        <button type="submit">Login</button>
-    </form>
-
-    <button onclick="window.location.href='/admin/register';">
-        Create Admin Account
-    </button>
-
-
+        <form action="/admin/login" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="pw">Password:</label>
+            <input type="password" id="pw" name="pw" required>
+            
+            <button type="submit">Login</button>
+        </form>
+        
+        <div class="footer">
+            <button class="link-button" onclick="window.location.href='/admin/register';">Create Admin Account</button>
+        </div>
+    </div>
 </body>
 </html>

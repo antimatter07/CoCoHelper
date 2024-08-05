@@ -1,8 +1,10 @@
-const mongoURI = 'mongodb://127.0.0.1:27017/CoCoDB';
+const mongoURI = 'mongodb+srv://CSSECDV:9lw6BmVXdXRzOMkp@cluster0.pcgknvh.mongodb.net/CoCoDB';
 const logLevel = 'info';
-const logtailKey = 'Pu8AWofENjCUPZvh8eCssmf1'
+const logtailKey = 'Pu8AWofENjCUPZvh8eCssmf1';
+const sessionSecret = "CoCoHelper-session";
 module.exports = {
     mongoURI,
     logLevel,
-    logtailKey
+    logtailKey,
+    sessionSecret
 };
