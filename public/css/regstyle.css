@@ -107,7 +107,8 @@ h1 {
 }
 
 #registerbutton:disabled,
-#nextbutton:disabled {
+#nextbutton:disabled,
+#findnumber:disabled {
     cursor: not-allowed;
     
     opacity: 0.6;

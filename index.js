@@ -746,6 +746,15 @@ app.get("/register", function (req, res) {
   }
 });
 
+app.get("/forgot_password", function (req, res) {
+  try {
+    res.render("forgot_password");
+  } catch (error) {
+    logger.error("Error in /forgot_password route", { error: error });
+    res.status(500).render("error", { message: "An error occurred" });
+  }
+});
+
 app.get("/login", function (req, res) {
   try {
     if (req.session.pnumber) {
@@ -1321,6 +1330,25 @@ app.get("/logout_PM", (req, res) => {
   } catch (error) {
     logger.error("Error in /logout_PM route", { error: error });
     next(new Error('Internal Server Error'));
+  }
+});
+
+
+// FORGET PASSWORD
+app.post("/findcustomer", async function (req, res) {
+  try {
+    const pnumber = req.body.pnumber;
+    const customer = await Customer.findOne({ pnumber: pnumber });
+
+    if (customer) {
+      return res.json({ message: 'VALID' });
+    } else {
+      return res.json({ message: 'INVALID' });
+    }
+    
+  } catch (error) {
+    logger.error("Error while searching for customer", { error: error, email: req.body.email });
+    res.status(500).render("error", { message: "An error occurred while searching for customer" });
   }
 });
 

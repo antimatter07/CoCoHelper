@@ -985,3 +985,55 @@
 {"ip":"::1","level":"info","message":"Incoming request: POST /loginuser"}
 {"level":"warn","message":"Account locked: joshuaarmainegerzangilo@gmail.com"}
 {"email":"joshuaarmainegerzangilo@gmail.com","level":"warn","message":"Account locked after failed attempt"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /register"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /forgot_password"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /forgot_password"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /forgot_password"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /forgot_password"}
