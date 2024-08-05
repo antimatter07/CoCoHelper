@@ -1376,9 +1376,6 @@ app.post("/change-password", async function (req, res) {
     const customer = await Customer.findOne({ pnumber: pnumber });
     const security = await UserSecurity.findOne({ pnumber: pnumber});
 
-    logger.info("Original Password: ", customer.pw);
-    logger.info("New Password: ", newPassword);
-
     if (!customer || !security) {
       return res.json({ success: false, error: "User not found." });
     }
@@ -1400,7 +1397,6 @@ app.post("/change-password", async function (req, res) {
     const isPasswordSame = await bcrypt.compare(newPassword, customer.pw);
 
     if (isPasswordSame) {
-      logger.error("New password must be different from old one.");
       return res.json({ success: false, error: "New password must be different from old one." });
     }
 

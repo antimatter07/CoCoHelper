@@ -15,6 +15,10 @@
                  font-family: Verdana;
                  font-size: 14px;
              }
+             .profile-edit-button:disabled {
+                    cursor: not-allowed;
+                    opacity: 0.5;
+             }
          </style>
     </head>
     <body>
@@ -62,13 +66,16 @@
                     </div>
                     <div class="form-group">
                         <label for="new-password">New Password:</label>
-                        <input type="password" id="new-password" name="newPassword" required>
+                        <input type="password" class="password" id="new-password" name="newPassword" required>
                     </div>
                     <div class="form-group">
                         <label for="retype-new-password">Retype New Password:</label>
-                        <input type="password" id="retype-new-password" name="retypeNewPassword" required>
+                        <input type="password" class="password" id="retype-new-password" name="retypeNewPassword" required>
                     </div>
-                    <button type="submit" class="button profile-edit-button">Change Password</button>
+                    <br/>
+                    <div id="perror">{{error}}</div>
+                    <br/> 
+                    <button type="submit" class="button profile-edit-button" disabled>Change Password</button>
                 </form>
                 <div id="password-message"></div>
             </div>
@@ -106,6 +113,28 @@
                         }
                     });
                 });
+
+                $('.password').keyup(function() {
+                    var pass = document.getElementById('new-password');
+                    const value = pass.value.trim();
+                    var nperror = document.getElementById('perror');
+
+                    var regex = /^([^A-Z]*|[^a-z]*|[^-!@? .,]*|[^0-9]*)$/; // anything that matches this is invalid  
+
+                    if(regex.test(value) || value.length < 8) {
+                        nperror.innerHTML = 'New pssword must be at least 8 characters and contain at least 1 uppercase, 1 lowercase, 1 number, and 1 special character.';
+                        $(".button profile-edit-button").prop('disabled', true);
+
+                    } 
+                    else if (value !== $("#retype-new-password").val()) {
+                        nperror.innerHTML = 'New passwords do not match on both fields.';
+                        $(".button profile-edit-button").prop('disabled', true);
+                    }
+                    else {
+                        nperror.innerHTML = '';
+                        $(".button profile-edit-button").prop('disabled', false)
+                    }
+                })
             });
         </script>
     </body>
