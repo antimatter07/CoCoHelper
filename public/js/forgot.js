@@ -47,7 +47,7 @@ $(document).ready(function() {
             contentType: 'application/json',
             data: JSON.stringify({ pnumber: pnumber }),
             success: function(response) {
-                console.log(response)
+
                 if (response.message === "VALID") {
                     $("#fp1").hide();
                     $("#fp2").show();
@@ -98,7 +98,7 @@ $(document).ready(function() {
         let answer1 = $("#answer1").val().toLowerCase().replace(" ","") 
         let answer2 = $("#answer2").val().toLowerCase().replace(" ","") 
         let answer3 = $("#answer3").val().toLowerCase().replace(" ","") 
-        console.log(answer1, answer2, answer3)
+
         $.ajax({
             url: '/verifyanswers',
             method: 'POST',
@@ -109,7 +109,7 @@ $(document).ready(function() {
                     let res1 = response.answers[0].toLowerCase().replace(" ","") 
                     let res2 = response.answers[1].toLowerCase().replace(" ","") 
                     let res3 = response.answers[2].toLowerCase().replace(" ","") 
-                    console.log(res1, res2, res3)
+
                     if (answer1 === res1 && answer2 === res2 && answer3 === res3) {
                         $("#fp2").hide();
                         $("#fp3").show();
@@ -150,6 +150,39 @@ $(document).ready(function() {
             $("#confirmnew").prop('disabled', false)
         }
     })
+
+    $("#fpform").submit(function(e) {
+        e.preventDefault();
+        const pNumber = $("#pnumber").val();
+        const newPassword = $("#npassword").val();
+        const retypeNewPassword = $("#rnpassword").val();
+
+        $.ajax({
+            url: '/change-password',
+            method: 'POST',
+            data: {
+                reset: true,
+                pnumber: pNumber,
+                newPassword: newPassword,
+                retypeNewPassword: retypeNewPassword
+            },
+            dataType: 'json',
+            success: function(response) {
+                console.log("RESPONSE:" , response)
+                if (response.success) {
+                    $("#rnperror").text("Password Changed. Redirecting to Login page...");
+                    setTimeout(function() {
+                        window.location.href = "/login";
+                    }, 2000);
+                } else {
+                    $("#rnperror").text(response.error );
+                }
+            },
+            error: function(xhr) {
+                $("#rnperror").text('An error occurred. Please try again.');
+            }
+        });
+    });
 
    
     
