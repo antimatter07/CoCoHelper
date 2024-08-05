@@ -14,6 +14,14 @@ const AdministratorSchema = new mongoose.Schema({
         type: String,
         enum: ['product_manager', 'website_administrator'],
         required: true
+    },
+    failedAttempts: {
+        type: Number,
+        default: 0
+    },
+    lockoutUntil: {
+        type: Date,
+        default: null
     }
 });
 
