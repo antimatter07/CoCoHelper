@@ -23,7 +23,20 @@ input[type=text] {
     margin-bottom: 5px;
 }
 
+select {
+    width: 80%;
+    padding: 1px;
+}
 
+#questions {
+    text-align: left;
+    padding: 20px;
+}
+
+.q_input {
+    margin: 6px;
+    margin-left: 28px;
+}
 
 #reghead {
     

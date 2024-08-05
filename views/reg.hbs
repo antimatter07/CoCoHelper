@@ -56,36 +56,34 @@
                                 you forget your password.
                         </p>
 
-                        
-                        <div class = 'input-control'>
-                            <label for="firstname">First Name<br></label>
-                            <input class ='input' type="text" placeholder="Enter First Name" name="firstname" id = "firstname" required>
-                            <div class = 'error'></div>
+                        <br/>
+                        <div id="questions">
+                            
+                            <label for="question1">Question 1: </label>
+                            <select id="question1" name="question1" class="input" required>
+                                {{> questions }}
+                            </select>
+                            <label for="answer1">Answer:</label>
+                            <input type="text" class ='q_input' placeholder="Answer to Question 1" name="answer1" id="answer1" required>
+                            <br /><br />
+
+                            <label for="question2">Question 2: </label>
+                            <select id="question2" name="question2" class="input" required>
+                                {{> questions }}
+                            </select>
+                            <label for="answer2">Answer:</label>
+                            <input type="text" class ='q_input' placeholder="Answer to Question 2" name="answer2" id="answer2" required>
+                            <br /><br />
+
+                            <label for="question3">Question 3: </label>
+                            <select id="question3" name="question3" class="input" required>
+                                {{> questions }}
+                            </select>
+                            <label for="answer3">Answer:</label>
+                            <input type="text" class ='q_input' placeholder="Answer to Question 3" name="answer3" id="answer3" required>
+
                         </div>
-
-                    
-                        <label for="lastname"><br>Last Name<br></label>
-                        <input type="text" class ='input' placeholder="Enter Last Name" name="lastname" id="lastname" required>
                         
-                    
-
-                    
-                        <label for="email"><br>Email<br></label>
-                        <input class ='input' type="text" placeholder="Enter Email" name="email" id="email" required>
-                        
-                    
-
-                    
-                        <label for="pnumber"><br>Phone Number<br></label>
-                        <input class ='input' type="number" placeholder="Enter Phone Number" name="pnumber" id="pnumber" required>
-                        
-                    
-                        
-                        <div class ='input-control'>
-                            <label for="cpassword"><br>Password<br></label>
-                            <input class="input" type="password" placeholder="Enter Password" name="cpassword" id="cpassword" required>
-                        <div id="pwerror">{{error}}</div>
-                        </div>
                     </div>
                 </form>
             </div>
