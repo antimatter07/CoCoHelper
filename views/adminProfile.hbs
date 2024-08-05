@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Profile</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .error-message {
+            color: #F07F19;
+            margin-top: 10px;
+            font-family: Verdana;
+            font-size: 14px;
+        }
+        .success-message {
+            color: green;
+            margin-top: 10px;
+            font-family: Verdana;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Profile</h1>
+    <p>Username: {{admin.username}}</p>
+    <p>Role: {{admin.role}}</p>
+
+    <h2>Change Password</h2>
+    <form id="change-password-form">
+        <div>
+            <label for="old-password">Old Password:</label>
+            <input type="password" id="old-password" name="oldPassword" required>
+        </div>
+        <div>
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password" name="newPassword" required>
+        </div>
+        <div>
+            <label for="retype-new-password">Retype New Password:</label>
+            <input type="password" id="retype-new-password" name="retypeNewPassword" required>
+        </div>
+        <button type="submit">Change Password</button>
+    </form>
+    <div id="password-message"></div>
+
+    <script>
+        $(document).ready(function() {
+            $("#change-password-form").submit(function(e) {
+                e.preventDefault();
+                const oldPassword = $("#old-password").val();
+                const newPassword = $("#new-password").val();
+                const retypeNewPassword = $("#retype-new-password").val();
+
+                $.ajax({
+                    url: '/admin/change-password',
+                    method: 'POST',
+                    data: {
+                        oldPassword: oldPassword,
+                        newPassword: newPassword,
+                        retypeNewPassword: retypeNewPassword
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.success) {
+                            $("#password-message").html('<div class="success-message">' + response.message + '</div>');
+                            setTimeout(function() {
+                                window.location.href = "/admin/logout";
+                            }, 2000);
+                        } else {
+                            $("#password-message").html('<div class="error-message">' + response.error + '</div>');
+                        }
+                    },
+                    error: function(xhr) {
+                        $("#password-message").html('<div class="error-message">An error occurred. Please try again.</div>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

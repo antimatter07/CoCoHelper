@@ -148,6 +148,76 @@ module.exports = (logger) => {
         logger.error('Error in admin routes:', err);
         res.status(500).render('error', { message: 'An error occurred' });
     });
+    router.get('/profile', authMiddleware(['product_manager', 'website_administrator']), async (req, res) => {
+      try {
+          const admin = await Administrator.findById(req.session.admin._id);
+          res.render('adminProfile', { admin });
+      } catch (err) {
+          logger.error('Error fetching admin profile:', err);
+          res.status(500).render('error', { message: 'An error occurred' });
+      }
+    });
 
+    router.post('/change-password', authMiddleware(['product_manager', 'website_administrator']), async (req, res) => {
+        try {
+            const { oldPassword, newPassword, retypeNewPassword } = req.body;
+            const admin = await Administrator.findById(req.session.admin._id);
+
+            if (!admin) {
+                return res.json({ success: false, error: "Administrator not found." });
+            }
+
+            if (admin.lockoutUntil && admin.lockoutUntil > Date.now()) {
+                return res.json({ success: false, error: "Account is temporarily locked. Please try again later or contact support." });
+            }
+
+            if (newPassword !== retypeNewPassword) {
+                return res.json({ success: false, error: "New passwords do not match." });
+            }
+
+            const isPasswordValid = await bcrypt.compare(oldPassword, admin.pw);
+
+            if (isPasswordValid) {
+                const hashedNewPassword = await bcrypt.hash(newPassword, saltRounds);
+                admin.pw = hashedNewPassword;
+                admin.failedAttempts = 0;
+                admin.lockoutUntil = null;
+                await admin.save();
+
+                logger.info("Admin password changed successfully", { username: admin.username });
+                req.session.passwordChanged = true;
+                res.json({ success: true, message: "Password changed successfully. You will be logged out." });
+            } else {
+                admin.failedAttempts += 1;
+
+                if (admin.failedAttempts >= maxAttempts) {
+                    admin.lockoutUntil = new Date(Date.now() + lockoutDuration);
+                    logger.warn(`Admin account locked due to failed password change attempts: ${admin.username}`);
+                }
+
+                await admin.save();
+
+                if (admin.lockoutUntil && admin.lockoutUntil > Date.now()) {
+                    return res.json({ success: false, error: "Account is temporarily locked due to multiple failed attempts. Please try again later or contact support." });
+                } else {
+                    return res.json({ success: false, error: "Incorrect old password." });
+                }
+            }
+        } catch (error) {
+            logger.error("Error during admin password change process", {
+                error: error,
+                username: req.session.admin.username
+            });
+            res.status(500).json({ success: false, error: "An error occurred during password change" });
+        }
+    });
+    router.get('/logout', (req, res) => {
+      req.session.destroy((err) => {
+          if (err) {
+              logger.error('Error during admin logout:', err);
+          }
+          res.redirect('/admin/login');
+      });
+  });  
     return router;
 };
