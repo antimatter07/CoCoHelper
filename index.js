@@ -77,6 +77,9 @@ const UserSecurity = require("./database/models/UserSecurity");
 const SecurityQuestions = require("./database/models/SecurityQuestions");
 const path = require("path");
 const saltRounds = 10;
+// lockout mechanism stuff
+const MAX_FAILED_ATTEMPTS = 5;
+const LOCKOUT_TIME = 15 * 60 * 1000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -479,45 +482,56 @@ app.get("/profile/:pnumber", async function (req, res) {
 app.post("/loginuser", async function (req, res) {
   try {
     const email = req.body.email.replace(" ", "");
-    const result = await Customer.findOne({ email: email });
+    const customer = await Customer.findOne({ email: email });
 
-    if (!result) {
-      logger.warn("Failed login attempt - user not found", {
-        email: req.body.email,
-      });
+    if (!customer) {
+      logger.warn("Failed login attempt - user not found", { email: req.body.email });
       return res.render("login", { error: "Incorrect email and/or password." });
     }
 
-    const isPasswordValid = await bcrypt.compare(req.body.password, result.pw);
+    // Check if account is locked
+    if (customer.lockoutUntil && customer.lockoutUntil > Date.now()) {
+      logger.warn("Login attempt on locked account", { email: req.body.email });
+      return res.render("login", { error: "Account is temporarily locked. Please try again later or reset your password." });
+    }
+
+    const isPasswordValid = await bcrypt.compare(req.body.password, customer.pw);
+    
     if (isPasswordValid) {
-      
-       //remove any previously logged in admin
-       req.session.admin = null;
-      //store to session object for future access
-      //email, pnumber, and names can now be accessed from any succeeding HTTP request
-      //while session hasnt ended
-      //session can store multiple values
-      req.session.email = result.email;
-      req.session.pnumber = result.pnumber;
-      req.session.firstname = result.firstname;
-      req.session.lastname = result.lastname;
+      // Reset failed attempts on successful login
+      customer.failedLoginAttempts = 0;
+      customer.lockoutUntil = null;
+      await customer.save();
+
+      req.session.email = customer.email;
+      req.session.pnumber = customer.pnumber;
+      req.session.firstname = customer.firstname;
+      req.session.lastname = customer.lastname;
 
       logger.info("Successful login", { email: req.body.email });
-      res.redirect("/profile/" + result.pnumber);
+      res.redirect("/profile/" + customer.pnumber);
     } else {
-      logger.warn("Failed login attempt - incorrect password", {
-        email: req.body.email,
-      });
-      res.render("login", { error: "Incorrect email and/or password." });
+      // Increment failed attempts
+      customer.failedLoginAttempts += 1;
+
+      if (customer.failedLoginAttempts >= MAX_FAILED_ATTEMPTS) {
+        customer.lockoutUntil = new Date(Date.now() + LOCKOUT_TIME);
+        logger.warn(`Account locked: ${email}`);
+      }
+
+      await customer.save();
+
+      if (customer.lockoutUntil && customer.lockoutUntil > Date.now()) {
+        logger.warn("Account locked after failed attempt", { email: req.body.email });
+        res.render("login", { error: "Account is temporarily locked. Please try again later or reset your password." });
+      } else {
+        logger.warn("Failed login attempt - incorrect password", { email: req.body.email });
+        res.render("login", { error: "Incorrect email and/or password." });
+      }
     }
   } catch (error) {
-    logger.error("Error during login process", {
-      error: error,
-      email: req.body.email,
-    });
-    res
-      .status(500)
-      .render("error", { message: "An error occurred during login" });
+    logger.error("Error during login process", { error: error, email: req.body.email });
+    res.status(500).render("error", { message: "An error occurred during login" });
   }
 });
 

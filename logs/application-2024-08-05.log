@@ -943,3 +943,45 @@
 {"ip":"::1","level":"info","message":"Incoming request: GET /admin/logs/application-2024-08-05.log"}
 {"ip":"::1","level":"info","message":"Incoming request: POST /admin/logs/search"}
 {"ip":"::1","level":"info","message":"Incoming request: POST /admin/logs/search"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/logs"}
+{"level":"info","message":"Accessing logs page"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/logs"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/logs"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/web_admin_dashboard"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/login"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /admin/login"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/web_admin_dashboard"}
+{"level":"info","message":"Accessing web admin dashboard"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/logs"}
+{"level":"info","message":"Accessing logs page"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /admin/logs/application-2024-08-05.log"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"Session middleware set up"}
+{"level":"info","message":"Server running on port 3000"}
+{"level":"info","message":"Connected to MongoDB"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /"}
+{"ip":"::1","level":"info","message":"Incoming request: GET /login"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser"}
+{"email":"joshuaarmainegerzangilo@gmail.com","level":"warn","message":"Failed login attempt - incorrect password"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser"}
+{"email":"joshuaarmainegerzangilo@gmail.com","level":"warn","message":"Failed login attempt - incorrect password"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser"}
+{"email":"joshuaarmainegerzangilo@gmail.com","level":"warn","message":"Failed login attempt - incorrect password"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser"}
+{"email":"joshuaarmainegerzangilo@gmail.com","level":"warn","message":"Failed login attempt - incorrect password"}
+{"ip":"::1","level":"info","message":"Incoming request: POST /loginuser"}
+{"level":"warn","message":"Account locked: joshuaarmainegerzangilo@gmail.com"}
+{"email":"joshuaarmainegerzangilo@gmail.com","level":"warn","message":"Account locked after failed attempt"}
