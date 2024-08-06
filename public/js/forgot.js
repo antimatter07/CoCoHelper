@@ -168,7 +168,6 @@ $(document).ready(function() {
             },
             dataType: 'json',
             success: function(response) {
-                console.log("RESPONSE:" , response)
                 if (response.success) {
                     $("#rnperror").text("Password Changed. Redirecting to Login page...");
                     setTimeout(function() {
