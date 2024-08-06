@@ -1,16 +1,3 @@
-// var regex = new RegExp("^(.{0,7}|[^A-Z]*|[^a-z]*|[^\\W_]*|[^0-9]*)$"); // anything that matches this is invalid
-
-
-//         var pw_minlen = 8;
-
-//         if (regex.match(pw)) {
-
-//             pwerror.innerHTML = 'Password must contain at least at least 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character.';
-//             isValidPassword = false;
-
-
-
-//         }
 
 $(document).ready(function() {
 

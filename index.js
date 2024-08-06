@@ -473,10 +473,28 @@ app.get("/profile/:pnumber", async function (req, res) {
       return res.status(404).render("error", { message: "Profile not found" });
     }
 
+    const userSecurityResult = await UserSecurity.findOne({ pnumber: req.params.pnumber });
+    if (!userSecurityResult) {
+        logger.warn("UserSecurity not found", {
+            requestedProfile: req.params.pnumber,
+        });
+        return res.status(404).render("error", { message: "User security information not found" });
+    }
+
     logger.info("User profile retrieved successfully", {
       user: req.params.pnumber,
     });
-    res.render("profile", result);
+
+    const combinedResult = {
+      firstname: result.firstname,
+      lastname: result.lastname,
+      pnumber: result.pnumber,
+      email: result.email,
+      last_login_attempt: userSecurityResult.last_login_attempt,
+      // Add other fields from UserSecurity if needed
+  };
+
+    res.render("profile", combinedResult);
   } catch (error) {
     logger.error("Error retrieving user profile", {
       error: error,
