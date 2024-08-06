@@ -30,6 +30,10 @@ const UserSecuritySchema = new mongoose.Schema({
     },
 });
 
+// UserSecuritySchema.virtual('last_login').get(function() {
+//     return this.last_login_attempt ? this.last_login_attempt.toString() : '';
+// });
+
 const UserSecurity = mongoose.model('UserSecurity', UserSecuritySchema);
 
 module.exports = UserSecurity;
