@@ -1382,7 +1382,7 @@ app.post("/change-password", async function (req, res) {
 
     if (req.body.reset) {
       logger.info("Resetting password")
-      oldPassword = customer.pw;
+      oldPassword = "none";
     }
 
     const isYoungerThan24Hours = (new Date() - security.new_password_age) <  24 * 60 * 60 * 1000;
@@ -1407,8 +1407,7 @@ app.post("/change-password", async function (req, res) {
 
     const isPasswordValid = await bcrypt.compare(oldPassword, customer.pw);
 
-
-    if (isPasswordValid) {
+    if (isPasswordValid || req.body.reset) {
       security.oldPassword = customer.pw;
       security.new_password_age = new Date();
       await security.save();
